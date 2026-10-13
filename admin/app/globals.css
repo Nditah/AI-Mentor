@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --paper: #f4f6fb;
+  --ink: #0f172a;
+}
+
+.dark {
+  color-scheme: dark;
+  --paper: #0b1020;
+  --ink: #e8eefc;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  background: #1d4ed8;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}

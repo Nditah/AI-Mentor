@@ -1,0 +1,3866 @@
+openapi: 3.1.0
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+info:
+  title: AI Mentor API
+  version: 0.1.0
+  summary: Socratic tutoring, practice, and grounded paper reading.
+  description: |
+    HTTP contract for the AI Mentor API. All application routes are under `/api/v1`.
+    Identity is issued by Clerk. This API verifies the session JWT and stores the learner.
+
+    ## Implementation status
+
+    Every operation sets `x-implementation`:
+
+    - `live` — routed by the current FastAPI app. Schemas match the handlers.
+    - `contract` — agreed shape for frontend and backend. The current server does not
+      route these paths; a call returns 404 until the handler ships.
+
+    Generate clients from this file. Do not call `contract` operations in production
+    until the server advertises them.
+
+    ## Authentication
+
+    Send `Authorization: Bearer <Clerk session JWT>` (RS256, `sub` = Clerk user id).
+    Signup, login, password reset, and Google sign-in stay in Clerk. This API learns
+    about accounts from the JWT and from `POST /api/v1/webhooks/clerk`.
+
+    In `development` and `test` only, `X-Dev-User-Id` may replace the bearer token.
+    The header matches `^[A-Za-z0-9_-]{1,64}$` and never raises a role. Production
+    refuses dev auth (`401 Sign in required`). If both credentials are present, the
+    bearer token wins.
+
+    ## Rate limits
+
+    Limits are per client IP, sliding 60-second window, process-local. They are
+    disabled when `APP_ENV=test`, and they do not apply to `OPTIONS` or to
+    `/health`, `/docs`, `/redoc`, `/openapi.json`.
+
+    | Tier | Default | Setting | Paths |
+    | --- | --- | --- | --- |
+    | `standard` | 60 requests | `RATE_LIMIT_PER_MINUTE` | Everything else |
+    | `ai` | 20 requests | `AI_RATE_LIMIT_PER_MINUTE` | Prefixes `/api/v1/chat`, `/quiz`, `/research`, `/lab`, `/study-plan`, `/agents`, `/career`, `/flashcards`, plus contract routes tagged as `ai` |
+
+    A rejected call is `429` with `{ "detail": "Too many requests. Try again in a minute." }`.
+    The server does not send `Retry-After` today.
+
+    ## Errors
+
+    Domain failures use `{ "detail": "<sentence>" }`. Request-body and path-parameter
+    schema failures use FastAPI's `422` validation body. Unexpected failures are `500`
+    and are not given a stable schema.
+
+    ## Roles
+
+    `student` < `instructor` < `admin`. An operation that requires `instructor` also
+    allows `admin`.
+  license:
+    name: Proprietary
+servers:
+  - url: http://localhost:8000
+    description: Local API
+tags:
+  - name: Health
+    description: Process and dependency probe. No auth.
+  - name: Authentication
+    description: Clerk session verification and identity webhooks. Password flows are not on this API.
+  - name: Users
+    description: The signed-in account and admin user directory.
+  - name: Profiles
+    description: Learning preferences and onboarding answers. Contract.
+  - name: Learning Paths
+    description: Seeded paths from the curriculum catalog.
+  - name: Lessons
+    description: Lesson completion and lesson reads.
+  - name: Quizzes
+    description: Generated practice and grading.
+  - name: Challenges
+    description: One daily challenge per learner. Contract.
+  - name: Leaderboards
+    description: XP rankings.
+  - name: Gamification
+    description: XP, levels, streaks, badges, and the learner dashboard.
+  - name: Chat
+    description: Tutor conversations.
+  - name: AI Tutor
+    description: Intent routing across tutor, quiz, plan, career, code, and research.
+  - name: RAG Search
+    description: Retrieval over a learner's papers and, by contract, the published knowledge base.
+  - name: Resources
+    description: Published knowledge assets visible to learners. Contract.
+  - name: Knowledge Repository
+    description: Admin and instructor curation, versioning, and publishing. Contract.
+  - name: Coding Lab
+    description: Restricted Python execution and review.
+  - name: Study
+    description: Study plans, progress, recommendations, and the concept graph.
+  - name: Flashcards
+    description: Spaced-repetition cards.
+  - name: Career
+    description: Role readiness from mastery.
+  - name: Admin
+    description: User administration.
+  - name: Analytics
+    description: Instructor and admin aggregates.
+  - name: Billing
+    description: Stripe Checkout. Prices are configured on the server.
+
+x-rate-limits:
+  standard:
+    requests: 60
+    windowSeconds: 60
+    key: client-ip
+    setting: RATE_LIMIT_PER_MINUTE
+  ai:
+    requests: 20
+    windowSeconds: 60
+    key: client-ip
+    setting: AI_RATE_LIMIT_PER_MINUTE
+  exempt:
+    - /health
+    - /docs
+    - /redoc
+    - /openapi.json
+
+paths:
+  /health:
+    get:
+      tags: [Health]
+      operationId: getHealth
+      summary: Liveness and dependency probe
+      description: Runs `SELECT 1`. Reports whether vectors and the language model are external.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: exempt
+      security: []
+      responses:
+        "200":
+          description: Process is up and the database accepted a query.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+              example:
+                status: ok
+                env: development
+                vector_store: local-hash
+                llm: curriculum
+        "500":
+          $ref: "#/components/responses/Unexpected"
+
+  /api/v1/me:
+    get:
+      tags: [Authentication, Users, Gamification]
+      operationId: getMe
+      summary: Current account
+      description: |
+        Upserts the user from the Clerk token (or the dev header) and returns the
+        account row. New dev users are always `student`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Signed-in account.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Me"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/profile:
+    get:
+      tags: [Profiles]
+      operationId: getProfile
+      summary: Learning profile
+      description: |
+        Preferences collected at onboarding and editable later. Progress is not reset
+        when language or teaching style changes.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Stored profile. Missing onboarding fields are null until `PUT`/`PATCH`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    patch:
+      tags: [Profiles]
+      operationId: updateProfile
+      summary: Update learning profile
+      description: |
+        Partial update. At least one field is required. `onboarding_completed` becomes
+        true only when the client sends `true`; the server does not infer it.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileUpdate"
+      responses:
+        "200":
+          description: Profile after the update.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/chat:
+    post:
+      tags: [Chat, AI Tutor]
+      operationId: postChat
+      summary: Send a tutor turn
+      description: |
+        Appends the learner message and one assistant reply. Omitting `conversation_id`
+        starts a conversation titled with the first 80 characters of the message.
+
+        Rules:
+        - `message` is trimmed, length 1–8000, and rejected when it is empty, contains
+          control characters, or is only a prompt-injection phrase (`400`).
+        - `mode` is `socratic` (default) or `direct`.
+        - `conversation_id`, when set, must belong to the caller (`404`).
+        - Only the last 20 messages are sent to the tutor as history.
+        - Chat does not execute code and does not read another user's documents.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatRequest"
+      responses:
+        "200":
+          description: Assistant turn. `stage` is how many assistant messages existed before this reply.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChatTurn"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/conversations:
+    get:
+      tags: [Chat]
+      operationId: listConversations
+      summary: List the caller's conversations
+      description: No pagination. Ordered as stored by the repository.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Conversation summaries without messages.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ConversationSummary"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/conversations/{conversation_id}:
+    get:
+      tags: [Chat]
+      operationId: getConversation
+      summary: Conversation with messages
+      description: Returns 404 when the id is unknown or belongs to another user.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ConversationId"
+      responses:
+        "200":
+          description: Conversation and its messages in creation order.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Conversation"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/agents/run:
+    post:
+      tags: [AI Tutor]
+      operationId: runAgent
+      summary: Route a message by intent
+      description: |
+        Classifies the message and dispatches it. The `result` shape depends on `intent`.
+
+        | intent | result | Behaviour |
+        | --- | --- | --- |
+        | `tutor` | `ChatTurn` | New socratic conversation. |
+        | `quiz` | `Quiz` | Intermediate quiz on the detected concept, or `ai-fundamentals`. |
+        | `plan` | `StudyPlanCreated` | Study plan whose goal is the message. |
+        | `career` | `CareerAdvice` | Role matches from mastery. |
+        | `code` | `Redirect` | Does not execute code. Points the learner at the lab. |
+        | `research` | `Redirect` | Does not read a file. Points the learner at document upload. |
+
+        The message uses the same screening rules as chat (1–8000, no control characters,
+        not injection-only).
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AgentRequest"
+      responses:
+        "200":
+          description: Dispatch result.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentRun"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/learning-paths:
+    get:
+      tags: [Learning Paths]
+      operationId: listLearningPaths
+      summary: List learning paths
+      description: Public catalog summary. `concepts` is the number of steps, not the step bodies.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      responses:
+        "200":
+          description: Paths seeded from the curriculum catalog.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LearningPathSummary"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/learning-paths/{slug}:
+    get:
+      tags: [Learning Paths, Lessons]
+      operationId: getLearningPath
+      summary: Learning path with lessons
+      description: |
+        Steps include lesson markdown and whether the caller has completed each lesson.
+        Unknown slug returns 404 (`Learning path not found.`).
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/Slug"
+      responses:
+        "200":
+          description: Path detail for the caller.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LearningPathDetail"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/lessons/{slug}:
+    get:
+      tags: [Lessons]
+      operationId: getLesson
+      summary: Read one lesson
+      description: |
+        Single lesson, including prerequisites and the caller's completion flag.
+        Does not award XP.
+
+        Not routed yet. Until it ships, read lesson markdown from
+        `GET /api/v1/learning-paths/{slug}`.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/Slug"
+      responses:
+        "200":
+          description: Lesson body.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lesson"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/progress/lessons/{slug}/complete:
+    post:
+      tags: [Lessons, Gamification]
+      operationId: completeLesson
+      summary: Mark a lesson complete
+      description: |
+        Idempotent for XP: a repeat completion returns `newly_completed: false` and does
+        not grant XP again. The first completion grants 40 XP, subject to the daily cap
+        of 400. Unknown slug returns 404 (`Lesson not found.`).
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/Slug"
+      responses:
+        "200":
+          description: Completion record and the lesson markdown.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LessonCompletion"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/quiz/generate:
+    post:
+      tags: [Quizzes]
+      operationId: generateQuiz
+      summary: Generate a quiz
+      description: |
+        Builds a quiz of up to 5 authored questions for the concept. Answer keys are
+        not included.
+
+        Rules:
+        - Unknown `concept_slug` returns 404 (`Unknown concept.`).
+        - A concept with no authored questions returns 404
+          (`No authored questions for that concept yet.`).
+        - When the requested difficulty has no items, the server uses the concept's
+          available items and sets `difficulty_note`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizGenerateRequest"
+      responses:
+        "200":
+          description: Quiz without answer keys.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Quiz"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/quiz/{quiz_id}/grade:
+    post:
+      tags: [Quizzes, Gamification]
+      operationId: gradeQuiz
+      summary: Grade a quiz
+      description: |
+        Grades the caller's quiz and stores the result. Awards quiz XP from the score
+        ratio (10–50), subject to the daily cap.
+
+        Rules:
+        - 1–20 answers. Each `response` is at most 20000 characters.
+        - The quiz must belong to the caller (`404` `Quiz not found.`).
+        - Every `question_id` must belong to that quiz (`400`
+          `That question is not part of this quiz.`). Duplicate ids are ignored.
+        - Question kinds are `mcq`, `short`, `coding`, and research (anything else).
+          Coding answers are executed in the restricted sandbox.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      parameters:
+        - $ref: "#/components/parameters/QuizId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GradeRequest"
+      responses:
+        "200":
+          description: Score and per-question feedback. Explanations are revealed here.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GradeResult"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/challenges/today:
+    get:
+      tags: [Challenges]
+      operationId: getTodayChallenge
+      summary: Today's challenge
+      description: |
+        Returns the caller's challenge for the current UTC date. Kinds rotate among
+        `quiz` (5 questions), `coding`, and `lesson`. A completed challenge stays
+        readable with `status: completed` until the next UTC date.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: The challenge assigned to this user for today.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Challenge"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/challenges/today/attempts:
+    post:
+      tags: [Challenges, Gamification]
+      operationId: submitTodayChallenge
+      summary: Submit today's challenge
+      description: |
+        One successful attempt per UTC day. A second submit on the same day returns
+        409. XP and badges follow the challenge definition and the daily XP cap.
+
+        `answer` is the quiz payload as a JSON string, the Python source, or the
+        lesson slug, matching `Challenge.kind`. Maximum 20000 characters. The same
+        text screening rules as chat apply.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChallengeAttemptRequest"
+      responses:
+        "200":
+          description: Graded attempt.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChallengeAttempt"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          description: Today's challenge was already completed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Today's challenge is already complete.
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/challenges:
+    get:
+      tags: [Challenges]
+      operationId: listChallenges
+      summary: Challenge history
+      description: |
+        Newest first. `cursor` is an opaque string from the previous page.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Cursor"
+      responses:
+        "200":
+          description: Page of past challenges for the caller.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChallengePage"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/leaderboard:
+    get:
+      tags: [Leaderboards]
+      operationId: getLeaderboard
+      summary: Global top 10
+      description: |
+        Public. The ten highest XP totals, ties broken by display name ascending.
+        No caller rank and no country filter. Email addresses are not included.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      responses:
+        "200":
+          description: Top 10 learners.
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 10
+                items:
+                  $ref: "#/components/schemas/LeaderboardEntry"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/leaderboards:
+    get:
+      tags: [Leaderboards]
+      operationId: getScopedLeaderboard
+      summary: Global or country leaderboard
+      description: |
+        Authenticated board with the caller's rank. `scope=country` uses the
+        country on the caller's profile and returns 409 when that field is unset.
+
+        Not routed yet. Use `GET /api/v1/leaderboard` for the live global top 10.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - name: scope
+          in: query
+          description: Defaults to `global`.
+          schema:
+            type: string
+            enum: [global, country]
+            default: global
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+      responses:
+        "200":
+          description: Ranked entries plus the caller's position.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScopedLeaderboard"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          description: Country scope was requested and the profile has no country.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Set a country on your profile to see that board.
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/dashboard:
+    get:
+      tags: [Gamification, Analytics]
+      operationId: getDashboard
+      summary: Learner dashboard
+      description: |
+        Level is `1 + xp // 250`. Mastery bands are `strength` (75–100),
+        `developing` (60–74), and `gap` (1–59). A score of 0 is `unstarted` and is
+        omitted from the three lists. Recommendations follow missing prerequisites.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Progress snapshot for the signed-in learner.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/progress:
+    get:
+      tags: [Gamification, Study]
+      operationId: getProgress
+      summary: XP and concept mastery
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Level progress and one row per concept the learner has a mastery score for.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Progress"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/gamification/badges:
+    get:
+      tags: [Gamification]
+      operationId: listBadges
+      summary: Badge catalog and earned flags
+      description: |
+        Same badge objects as `Dashboard.badges`, without the rest of the dashboard.
+
+        Not routed yet. Read badges from `GET /api/v1/dashboard`.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Every badge, earned or not.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [badges]
+                properties:
+                  badges:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Badge"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/gamification/events:
+    get:
+      tags: [Gamification]
+      operationId: listXpEvents
+      summary: XP ledger
+      description: |
+        Newest first. Only grants above zero are stored. Reasons in use are
+        `quiz`, `lesson`, `code`, `review`, and `analysis`. The daily cap is 400 XP.
+        Amounts: lesson 40, code 25, review 5, analysis 20, quiz 10–50 from the score ratio.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Cursor"
+      responses:
+        "200":
+          description: Page of XP events for the caller.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/XpEventPage"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/study-plan/create:
+    post:
+      tags: [Study, AI Tutor]
+      operationId: createStudyPlan
+      summary: Create a study plan
+      description: |
+        Builds up to 14 dated items from the goal and current mastery. The goal is
+        screened like chat, with a 2000-character maximum.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudyPlanRequest"
+      responses:
+        "200":
+          description: The new plan.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudyPlanCreated"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/study-plans:
+    get:
+      tags: [Study]
+      operationId: listStudyPlans
+      summary: List study plans
+      description: The caller's plans. This path is under the AI rate-limit prefix.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      responses:
+        "200":
+          description: Plans with items.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StudyPlan"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/knowledge-graph:
+    get:
+      tags: [Study]
+      operationId: getKnowledgeGraph
+      summary: Concept graph
+      description: |
+        Public. `domain` filters nodes by exact domain name (for example
+        `Reinforcement Learning`). An unknown domain returns an empty `nodes` array,
+        not 404.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      parameters:
+        - name: domain
+          in: query
+          required: false
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 80
+      responses:
+        "200":
+          description: Nodes and a Mermaid diagram of the same filter.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeGraph"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/recommendations:
+    get:
+      tags: [Study]
+      operationId: getRecommendations
+      summary: Next concepts
+      description: Up to four concepts, prerequisites first. Same objects as `Dashboard.recommendations`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Recommendation list.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [recommendations]
+                properties:
+                  recommendations:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Recommendation"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/research/documents:
+    post:
+      tags: [RAG Search]
+      operationId: uploadResearchDocument
+      summary: Upload a paper the caller owns
+      description: |
+        Parses, chunks, and embeds the file for that user only. Other learners cannot
+        retrieve it.
+
+        Rules:
+        - Multipart field name is `file`.
+        - At most 10 MiB (`413`).
+        - Extensions: `.pdf`, `.docx`, `.md`, `.txt`. Anything else is `400`.
+        - PDF bytes must start with `%PDF`. DOCX bytes must be a zip (`PK`).
+        - Text and Markdown must be UTF-8.
+        - Empty extracts, including scanned PDFs, are `400`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: PDF, DOCX, Markdown, or UTF-8 text. Maximum 10485760 bytes.
+      responses:
+        "200":
+          description: Document is ready to analyse.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResearchDocument"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "413":
+          description: File is larger than 10 MiB.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Files must be 10 MB or smaller.
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/research/analyze:
+    post:
+      tags: [RAG Search, AI Tutor]
+      operationId: analyzeResearchDocument
+      summary: Ask a question about an owned document
+      description: |
+        Embeds the question, ranks the caller's chunks, and returns the top excerpts
+        with citation labels. Critique, gaps, and future work are present only when a
+        model produced them with citations. Otherwise `mode` is `extractive` and those
+        fields are null.
+
+        Rules:
+        - The document must belong to the caller (`404` `Document not found.`).
+        - A document with no chunks returns `400`.
+        - `question` is screened, length 1–2000.
+        - Grants 20 XP, subject to the daily cap.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AnalyzeRequest"
+      responses:
+        "200":
+          description: Grounded analysis.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Analysis"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/knowledge/search:
+    post:
+      tags: [RAG Search, Resources]
+      operationId: searchKnowledge
+      summary: Search the published knowledge base
+      description: |
+        Retrieves published knowledge-repository chunks only. Draft, review, approved,
+        and archived assets are excluded. Each hit carries a citation the tutor can show.
+        This is separate from `POST /api/v1/research/analyze`, which searches one
+        learner-owned upload.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/KnowledgeSearchRequest"
+      responses:
+        "200":
+          description: Ranked excerpts from published assets.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeSearchResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/resources:
+    get:
+      tags: [Resources]
+      operationId: listResources
+      summary: Search published resources
+      description: |
+        Learner-facing library. Only `published` assets. `q` matches title, description,
+        and tags. Filters combine with AND.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 200
+        - name: domain
+          in: query
+          required: false
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 80
+        - $ref: "#/components/parameters/Difficulty"
+        - $ref: "#/components/parameters/Language"
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 40
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Cursor"
+      responses:
+        "200":
+          description: Page of published resources. Bodies are not included.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourcePage"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/resources/{resource_id}:
+    get:
+      tags: [Resources]
+      operationId: getResource
+      summary: Read a published resource
+      description: |
+        404 when the id is unknown or not `published`.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: student
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ResourceId"
+      responses:
+        "200":
+          description: Published resource and its current version metadata.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Resource"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/knowledge:
+    get:
+      tags: [Knowledge Repository, Admin]
+      operationId: listKnowledgeAssets
+      summary: List knowledge assets
+      description: |
+        Includes every publication state. Requires `instructor` or `admin`.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/PublicationStatus"
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 200
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Cursor"
+      responses:
+        "200":
+          description: Page of assets in any state.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeAssetPage"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    post:
+      tags: [Knowledge Repository, Admin]
+      operationId: createKnowledgeAsset
+      summary: Create a knowledge asset
+      description: |
+        Creates version 1 in `draft`. Provide `file` or `source_url` (a website,
+        YouTube, or GitHub URL), not neither. Both may be set when a file accompanies
+        a source link.
+
+        File rules: maximum 25 MiB. Extensions `pdf`, `docx`, `pptx`, `txt`, `csv`,
+        `json`, `md`, `html`. URL sources are fetched by the server; the client does
+        not send page contents.
+
+        Instructor or admin. Indexing into Qdrant happens on transition to `published`,
+        not on draft create.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/KnowledgeCreate"
+      responses:
+        "201":
+          description: Draft asset.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeAsset"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "413":
+          description: File is larger than 25 MiB.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/knowledge/{resource_id}:
+    get:
+      tags: [Knowledge Repository, Admin]
+      operationId: getKnowledgeAsset
+      summary: Read any knowledge asset
+      description: Includes unpublished states. Instructor or admin. Not routed yet.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ResourceId"
+      responses:
+        "200":
+          description: Asset including the current version.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeAsset"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    patch:
+      tags: [Knowledge Repository, Admin]
+      operationId: updateKnowledgeAsset
+      summary: Edit a draft or archived asset
+      description: |
+        Allowed only while `status` is `draft` or `archived`. Other states return 409;
+        transition back to `draft` first. A successful edit writes a new version and
+        does not change `status`.
+
+        Instructor or admin. Not routed yet.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ResourceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/KnowledgeUpdate"
+      responses:
+        "200":
+          description: Asset after the new version is stored.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeAsset"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          description: The asset is not in `draft` or `archived`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Only a draft or archived asset can be edited.
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/knowledge/{resource_id}/versions:
+    get:
+      tags: [Knowledge Repository, Admin]
+      operationId: listKnowledgeVersions
+      summary: Version history
+      description: Newest version first. Instructor or admin. Not routed yet.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ResourceId"
+      responses:
+        "200":
+          description: Version metadata. File bytes are not in this list.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [versions]
+                properties:
+                  versions:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/KnowledgeVersion"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/knowledge/{resource_id}/versions/{version}/restore:
+    post:
+      tags: [Knowledge Repository, Admin]
+      operationId: restoreKnowledgeVersion
+      summary: Restore a previous version
+      description: |
+        Copies that version forward as a new version and sets `status` to `draft`.
+        Admin only. Unknown version returns 404.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: admin
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ResourceId"
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        "200":
+          description: Asset restored to draft at a new version number.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeAsset"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/knowledge/{resource_id}/transition:
+    post:
+      tags: [Knowledge Repository, Admin]
+      operationId: transitionKnowledgeAsset
+      summary: Move a knowledge asset through review
+      description: |
+        Allowed edges:
+
+        | From | To | Role |
+        | --- | --- | --- |
+        | `draft` | `review` | instructor |
+        | `review` | `draft` | admin |
+        | `review` | `approved` | admin |
+        | `approved` | `published` | admin |
+        | `approved` | `archived` | admin |
+        | `published` | `archived` | admin |
+        | `archived` | `draft` | admin |
+
+        Any other edge is 409. Publishing indexes chunks into Qdrant and makes the
+        asset visible to `GET /api/v1/resources` and `POST /api/v1/knowledge/search`.
+        Archiving removes it from retrieval.
+
+        Not routed yet.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/ResourceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [status]
+              properties:
+                status:
+                  $ref: "#/components/schemas/PublicationStatus"
+      responses:
+        "200":
+          description: Asset after the transition.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/KnowledgeAsset"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          description: That status change is not allowed from the current state.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/lab/projects:
+    get:
+      tags: [Coding Lab]
+      operationId: listLabProjects
+      summary: List coding projects
+      description: Public catalog of lab briefs and starter code.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: ai
+      security: []
+      responses:
+        "200":
+          description: Projects. This path is under the AI rate-limit prefix.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LabProject"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/lab/run:
+    post:
+      tags: [Coding Lab]
+      operationId: runCode
+      summary: Run restricted Python
+      description: |
+        Executes `code` in the sandbox and stores the submission. A `status` of `ok`
+        grants 25 XP, subject to the daily cap.
+
+        Rules:
+        - `code` length 1–20000.
+        - Unknown `project_slug` returns 404 (`Project not found.`).
+        - Imports and calls outside the sandbox policy fail in `stderr` with a non-ok status.
+          They are not HTTP 400.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CodeRequest"
+      responses:
+        "200":
+          description: Execution and review.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CodeResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/lab/review:
+    post:
+      tags: [Coding Lab]
+      operationId: reviewCode
+      summary: Review restricted Python
+      description: |
+        Same handler and response as `POST /api/v1/lab/run`. The review text is
+        included on that response. Prefer `/lab/run` for new clients.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CodeRequest"
+      responses:
+        "200":
+          description: Execution and review.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CodeResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/flashcards/generate:
+    post:
+      tags: [Flashcards]
+      operationId: generateFlashcards
+      summary: Generate flashcards for a concept
+      description: |
+        Creates the concept's two starter cards if the caller does not already have
+        those fronts. Unknown concept returns 404 (`Unknown concept.`).
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [concept_slug]
+              properties:
+                concept_slug:
+                  $ref: "#/components/schemas/ConceptSlug"
+      responses:
+        "200":
+          description: How many cards were inserted.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [concept_slug, created]
+                properties:
+                  concept_slug:
+                    $ref: "#/components/schemas/ConceptSlug"
+                  created:
+                    type: integer
+                    minimum: 0
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/flashcards/due:
+    get:
+      tags: [Flashcards]
+      operationId: listDueFlashcards
+      summary: Cards due for review
+      description: Cards whose `next_review_at` is at or before now. Includes the back of the card.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      responses:
+        "200":
+          description: Due cards. This path is under the AI rate-limit prefix.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Flashcard"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/flashcards/{card_id}/review:
+    post:
+      tags: [Flashcards, Gamification]
+      operationId: reviewFlashcard
+      summary: Record a flashcard review
+      description: |
+        SM-2 update. `rating` is an integer 0–5. Grants 5 XP, subject to the daily cap.
+        Unknown card, or a card owned by someone else, returns 404 (`Card not found.`).
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      parameters:
+        - $ref: "#/components/parameters/CardId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [rating]
+              properties:
+                rating:
+                  type: integer
+                  minimum: 0
+                  maximum: 5
+      responses:
+        "200":
+          description: Updated schedule.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlashcardReview"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/career/advise:
+    post:
+      tags: [Career, AI Tutor]
+      operationId: adviseCareer
+      summary: Career readiness
+      description: Matches catalog roles to the caller's mastery. No request body.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      responses:
+        "200":
+          description: Roles, missing concepts, and a short explanation.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CareerAdvice"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/users:
+    get:
+      tags: [Admin, Users]
+      operationId: listUsers
+      summary: List users
+      description: Admin only. Includes email. There is no pagination on this route.
+      x-implementation: live
+      x-required-role: admin
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Every user account.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminUser"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          description: Caller is not an admin.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Admin role required.
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/users/{user_id}:
+    patch:
+      tags: [Admin, Users]
+      operationId: setUserRole
+      summary: Change a user's role
+      description: |
+        Admin only.
+
+        Rules:
+        - `role` is `student`, `instructor`, or `admin`.
+        - Unknown user returns 404 (`User not found.`).
+        - Demoting the last admin returns 400 (`The studio needs at least one admin.`).
+      x-implementation: live
+      x-required-role: admin
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/UserId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [role]
+              properties:
+                role:
+                  $ref: "#/components/schemas/Role"
+      responses:
+        "200":
+          description: Updated id and role.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [id, role]
+                properties:
+                  id:
+                    $ref: "#/components/schemas/Uuid"
+                  role:
+                    $ref: "#/components/schemas/Role"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/analytics:
+    get:
+      tags: [Analytics, Admin]
+      operationId: getAdminAnalytics
+      summary: Platform counts
+      description: |
+        Instructor or admin. Counts are global, not scoped to a cohort.
+        `average_mastery` is the mean of stored concept scores, or 0 when there are none.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Aggregate counts.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlatformAnalytics"
+              example:
+                users: 12
+                students: 10
+                conversations: 40
+                quizzes_taken: 25
+                documents: 4
+                average_mastery: 61.5
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          description: Caller is below instructor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Instructor role required.
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/analytics/content:
+    get:
+      tags: [Analytics, Admin, Knowledge Repository]
+      operationId: getContentAnalytics
+      summary: Content and learning-gap analytics
+      description: |
+        Instructor or admin. Lesson visits, quiz pass rate, completion, and concepts
+        where learners sit below 40.
+
+        Not routed yet. Use `GET /api/v1/admin/analytics` for the live counters.
+      x-implementation: contract
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Content effectiveness snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContentAnalytics"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/billing/checkout:
+    post:
+      tags: [Billing]
+      operationId: createCheckout
+      summary: Start a Stripe Checkout session
+      description: |
+        Rules:
+        - `tier` is `pro` or `research`. The price id comes from server settings.
+        - `success_url` and `cancel_url` must start with one of `CORS_ORIGINS`
+          (`400` `Return URL must stay on this application.`).
+        - Missing Stripe configuration returns 503.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CheckoutRequest"
+      responses:
+        "200":
+          description: Hosted Checkout URL.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [url]
+                properties:
+                  url:
+                    type: string
+                    format: uri
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "503":
+          description: Stripe secret or the selected price is unset.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                unconfigured:
+                  value:
+                    detail: Billing is not configured on this server.
+                missingPrice:
+                  value:
+                    detail: That price is not configured.
+
+  /api/v1/webhooks/stripe:
+    post:
+      tags: [Authentication, Billing]
+      operationId: stripeWebhook
+      summary: Stripe webhook
+      description: |
+        No bearer token. Requires header `Stripe-Signature`. Verified with
+        `STRIPE_WEBHOOK_SECRET`. Handled types: `checkout.session.completed`,
+        `customer.subscription.updated`, `customer.subscription.deleted`.
+        Other types are acknowledged and ignored. A missing secret returns 503.
+        A bad signature returns 400 (`Invalid Stripe signature.`).
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      parameters:
+        - name: Stripe-Signature
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Raw Stripe event object. Do not re-shape it.
+              additionalProperties: true
+      responses:
+        "200":
+          description: Event accepted.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookAck"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "503":
+          description: Stripe webhook secret is unset.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Stripe webhooks are not configured.
+
+  /api/v1/webhooks/clerk:
+    post:
+      tags: [Authentication, Users]
+      operationId: clerkWebhook
+      summary: Clerk user webhook
+      description: |
+        No bearer token. Requires Svix headers `svix-id`, `svix-timestamp`, and
+        `svix-signature`, verified with `CLERK_WEBHOOK_SECRET`.
+
+        Handled types: `user.created`, `user.updated`. The account is upserted from
+        `data.id`, the first email address, the name, and `public_metadata.role`
+        when that role is `student`, `instructor`, or `admin`. Other event types are
+        acknowledged and ignored. A bad signature returns 400
+        (`Invalid Clerk signature.`). A missing secret returns 503.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      parameters:
+        - name: svix-id
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: svix-timestamp
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: svix-signature
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Raw Clerk Svix event. Do not re-shape it.
+              additionalProperties: true
+      responses:
+        "200":
+          description: Event accepted.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebhookAck"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "503":
+          description: Clerk webhook secret is unset.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                detail: Clerk webhooks are not configured.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Clerk session JWT, algorithm RS256. `sub` is required. Email and name are
+        read from `email` and `name` when present. Role is read from
+        `metadata.role` or `public_metadata.role`.
+    devAuth:
+      type: apiKey
+      in: header
+      name: X-Dev-User-Id
+      description: |
+        Development and test only, and only when the Authorization header is absent.
+        Pattern `^[A-Za-z0-9_-]{1,64}$`. Production returns 401.
+
+  parameters:
+    ConversationId:
+      name: conversation_id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Uuid"
+    QuizId:
+      name: quiz_id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Uuid"
+    CardId:
+      name: card_id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Uuid"
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Uuid"
+    ResourceId:
+      name: resource_id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Uuid"
+    Slug:
+      name: slug
+      in: path
+      required: true
+      description: Catalog slug. Lowercase words separated by single hyphens.
+      schema:
+        $ref: "#/components/schemas/Slug"
+    Limit:
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50
+        default: 20
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque cursor from the previous page. Omit on the first page.
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 256
+    Difficulty:
+      name: difficulty
+      in: query
+      required: false
+      schema:
+        $ref: "#/components/schemas/Difficulty"
+    Language:
+      name: language
+      in: query
+      required: false
+      schema:
+        $ref: "#/components/schemas/Language"
+
+  responses:
+    BadRequest:
+      description: The request was understood and rejected by a domain rule.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            detail: That message can't be used. Ask the learning question in plain text.
+    Unauthorized:
+      description: |
+        Missing or invalid credentials. Details include `Sign in required`,
+        `Invalid session`, `Clerk is not configured`, and
+        `Send X-Dev-User-Id or sign in with Clerk`.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            detail: Sign in required
+    Forbidden:
+      description: The caller is signed in and below the required role.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            detail: Admin role required.
+    NotFound:
+      description: The resource does not exist or is not visible to the caller.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            detail: Conversation not found.
+    ValidationFailed:
+      description: |
+        Body, query, or path failed schema validation before the handler ran.
+        FastAPI emits this shape. Domain rules use 400 instead.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ValidationError"
+    TooManyRequests:
+      description: Sliding-window limit for this client IP. Wait about a minute.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            detail: Too many requests. Try again in a minute.
+    Unexpected:
+      description: Unhandled server error. The body is not a stable contract.
+
+  schemas:
+    Error:
+      type: object
+      additionalProperties: false
+      required: [detail]
+      properties:
+        detail:
+          type: string
+
+    ValidationError:
+      type: object
+      required: [detail]
+      properties:
+        detail:
+          type: array
+          items:
+            type: object
+            required: [loc, msg, type]
+            properties:
+              loc:
+                type: array
+                items:
+                  type: [string, integer]
+              msg:
+                type: string
+              type:
+                type: string
+
+    Uuid:
+      type: string
+      format: uuid
+
+    Slug:
+      type: string
+      minLength: 1
+      maxLength: 80
+      pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+
+    ConceptSlug:
+      type: string
+      minLength: 1
+      maxLength: 80
+      description: A concept slug from the curriculum catalog, such as `q-learning`.
+
+    Role:
+      type: string
+      enum: [student, instructor, admin]
+
+    Difficulty:
+      type: string
+      enum: [beginner, intermediate, advanced, expert, phd]
+
+    Language:
+      type: string
+      enum: [en, fr, es]
+
+    TutorMode:
+      type: string
+      enum: [socratic, direct]
+
+    MasteryBand:
+      type: string
+      enum: [strength, developing, gap, unstarted]
+      description: "`strength` ≥ 75, `developing` ≥ 60, `gap` > 0, otherwise `unstarted`."
+
+    PublicationStatus:
+      type: string
+      enum: [draft, review, approved, published, archived]
+
+    Health:
+      type: object
+      additionalProperties: false
+      required: [status, env, vector_store, llm]
+      properties:
+        status:
+          type: string
+          const: ok
+        env:
+          type: string
+          examples: [development, test, production]
+        vector_store:
+          type: string
+          enum: [qdrant, local-hash]
+        llm:
+          type: string
+          enum: [external, curriculum]
+
+    Me:
+      type: object
+      additionalProperties: false
+      required: [id, display_name, role, xp, level, streak_days, subscription_status]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        display_name:
+          type: string
+          maxLength: 120
+        role:
+          $ref: "#/components/schemas/Role"
+        xp:
+          type: integer
+          minimum: 0
+        level:
+          type: integer
+          minimum: 1
+        streak_days:
+          type: integer
+          minimum: 0
+        subscription_status:
+          type: string
+          description: "`free` until Stripe sets a subscription status such as `active` or `canceled`."
+          examples: [free, active, canceled]
+
+    Profile:
+      type: object
+      additionalProperties: false
+      required:
+        - display_name
+        - country
+        - preferred_language
+        - current_level
+        - learning_goal
+        - tutor_style
+        - teaching_mode
+        - pace
+        - math_depth
+        - coding_experience
+        - mathematics_confidence
+        - onboarding_completed
+      properties:
+        display_name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        country:
+          type: [string, "null"]
+          description: ISO 3166-1 alpha-2. Null until the learner sets it.
+          pattern: "^[A-Z]{2}$"
+        preferred_language:
+          oneOf:
+            - $ref: "#/components/schemas/Language"
+            - type: "null"
+        current_level:
+          oneOf:
+            - $ref: "#/components/schemas/Difficulty"
+            - type: string
+              const: researcher
+            - type: "null"
+        learning_goal:
+          type: [string, "null"]
+          maxLength: 2000
+        tutor_style:
+          type: [string, "null"]
+          enum: [friendly, professional, academic, motivational, strict, socratic, null]
+        teaching_mode:
+          type: [string, "null"]
+          enum: [simple, storytelling, visual, mathematical, research, industry, mixed, null]
+        pace:
+          type: [string, "null"]
+          enum: [slow, moderate, fast, intensive, null]
+        math_depth:
+          type: [string, "null"]
+          enum: [none, light, moderate, formal, proofs, null]
+        coding_experience:
+          type: [string, "null"]
+          enum: [none, beginner, intermediate, advanced, null]
+        mathematics_confidence:
+          type: [integer, "null"]
+          minimum: 1
+          maximum: 5
+        onboarding_completed:
+          type: boolean
+
+    ProfileUpdate:
+      type: object
+      additionalProperties: false
+      minProperties: 1
+      description: At least one property is required.
+      properties:
+        display_name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        country:
+          type: string
+          pattern: "^[A-Z]{2}$"
+        preferred_language:
+          $ref: "#/components/schemas/Language"
+        current_level:
+          oneOf:
+            - $ref: "#/components/schemas/Difficulty"
+            - type: string
+              const: researcher
+        learning_goal:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        tutor_style:
+          type: string
+          enum: [friendly, professional, academic, motivational, strict, socratic]
+        teaching_mode:
+          type: string
+          enum: [simple, storytelling, visual, mathematical, research, industry, mixed]
+        pace:
+          type: string
+          enum: [slow, moderate, fast, intensive]
+        math_depth:
+          type: string
+          enum: [none, light, moderate, formal, proofs]
+        coding_experience:
+          type: string
+          enum: [none, beginner, intermediate, advanced]
+        mathematics_confidence:
+          type: integer
+          minimum: 1
+          maximum: 5
+        onboarding_completed:
+          type: boolean
+
+    ChatRequest:
+      type: object
+      additionalProperties: false
+      required: [message]
+      properties:
+        message:
+          type: string
+          minLength: 1
+          maxLength: 8000
+        conversation_id:
+          type: [string, "null"]
+          format: uuid
+        mode:
+          $ref: "#/components/schemas/TutorMode"
+          default: socratic
+
+    ChatTurn:
+      type: object
+      additionalProperties: false
+      required: [conversation_id, mode, stage, concept_slug, reply]
+      properties:
+        conversation_id:
+          $ref: "#/components/schemas/Uuid"
+        mode:
+          $ref: "#/components/schemas/TutorMode"
+        stage:
+          type: integer
+          minimum: 0
+          description: Count of assistant messages already in the conversation before this reply.
+        concept_slug:
+          type: [string, "null"]
+        reply:
+          $ref: "#/components/schemas/AssistantMessage"
+
+    AssistantMessage:
+      type: object
+      additionalProperties: false
+      required: [id, role, content]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        role:
+          type: string
+          const: assistant
+        content:
+          type: string
+
+    ConversationSummary:
+      type: object
+      additionalProperties: false
+      required: [id, title, mode]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+          maxLength: 200
+        mode:
+          type: string
+
+    Conversation:
+      type: object
+      additionalProperties: false
+      required: [id, title, mode, messages]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+        mode:
+          type: string
+        messages:
+          type: array
+          items:
+            $ref: "#/components/schemas/StoredMessage"
+
+    StoredMessage:
+      type: object
+      additionalProperties: false
+      required: [id, role, content, concept_slug]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        role:
+          type: string
+          enum: [user, assistant]
+        content:
+          type: string
+        concept_slug:
+          type: [string, "null"]
+
+    AgentRequest:
+      type: object
+      additionalProperties: false
+      required: [message]
+      properties:
+        message:
+          type: string
+          minLength: 1
+          maxLength: 8000
+
+    AgentRun:
+      type: object
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          enum: [tutor, quiz, plan, career, code, research]
+        result: {}
+      oneOf:
+        - $ref: "#/components/schemas/AgentTutor"
+        - $ref: "#/components/schemas/AgentQuiz"
+        - $ref: "#/components/schemas/AgentPlan"
+        - $ref: "#/components/schemas/AgentCareer"
+        - $ref: "#/components/schemas/AgentCode"
+        - $ref: "#/components/schemas/AgentResearch"
+      discriminator:
+        propertyName: intent
+        mapping:
+          tutor: "#/components/schemas/AgentTutor"
+          quiz: "#/components/schemas/AgentQuiz"
+          plan: "#/components/schemas/AgentPlan"
+          career: "#/components/schemas/AgentCareer"
+          code: "#/components/schemas/AgentCode"
+          research: "#/components/schemas/AgentResearch"
+
+    AgentTutor:
+      type: object
+      additionalProperties: false
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          const: tutor
+        result:
+          $ref: "#/components/schemas/ChatTurn"
+
+    AgentQuiz:
+      type: object
+      additionalProperties: false
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          const: quiz
+        result:
+          $ref: "#/components/schemas/Quiz"
+
+    AgentPlan:
+      type: object
+      additionalProperties: false
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          const: plan
+        result:
+          $ref: "#/components/schemas/StudyPlanCreated"
+
+    AgentCareer:
+      type: object
+      additionalProperties: false
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          const: career
+        result:
+          $ref: "#/components/schemas/CareerAdvice"
+
+    AgentCode:
+      type: object
+      additionalProperties: false
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          const: code
+        result:
+          type: object
+          additionalProperties: false
+          required: [message]
+          properties:
+            message:
+              type: string
+
+    AgentResearch:
+      type: object
+      additionalProperties: false
+      required: [intent, result]
+      properties:
+        intent:
+          type: string
+          const: research
+        result:
+          type: object
+          additionalProperties: false
+          required: [message]
+          properties:
+            message:
+              type: string
+
+    LearningPathSummary:
+      type: object
+      additionalProperties: false
+      required: [slug, title, description, level, concepts]
+      properties:
+        slug:
+          $ref: "#/components/schemas/Slug"
+        title:
+          type: string
+        description:
+          type: string
+        level:
+          type: string
+        concepts:
+          type: integer
+          minimum: 0
+          description: Number of steps on the path.
+
+    LearningPathDetail:
+      type: object
+      additionalProperties: false
+      required: [slug, title, description, level, steps]
+      properties:
+        slug:
+          $ref: "#/components/schemas/Slug"
+        title:
+          type: string
+        description:
+          type: string
+        level:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: "#/components/schemas/PathStep"
+
+    PathStep:
+      type: object
+      additionalProperties: false
+      required: [position, slug, title, estimated_minutes, completed, prerequisites, content_md]
+      properties:
+        position:
+          type: integer
+          minimum: 0
+        slug:
+          type: [string, "null"]
+        title:
+          type: string
+        estimated_minutes:
+          type: [integer, "null"]
+          minimum: 0
+        completed:
+          type: boolean
+        prerequisites:
+          type: array
+          items:
+            type: string
+        content_md:
+          type: [string, "null"]
+
+    Lesson:
+      type: object
+      additionalProperties: false
+      required: [slug, title, content_md, estimated_minutes, prerequisites, completed]
+      properties:
+        slug:
+          $ref: "#/components/schemas/Slug"
+        title:
+          type: string
+        content_md:
+          type: string
+        estimated_minutes:
+          type: integer
+          minimum: 1
+        prerequisites:
+          type: array
+          items:
+            $ref: "#/components/schemas/Slug"
+        completed:
+          type: boolean
+
+    LessonCompletion:
+      type: object
+      additionalProperties: false
+      required: [slug, completed, newly_completed, content_md]
+      properties:
+        slug:
+          type: string
+        completed:
+          type: boolean
+          const: true
+        newly_completed:
+          type: boolean
+        content_md:
+          type: string
+
+    QuizGenerateRequest:
+      type: object
+      additionalProperties: false
+      required: [concept_slug]
+      properties:
+        concept_slug:
+          $ref: "#/components/schemas/ConceptSlug"
+        difficulty:
+          allOf:
+            - $ref: "#/components/schemas/Difficulty"
+          default: intermediate
+
+    Quiz:
+      type: object
+      additionalProperties: false
+      required: [id, title, difficulty, concept_slug, difficulty_note, coach_note, questions]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+        difficulty:
+          type: string
+        concept_slug:
+          type: string
+        difficulty_note:
+          type: [string, "null"]
+          description: Set when the requested difficulty had no authored items.
+        coach_note:
+          type: string
+        questions:
+          type: array
+          maxItems: 5
+          items:
+            $ref: "#/components/schemas/QuizQuestion"
+
+    QuizQuestion:
+      type: object
+      additionalProperties: false
+      required: [id, kind, prompt, options, position]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        kind:
+          type: string
+          description: "`mcq`, `short`, `coding`, or a research prompt."
+          examples: [mcq, short, coding]
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+          description: Empty unless `kind` is `mcq`.
+        position:
+          type: integer
+          minimum: 0
+
+    GradeRequest:
+      type: object
+      additionalProperties: false
+      required: [answers]
+      properties:
+        answers:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items:
+            type: object
+            additionalProperties: false
+            required: [question_id, response]
+            properties:
+              question_id:
+                $ref: "#/components/schemas/Uuid"
+              response:
+                type: string
+                maxLength: 20000
+
+    GradeResult:
+      type: object
+      additionalProperties: false
+      required: [quiz_id, score, max_score, results]
+      properties:
+        quiz_id:
+          $ref: "#/components/schemas/Uuid"
+        score:
+          type: number
+          minimum: 0
+        max_score:
+          type: number
+          minimum: 0
+        results:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required: [question_id, correct, score, feedback, explanation]
+            properties:
+              question_id:
+                type: string
+                format: uuid
+              correct:
+                type: boolean
+              score:
+                type: number
+                minimum: 0
+                maximum: 1
+              feedback:
+                type: string
+              explanation:
+                type: string
+
+    Challenge:
+      type: object
+      additionalProperties: false
+      required: [id, challenge_date, kind, title, prompt, xp_reward, status]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        challenge_date:
+          type: string
+          format: date
+        kind:
+          type: string
+          enum: [quiz, coding, lesson]
+        title:
+          type: string
+          maxLength: 200
+        prompt:
+          type: string
+        xp_reward:
+          type: integer
+          minimum: 0
+        status:
+          type: string
+          enum: [available, completed]
+
+    ChallengeAttemptRequest:
+      type: object
+      additionalProperties: false
+      required: [answer]
+      properties:
+        answer:
+          type: string
+          minLength: 1
+          maxLength: 20000
+
+    ChallengeAttempt:
+      type: object
+      additionalProperties: false
+      required: [challenge_id, correct, score, xp_awarded, feedback]
+      properties:
+        challenge_id:
+          $ref: "#/components/schemas/Uuid"
+        correct:
+          type: boolean
+        score:
+          type: number
+          minimum: 0
+          maximum: 1
+        xp_awarded:
+          type: integer
+          minimum: 0
+        feedback:
+          type: string
+
+    ChallengePage:
+      type: object
+      additionalProperties: false
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Challenge"
+        next_cursor:
+          type: [string, "null"]
+
+    LeaderboardEntry:
+      type: object
+      additionalProperties: false
+      required: [display_name, xp, level, streak_days]
+      properties:
+        display_name:
+          type: string
+        xp:
+          type: integer
+          minimum: 0
+        level:
+          type: integer
+          minimum: 1
+        streak_days:
+          type: integer
+          minimum: 0
+
+    ScopedLeaderboard:
+      type: object
+      additionalProperties: false
+      required: [scope, country, entries, me]
+      properties:
+        scope:
+          type: string
+          enum: [global, country]
+        country:
+          type: [string, "null"]
+          pattern: "^[A-Z]{2}$"
+        entries:
+          type: array
+          items:
+            $ref: "#/components/schemas/RankedLeaderboardEntry"
+        me:
+          type: [object, "null"]
+          additionalProperties: false
+          required: [rank, xp, level]
+          properties:
+            rank:
+              type: integer
+              minimum: 1
+            xp:
+              type: integer
+              minimum: 0
+            level:
+              type: integer
+              minimum: 1
+
+    RankedLeaderboardEntry:
+      type: object
+      additionalProperties: false
+      required: [rank, display_name, xp, level, streak_days]
+      properties:
+        rank:
+          type: integer
+          minimum: 1
+        display_name:
+          type: string
+        xp:
+          type: integer
+          minimum: 0
+        level:
+          type: integer
+          minimum: 1
+        streak_days:
+          type: integer
+          minimum: 0
+
+    ConceptScore:
+      type: object
+      additionalProperties: false
+      required: [slug, name, score]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+
+    ConceptMastery:
+      type: object
+      additionalProperties: false
+      required: [slug, name, score, band]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        band:
+          $ref: "#/components/schemas/MasteryBand"
+
+    Recommendation:
+      type: object
+      additionalProperties: false
+      required: [slug, name, reason]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        reason:
+          type: string
+
+    Badge:
+      type: object
+      additionalProperties: false
+      required: [slug, name, description, earned]
+      properties:
+        slug:
+          type: string
+          examples: [first_steps, streak_3, week_streak, perfect_quiz, mastery, reviewer, shipped_code]
+        name:
+          type: string
+        description:
+          type: string
+        earned:
+          type: boolean
+
+    PathProgress:
+      type: object
+      additionalProperties: false
+      required: [slug, title, description, level, completed, total]
+      properties:
+        slug:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        level:
+          type: string
+        completed:
+          type: integer
+          minimum: 0
+        total:
+          type: integer
+          minimum: 0
+
+    Dashboard:
+      type: object
+      additionalProperties: false
+      required:
+        - display_name
+        - role
+        - xp
+        - level
+        - xp_into_level
+        - xp_per_level
+        - streak_days
+        - subscription_status
+        - mastery
+        - strengths
+        - developing
+        - weaknesses
+        - recommendations
+        - paths
+        - badges
+        - lessons_completed
+        - quizzes_taken
+      properties:
+        display_name:
+          type: string
+        role:
+          $ref: "#/components/schemas/Role"
+        xp:
+          type: integer
+          minimum: 0
+        level:
+          type: integer
+          minimum: 1
+        xp_into_level:
+          type: integer
+          minimum: 0
+        xp_per_level:
+          type: integer
+          const: 250
+        streak_days:
+          type: integer
+          minimum: 0
+        subscription_status:
+          type: string
+        mastery:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: Mean of stored concept scores, or 0 when the learner has none.
+        strengths:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConceptScore"
+        developing:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConceptScore"
+        weaknesses:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConceptScore"
+        recommendations:
+          type: array
+          maxItems: 4
+          items:
+            $ref: "#/components/schemas/Recommendation"
+        paths:
+          type: array
+          items:
+            $ref: "#/components/schemas/PathProgress"
+        badges:
+          type: array
+          items:
+            $ref: "#/components/schemas/Badge"
+        lessons_completed:
+          type: integer
+          minimum: 0
+        quizzes_taken:
+          type: integer
+          minimum: 0
+
+    Progress:
+      type: object
+      additionalProperties: false
+      required: [xp, level, xp_into_level, xp_per_level, streak_days, lessons_completed, concepts]
+      properties:
+        xp:
+          type: integer
+          minimum: 0
+        level:
+          type: integer
+          minimum: 1
+        xp_into_level:
+          type: integer
+          minimum: 0
+        xp_per_level:
+          type: integer
+          const: 250
+        streak_days:
+          type: integer
+          minimum: 0
+        lessons_completed:
+          type: integer
+          minimum: 0
+        concepts:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConceptMastery"
+
+    XpEvent:
+      type: object
+      additionalProperties: false
+      required: [id, amount, reason, created_at]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        amount:
+          type: integer
+          minimum: 1
+        reason:
+          type: string
+          examples: [quiz, lesson, code, review, analysis]
+        created_at:
+          type: string
+          format: date-time
+
+    XpEventPage:
+      type: object
+      additionalProperties: false
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/XpEvent"
+        next_cursor:
+          type: [string, "null"]
+
+    StudyPlanRequest:
+      type: object
+      additionalProperties: false
+      required: [goal]
+      properties:
+        goal:
+          type: string
+          minLength: 1
+          maxLength: 2000
+
+    StudyPlanItem:
+      type: object
+      additionalProperties: false
+      required: [title, slug, scheduled_for]
+      properties:
+        title:
+          type: string
+        slug:
+          type: [string, "null"]
+        scheduled_for:
+          type: string
+          format: date
+        status:
+          type: string
+          description: Present on listed plans. Omitted on the create response.
+          examples: [planned]
+
+    StudyPlanCreated:
+      type: object
+      additionalProperties: false
+      required: [id, goal, explanation, items]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        goal:
+          type: string
+        explanation:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/StudyPlanItem"
+
+    StudyPlan:
+      type: object
+      additionalProperties: false
+      required: [id, goal, items]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        goal:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/StudyPlanItem"
+
+    GraphNode:
+      type: object
+      additionalProperties: false
+      required: [slug, name, domain, difficulty, prerequisites]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        domain:
+          type: string
+        difficulty:
+          type: string
+        prerequisites:
+          type: array
+          items:
+            type: string
+
+    KnowledgeGraph:
+      type: object
+      additionalProperties: false
+      required: [nodes, mermaid]
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: "#/components/schemas/GraphNode"
+        mermaid:
+          type: string
+
+    ResearchDocument:
+      type: object
+      additionalProperties: false
+      required: [id, title, chunks, status]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+        chunks:
+          type: integer
+          minimum: 1
+        status:
+          type: string
+          examples: [ready]
+
+    AnalyzeRequest:
+      type: object
+      additionalProperties: false
+      required: [document_id, question]
+      properties:
+        document_id:
+          $ref: "#/components/schemas/Uuid"
+        question:
+          type: string
+          minLength: 1
+          maxLength: 2000
+
+    Analysis:
+      type: object
+      additionalProperties: false
+      required:
+        - document_id
+        - mode
+        - summary
+        - excerpts
+        - equations
+        - critique
+        - gaps
+        - future_work
+        - limitations_of_this_pass
+      properties:
+        document_id:
+          $ref: "#/components/schemas/Uuid"
+        mode:
+          type: string
+          enum: [model, extractive]
+        summary:
+          type: string
+        excerpts:
+          type: array
+          maxItems: 4
+          items:
+            type: object
+            additionalProperties: false
+            required: [citation, text]
+            properties:
+              citation:
+                type: string
+                examples: ["[1]"]
+              text:
+                type: string
+        equations:
+          type: array
+          items:
+            type: string
+        critique:
+          type: [string, "null"]
+        gaps:
+          type: [string, "null"]
+        future_work:
+          type: [string, "null"]
+        limitations_of_this_pass:
+          type: [string, "null"]
+
+    KnowledgeSearchRequest:
+      type: object
+      additionalProperties: false
+      required: [query]
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 10
+          default: 5
+        domain:
+          type: string
+          minLength: 1
+          maxLength: 80
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        language:
+          $ref: "#/components/schemas/Language"
+
+    KnowledgeSearchHit:
+      type: object
+      additionalProperties: false
+      required: [resource_id, title, citation, excerpt, score]
+      properties:
+        resource_id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+        citation:
+          type: string
+          description: Stable label the tutor should show, such as the asset title and chunk ordinal.
+        excerpt:
+          type: string
+          maxLength: 1200
+        score:
+          type: number
+          minimum: 0
+          maximum: 1
+
+    KnowledgeSearchResponse:
+      type: object
+      additionalProperties: false
+      required: [hits]
+      properties:
+        hits:
+          type: array
+          items:
+            $ref: "#/components/schemas/KnowledgeSearchHit"
+
+    Resource:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - title
+        - description
+        - domain
+        - difficulty
+        - author
+        - source
+        - publication_date
+        - version
+        - learning_objectives
+        - estimated_minutes
+        - tags
+        - language
+        - status
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+          maxLength: 300
+        description:
+          type: string
+        domain:
+          type: string
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        author:
+          type: string
+        source:
+          type: [string, "null"]
+        publication_date:
+          type: [string, "null"]
+          format: date
+        version:
+          type: integer
+          minimum: 1
+        learning_objectives:
+          type: array
+          items:
+            type: string
+        estimated_minutes:
+          type: integer
+          minimum: 1
+        tags:
+          type: array
+          items:
+            type: string
+        language:
+          $ref: "#/components/schemas/Language"
+        status:
+          type: string
+          const: published
+
+    ResourcePage:
+      type: object
+      additionalProperties: false
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Resource"
+        next_cursor:
+          type: [string, "null"]
+
+    KnowledgeAsset:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - title
+        - description
+        - domain
+        - difficulty
+        - author
+        - source
+        - publication_date
+        - version
+        - learning_objectives
+        - estimated_minutes
+        - tags
+        - language
+        - status
+        - updated_at
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: string
+          maxLength: 300
+        description:
+          type: string
+        domain:
+          type: string
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        author:
+          type: string
+        source:
+          type: [string, "null"]
+        publication_date:
+          type: [string, "null"]
+          format: date
+        version:
+          type: integer
+          minimum: 1
+        learning_objectives:
+          type: array
+          items:
+            type: string
+        estimated_minutes:
+          type: integer
+          minimum: 1
+        tags:
+          type: array
+          items:
+            type: string
+        language:
+          $ref: "#/components/schemas/Language"
+        status:
+          $ref: "#/components/schemas/PublicationStatus"
+        updated_at:
+          type: string
+          format: date-time
+
+    KnowledgeAssetPage:
+      type: object
+      additionalProperties: false
+      required: [items, next_cursor]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/KnowledgeAsset"
+        next_cursor:
+          type: [string, "null"]
+
+    KnowledgeCreate:
+      type: object
+      additionalProperties: false
+      required: [title, domain, difficulty, language]
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 300
+        description:
+          type: string
+          maxLength: 4000
+          default: ""
+        domain:
+          type: string
+          minLength: 1
+          maxLength: 80
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        author:
+          type: string
+          maxLength: 200
+          default: ""
+        source:
+          type: string
+          maxLength: 500
+        publication_date:
+          type: string
+          format: date
+        learning_objectives:
+          type: string
+          description: Newline-separated objectives. Each line is stored as one objective. At most 20 lines.
+          maxLength: 4000
+        estimated_minutes:
+          type: integer
+          minimum: 1
+          maximum: 600
+          default: 25
+        tags:
+          type: string
+          description: Comma-separated tags. At most 20 tags, each at most 40 characters.
+          maxLength: 1000
+        language:
+          $ref: "#/components/schemas/Language"
+        source_url:
+          type: string
+          format: uri
+          description: Required when `file` is omitted. http or https only.
+        file:
+          type: string
+          format: binary
+          description: Required when `source_url` is omitted. Maximum 25 MiB.
+
+    KnowledgeUpdate:
+      type: object
+      additionalProperties: false
+      minProperties: 1
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 300
+        description:
+          type: string
+          maxLength: 4000
+        domain:
+          type: string
+          minLength: 1
+          maxLength: 80
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        author:
+          type: string
+          maxLength: 200
+        source:
+          type: string
+          maxLength: 500
+        publication_date:
+          type: string
+          format: date
+        learning_objectives:
+          type: array
+          maxItems: 20
+          items:
+            type: string
+            minLength: 1
+            maxLength: 300
+        estimated_minutes:
+          type: integer
+          minimum: 1
+          maximum: 600
+        tags:
+          type: array
+          maxItems: 20
+          items:
+            type: string
+            minLength: 1
+            maxLength: 40
+        language:
+          $ref: "#/components/schemas/Language"
+
+    KnowledgeVersion:
+      type: object
+      additionalProperties: false
+      required: [version, editor_id, created_at]
+      properties:
+        version:
+          type: integer
+          minimum: 1
+        editor_id:
+          $ref: "#/components/schemas/Uuid"
+        created_at:
+          type: string
+          format: date-time
+        change_note:
+          type: [string, "null"]
+          maxLength: 500
+
+    LabProject:
+      type: object
+      additionalProperties: false
+      required: [slug, title, brief_md, starter_code, language, difficulty]
+      properties:
+        slug:
+          type: string
+        title:
+          type: string
+        brief_md:
+          type: string
+        starter_code:
+          type: string
+        language:
+          type: string
+          examples: [python]
+        difficulty:
+          type: string
+
+    CodeRequest:
+      type: object
+      additionalProperties: false
+      required: [code]
+      properties:
+        code:
+          type: string
+          minLength: 1
+          maxLength: 20000
+        project_slug:
+          type: [string, "null"]
+
+    CodeResult:
+      type: object
+      additionalProperties: false
+      required: [id, status, stdout, stderr, review]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        status:
+          type: string
+          enum: [ok, rejected, error]
+          description: "`rejected` is a policy failure before execution. `error` is a runtime failure or a 3-second timeout."
+        stdout:
+          type: string
+        stderr:
+          type: string
+        review:
+          type: string
+          description: Markdown review notes.
+
+    Flashcard:
+      type: object
+      additionalProperties: false
+      required: [id, front, back, concept_slug, interval_days]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        front:
+          type: string
+        back:
+          type: string
+        concept_slug:
+          type: [string, "null"]
+        interval_days:
+          type: integer
+          minimum: 0
+
+    FlashcardReview:
+      type: object
+      additionalProperties: false
+      required: [id, interval_days, next_review_at, ease_factor]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        interval_days:
+          type: integer
+          minimum: 0
+        next_review_at:
+          type: string
+          format: date-time
+        ease_factor:
+          type: number
+
+    CareerRole:
+      type: object
+      additionalProperties: false
+      required: [title, summary, readiness, missing]
+      properties:
+        title:
+          type: string
+        summary:
+          type: string
+        readiness:
+          type: number
+          minimum: 0
+          maximum: 1
+        missing:
+          type: array
+          items:
+            type: string
+
+    CareerAdvice:
+      type: object
+      additionalProperties: false
+      required: [roles, explanation]
+      properties:
+        roles:
+          type: array
+          items:
+            $ref: "#/components/schemas/CareerRole"
+        explanation:
+          type: string
+
+    AdminUser:
+      type: object
+      additionalProperties: false
+      required: [id, display_name, email, role, xp, streak_days]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        display_name:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          $ref: "#/components/schemas/Role"
+        xp:
+          type: integer
+          minimum: 0
+        streak_days:
+          type: integer
+          minimum: 0
+
+    PlatformAnalytics:
+      type: object
+      additionalProperties: false
+      required: [users, students, conversations, quizzes_taken, documents, average_mastery]
+      properties:
+        users:
+          type: integer
+          minimum: 0
+        students:
+          type: integer
+          minimum: 0
+        conversations:
+          type: integer
+          minimum: 0
+        quizzes_taken:
+          type: integer
+          minimum: 0
+        documents:
+          type: integer
+          minimum: 0
+        average_mastery:
+          type: number
+          minimum: 0
+
+    ContentAnalytics:
+      type: object
+      additionalProperties: false
+      required:
+        - most_visited_lessons
+        - hardest_concepts
+        - quiz_pass_rate
+        - completion_rate
+        - knowledge_gaps
+      properties:
+        most_visited_lessons:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required: [slug, title, views]
+            properties:
+              slug:
+                type: string
+              title:
+                type: string
+              views:
+                type: integer
+                minimum: 0
+        hardest_concepts:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required: [slug, name, average_score, attempts]
+            properties:
+              slug:
+                type: string
+              name:
+                type: string
+              average_score:
+                type: number
+                minimum: 0
+                maximum: 100
+              attempts:
+                type: integer
+                minimum: 0
+        quiz_pass_rate:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Share of graded quizzes with score / max_score ≥ 0.6.
+        completion_rate:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Share of started path steps that are marked complete.
+        knowledge_gaps:
+          type: array
+          description: Concepts where at least one learner scores below 40.
+          items:
+            type: object
+            additionalProperties: false
+            required: [slug, name, learners_below_40]
+            properties:
+              slug:
+                type: string
+              name:
+                type: string
+              learners_below_40:
+                type: integer
+                minimum: 0
+
+    CheckoutRequest:
+      type: object
+      additionalProperties: false
+      required: [tier, success_url, cancel_url]
+      properties:
+        tier:
+          type: string
+          enum: [pro, research]
+        success_url:
+          type: string
+          minLength: 1
+          description: Must start with an origin listed in `CORS_ORIGINS`.
+        cancel_url:
+          type: string
+          minLength: 1
+          description: Must start with an origin listed in `CORS_ORIGINS`.
+
+    WebhookAck:
+      type: object
+      additionalProperties: false
+      required: [received]
+      properties:
+        received:
+          type: boolean
+          const: true
+
+security:
+  - bearerAuth: []
+  - devAuth: []

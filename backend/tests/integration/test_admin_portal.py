@@ -1,0 +1,70 @@
+def test_library_workflow_and_student_block(client, student):
+    _, headers = student
+    blocked = client.post(
+        "/api/v1/admin/assets",
+        headers=headers,
+        json={
+            "title": "Bellman notes",
+            "description": "A short lesson on the Bellman equation for the library.",
+            "kind": "notes",
+            "difficulty": "intermediate",
+            "estimated_minutes": 30,
+        },
+    )
+    assert blocked.status_code == 403
+
+    created = client.post(
+        "/api/v1/admin/assets",
+        headers={"X-Dev-User-Id": "demo-instructor"},
+        json={
+            "title": "Bellman notes",
+            "description": "A short lesson on the Bellman equation for the library.",
+            "kind": "notes",
+            "difficulty": "intermediate",
+            "estimated_minutes": 30,
+            "body_md": "The value of a state depends on the reward and the next value.",
+            "topic": "reinforcement-learning",
+            "tags": ["bellman"],
+        },
+    )
+    assert created.status_code == 200
+    asset_id = created.json()["id"]
+    assert created.json()["state"] == "draft"
+
+    review = client.post(
+        f"/api/v1/admin/assets/{asset_id}/transition",
+        headers={"X-Dev-User-Id": "demo-instructor"},
+        json={"state": "review", "note": "Ready for a second reader"},
+    )
+    assert review.status_code == 200
+
+    own = client.post(
+        f"/api/v1/admin/assets/{asset_id}/transition",
+        headers={"X-Dev-User-Id": "demo-instructor"},
+        json={"state": "approved"},
+    )
+    assert own.status_code == 403
+
+    approved = client.post(
+        f"/api/v1/admin/assets/{asset_id}/transition",
+        headers={"X-Dev-User-Id": "demo-admin"},
+        json={"state": "approved", "note": "Accurate"},
+    )
+    assert approved.status_code == 200
+
+    published = client.post(
+        f"/api/v1/admin/assets/{asset_id}/transition",
+        headers={"X-Dev-User-Id": "demo-admin"},
+        json={"state": "published"},
+    )
+    assert published.status_code == 200
+    assert published.json()["state"] == "published"
+    assert published.json()["chunks"] >= 1
+
+    audit = client.get("/api/v1/admin/audit", headers={"X-Dev-User-Id": "demo-admin"})
+    assert audit.status_code == 200
+    assert any(item["action"] == "asset.transition" for item in audit.json())
+
+    overview = client.get("/api/v1/admin/overview", headers={"X-Dev-User-Id": "demo-instructor"})
+    assert overview.status_code == 200
+    assert overview.json()["published"] >= 1
