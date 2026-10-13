@@ -544,7 +544,7 @@ The space-separated RGB format lets Tailwind opacity modifiers (`bg-action/10`) 
 
 ### 5.1 Conventions
 
-- **Base.** Components are built on shadcn/ui (Radix primitives) per `IF-UI-003`, restyled with the tokens above. They live in `frontend/components/ui/` (generic) and `frontend/components/{studio,admin,tutor,learn,game}/` (product-specific).
+- **Base.** Components are built on shadcn/ui (Radix primitives) per `IF-UI-003`, restyled with the tokens above. They live in `frontend/components/ui/` (generic) and `frontend/components/{studio,tutor,learn,game}/` (product-specific). The admin portal keeps its own `admin/components/`, built from the same primitives and tokens. Primitives move to a shared `packages/ui` when both apps need the same component (ADR 0012).
 - **Variants** are defined with `class-variance-authority`, as the shipped `Button` already does.
 - **States.** Every interactive component specifies: default, hover, focus-visible, active (pressed), disabled, loading, and, where relevant, selected, invalid, and read-only.
 - **Focus.** All focusable elements show a 2 px `color.focus.ring` outline with a 2 px offset on `:focus-visible`. Focus is never removed without a replacement.
@@ -1612,22 +1612,24 @@ Studio (learner; also available to Instructor and Admin)
 └── /settings/[tab]           profile, teaching, tutor, language, notifications,
                               privacy, accessibility, plan
 
-Admin portal (/admin, Instructor and Admin)
-├── /admin                    Overview
-├── /admin/library            Assets; /admin/library/new; /admin/library/[assetId]/[tab]
-├── /admin/review             Review queue
-├── /admin/taxonomy
-├── /admin/graph              Knowledge graph editor
-├── /admin/curriculum         Paths; /admin/curriculum/[pathId]
-├── /admin/generate           AI generation jobs
-├── /admin/moderation         Flags, guardrail blocks, disputes
-├── /admin/challenges         Calendar
-├── /admin/analytics          Platform (Admin), content (Instructor: own assets)
-├── /admin/users              (Admin) ; /admin/users/[userId]
-├── /admin/config             (Admin)
-├── /admin/ai                 Providers and routing (Admin)
-└── /admin/audit              (Admin)
+Admin portal (separate app in admin/, served at admin.<domain>; Instructor and Admin; ADR 0012)
+├── /                         Overview
+├── /library                  Assets; /library/new; /library/[assetId]
+├── /review                   Review queue
+├── /taxonomy
+├── /graph                    Knowledge graph editor
+├── /curriculum               Paths; /curriculum/[pathId]
+├── /generate                 AI generation jobs
+├── /moderation               Flags, guardrail blocks, disputes
+├── /challenges               Calendar
+├── /analytics                Platform (Admin), content (Instructor: own assets)
+├── /users                    (Admin) ; /users/[userId]
+├── /configuration            (Admin)
+├── /providers                Providers and routing (Admin)
+└── /audit                    (Admin)
 ```
+
+The studio's `/admin` route holds no admin data. It only links staff to the admin portal and will be removed once every staff bookmark points at `admin.<domain>`.
 
 The shipped routes (`/quiz`, `/lab`, `/flashcards`, `/research`, `/graph`, `/paths`) keep working; `/learn` and `/practice` are hub pages, not URL prefixes, so existing links do not break.
 
@@ -2162,7 +2164,7 @@ See [15.7](#157-challenge-calendar).
 
 ### 15.1 Shell and navigation
 
-The admin portal (`/admin`, `FR-ADM-001`) shares tokens with the studio but has a denser, work-focused shell: a 264 px sidebar, compact tables by default, and a persistent "Back to studio" link. A coloured environment chip in the top bar ("Production", "Staging") prevents mistakes.
+The admin portal (a separate app at `admin.<domain>`, `FR-ADM-001`, ADR 0012) shares the Tailwind tokens and primitives with the studio, with no second component library, but has a denser, work-focused shell: a 264 px sidebar, compact tables by default, and a persistent "Back to studio" link. A coloured environment chip in the top bar ("Production", "Staging") prevents mistakes.
 
 ```text
 +----------------------+----------------------------------------------------------------------+

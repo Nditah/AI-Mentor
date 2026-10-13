@@ -284,7 +284,8 @@ All SRS requirements tagged `MVP` with priority `M` or `S`, as listed in the tra
 | API | `backend/app` | Git SHA of release candidate |
 | Domain rules | `backend/app/domain` | same |
 | Prompts | `backend/app/prompts` | Prompt version IDs (NFR-MNT-004) |
-| Web app and admin portal | `frontend/` | same SHA |
+| Web app | `frontend/` | same SHA |
+| Admin portal | `admin/` | same SHA |
 | Migrations | `backend/alembic/versions` | same |
 | Infrastructure | `infrastructure/` | same |
 | Golden datasets | `backend/evals/datasets` | Dataset version tag |
@@ -1064,7 +1065,7 @@ Each AC in SRS section 18 has an E2E test with the same number (E2E-0NN ↔ AC-0
 | E2E-057 | AC-057, KR-022, UC-29 | Cycle rejection | Add a cyclic edge in the graph editor | Error showing the cycle path | P1 |
 | E2E-058 | AC-058, FR-RES-005 | Cross-tenant | A uploads a paper. B asks matching questions in tutor and research. | Nothing from A appears for B | P1 |
 | E2E-060 | AC-060, SEC-020 | Foreign conversation | B opens A's conversation URL | 404 page | P1 |
-| E2E-061 | AC-061, SEC-003, FR-ADM-001 | Admin access | Student opens `/admin`. Admin without MFA. Admin with MFA. | 403, 403, 200 | P1 |
+| E2E-061 | AC-061, SEC-003, FR-ADM-001 | Admin access | Student opens `admin.<domain>` and calls `/api/v1/admin/*` directly. Admin without MFA. Admin with MFA. Studio `/admin` shows no admin data. | 403, 403, 200; studio page only links to the portal | P1 |
 | E2E-062 | AC-062, FR-BIL-002, UC-25 | Subscription lifecycle | Checkout in Stripe test mode, then cancel via portal (`customer.subscription.deleted`) | Pro features unlocked, then reverted after paid-through period | P1 |
 | E2E-063 | AC-063, FR-BIL-004 | Free limit | 31st tutor message | Upgrade prompt with reset time | P1 |
 | E2E-064 | AC-064, FR-ACC-007 | Data export | Request export from settings | Download link appears within the SLA (job forced in preview). Archive contents complete. Link valid 7 days. | P1 |

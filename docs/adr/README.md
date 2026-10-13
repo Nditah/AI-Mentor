@@ -17,3 +17,4 @@ These records describe decisions that are already in the AI Mentor codebase. Eac
 | [0009](0009-knowledge-repository.md) | Catalog file plus Postgres curriculum rows |
 | [0010](0010-ai-tutor-architecture.md) | Policy-owned tutor with specialist agents |
 | [0011](0011-target-database-architecture.md) | Target database architecture (proposed; amends 0003) |
+| [0012](0012-separate-admin-app.md) | Separate admin app on its own subdomain, one design system (amends 0001) |

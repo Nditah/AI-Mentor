@@ -2,6 +2,7 @@
 
 import {
   BookOpen,
+  Calendar,
   ClipboardList,
   GitBranch,
   LayoutDashboard,
@@ -27,6 +28,7 @@ const links = [
   ["/curriculum", "Curriculum", BookOpen, "instructor"],
   ["/taxonomy", "Taxonomy", GitBranch, "instructor"],
   ["/graph", "Knowledge graph", Waypoints, "instructor"],
+  ["/challenges", "Challenges", Calendar, "instructor"],
   ["/analytics", "Analytics", LayoutDashboard, "instructor"],
   ["/moderation", "Moderation", Shield, "instructor"],
   ["/users", "Users", Users, "admin"],
@@ -62,7 +64,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
           Back to studio
         </a>
         <nav className="mt-4 flex gap-1 overflow-x-auto lg:flex-col" aria-label="Admin">
-          {visible.map(([href, label, Icon]) => {
+          {me.isPending ? <p className="px-3 py-2 text-sm text-slate-500">Loading navigation…</p> : null}
+          {!me.isPending && visible.map(([href, label, Icon]) => {
             const active = href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
             return (
               <Link

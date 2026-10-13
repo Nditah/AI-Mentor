@@ -186,7 +186,7 @@ flowchart TB
 | Actor or system | Interaction | Protocol | Trust |
 | --- | --- | --- | --- |
 | Learner | Web app | HTTPS through Front Door | Untrusted |
-| Instructor, Admin | Admin portal (same Next.js app, `/admin`) | HTTPS through Front Door | Authenticated, role-gated |
+| Instructor, Admin | Admin portal (separate Next.js app at `admin.<domain>`, ADR 0012) | HTTPS through Front Door | Authenticated, role-gated, MFA |
 | Clerk | JWKS fetch, Svix-signed webhooks | HTTPS | Verified by signature |
 | Stripe | Checkout API, signed webhooks | HTTPS | Verified by signature |
 | Azure OpenAI | Private endpoint, managed identity | HTTPS | Trusted processor |
@@ -259,7 +259,8 @@ flowchart TB
 
 | Container | Technology | Azure service | Responsibility | State | Scale |
 | --- | --- | --- | --- | --- | --- |
-| `web` | Next.js 15 App Router, TypeScript, Tailwind, shadcn/ui, TanStack Query, Zustand | Container Apps | Learner UI, admin portal, SSR, i18n, Clerk session | Stateless | 2–20 replicas, HTTP concurrency |
+| `web` | Next.js 15 App Router, TypeScript, Tailwind, shadcn/ui, TanStack Query, Zustand | Container Apps | Learner UI, SSR, i18n, Clerk session | Stateless | 2–20 replicas, HTTP concurrency |
+| `admin-web` | Same stack as `web` (ADR 0012), source in `admin/` | Same host as `web`, separate deployment at `admin.<domain>` | Admin portal: library, review, curriculum, taxonomy, graph, generation, moderation, users, configuration, audit | Stateless | 1–3 replicas |
 | `api` | FastAPI, Python 3.12, Pydantic v2, SQLAlchemy 2 | Container Apps | Auth, gateway policies, domain orchestration, SSE | Stateless | 2–40 replicas, HTTP concurrency |
 | `worker` | Python 3.12, same image as `api`, `python -m app.worker` | Container Apps | Ingestion, embedding, AI content generation, reports, outbox relay | Stateless | 0–20 replicas, queue depth |
 | `jobs` | Same image, `python -m app.jobs <name>` | Container Apps Jobs | Cron and one-off tasks | Stateless | Scheduled |
@@ -389,7 +390,6 @@ flowchart TB
         AU["(auth)<br/>Clerk sign-in, sign-up"]
         ON["onboarding<br/>assessment wizard"]
         ST["(studio)<br/>dashboard, tutor, paths, lab, quiz, flashcards, research, leaderboard"]
-        AD["admin<br/>library, taxonomy, curriculum builder, review queue, analytics"]
     end
 
     subgraph Shared["frontend/components, lib, stores"]
@@ -403,12 +403,11 @@ flowchart TB
         I18N["next-intl<br/>en, fr, es messages"]
     end
 
-    MW["middleware.ts<br/>clerkMiddleware, locale, role gate for /admin"]
+    MW["middleware.ts<br/>clerkMiddleware, locale"]
 
     MW --> AppRouter
     ST --> CHAT
     ST --> Q
-    AD --> Q
     Q --> API
     CHAT --> API
     API --> GEN
@@ -422,7 +421,7 @@ Frontend rules:
 
 - Server Components fetch with `auth().getToken()` and call the API over the internal Container Apps FQDN. Client components call `/api/v1/*` on the same origin.
 - `lib/api-types.ts` is generated with `openapi-typescript` from `/openapi.json` in CI. A schema change that breaks the client fails the build.
-- `/admin/**` is gated in `middleware.ts` by the `role` claim. The API enforces the same check, so the UI gate is only convenience.
+- The admin portal is a separate app in `admin/` (ADR 0012) with the same stack and design tokens. Its `middleware.ts` requires a Clerk session with MFA on every route and gates navigation by the `role` claim. The API enforces the same checks, so the UI gate is only convenience. The studio holds no admin views.
 - Mermaid and KaTeX render lesson content. Rendered HTML is sanitised with `rehype-sanitize`.
 
 ---
@@ -625,7 +624,7 @@ sequenceDiagram
 sequenceDiagram
     autonumber
     actor A as Instructor
-    participant W as web /admin
+    participant W as admin-web
     participant API as api
     participant BL as Blob Storage
     participant SB as Service Bus
@@ -1731,7 +1730,7 @@ flowchart TB
 | Session token | Clerk session JWT, RS256, 60 s lifetime, refreshed by the Clerk SDK |
 | Custom claims | Session token template: `{"email": "{{user.primary_email_address}}", "name": "{{user.full_name}}", "metadata": "{{user.public_metadata}}"}` |
 | Backend verification | `PyJWKClient` with JWKS cached 10 min. Checks: `alg=RS256`, `iss == CLERK_ISSUER`, `azp ∈ ALLOWED_AZP` (new setting, the production origin), `exp` and `nbf` with 5 s leeway, `sub` present. Replace `verify_aud: False` with an explicit `azp` check, since Clerk session tokens have no `aud`. |
-| Frontend | `ClerkProvider` in `app/layout.tsx`. `clerkMiddleware()` in `middleware.ts` protects `/(studio)`, `/onboarding`, and `/admin`. `lib/api.ts` reads the token with `useAuth().getToken()` (client) or `auth().getToken()` (server) and sets `Authorization: Bearer`. |
+| Frontend | `ClerkProvider` in `app/layout.tsx`. `clerkMiddleware()` in the studio's `middleware.ts` protects `/(studio)` and `/onboarding`; the admin app's `middleware.ts` protects every route. Both apps use the same Clerk production instance on subdomains of one root domain. `lib/api.ts` reads the token with `useAuth().getToken()` (client) or `auth().getToken()` (server) and sets `Authorization: Bearer`. |
 | Dev auth | `X-Dev-User-Id` only when `resolved_dev_auth`. `Settings.production_guard` already refuses it in production. Keep that guard and add a CI test for it. |
 | Service-to-service | Managed identities (user-assigned `id-api`, `id-worker`, `id-jobs`) to PostgreSQL (Entra auth), Blob, Key Vault, Service Bus, and Azure OpenAI. No connection-string secrets for Azure services. |
 | Webhooks | Clerk via Svix signature (existing). Stripe via `construct_event` (existing). Add a dedupe table `webhook_events(provider, event_id) UNIQUE` and reject timestamps older than 5 min. |

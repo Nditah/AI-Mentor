@@ -1,7 +1,9 @@
 # ADR 0001 — Next.js for the studio
 
-- Status: Accepted
+- Status: Accepted, amended by [ADR 0012](0012-separate-admin-app.md)
 - Date: 2026-10-13
+
+> Amendment (ADR 0012): admin screens moved out of the studio into a separate Next.js app in `admin/` on its own subdomain. Both apps keep the stack chosen here. Read "admin" below as historical.
 
 ## Context
 

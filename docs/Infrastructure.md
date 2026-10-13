@@ -40,7 +40,8 @@ flowchart TB
 
 | Piece | Role | Where it runs |
 | --- | --- | --- |
-| Studio | Landing, dashboard, tutor, quiz, lab, research, admin | Vercel |
+| Studio | Landing, dashboard, tutor, quiz, lab, research | Vercel |
+| Admin portal | Library, review, curriculum, taxonomy, users, configuration, audit (ADR 0012) | Separate Vercel project at `admin.<domain>` |
 | API | FastAPI mentor, grading, sandbox, ingestion | Azure Container Apps |
 | Database | Users, curriculum, progress, chunk text | Azure Database for PostgreSQL Flexible Server |
 | Vectors | Chunk embeddings | Qdrant Cloud, same region |

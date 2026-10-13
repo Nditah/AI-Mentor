@@ -142,7 +142,7 @@ AI Mentor is a new, standalone web platform with a separate admin portal. It is 
 ```text
                      +--------------------+         +-------------------+
  Learner (browser) ->|  Next.js frontend  |         |  Admin portal     |<- Admin / Instructor
-                     |  (Vercel)          |         |  (Next.js, /admin)|
+                     |  (Vercel)          |         |  (Next.js, admin.)|
                      +---------+----------+         +---------+---------+
                                |   HTTPS REST + SSE (/api/v1)  |
                                +---------------+---------------+
@@ -199,7 +199,7 @@ AI Mentor is a new, standalone web platform with a separate admin portal. It is 
 
 ### 2.4 Operating environment
 
-- Frontend: Next.js 15 App Router, TypeScript, Tailwind CSS, shadcn/ui, deployed on Vercel.
+- Frontend: two Next.js 15 App Router applications with one stack (TypeScript, Tailwind CSS, shadcn/ui-pattern primitives, TanStack Query), each deployed as its own Vercel project: the learner studio (`frontend/`) and the admin portal (`admin/`, served at `admin.<domain>`). See ADR 0012.
 - API: FastAPI on Python 3.12, Pydantic v2, deployed on Azure App Service (Linux containers).
 - Database: Azure Database for PostgreSQL Flexible Server (PostgreSQL 16), SQLAlchemy 2, Alembic.
 - Vectors: Qdrant (managed or self-hosted on Azure), HTTP/gRPC.
@@ -573,7 +573,7 @@ See section 15.4 for full rules (GAM-040..052).
 
 Knowledge-specific admin requirements are in section 14. General portal requirements:
 
-- **FR-ADM-001** `[M | MVP | T]` The admin portal shall be served under `/admin`, accessible only to Instructor and Admin roles; each page enforces its minimum role server-side.
+- **FR-ADM-001** `[M | MVP | T]` The admin portal shall be a separate web application served on its own subdomain (`admin.<domain>`), deployed independently of the learner studio, and accessible only to Instructor and Admin roles. The API enforces every page's minimum role server-side; the portal's own role gate only controls what is shown. The studio shall contain no admin data views; it may show staff a link to the portal.
 - **FR-ADM-002** `[M | MVP | T]` User management: search by email, handle, or id; view profile, tier, role, XP, last active; change role (Admin); suspend/reinstate (Admin); trigger data export or deletion on a verified request (Admin).
 - **FR-ADM-003** `[M | MVP | T]` Configuration: Admins can edit values in Appendix B (XP amounts, daily cap, tier limits, rate limits, retrieval thresholds) with validation ranges. Every change is audit-logged and takes effect within 60 seconds without redeploy.
 - **FR-ADM-004** `[M | MVP | T]` Moderation queue: tutor messages rated "incorrect" or "unsafe", guardrail-blocked messages, and grading disputes. Admins/Instructors can view the message with 3 turns of context, resolve, and link the issue to a content asset for correction.
@@ -679,7 +679,7 @@ All latency targets are measured server-side at the API boundary unless stated, 
 
 - **IF-UI-001** `[M | MVP | D]` Learner app screens: Landing, Sign in/up, Onboarding (multi-step), Dashboard, Tutor chat, Paths catalogue, Path detail, Lesson, Quiz, Quiz results, Coding lab, Flashcards review, Study plan, Daily challenge, Leaderboards, Analytics, Research documents, Document analysis, Career, Profile & settings (teaching controls, avatar, language, notifications, privacy, data export/deletion), Billing.
 - **IF-UI-002** `[M | MVP | D]` Admin portal screens: Overview, Users, Knowledge Repository (list, asset detail, upload, version history, diff), Review queue, Taxonomy editor, Knowledge graph editor (visual), Curriculum builder (drag-and-drop), AI content generation, Daily challenges, Moderation queue, Analytics, Configuration, Audit log.
-- **IF-UI-003** `[M | MVP | I]` The UI shall use the shadcn/ui component library and a single design-token set; dark and light themes.
+- **IF-UI-003** `[M | MVP | I]` The studio and the admin portal shall use one design system: Tailwind CSS with a single design-token set, shadcn/ui-pattern primitives, and dark and light themes. No second component library or CSS-in-JS system is used in either application (ADR 0012).
 - **IF-UI-004** `[M | MVP | T]` A persistent language switcher shall be available in the header of every screen (I18N-003).
 
 ### 8.2 API (IF-API)

@@ -28,7 +28,7 @@ services:
       DEV_AUTH: "true"
       DATABASE_URL: postgresql+psycopg://mentor:mentor@postgres:5432/mentor
       QDRANT_URL: http://qdrant:6333
-      CORS_ORIGINS: http://localhost:3000
+      CORS_ORIGINS: http://localhost:3000,http://localhost:3001
     ports:
       - "8000:8000"
     depends_on:
