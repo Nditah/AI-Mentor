@@ -46,16 +46,42 @@ class TutorAgent:
     def __init__(self, provider: ProviderRouter) -> None:
         self.provider = provider
 
-    def reply(self, plan: TurnPlan, history: list[tuple[str, str]], message: str) -> str:
+    def reply(
+        self,
+        plan: TurnPlan,
+        history: list[tuple[str, str]],
+        message: str,
+        profile_note: str = "",
+    ) -> str:
+        return "".join(self.reply_stream(plan, history, message, profile_note))
+
+    def reply_stream(
+        self,
+        plan: TurnPlan,
+        history: list[tuple[str, str]],
+        message: str,
+        profile_note: str = "",
+    ):
+        """Yield the scripted opener for stages 0–1; otherwise stream the model."""
+
         if plan.mode == "socratic" and plan.stage < 2:
-            return plan.fallback_text
+            yield plan.fallback_text
+            return
         prompt_name = "socratic" if plan.mode == "socratic" else "tutor"
         system = load_prompt("security", prompt_name) + f"\n\nStage note:\n{plan.system_note}"
+        if profile_note:
+            system += f"\n\n{profile_note}"
         concept = get_concept(plan.concept_slug) if plan.concept_slug else None
         if concept is not None:
             system += f"\n\nCurriculum account:\n{concept.explanation}"
         messages = [*history, ("user", fence_untrusted("learner", message))]
-        return self.provider.complete(system=system, messages=messages) or plan.fallback_text
+        yielded = False
+        for piece in self.provider.stream(system=system, messages=messages):
+            if piece:
+                yielded = True
+                yield piece
+        if not yielded:
+            yield plan.fallback_text
 
 
 class ResearchAgent:

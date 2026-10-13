@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { MentorMark, ProgressRing, StreakFlame } from "@/components/engagement";
 import { api, ApiError } from "@/lib/api";
 import type { Dashboard } from "@/lib/types";
 import { useStudio } from "@/stores/studio";
@@ -34,21 +35,55 @@ export default function DashboardPage() {
   const width = Math.round((data.xp_into_level / data.xp_per_level) * 100);
   return (
     <div className="space-y-6">
-      <header>
-        <h1 className="font-display text-4xl tracking-tight">Hello, {data.display_name}</h1>
-        <p className="mt-1 text-slate-600 dark:text-slate-300">
-          {data.lessons_completed} lessons completed · {data.quizzes_taken} quizzes · mastery {data.mastery}
-        </p>
-      </header>
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900" aria-label="Experience">
-        <div className="flex justify-between text-sm font-semibold">
-          <span>Level {data.level}</span>
-          <span>
-            {data.xp_into_level} / {data.xp_per_level} XP
-          </span>
+      <header className="flex flex-wrap items-center gap-4">
+        <MentorMark stage={data.mentor.id} />
+        <div>
+          <h1 className="font-display text-4xl tracking-tight">Hello, {data.display_name}</h1>
+          <p className="mt-1 text-slate-600 dark:text-slate-300">
+            {data.title ? `${data.title} · ` : ""}
+            {data.mentor.name} · {data.lessons_completed} lessons · mastery {data.mastery}
+          </p>
+          <p className="mt-1 text-sm font-semibold text-[#1d4ed8]">{data.cue}</p>
         </div>
-        <div className="mt-2 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800" role="meter" aria-valuenow={data.xp_into_level} aria-valuemin={0} aria-valuemax={data.xp_per_level} aria-label="Experience toward the next level">
-          <div className="h-full rounded-full bg-[#10B981]" style={{ width: `${width}%` }} />
+      </header>
+      {data.personalisation ? (
+        <p className="rounded-3xl border border-slate-200 bg-white px-5 py-3 text-sm dark:border-slate-700 dark:bg-slate-900">
+          {data.personalisation.academy_title
+            ? `Goal: ${data.personalisation.academy_title}. `
+            : ""}
+          Taught as {data.personalisation.learning_style.replaceAll("_", "-")}
+          {data.personalisation.maths_comfort ? `, ${data.personalisation.maths_comfort} maths` : ""}
+          {data.personalisation.weekly_minutes
+            ? `, about ${data.personalisation.weekly_minutes} minutes a week`
+            : ""}
+          .{" "}
+          <Link className="font-semibold text-[#1d4ed8] underline" href="/settings">
+            Personalise
+          </Link>
+        </p>
+      ) : null}
+      <section className="grid gap-4 md:grid-cols-[1.4fr_0.8fr]">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900" aria-label="Experience">
+          <div className="flex justify-between text-sm font-semibold">
+            <span>Level {data.level}</span>
+            <span className="xp-pop">
+              {data.xp_into_level} / {data.xp_per_level} XP
+              {data.streak_bonus_percent ? ` · +${data.streak_bonus_percent}% streak` : ""}
+            </span>
+          </div>
+          <div className="mt-2 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800" role="meter" aria-valuenow={data.xp_into_level} aria-valuemin={0} aria-valuemax={data.xp_per_level} aria-label="Experience toward the next level">
+            <div className="h-full rounded-full bg-[#10B981]" style={{ width: `${width}%` }} />
+          </div>
+          <StreakFlame days={data.streak_days} freezes={data.streak_freezes} />
+          <p className="mt-1 text-xs text-slate-500">Best streak {data.longest_streak} days. A freeze covers one missed day.</p>
+        </div>
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+          <ProgressRing percent={data.mastery} label="Mean mastery" />
+          <p className="mt-2 text-sm">
+            <Link className="font-semibold underline" href="/daily">Today’s challenge</Link>
+            {" · "}
+            <Link className="font-semibold underline" href="/collection">{data.collection_count} skill cards</Link>
+          </p>
         </div>
       </section>
       {carryOn.data?.continue ? (
@@ -97,6 +132,16 @@ export default function DashboardPage() {
           </ul>
         </article>
       </section>
+      {data.milestones?.length ? (
+        <section>
+          <h2 className="text-xl font-semibold">Recent milestones</h2>
+          <ul className="mt-3 space-y-1 text-sm">
+            {data.milestones.map((item) => (
+              <li key={`${item.kind}-${item.at}`}>{item.title}</li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       <section aria-label="Badges">
         <h2 className="text-xl font-semibold">Badges</h2>
         <ul className="mt-3 flex flex-wrap gap-2">
@@ -110,6 +155,7 @@ export default function DashboardPage() {
               }
             >
               {badge.name}
+              {badge.tier ? <span className="ml-1 text-xs font-normal">· {badge.tier}</span> : null}
               <span className="sr-only">{badge.earned ? ", earned" : ", not earned"}</span>
             </li>
           ))}

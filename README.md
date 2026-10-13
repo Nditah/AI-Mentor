@@ -41,16 +41,21 @@ The original product brief is in [Requirements.md](docs/Requirements.md). The kn
 - [Runbook](docs/Runbook.md)
 - [Roadmap](docs/Roadmap.md)
 - [Pricing and commercialisation](docs/Pricing-Commercialisation.md)
+- [Learning experience](docs/Learning-Experience.md)
 
 ## Features
 
 | Surface | What it does |
 | --- | --- |
 | Public website | Apex marketing site (`apps/www`, `:3005`): three funnels, live catalog proof bar, demo leads |
-| Dashboard | Mastery bands, path progress, recommendations, XP, streaks, and badges |
+| Dashboard | Mastery bands, path progress, recommendations, XP, streaks, freezes, mentor stage, cues, and badges |
+| World | Academies as a learning map with remaining-work copy and a skill tree |
+| Today | One authored daily challenge (25 XP, once per local day) |
+| Collection | Skill cards minted at mastery 60 / 75 / 90 |
+| Ranks | Global and country standings with own rank |
 | Tutor | Socratic or direct chat. Opening turns stay on the catalog script |
 | Quiz | Authored items, graded on the server. The answer key is not in the quiz payload |
-| Paths | Lesson markdown, prerequisites, and completion |
+| Learn | Academies, learning paths, courses, modules, and page-by-page lessons. See [Learning experience](docs/Learning-Experience.md) |
 | Concept map | Prerequisite graph, with a text list beside the diagram |
 | Flashcards | SM-2 reviews: Again, Hard, Good, Easy |
 | Coding lab | Allowlisted Python, a GridWorld harness, then a written review. Off in production until the isolated runner exists |
@@ -64,7 +69,7 @@ The original product brief is in [Requirements.md](docs/Requirements.md). The kn
 | Content Studio | Library, Resource Catalog import, review, curriculum, taxonomy, graph, generate, challenges (`:3004`) |
 | Billing | Stripe Checkout. Returns 503 until price and secret keys are set. Subscription state changes only from signed webhooks |
 
-XP follows SRS GAM-002. Each lesson, quiz, project, review, and analysis pays once, with per-day limits, a daily cap of 400 on the learner's local day, and a level of `1 + xp // 250`. Chat updates the streak and does not grant XP.
+XP follows SRS GAM-002. Each lesson, quiz, project, review, analysis, and daily challenge pays once, with per-day limits, a daily cap of 400 on the learner's local day, and a level of `1 + xp // 250`. Chat updates the streak and does not grant XP. A freeze covers one missed day. Engagement rules are in [docs/platform/17-engagement-specification.md](docs/platform/17-engagement-specification.md).
 
 ## Architecture
 
@@ -197,7 +202,7 @@ Copy each app's `.env.example` to `.env.local` under `apps/learner`, `apps/admin
 | Variable | Local value | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_API_URL` | `http://localhost:8000` | API origin |
-| `NEXT_PUBLIC_DEV_AUTH` | `true` | Shows the Demo student, instructor, and admin switcher. A production build fails if it is set |
+| `NEXT_PUBLIC_DEV_AUTH` | `true` | Shows the Demo student, instructor, and admin switcher. Hosted builds (production, preview, staging) fail if it is set |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | empty locally | Turns on Clerk sign-in and route protection. A production build fails without it |
 | `CLERK_SECRET_KEY` | empty locally | Server-side Clerk key for the middleware |
 | `NEXT_PUBLIC_CLERK_SIGN_IN_URL` | `/sign-in` | |
@@ -243,7 +248,7 @@ Local sessions default to Demo admin in Admin and Studio, and Demo instructor in
 
 With PostgreSQL, `make migrate` applies the Alembic migrations and seeds the catalog and demo accounts. With SQLite, development startup creates the tables and seeds instead. Learner progress is kept across restarts.
 
-The session switcher is visible when `NEXT_PUBLIC_DEV_AUTH=true`. The API accepts `X-Dev-User-Id` in development and refuses it in production. A new dev user is always a student. The header cannot grant a role.
+The session switcher is visible when `NEXT_PUBLIC_DEV_AUTH=true` and Clerk is not configured. The API accepts `X-Dev-User-Id` in development and refuses it in production. A new dev user is always a student. The header cannot grant a role. Hosted frontend builds refuse the switcher flag and require a Clerk publishable key.
 
 The whole backend together:
 

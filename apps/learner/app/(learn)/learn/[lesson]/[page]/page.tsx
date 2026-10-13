@@ -12,10 +12,19 @@ type Crumb = { label: string; href: string | null };
 type Question = { id: string; kind: string; prompt: string; options: string[] };
 type Check = { id: string; title: string; pass_score: number; passed: boolean; questions: Question[] };
 type Result = { question_id: string; correct: boolean; explanation: string };
+type CatalogItem = {
+  asset_id: string;
+  title: string;
+  url: string;
+  kind: string;
+  tags: string[];
+  topic: string;
+  skills: string[];
+};
 type Payload = {
   breadcrumbs: Crumb[];
   objectives: string[];
-  resources: { heading: string; items: { title: string; url: string; kind: string }[] }[];
+  resources: { heading: string; items: CatalogItem[] }[];
   outline: {
     module: string | null;
     lessons: { slug: string; title: string; current: boolean; progress: number }[];
@@ -33,6 +42,7 @@ type Payload = {
     bookmarked: boolean;
     note: string;
     check: Check | null;
+    asset: CatalogItem | null;
   };
   progress: { lesson: number; module: number; course: number; path: number };
   previous: { lesson: string; page: string } | null;
@@ -169,6 +179,21 @@ export default function TopicPage({ params }: { params: Promise<{ lesson: string
         <div className="mt-4 max-w-[68ch]">
           <MentorMarkdown content={current.body_md} />
         </div>
+        {current.asset ? (
+          <section className="mt-6 max-w-[68ch] rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{current.asset.kind.replaceAll("_", " ")}</p>
+            {current.asset.url ? (
+              <a className="mt-1 block text-lg font-semibold underline" href={current.asset.url}>
+                {current.asset.title}
+              </a>
+            ) : (
+              <p className="mt-1 text-lg font-semibold">{current.asset.title}</p>
+            )}
+            {current.asset.skills.length ? (
+              <p className="mt-2 text-sm">Skills: {current.asset.skills.join(", ")}</p>
+            ) : null}
+          </section>
+        ) : null}
         {current.check ? (
           <form
             className="mt-6 space-y-4"
@@ -252,8 +277,9 @@ export default function TopicPage({ params }: { params: Promise<{ lesson: string
             <h2 className="font-semibold">{group.heading}</h2>
             <ul className="mt-2 space-y-1 text-sm">
               {group.items.map((item) => (
-                <li key={item.url}>
-                  <a className="underline" href={item.url}>{item.title}</a>
+                <li key={item.asset_id}>
+                  {item.url ? <a className="underline" href={item.url}>{item.title}</a> : item.title}
+                  <span className="text-slate-500"> · {item.kind.replaceAll("_", " ")}</span>
                 </li>
               ))}
             </ul>

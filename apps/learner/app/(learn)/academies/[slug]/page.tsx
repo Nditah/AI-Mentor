@@ -14,13 +14,29 @@ type PathCard = {
   progress: number;
   locked: boolean;
 };
+type TreeNode = {
+  slug: string;
+  name: string;
+  unlocked: boolean;
+  mastery: number;
+  prerequisites: string[];
+};
 
 export default function AcademyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const devUserId = useStudio((state) => state.devUserId);
   const query = useQuery({
     queryKey: ["academy", slug, devUserId],
-    queryFn: () => api<{ title: string; summary: string; progress: number; paths: PathCard[] }>(`/api/v1/learn/academies/${slug}`),
+    queryFn: () =>
+      api<{
+        title: string;
+        summary: string;
+        faculty?: { slug: string; title: string };
+        progress: number;
+        cue?: string;
+        paths: PathCard[];
+        tree?: TreeNode[];
+      }>(`/api/v1/learn/academies/${slug}`),
   });
   if (query.isLoading) return <p>Loading the academy…</p>;
   if (!query.data) return <p>That academy was not found.</p>;
@@ -28,11 +44,29 @@ export default function AcademyPage({ params }: { params: Promise<{ slug: string
   return (
     <div>
       <p className="text-sm">
-        <Link className="underline" href="/academies">Academies</Link>
+        <Link className="underline" href="/academies">World</Link>
+        {academy.faculty ? ` · ${academy.faculty.title}` : ""}
       </p>
       <h1 className="mt-2 font-display text-4xl tracking-tight">{academy.title}</h1>
       <p className="mt-2 max-w-2xl text-slate-700 dark:text-slate-300">{academy.summary}</p>
       <p className="mt-2 text-sm font-semibold">{academy.progress}% of this academy</p>
+      {academy.cue ? <p className="mt-1 text-sm">{academy.cue}</p> : null}
+      {academy.tree?.length ? (
+        <section className="mt-6">
+          <h2 className="text-xl font-semibold">Skill tree</h2>
+          <ol className="mt-3 space-y-2">
+            {academy.tree.map((node) => (
+              <li key={node.slug} className={node.unlocked ? "font-semibold" : "text-slate-500"}>
+                {node.name}
+                <span className="ml-2 text-sm font-normal text-slate-600 dark:text-slate-300">
+                  {node.unlocked ? `${node.mastery} mastery` : "locked"}
+                  {node.prerequisites.length ? ` · needs ${node.prerequisites.join(", ")}` : ""}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
       <ol className="mt-6 space-y-4">
         {academy.paths.map((path, index) => (
           <li key={path.slug} className="rounded-3xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">

@@ -58,6 +58,7 @@ Read in this order. Numbers are stable; do not renumber.
 | 16 | Roadmap | [15-roadmap.md](15-roadmap.md) |
 | 17 | Architecture decision records | [ADR 0013 to 0027](../adr/README.md) |
 | 18 | Public website specification | [16-public-website-specification.md](16-public-website-specification.md) |
+| 19 | Ethical engagement specification | [17-engagement-specification.md](17-engagement-specification.md) |
 
 Every document in this folder opens with a **Change record** table with four rows: what changed, why, impacted systems, and implementation implications. That is how each update explains itself.
 
@@ -521,3 +522,6 @@ These settle conflicts between this vocabulary, the v1 DDL in `backend/db/schema
 | Release (content) | Immutable published version of a course or path |
 | Release (product) | One of R1–R5 above |
 | Tenant context | The single organisation a request acts within |
+| Skill card | A collectible minted when concept mastery reaches 60 (bronze), 75 (silver), or 90 (gold). Never a random drop |
+| Streak freeze | A grace token that covers one missed calendar day. Earned at 7 and 30 days, maximum 2, never purchasable |
+| Near-win copy | Honest remaining-work language ("Only 2 lessons remaining"), not fake scarcity |

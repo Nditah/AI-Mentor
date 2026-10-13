@@ -15,8 +15,10 @@ from app.domain.chunking import chunk_text
 from app.domain.gamification import DAILY_XP_CAP, XP_PER_LEVEL, XP_RULES
 from app.domain.publishing import transition_issue, validate_asset
 from app.models import Concept, KnowledgeAsset, User
+from app.prompts import load_prompt
 from app.repositories.sql import SqlRepository
 from app.services.errors import ClientError
+from app.services.llm import ProviderRouter
 from app.services.retrieval import IndexUnavailable, index_asset, unindex_asset
 
 _SLUG = re.compile(r"[^a-z0-9]+")
@@ -139,18 +141,23 @@ class AdminPortal:
                 row.difficulty,
                 row.slug,
             )
-        body = (
+        account = f"# {name}\n\n{summary}"
+        drafted = ProviderRouter(self.settings).complete(
+            system=load_prompt("security", "generate"),
+            messages=[("user", f"Curriculum account:\n{account}")],
+            max_tokens=900,
+        )
+        body = (drafted or "").strip() or (
             f"# {name}\n\n{summary}\n\n"
             "Review this draft before it enters the queue. "
-            "It is the catalog scaffold, not a model-written lesson."
+            "No model was configured, so this is the catalog scaffold."
         )
+        source = "model" if drafted else "catalog scaffold"
         return self.create_asset(
             user,
             {
                 "title": name,
-                "description": (
-                    f"Draft notes for {name}, taken from the catalog scaffold for review."
-                ),
+                "description": f"Draft notes for {name}, written from the {source} for review.",
                 "topic": topic,
                 "difficulty": difficulty,
                 "kind": "notes",

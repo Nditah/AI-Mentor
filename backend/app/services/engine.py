@@ -9,6 +9,7 @@ import uuid
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
+from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -16,23 +17,34 @@ from app.agents import CareerAgent, CodingAgent, PlannerAgent, QuizAgent, Resear
 from app.agents.orchestrator import dispatch
 from app.core.config import Settings
 from app.domain.career import match_roles
-from app.domain.catalog import QUESTIONS, get_concept
+from app.domain.catalog import CONCEPTS, QUESTIONS, get_concept
 from app.domain.chunking import chunk_text
 from app.domain.code_review import review_notes
 from app.domain.gamification import (
+    TITLES,
     BadgeContext,
+    advance_streak,
+    card_tier,
+    earned_freezes,
     evaluate_badges,
+    evaluate_titles,
     grant_for,
     learner_day,
     level_progress,
-    next_streak,
+    mentor_stage,
+    near_win,
     quiz_xp,
     requested_xp,
+    streak_bonus_percent,
+    streak_bonus_xp,
+    welcome_back,
 )
 from app.domain.grading import grade_coding, grade_mcq, grade_research, grade_short
 from app.domain.graph import mermaid, recommend
 from app.domain.grounding import extract_equations
+from app.domain.learn.grading import grade_item
 from app.domain.mastery import Evidence, band, score_evidence
+from app.domain.personalisation import preferred_domains, tutor_brief
 from app.domain.planner import build_study_plan
 from app.domain.prompt_guard import screen_user_input
 from app.domain.scheduling import ScheduleState, SM2Scheduler
@@ -42,7 +54,9 @@ from app.models import (
     Conversation,
     DocumentChunk,
     Flashcard,
+    LearningPreference,
     Question,
+    QuestionBankItem,
     Quiz,
     QuizResult,
     ResearchDocument,
@@ -83,7 +97,9 @@ class MentorEngine:
         self.planner_agent = PlannerAgent(provider)
         self.career_agent = CareerAgent(provider)
 
-    def chat(self, user: User, message: str, conversation_id: uuid.UUID | None, mode: str) -> dict:
+    def _prepare_chat(
+        self, user: User, message: str, conversation_id: uuid.UUID | None, mode: str
+    ):
         screened = self._screen(message)
         if conversation_id is None:
             conversation = Conversation(user_id=user.id, title=screened[:80], mode=mode)
@@ -97,12 +113,20 @@ class MentorEngine:
         history = [HistoryTurn(item.role, item.content) for item in prior]
         sticky = next((item.concept_slug for item in reversed(prior) if item.concept_slug), None)
         plan = build_turn(screened, history, mode, sticky)
-        reply = self.tutor.reply(plan, [(item.role, item.content) for item in history], screened)
-        if mode == "direct":
-            cites = library_citations(self.settings, self.session, self.repo, screened)
-            if cites:
-                lines = "\n".join(f"- {item['citation']} {item['title']}" for item in cites)
-                reply = f"{reply}\n\nFurther reading from the library\n{lines}"
+        return conversation, screened, history, plan
+
+    def _tutor_profile_note(self, user: User) -> str:
+        prefs = self.session.get(LearningPreference, user.id)
+        return tutor_brief(
+            learning_style=None if prefs is None else prefs.learning_style,
+            maths_comfort=None if prefs is None else prefs.maths_comfort,
+            programming_experience=None if prefs is None else prefs.programming_experience,
+            career_goal=None if prefs is None else prefs.career_goal,
+            weekly_minutes=None if prefs is None else prefs.weekly_minutes,
+            display_name=user.display_name,
+        )
+
+    def _finish_chat(self, user: User, conversation: Conversation, screened: str, plan, reply: str):
         now = datetime.now(UTC)
         self.repo.add_message(conversation, "user", screened, plan.concept_slug, now)
         saved = self.repo.add_message(
@@ -115,6 +139,68 @@ class MentorEngine:
             "stage": plan.stage,
             "concept_slug": plan.concept_slug,
             "reply": {"id": saved.id, "role": "assistant", "content": saved.content},
+        }
+
+    def chat(self, user: User, message: str, conversation_id: uuid.UUID | None, mode: str) -> dict:
+        conversation, screened, history, plan = self._prepare_chat(
+            user, message, conversation_id, mode
+        )
+        reply = self.tutor.reply(
+            plan,
+            [(item.role, item.content) for item in history],
+            screened,
+            self._tutor_profile_note(user),
+        )
+        if mode == "direct":
+            cites = library_citations(self.settings, self.session, self.repo, screened)
+            if cites:
+                lines = "\n".join(f"- {item['citation']} {item['title']}" for item in cites)
+                reply = f"{reply}\n\nFurther reading from the library\n{lines}"
+        return self._finish_chat(user, conversation, screened, plan, reply)
+
+    def chat_stream(self, user: User, message: str, conversation_id: uuid.UUID | None, mode: str):
+        """Yield SSE payloads. Policy owns stages 0–1; the model streams after that."""
+
+        conversation, screened, history, plan = self._prepare_chat(
+            user, message, conversation_id, mode
+        )
+        scripted = plan.mode == "socratic" and plan.stage < 2
+        yield {
+            "type": "meta",
+            "conversation_id": str(conversation.id),
+            "mode": plan.mode,
+            "stage": plan.stage,
+            "concept_slug": plan.concept_slug,
+            "scripted": scripted,
+        }
+        parts: list[str] = []
+        for piece in self.tutor.reply_stream(
+            plan,
+            [(item.role, item.content) for item in history],
+            screened,
+            self._tutor_profile_note(user),
+        ):
+            parts.append(piece)
+            yield {"type": "delta", "text": piece}
+        if mode == "direct":
+            cites = library_citations(self.settings, self.session, self.repo, screened)
+            if cites:
+                lines = "\n".join(f"- {item['citation']} {item['title']}" for item in cites)
+                extra = f"\n\nFurther reading from the library\n{lines}"
+                parts.append(extra)
+                yield {"type": "delta", "text": extra}
+        payload = self._finish_chat(user, conversation, screened, plan, "".join(parts))
+        yield {
+            "type": "done",
+            "conversation_id": str(payload["conversation_id"]),
+            "mode": payload["mode"],
+            "stage": payload["stage"],
+            "concept_slug": payload["concept_slug"],
+            "reply": {
+                "id": str(payload["reply"]["id"]),
+                "role": payload["reply"]["role"],
+                "content": payload["reply"]["content"],
+            },
         }
 
     def orchestrate(self, user: User, message: str) -> dict:
@@ -252,7 +338,14 @@ class MentorEngine:
     def create_plan(self, user: User, goal: str) -> dict:
         screened = self._screen(goal, max_length=2000)
         today = learner_day(datetime.now(UTC), user.timezone)
-        items = build_study_plan(screened, self.repo.mastery_map(user.id), today)
+        prefs = self.session.get(LearningPreference, user.id)
+        items = build_study_plan(
+            screened,
+            self.repo.mastery_map(user.id),
+            today,
+            weekly_minutes=None if prefs is None else prefs.weekly_minutes,
+            career_goal=None if prefs is None else prefs.career_goal,
+        )
         plan = StudyPlan(user_id=user.id, title=screened[:80], goal=screened)
         self.session.add(plan)
         self.session.flush()
@@ -554,10 +647,31 @@ class MentorEngine:
                 "name": achievement.name,
                 "description": achievement.description,
                 "earned": achievement.id in earned,
+                "category": achievement.category,
+                "tier": achievement.tier,
+                "rarity": achievement.rarity,
+                "icon": achievement.icon,
             }
             for achievement in self.repo.achievements()
         ]
         scores = list(mastery.values())
+        remaining = None
+        next_unlock = None
+        for path in paths:
+            left = path["total"] - path["completed"]
+            if left > 0:
+                remaining = left
+                next_unlock = path["title"]
+                break
+        cue = near_win(
+            remaining_lessons=remaining,
+            next_unlock=next_unlock,
+            percent=None
+            if not paths or not paths[0]["total"]
+            else round(100 * paths[0]["completed"] / paths[0]["total"]),
+        )
+        title = next((item.name for item in TITLES if item.slug == user.equipped_title), None)
+        prefs = self.session.get(LearningPreference, user.id)
         return {
             "display_name": user.display_name,
             "role": user.role,
@@ -566,6 +680,12 @@ class MentorEngine:
             "xp_into_level": into,
             "xp_per_level": per,
             "streak_days": user.streak_days,
+            "longest_streak": user.longest_streak,
+            "streak_freezes": user.streak_freezes,
+            "streak_bonus_percent": streak_bonus_percent(user.streak_days),
+            "title": title,
+            "mentor": mentor_stage(level),
+            "cue": cue,
             "subscription_status": user.subscription_status,
             "mastery": int(round(sum(scores) / len(scores))) if scores else 0,
             "strengths": grouped["strength"],
@@ -573,12 +693,25 @@ class MentorEngine:
             "weaknesses": grouped["gap"],
             "recommendations": [
                 {"slug": item.slug, "name": item.name, "reason": item.reason}
-                for item in recommend(mastery, limit=4)
+                for item in recommend(
+                    mastery,
+                    limit=4,
+                    prefer_domains=preferred_domains(
+                        None if prefs is None else prefs.career_goal
+                    ),
+                )
             ],
+            "personalisation": self._personalisation(user, prefs),
             "paths": paths,
             "badges": badges,
             "lessons_completed": self.repo.lesson_completion_count(user.id),
             "quizzes_taken": self._user_quiz_count(user),
+            "collection_count": sum(1 for score in scores if card_tier(score)),
+            "milestones": [
+                {"kind": row.kind, "title": row.title, "at": row.created_at.isoformat()}
+                for row in self.repo.recent_milestones(user.id)
+            ],
+            "onboarded": user.onboarded_at is not None,
         }
 
     def progress(self, user: User) -> dict:
@@ -594,14 +727,28 @@ class MentorEngine:
                     "band": band(score),
                 }
             )
+        cards = [
+            {
+                "slug": item["slug"],
+                "name": item["name"],
+                "score": item["score"],
+                "tier": card_tier(item["score"]),
+            }
+            for item in concepts
+            if card_tier(item["score"])
+        ]
         return {
             "xp": user.xp,
             "level": level,
             "xp_into_level": into,
             "xp_per_level": per,
             "streak_days": user.streak_days,
+            "longest_streak": user.longest_streak,
+            "streak_freezes": user.streak_freezes,
             "lessons_completed": self.repo.lesson_completion_count(user.id),
             "concepts": concepts,
+            "cards": cards,
+            "mentor": mentor_stage(level),
         }
 
     def paths(self) -> list[dict]:
@@ -666,15 +813,45 @@ class MentorEngine:
     def leaderboard(self) -> list[dict]:
         """Pseudonymous: a chosen handle or a stable alias, never a name or email (SRS §5.1)."""
 
+        return self._board_entries(self.repo.leaderboard())
+
+    def scoped_leaderboard(self, user: User, scope: str, limit: int = 10) -> dict:
+        country = None
+        if scope == "country":
+            if not user.country_code:
+                raise ClientError("Set a country on your profile to see that board.", 409)
+            country = user.country_code
+        elif scope != "global":
+            raise ClientError(
+                "Use global or country. Institution and friends boards ship with classrooms.",
+                422,
+            )
+        entries = self._board_entries(self.repo.leaderboard_students(country=country, limit=limit))
+        rank = self.repo.student_rank(user, country=country)
+        return {
+            "scope": scope,
+            "country": country,
+            "entries": entries,
+            "me": None
+            if rank is None
+            else {"rank": rank, "xp": user.xp, "level": user.level},
+        }
+
+    def _board_entries(self, users: list) -> list[dict]:
+        counts = self.repo.badge_counts([row.id for row in users])
         return [
             {
                 "rank": rank,
-                "display_name": user.handle or pseudonym(user.id),
-                "xp": user.xp,
-                "level": user.level,
-                "streak_days": user.streak_days,
+                "display_name": row.handle or pseudonym(row.id),
+                "xp": row.xp,
+                "level": row.level,
+                "streak_days": row.streak_days,
+                "title": next(
+                    (item.name for item in TITLES if item.slug == row.equipped_title), None
+                ),
+                "badges": counts.get(row.id, 0),
             }
-            for rank, user in enumerate(self.repo.leaderboard(), start=1)
+            for rank, row in enumerate(users, start=1)
         ]
 
     def profile(self, user: User) -> dict:
@@ -689,16 +866,45 @@ class MentorEngine:
             "country_code": user.country_code,
             "leaderboard_opt_out": user.leaderboard_opt_out,
             "subscription_status": user.subscription_status,
+            "equipped_title": user.equipped_title,
+            "onboarded": user.onboarded_at is not None,
+        }
+
+    def _personalisation(self, user: User, prefs: LearningPreference | None) -> dict:
+        from app.models import Academy
+
+        academy = None
+        if prefs and prefs.career_goal:
+            academy = self.session.scalar(select(Academy).where(Academy.slug == prefs.career_goal))
+        return {
+            "academy_slug": None if academy is None else academy.slug,
+            "academy_title": None if academy is None else academy.title,
+            "learning_style": "balanced" if prefs is None else prefs.learning_style,
+            "maths_comfort": None if prefs is None else prefs.maths_comfort,
+            "programming_experience": None if prefs is None else prefs.programming_experience,
+            "weekly_minutes": None if prefs is None else prefs.weekly_minutes,
+            "cost_preference": "any" if prefs is None else prefs.cost_preference,
+            "tutor_mode": "socratic" if prefs is None else prefs.tutor_mode,
         }
 
     def update_profile(self, user: User, changes: dict) -> dict:
         from app.domain.gamification import valid_timezone
 
+        if "display_name" in changes:
+            name = str(changes["display_name"] or "").strip()
+            if len(name) < 2:
+                raise ClientError("Display name must be at least two characters.", 422)
+            changes["display_name"] = name
         if "timezone" in changes and not valid_timezone(changes["timezone"]):
             raise ClientError("Use an IANA time zone such as Africa/Lagos.", 422)
         handle = changes.get("handle")
         if handle and self.repo.handle_taken(handle, user.id):
             raise ClientError("That handle is taken.", 409)
+        title = changes.get("equipped_title")
+        if title:
+            allowed = self.repo.title_slugs(user.id)
+            if title not in allowed:
+                raise ClientError("Earn that title before you wear it.", 422)
         for key, value in changes.items():
             setattr(user, key, value)
         return self.profile(user)
@@ -784,8 +990,24 @@ class MentorEngine:
         """Record activity for the streak without awarding XP (GAM-004)."""
 
         today = learner_day(datetime.now(UTC), user.timezone)
-        user.streak_days = next_streak(user.streak_days, user.last_active_on, today)
+        previous = user.streak_days
+        streak, freezes, used = advance_streak(
+            previous, user.last_active_on, today, user.streak_freezes
+        )
+        reset = streak == 1 and previous > 1 and user.last_active_on not in {None, today}
+        user.streak_days = streak
+        user.streak_freezes = earned_freezes(previous, streak, freezes)
+        user.longest_streak = max(user.longest_streak, streak, previous)
         user.last_active_on = today
+        if used:
+            self.repo.add_milestone(user.id, "streak", f"freeze-{today}", "Streak freeze used")
+        if streak in (7, 30, 100, 365) and previous < streak:
+            self.repo.add_milestone(
+                user.id, "streak", f"day-{streak}", f"{streak}-day learning streak"
+            )
+        note = welcome_back(user.longest_streak, reset)
+        if note:
+            self.repo.add_milestone(user.id, "streak", f"return-{today}", note[:200])
         return today
 
     def grant(
@@ -797,6 +1019,8 @@ class MentorEngine:
         if self.repo.xp_event_exists(user.id, source_type, source_id):
             return 0
         requested = requested_xp(source_type, computed)
+        if source_type == "lesson":
+            requested += streak_bonus_xp(requested, user.streak_days)
         granted = grant_for(
             source_type,
             requested,
@@ -814,8 +1038,13 @@ class MentorEngine:
         if not recorded:
             return 0
         if granted:
+            previous_level = user.level
             user.xp += granted
             user.level = level_progress(user.xp)[0]
+            if user.level > previous_level:
+                self.repo.add_milestone(
+                    user.id, "level", str(user.level), f"Reached level {user.level}"
+                )
         self._sync_badges(user)
         return granted
 
@@ -828,12 +1057,131 @@ class MentorEngine:
                 max_mastery=self.repo.max_mastery(user.id),
                 analyses=self.repo.analysis_count(user.id),
                 code_passes=self.repo.code_pass_count(user.id),
+                level=user.level,
+                path_slugs=self.repo.earned_achievement_slugs(user.id),
             )
         )
         have = self.repo.earned_achievement_ids(user.id)
         for achievement in self.repo.achievements():
             if achievement.slug in earned and achievement.id not in have:
                 self.repo.grant_achievement(user.id, achievement.id)
+                self.repo.add_milestone(user.id, "badge", achievement.slug, achievement.name)
+        titles = evaluate_titles(level=user.level, badges=earned)
+        known = self.repo.title_slugs(user.id)
+        for slug in titles - known:
+            if self.repo.grant_title(user.id, slug):
+                name = next((item.name for item in TITLES if item.slug == slug), slug)
+                self.repo.add_milestone(user.id, "title", slug, name)
+                if user.equipped_title is None:
+                    user.equipped_title = slug
+
+    def collection(self, user: User) -> dict:
+        mastery = self.repo.mastery_map(user.id)
+        cards = []
+        for concept in CONCEPTS:
+            score = mastery.get(concept.slug, 0)
+            tier = card_tier(score)
+            if tier is None:
+                continue
+            cards.append(
+                {
+                    "slug": concept.slug,
+                    "name": concept.name,
+                    "description": concept.scaffold[:280],
+                    "mastery": score,
+                    "difficulty": concept.difficulty,
+                    "connections": list(concept.prerequisites),
+                    "tier": tier,
+                    "skill_value": score,
+                }
+            )
+        return {
+            "count": len(cards),
+            "cards": cards,
+            "note": "Cards are earned by demonstrated mastery, not by chance.",
+        }
+
+    def daily(self, user: User) -> dict:
+        today = learner_day(datetime.now(UTC), user.timezone)
+        done = self.repo.xp_event_exists(user.id, "daily", today.isoformat())
+        item = self._daily_item(user.id, today)
+        return {
+            "date": today.isoformat(),
+            "xp_reward": 25,
+            "completed": done,
+            "kind": "quiz",
+            "prompt": item["prompt"],
+            "options": item["options"],
+            "concept_slug": item["concept_slug"],
+            "question_id": item["id"],
+        }
+
+    def complete_daily(self, user: User, response: str | list[str]) -> dict:
+        today = learner_day(datetime.now(UTC), user.timezone)
+        item = self._daily_item(user.id, today)
+        done = self.repo.xp_event_exists(user.id, "daily", today.isoformat())
+        correct = self._grade_daily(item, response)
+        xp = 0
+        if correct and not done:
+            xp = self.grant(user, "daily", today.isoformat())
+            if xp:
+                self.repo.add_milestone(
+                    user.id, "daily", today.isoformat(), "Daily challenge completed"
+                )
+        return {"correct": correct, "xp": xp, "completed": done or correct}
+
+    def _daily_item(self, user_id: uuid.UUID, today: date) -> dict:
+        from sqlalchemy import select
+
+        rows = list(
+            self.session.scalars(
+                select(QuestionBankItem)
+                .where(QuestionBankItem.state == "published")
+                .order_by(QuestionBankItem.key)
+                .limit(400)
+            ).all()
+        )
+        if rows:
+            index = int(hashlib.sha256(f"{user_id}:{today}".encode()).hexdigest(), 16) % len(rows)
+            row = rows[index]
+            return {
+                "id": str(row.id),
+                "prompt": row.prompt,
+                "options": list(row.options or []),
+                "kind": row.kind,
+                "answer_key": dict(row.answer_key or {}),
+                "concept_slug": row.concept_slug,
+            }
+        questions = list(QUESTIONS)
+        if not questions:
+            concept = CONCEPTS[0]
+            return {
+                "id": f"concept-{concept.slug}",
+                "prompt": f"In one sentence, what is {concept.name}?",
+                "options": [],
+                "kind": "short",
+                "answer_key": {"contains": [concept.name.split()[0].lower()]},
+                "concept_slug": concept.slug,
+            }
+        index = int(hashlib.sha256(f"{user_id}:{today}".encode()).hexdigest(), 16) % len(questions)
+        question = questions[index]
+        return {
+            "id": f"catalog-{index}",
+            "prompt": question.prompt,
+            "options": list(question.options),
+            "kind": question.kind,
+            "answer_key": {"correct": question.answer, "contains": list(question.phrases)},
+            "concept_slug": question.concept,
+        }
+
+    def _grade_daily(self, item: dict, response: str | list[str]) -> bool:
+        key = dict(item.get("answer_key") or {})
+        if "correct" not in key and "answer" in key:
+            key["correct"] = key["answer"]
+        kind = item.get("kind") or "mcq"
+        if kind == "numeric":
+            kind = "fill"
+        return grade_item(kind, key, response)
 
     def _user_quiz_count(self, user: User) -> int:
         from sqlalchemy import func, select

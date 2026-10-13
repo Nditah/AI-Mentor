@@ -68,8 +68,13 @@ def expand_with_prerequisites(slugs: list[str]) -> list[str]:
     return topological(needed)
 
 
-def recommend(mastery: dict[str, int], limit: int = 4) -> list[Recommendation]:
-    results: list[Recommendation] = []
+def recommend(
+    mastery: dict[str, int],
+    limit: int = 4,
+    prefer_domains: tuple[str, ...] = (),
+) -> list[Recommendation]:
+    preferred: list[Recommendation] = []
+    others: list[Recommendation] = []
     for concept in CONCEPTS:
         score = mastery.get(concept.slug, 0)
         if score >= RECOMMEND_BELOW:
@@ -81,10 +86,12 @@ def recommend(mastery: dict[str, int], limit: int = 4) -> list[Recommendation]:
             reason = f"Prerequisites met: {names}."
         else:
             reason = "No prerequisites. A sound place to start."
-        results.append(Recommendation(concept.slug, concept.name, reason))
-        if len(results) >= limit:
-            break
-    return results
+        item = Recommendation(concept.slug, concept.name, reason)
+        if prefer_domains and concept.domain in prefer_domains:
+            preferred.append(item)
+        else:
+            others.append(item)
+    return (preferred + others)[:limit]
 
 
 def mermaid(domain: str | None = None) -> str:

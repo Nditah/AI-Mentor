@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import UTC, datetime
+
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -138,6 +140,9 @@ def seed_catalog(session: Session, *, demo_accounts: bool = False) -> None:
         row.description = achievement.description
         row.xp_reward = achievement.xp_reward
         row.icon = achievement.icon
+        row.category = achievement.category
+        row.tier = achievement.tier
+        row.rarity = achievement.rarity
 
     seed_guided(session)
 
@@ -157,8 +162,19 @@ def seed_catalog(session: Session, *, demo_accounts: bool = False) -> None:
         session.flush()
         return
     for clerk_id, email, name, role in _DEMOS:
-        if session.scalar(select(User).where(User.clerk_id == clerk_id)) is None:
-            session.add(User(clerk_id=clerk_id, email=email, display_name=name, role=role))
+        row = session.scalar(select(User).where(User.clerk_id == clerk_id))
+        if row is None:
+            session.add(
+                User(
+                    clerk_id=clerk_id,
+                    email=email,
+                    display_name=name,
+                    role=role,
+                    onboarded_at=datetime.now(UTC),
+                )
+            )
+        elif row.onboarded_at is None:
+            row.onboarded_at = datetime.now(UTC)
     session.flush()
 
 

@@ -15,13 +15,13 @@ This repository is the first running slice. This page lists the next engineering
 
 ## Next, in order
 
-1. Clerk middleware on the studio and removal of the dev switcher from public builds.
-2. A real OTLP exporter, and a shared rate limiter once more than one API replica runs.
-3. Replace the child-interpreter lab with the gVisor runner pool ([ADR 0028](adr/0028-sandbox-runner-pool.md), Firecracker fallback) before the lab is enabled in production.
-4. A job queue for ingestion. OCR of scanned PDFs only after that queue exists.
-5. FSRS, implemented against the published algorithm and tested beside SM-2, not a partial port.
-6. A content workflow for instructors: draft, review, publish. The catalog file remains the seed, not the long-term CMS.
-7. Streaming tutor replies after the policy layer still owns the first socratic turns.
+1. A real OTLP exporter, and a shared rate limiter once more than one API replica runs.
+2. Replace the child-interpreter lab with the gVisor runner pool ([ADR 0028](adr/0028-sandbox-runner-pool.md), Firecracker fallback) before the lab is enabled in production.
+3. A job queue for ingestion. OCR of scanned PDFs only after that queue exists.
+4. FSRS, implemented against the published algorithm and tested beside SM-2, not a partial port.
+5. Lesson, path, and item builders in Content Studio. The catalog file remains the seed, not the long-term CMS.
+
+Hosted builds refuse `NEXT_PUBLIC_DEV_AUTH` and require Clerk. Streaming tutor replies, onboarding, review-queue actions, CSV import, model-drafted library notes, and Learner Settings (profile plus teaching preferences that the tutor, catalog, and study plan actually use) are in this build.
 
 ## Explicitly later
 

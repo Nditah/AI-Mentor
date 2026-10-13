@@ -7,6 +7,7 @@ records, scores them, and writes learner preferences.
 from __future__ import annotations
 
 import uuid
+from datetime import UTC, datetime
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
@@ -24,7 +25,9 @@ from app.domain.knowledge.recommend import LearnerState, recommend_resources
 from app.domain.knowledge.search import SearchQuery, search
 from app.domain.knowledge.taxonomy import CAREER_ROLES, SKILLS, SOURCES, TAXONOMY
 from app.domain.knowledge.vocabulary import RESOURCE_TYPE_LABELS
+from app.domain.placement import grade_answers, public_items, recommend_academy
 from app.models import (
+    Academy,
     ChallengeSpec,
     Concept,
     ConceptMastery,
@@ -357,6 +360,7 @@ class CatalogService:
             preferred_types=tuple(prefs.preferred_types) if prefs else (),
             cost_preference="any" if prefs is None else prefs.cost_preference,
             languages=tuple(prefs.languages) if prefs and prefs.languages else ("en",),
+            weekly_minutes=None if prefs is None else prefs.weekly_minutes,
         )
         graph = self.load_graph()
         concepts = [
@@ -394,6 +398,9 @@ class CatalogService:
                 "languages": [user.locale],
                 "weekly_minutes": None,
                 "cost_preference": "any",
+                "maths_comfort": None,
+                "programming_experience": None,
+                "tutor_mode": "socratic",
             }
         return {
             "goals": list(row.goals or []),
@@ -403,6 +410,9 @@ class CatalogService:
             "languages": list(row.languages or []),
             "weekly_minutes": row.weekly_minutes,
             "cost_preference": row.cost_preference,
+            "maths_comfort": row.maths_comfort,
+            "programming_experience": row.programming_experience,
+            "tutor_mode": row.tutor_mode,
         }
 
     def update_preferences(self, user: User, fields: dict) -> dict:
@@ -418,11 +428,68 @@ class CatalogService:
             "languages",
             "weekly_minutes",
             "cost_preference",
+            "maths_comfort",
+            "programming_experience",
+            "tutor_mode",
         ):
             if key in fields:
                 setattr(row, key, fields[key])
         self.session.flush()
         return self.preferences(user)
+
+    def onboarding(self, user: User) -> dict:
+        academies = self.session.scalars(
+            select(Academy)
+            .where(Academy.published.is_(True))
+            .order_by(Academy.position, Academy.title)
+        ).all()
+        return {
+            "onboarded": user.onboarded_at is not None,
+            "academies": [
+                {"slug": row.slug, "title": row.title, "summary": row.summary} for row in academies
+            ],
+            "questions": public_items(),
+            "preferences": self.preferences(user),
+        }
+
+    def complete_onboarding(self, user: User, fields: dict) -> dict:
+        slug = str(fields.get("academy_slug") or "").strip()
+        academy = self.session.scalar(select(Academy).where(Academy.slug == slug))
+        if academy is None or not academy.published:
+            raise ClientError("Choose a published academy.", 422)
+        answers = list(fields.get("answers") or [])
+        results = grade_answers(answers)
+        recommended = recommend_academy(
+            goal_slug=academy.slug,
+            programming_experience=fields.get("programming_experience"),
+            results=results,
+        )
+        target = self.session.scalar(select(Academy).where(Academy.slug == recommended)) or academy
+        prefs = {
+            "career_goal": target.slug,
+            "goals": [target.title],
+            "learning_style": fields.get("learning_style") or "balanced",
+        }
+        for key in ("weekly_minutes", "maths_comfort", "programming_experience"):
+            if fields.get(key) is not None:
+                prefs[key] = fields[key]
+        self.update_preferences(user, prefs)
+        user.onboarded_at = datetime.now(UTC)
+        correct = sum(1 for value in results.values() if value)
+        return {
+            "onboarded": True,
+            "recommended": {
+                "slug": target.slug,
+                "title": target.title,
+                "href": f"/academies/{target.slug}",
+            },
+            "diagnostic": {
+                "asked": len(results),
+                "correct": correct,
+                "skipped": not answers,
+            },
+            "preferences": self.preferences(user),
+        }
 
     def mark(self, user: User, asset_id: uuid.UUID, status: str, rating: int | None = None) -> dict:
         asset = self.session.get(KnowledgeAsset, asset_id)

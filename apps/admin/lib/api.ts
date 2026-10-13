@@ -1,4 +1,5 @@
 import { sessionToken } from "@/lib/auth";
+import { clerkEnabled } from "@/lib/csp";
 
 export const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 export const devAuth = process.env.NEXT_PUBLIC_DEV_AUTH === "true";
@@ -32,7 +33,7 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers = new Headers(init.headers);
   const token = await sessionToken();
   if (token) headers.set("Authorization", `Bearer ${token}`);
-  else if (devAuth) headers.set("X-Dev-User-Id", devUser());
+  else if (devAuth && !clerkEnabled) headers.set("X-Dev-User-Id", devUser());
   if (init.body && !(init.body instanceof FormData) && !headers.has("Content-Type")) {
     headers.set("Content-Type", "application/json");
   }

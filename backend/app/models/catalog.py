@@ -453,6 +453,20 @@ class LearningPreference(TimestampMixin, Base):
             "weekly_minutes IS NULL OR (weekly_minutes >= 0 AND weekly_minutes <= 10080)",
             name="ck_learning_preferences_minutes",
         ),
+        CheckConstraint(
+            "maths_comfort IS NULL OR maths_comfort in"
+            " ('none','light','moderate','formal')",
+            name="ck_learning_preferences_maths",
+        ),
+        CheckConstraint(
+            "programming_experience IS NULL OR programming_experience in"
+            " ('none','some','daily')",
+            name="ck_learning_preferences_programming",
+        ),
+        CheckConstraint(
+            "tutor_mode in ('socratic','direct')",
+            name="ck_learning_preferences_tutor_mode",
+        ),
     )
 
     user_id: Mapped[uuid.UUID] = mapped_column(
@@ -465,6 +479,9 @@ class LearningPreference(TimestampMixin, Base):
     languages: Mapped[list] = mapped_column(JSON, default=list)
     weekly_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
     cost_preference: Mapped[str] = mapped_column(String(16), default="any")
+    maths_comfort: Mapped[str | None] = mapped_column(String(16), nullable=True)
+    programming_experience: Mapped[str | None] = mapped_column(String(16), nullable=True)
+    tutor_mode: Mapped[str] = mapped_column(String(16), default="socratic")
 
 
 class LearnerResource(TimestampMixin, Base):

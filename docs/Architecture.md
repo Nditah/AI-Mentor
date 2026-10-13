@@ -60,7 +60,7 @@ The Resource Catalog is a bounded context beside the four studio tracks. `domain
 
 ## Teaching policy
 
-Socratic stages 0 and 1 are scripted from the catalog. A chatty model cannot dump the answer on the opening turn. The locked opener for “Teach me Reinforcement Learning” is “What do you think an agent does in an environment?” Direct mode, and socratic stage 3 and later, may include the full account. Later wording may come from a model.
+Socratic stages 0 and 1 are scripted from the catalog. A chatty model cannot dump the answer on the opening turn. The locked opener for “Teach me Reinforcement Learning” is “What do you think an agent does in an environment?” Direct mode, and socratic stage 3 and later, may include the full account. Later wording may come from a model. `POST /chat/stream` streams those later tokens after the same policy layer; stages 0–1 still emit the scripted text.
 
 Quizzes are authored templates. A model may add a `COACH:` note. It cannot write the answer key. Grading is deterministic. Research questions are capped at 0.70. A quiz is graded once.
 
@@ -123,10 +123,10 @@ sequenceDiagram
   participant Engine
   participant Policy
   Learner->>App: Teach me Reinforcement Learning
-  App->>API: POST /api/v1/chat (Bearer JWT)
+  App->>API: POST /api/v1/chat/stream (Bearer JWT)
   API->>API: request id, address limit, verify JWT, user limits, body limits
-  API->>Engine: chat
+  API->>Engine: chat_stream
   Engine->>Policy: screen input, socratic stage
-  Policy-->>Engine: scripted question
-  Engine-->>App: reply, no model dump of the answer
+  Policy-->>Engine: scripted question or permission to stream
+  Engine-->>App: SSE meta, delta, done. Stages 0–1 never dump the answer.
 ```

@@ -80,6 +80,50 @@ body {
   overflow-y: hidden;
 }
 
+@keyframes xp-pop {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ring-spin {
+  from {
+    stroke-dashoffset: 120;
+  }
+  to {
+    stroke-dashoffset: var(--ring-offset, 0);
+  }
+}
+
+@keyframes card-reveal {
+  from {
+    transform: rotateY(12deg) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.xp-pop {
+  animation: xp-pop 420ms ease-out;
+}
+
+.card-reveal {
+  animation: card-reveal 520ms ease-out;
+}
+
+.progress-ring circle.meter {
+  stroke-dasharray: 120;
+  animation: ring-spin 700ms ease-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

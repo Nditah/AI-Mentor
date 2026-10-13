@@ -80,6 +80,8 @@ tags:
     description: Learning preferences and onboarding answers. Contract.
   - name: Learning Paths
     description: Seeded paths from the curriculum catalog.
+  - name: Learn
+    description: Guided journey. World lists paths; faculty and level are filters.
   - name: Lessons
     description: Lesson completion and lesson reads.
   - name: Quizzes
@@ -218,9 +220,10 @@ paths:
       operationId: updateMe
       summary: Update account settings
       description: |
-        Partial update of handle, locale, time zone, country, and leaderboard opt-out.
-        The handle is unique ignoring case (`409` if taken). The time zone must be an
-        IANA name (`422` otherwise); it decides the learner's day for streaks and XP caps.
+        Partial update of display name, handle, locale, time zone, country, leaderboard opt-out, and
+        equipped title. The handle is unique ignoring case (`409` if taken). The time
+        zone must be an IANA name (`422` otherwise); it decides the learner's day for
+        streaks and XP caps. `equipped_title` must already be earned (`422` otherwise).
       x-implementation: live
       x-required-role: student
       x-rate-limit-tier: standard
@@ -331,6 +334,91 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
+  /api/v1/onboarding:
+    get:
+      tags: [Profiles]
+      operationId: getOnboarding
+      summary: Onboarding academies and placement items
+      description: |
+        Returns published academies and authored placement questions without answer keys.
+        Completing onboarding is `POST /onboarding`. Learners may retake it.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Current onboarding state.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    post:
+      tags: [Profiles]
+      operationId: completeOnboarding
+      summary: Complete onboarding and optional placement
+      description: |
+        Saves learning preferences, optionally grades the diagnostic without XP, and
+        sets `users.onboarded_at`. Recommends Foundations when programming experience
+        is `none`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [academy_slug]
+              properties:
+                academy_slug:
+                  type: string
+                  maxLength: 80
+                learning_style:
+                  type: string
+                  enum: [visual, reading, hands_on, auditory, balanced]
+                maths_comfort:
+                  type: [string, "null"]
+                  enum: [none, light, moderate, formal, null]
+                programming_experience:
+                  type: [string, "null"]
+                  enum: [none, some, daily, null]
+                weekly_minutes:
+                  type: [integer, "null"]
+                  minimum: 0
+                  maximum: 10080
+                answers:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: false
+                    required: [id, response]
+                    properties:
+                      id:
+                        type: string
+                      response:
+                        type: string
+      responses:
+        "200":
+          description: Recommended academy and diagnostic summary.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
   /api/v1/profile:
     get:
       tags: [Profiles]
@@ -419,6 +507,43 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ChatTurn"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/chat/stream:
+    post:
+      tags: [Chat, AI Tutor]
+      operationId: postChatStream
+      summary: Stream a tutor turn
+      description: |
+        Same rules as `POST /chat`. The first two Socratic stages are scripted and may
+        arrive as a single `delta`. Later stages stream model tokens after the policy
+        layer. Events are `meta`, `delta`, `done`, or `error`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatRequest"
+      responses:
+        "200":
+          description: Server-sent events. `data:` JSON objects.
+          content:
+            text/event-stream:
+              schema:
+                type: object
+                additionalProperties: true
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -572,6 +697,32 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/learn/world:
+    get:
+      tags: [Learn]
+      operationId: getLearningWorld
+      summary: Learning paths with faculty and level filters
+      description: |
+        World lists every academy-attached learning path. Faculty (AI, Robotics,
+        Data Science) and level (beginner, intermediate, advanced) are filters.
+        Academies are a third filter, not the listed cards. The default payload
+        is unfiltered. Gated paths stay in the list with `locked` true and
+        `href` null until the previous path in that academy is complete.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Filters plus path cards.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LearningWorld"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
@@ -916,9 +1067,8 @@ paths:
       description: |
         Authenticated board with the caller's rank. `scope=country` uses the
         country on the caller's profile and returns 409 when that field is unset.
-
-        Not routed yet. Use `GET /api/v1/leaderboard` for the live global top 10.
-      x-implementation: contract
+        Institution, cohort, and friends scopes are not live; they return 422.
+      x-implementation: live
       x-required-role: student
       x-rate-limit-tier: standard
       parameters:
@@ -967,6 +1117,8 @@ paths:
         Level is `1 + xp // 250`. Mastery bands are `strength` (75–100),
         `developing` (60–74), and `gap` (1–59). A score of 0 is `unstarted` and is
         omitted from the three lists. Recommendations follow missing prerequisites.
+        Progress copy (`cue`) is remaining work, never fake scarcity. The mentor
+        silhouette is cosmetic. Milestones are the caller's own celebrations.
       x-implementation: live
       x-required-role: student
       x-rate-limit-tier: standard
@@ -979,6 +1131,84 @@ paths:
                 $ref: "#/components/schemas/Dashboard"
         "401":
           $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/engagement/collection:
+    get:
+      tags: [Gamification]
+      operationId: getCollection
+      summary: Skill cards from demonstrated mastery
+      description: |
+        One card per concept whose mastery is at least 60. Tiers are bronze (60),
+        silver (75), and gold (90). Cards are never random drops. Answer keys are
+        omitted.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Earned skill cards.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SkillCollection"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/engagement/daily:
+    get:
+      tags: [Gamification, Challenges]
+      operationId: getDailyChallenge
+      summary: Today's authored challenge
+      description: |
+        One published question chosen by a hash of the learner id and local date.
+        The payload never includes the answer key. Completing it pays 25 XP once
+        (`source_type=daily`) inside the 400 XP daily cap.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Today's item without the key.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DailyChallenge"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    post:
+      tags: [Gamification, Challenges]
+      operationId: completeDailyChallenge
+      summary: Grade today's challenge
+      description: |
+        Grades on the server. A wrong answer does not consume the daily award and
+        does not break a streak. A second correct submit on the same local day
+        returns `xp: 0` and `completed: true`.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DailyChallengeIn"
+      responses:
+        "200":
+          description: Grade result.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DailyChallengeResult"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
@@ -1040,8 +1270,9 @@ paths:
       summary: XP ledger
       description: |
         Newest first. Only grants above zero are stored. Reasons in use are
-        `quiz`, `lesson`, `code`, `review`, and `analysis`. The daily cap is 400 XP.
-        Amounts: lesson 40, code 25, review 5, analysis 20, quiz 10–50 from the score ratio.
+        `quiz`, `lesson`, `code`, `review`, `analysis`, and `daily`. The daily cap is 400 XP.
+        Amounts: lesson 40, code 25, review 5, analysis 10, quiz 10–50 from the score ratio,
+        daily 25. A 7/30/100-day streak adds 5/10/15% to lesson XP only, still under the cap.
 
         Not routed yet.
       x-implementation: contract
@@ -2119,8 +2350,9 @@ paths:
       operationId: generateAdminAsset
       summary: Draft from a catalog concept
       description: |
-        Instructor or admin. Creates a draft from the catalog scaffold for a concept. It is
-        not model-written and still goes through review.
+        Instructor or admin. Calls the configured model to draft notes for a concept.
+        If no model is set, the catalog scaffold is used. The result stays `draft` and
+        still goes through four-eyes review.
       x-implementation: live
       x-required-role: instructor
       x-rate-limit-tier: standard
@@ -2944,6 +3176,13 @@ components:
           type: string
           description: "`free` until Stripe sets a status such as `active`, `incomplete`, or `canceled`."
           examples: [free, active, incomplete, canceled]
+        equipped_title:
+          type: [string, "null"]
+          maxLength: 60
+          description: Earned title slug the learner chose to display.
+        onboarded:
+          type: boolean
+          description: True after `POST /onboarding` completes.
 
     Me:
       allOf:
@@ -2965,6 +3204,10 @@ components:
       type: object
       additionalProperties: false
       properties:
+        display_name:
+          type: string
+          minLength: 2
+          maxLength: 120
         handle:
           type: string
           pattern: "^[A-Za-z0-9_]{3,24}$"
@@ -2979,6 +3222,10 @@ components:
           pattern: "^[A-Z]{2}$"
         leaderboard_opt_out:
           type: boolean
+        equipped_title:
+          type: string
+          minLength: 1
+          maxLength: 60
 
     AccountExport:
       type: object
@@ -3340,6 +3587,138 @@ components:
             message:
               type: string
 
+    LearningWorld:
+      type: object
+      additionalProperties: false
+      required: [filters, programs]
+      properties:
+        filters:
+          type: object
+          additionalProperties: false
+          required: [faculties, levels, academies]
+          properties:
+            faculties:
+              type: array
+              items:
+                $ref: "#/components/schemas/FacultyFilter"
+            levels:
+              type: array
+              items:
+                $ref: "#/components/schemas/LevelFilter"
+            academies:
+              type: array
+              items:
+                $ref: "#/components/schemas/AcademyFilter"
+        programs:
+          type: array
+          items:
+            $ref: "#/components/schemas/WorldProgram"
+
+    FacultyFilter:
+      type: object
+      additionalProperties: false
+      required: [slug, title, summary]
+      properties:
+        slug:
+          type: string
+          enum: [ai, robotics, data-science]
+        title:
+          type: string
+        summary:
+          type: string
+
+    LevelFilter:
+      type: object
+      additionalProperties: false
+      required: [slug, title]
+      properties:
+        slug:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        title:
+          type: string
+
+    AcademyFilter:
+      type: object
+      additionalProperties: false
+      required: [slug, title, summary, faculty]
+      properties:
+        slug:
+          $ref: "#/components/schemas/Slug"
+        title:
+          type: string
+        summary:
+          type: string
+        faculty:
+          type: string
+          enum: [ai, robotics, data-science]
+        yours:
+          type: boolean
+
+    WorldProgram:
+      type: object
+      additionalProperties: false
+      required:
+        - slug
+        - title
+        - description
+        - level
+        - gated
+        - xp_reward
+        - faculty
+        - academy
+        - progress
+        - locked
+        - yours
+        - courses
+        - remaining_lessons
+        - href
+      properties:
+        slug:
+          $ref: "#/components/schemas/Slug"
+        title:
+          type: string
+        description:
+          type: string
+        level:
+          type: string
+        gated:
+          type: boolean
+        xp_reward:
+          type: integer
+        faculty:
+          $ref: "#/components/schemas/FacultyFilter"
+        academy:
+          type: object
+          additionalProperties: false
+          required: [slug, title, faculty]
+          properties:
+            slug:
+              $ref: "#/components/schemas/Slug"
+            title:
+              type: string
+            faculty:
+              type: string
+              enum: [ai, robotics, data-science]
+        progress:
+          type: integer
+          minimum: 0
+          maximum: 100
+        locked:
+          type: boolean
+        yours:
+          type: boolean
+        courses:
+          type: integer
+          minimum: 0
+        remaining_lessons:
+          type: integer
+          minimum: 0
+        href:
+          type: [string, "null"]
+        cue:
+          type: [string, "null"]
+
     LearningPathSummary:
       type: object
       additionalProperties: false
@@ -3634,6 +4013,11 @@ components:
         streak_days:
           type: integer
           minimum: 0
+        title:
+          type: [string, "null"]
+        badges:
+          type: integer
+          minimum: 0
 
     CatalogPathSummary:
       type: object
@@ -3785,6 +4169,11 @@ components:
         streak_days:
           type: integer
           minimum: 0
+        title:
+          type: [string, "null"]
+        badges:
+          type: integer
+          minimum: 0
 
     ConceptScore:
       type: object
@@ -3835,13 +4224,24 @@ components:
       properties:
         slug:
           type: string
-          examples: [first_steps, streak_3, week_streak, perfect_quiz, mastery, reviewer, shipped_code]
+          examples: [first_steps, streak_3, week_streak, streak_30, perfect_quiz, mastery, reviewer, shipped_code, rl_pioneer]
         name:
           type: string
         description:
           type: string
         earned:
           type: boolean
+        category:
+          type: string
+          enum: [learning, streak, mastery, coding, research, community, challenge, special]
+        tier:
+          type: string
+          enum: [bronze, silver, gold, platinum]
+        rarity:
+          type: string
+          enum: [common, rare, epic, legendary]
+        icon:
+          type: string
 
     PathProgress:
       type: object
@@ -3874,6 +4274,12 @@ components:
         - xp_into_level
         - xp_per_level
         - streak_days
+        - longest_streak
+        - streak_freezes
+        - streak_bonus_percent
+        - title
+        - mentor
+        - cue
         - subscription_status
         - mastery
         - strengths
@@ -3884,6 +4290,9 @@ components:
         - badges
         - lessons_completed
         - quizzes_taken
+        - collection_count
+        - milestones
+        - onboarded
       properties:
         display_name:
           type: string
@@ -3904,6 +4313,23 @@ components:
         streak_days:
           type: integer
           minimum: 0
+        longest_streak:
+          type: integer
+          minimum: 0
+        streak_freezes:
+          type: integer
+          minimum: 0
+          maximum: 2
+        streak_bonus_percent:
+          type: integer
+          enum: [0, 5, 10, 15]
+        title:
+          type: [string, "null"]
+        mentor:
+          $ref: "#/components/schemas/MentorStage"
+        cue:
+          type: string
+          description: Honest remaining-work copy.
         subscription_status:
           type: string
         mastery:
@@ -3942,11 +4368,40 @@ components:
         quizzes_taken:
           type: integer
           minimum: 0
+        collection_count:
+          type: integer
+          minimum: 0
+        milestones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Milestone"
+        onboarded:
+          type: boolean
+        personalisation:
+          type: object
+          additionalProperties: false
+          properties:
+            academy_slug:
+              type: [string, "null"]
+            academy_title:
+              type: [string, "null"]
+            learning_style:
+              type: string
+            maths_comfort:
+              type: [string, "null"]
+            programming_experience:
+              type: [string, "null"]
+            weekly_minutes:
+              type: [integer, "null"]
+            cost_preference:
+              type: string
+            tutor_mode:
+              $ref: "#/components/schemas/TutorMode"
 
     Progress:
       type: object
       additionalProperties: false
-      required: [xp, level, xp_into_level, xp_per_level, streak_days, lessons_completed, concepts]
+      required: [xp, level, xp_into_level, xp_per_level, streak_days, longest_streak, streak_freezes, lessons_completed, concepts, cards, mentor]
       properties:
         xp:
           type: integer
@@ -3963,6 +4418,12 @@ components:
         streak_days:
           type: integer
           minimum: 0
+        longest_streak:
+          type: integer
+          minimum: 0
+        streak_freezes:
+          type: integer
+          minimum: 0
         lessons_completed:
           type: integer
           minimum: 0
@@ -3970,6 +4431,148 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ConceptMastery"
+        cards:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProgressCard"
+        mentor:
+          $ref: "#/components/schemas/MentorStage"
+
+    MentorStage:
+      type: object
+      additionalProperties: false
+      required: [id, name]
+      properties:
+        id:
+          type: string
+          enum: [novice, practitioner, expert, research, grandmaster]
+        name:
+          type: string
+
+    Milestone:
+      type: object
+      additionalProperties: false
+      required: [kind, title, at]
+      properties:
+        kind:
+          type: string
+          enum: [badge, title, level, streak, card, path, daily]
+        title:
+          type: string
+        at:
+          type: string
+          format: date-time
+
+    ProgressCard:
+      type: object
+      additionalProperties: false
+      required: [slug, name, score, tier]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        tier:
+          type: [string, "null"]
+          enum: [bronze, silver, gold, null]
+
+    SkillCollection:
+      type: object
+      additionalProperties: false
+      required: [count, cards, note]
+      properties:
+        count:
+          type: integer
+          minimum: 0
+        cards:
+          type: array
+          items:
+            $ref: "#/components/schemas/SkillCard"
+        note:
+          type: string
+
+    SkillCard:
+      type: object
+      additionalProperties: false
+      required: [slug, name, description, mastery, difficulty, connections, tier, skill_value]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        mastery:
+          type: integer
+          minimum: 0
+          maximum: 100
+        difficulty:
+          type: string
+        connections:
+          type: array
+          items:
+            type: string
+        tier:
+          type: string
+          enum: [bronze, silver, gold]
+        skill_value:
+          type: integer
+          minimum: 0
+          maximum: 100
+
+    DailyChallenge:
+      type: object
+      additionalProperties: false
+      required: [date, xp_reward, completed, kind, prompt, options, concept_slug, question_id]
+      properties:
+        date:
+          type: string
+          format: date
+        xp_reward:
+          type: integer
+          const: 25
+        completed:
+          type: boolean
+        kind:
+          type: string
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        concept_slug:
+          type: string
+        question_id:
+          type: string
+
+    DailyChallengeIn:
+      type: object
+      additionalProperties: false
+      properties:
+        response:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+
+    DailyChallengeResult:
+      type: object
+      additionalProperties: false
+      required: [correct, xp, completed]
+      properties:
+        correct:
+          type: boolean
+        xp:
+          type: integer
+          minimum: 0
+        completed:
+          type: boolean
 
     XpEvent:
       type: object
@@ -3983,7 +4586,7 @@ components:
           minimum: 1
         reason:
           type: string
-          examples: [quiz, lesson, code, review, analysis]
+          examples: [quiz, lesson, code, review, analysis, daily]
         created_at:
           type: string
           format: date-time

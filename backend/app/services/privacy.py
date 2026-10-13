@@ -98,6 +98,9 @@ def export(session: Session, user: User) -> dict:
             "languages",
             "weekly_minutes",
             "cost_preference",
+            "maths_comfort",
+            "programming_experience",
+            "tutor_mode",
         ),
         "learner_resources": rows(LearnerResource, "asset_id", "status", "rating"),
     }

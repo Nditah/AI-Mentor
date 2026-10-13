@@ -19,6 +19,7 @@ from app.domain.knowledge.graph import KnowledgeGraph, eligibility
 from app.domain.knowledge.search import STYLE_TYPES
 from app.domain.knowledge.taxonomy import CAREER_ROLES, CareerRoleDef
 from app.domain.knowledge.vocabulary import FREE_COSTS, modality
+from app.domain.personalisation import career_slug
 
 
 @dataclass(frozen=True)
@@ -31,6 +32,7 @@ class LearnerState:
     preferred_types: tuple[str, ...] = ()
     cost_preference: str = "any"
     languages: tuple[str, ...] = ("en",)
+    weekly_minutes: int | None = None
 
 
 @dataclass(frozen=True)
@@ -41,10 +43,11 @@ class ResourceRecommendation:
 
 
 def career_role(slug: str | None) -> CareerRoleDef | None:
-    if not slug:
+    mapped = career_slug(slug)
+    if not mapped:
         return None
     for role in CAREER_ROLES:
-        if role.slug == slug:
+        if role.slug == mapped:
             return role
     return None
 
@@ -110,6 +113,12 @@ def score_resource(
     if state.languages and record.language not in state.languages:
         return None
     if difficulty_delta(record.difficulty, _typical_difficulty(state)) > 2:
+        return None
+    if (
+        state.weekly_minutes
+        and record.estimated_duration
+        and record.estimated_duration > state.weekly_minutes * 2
+    ):
         return None
     goal = _goal_score(record, state)
     skill = _skill_score(record, state)

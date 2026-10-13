@@ -5,7 +5,7 @@
 | Document | 07 Database design |
 | Version | 2.0 |
 | Date | 13 October 2026 |
-| Status | Proposed target design. Extends the v1 DDL in `backend/db/schema` (not yet changed). No v2 table exists in code |
+| Status | Proposed target design. The guided journey tables (`academies`, `topic_pages`, checks, assessments, bookmarks, page progress) now exist in `public`. See [Learning experience](../Learning-Experience.md). The multi-tenant v2 schemas in this document are still the target |
 | Owner | Enterprise Architecture (data), with the module owners named in ADR 0017 |
 | Related | [README](README.md) (canonical names), [06 System architecture](06-system-architecture.md), [08 API specification](08-api-specification.md), [09 Security model](09-security-model.md), [10 RBAC matrix](10-rbac-matrix.md), [13 Knowledge management architecture](13-knowledge-management-architecture.md), [docs/database](../database/README.md), ADR 0011, 0015–0025 |
 
@@ -21,6 +21,7 @@
 | Assessment and classroom | Two new schemas: cohorts, plans, attendance, risk, interventions; assessments, rubrics, submissions, AI mark proposals, grades and overrides | Instructor and Institution Apps (ADR 0025) | `assessment`, `classroom`, `ai_gateway`, `reporting` | Partitioned evidence tables; grade integrity in triggers, not only Python |
 | Commerce | `identity.subscriptions` moves to `commerce.subscriptions`; licences and seats added | Organisation licensing | Stripe webhooks, entitlements in `authz` | `ALTER TABLE ... SET SCHEMA`; compatibility view for one release |
 | Residency, retention, erasure | Regional stamps, tenant pinned to a region; per-tenant retention within platform bounds; erasure split by account type | Enterprise contracts, GDPR controller/processor split (ADR 0021) | `audit`, `tenancy`, `identity.erase_user()` | New `tenancy.erase_organisation()`; academic records keyed by membership, not user |
+| Ethical engagement (R1) | `users.longest_streak`, `streak_freezes`, `equipped_title`; `achievements` category/tier/rarity; `user_titles`; `milestones` | Engagement loops without a second ledger | Alembic `20261013_0005`, Learner App | Skill cards stay derived from `concept_mastery`. Target `game.*` is unchanged |
 
 ## Relationship to v1 documents
 

@@ -24,6 +24,7 @@ from app.models import (
     LearningPath,
     Lesson,
     Message,
+    Milestone,
     Progress,
     Project,
     Question,
@@ -34,6 +35,7 @@ from app.models import (
     StudyPlan,
     User,
     UserAchievement,
+    UserTitle,
     WebhookEvent,
     XpEvent,
 )
@@ -408,6 +410,82 @@ class SqlRepository:
     def grant_achievement(self, user_id: uuid.UUID, achievement_id: uuid.UUID) -> None:
         self.session.add(UserAchievement(user_id=user_id, achievement_id=achievement_id))
         self.session.flush()
+
+    def earned_achievement_slugs(self, user_id: uuid.UUID) -> frozenset[str]:
+        rows = self.session.scalars(
+            select(Achievement.slug)
+            .join(UserAchievement, UserAchievement.achievement_id == Achievement.id)
+            .where(UserAchievement.user_id == user_id)
+        ).all()
+        return frozenset(rows)
+
+    def grant_title(self, user_id: uuid.UUID, slug: str) -> bool:
+        try:
+            with self.session.begin_nested():
+                self.session.add(UserTitle(user_id=user_id, slug=slug))
+                self.session.flush()
+        except IntegrityError:
+            return False
+        return True
+
+    def title_slugs(self, user_id: uuid.UUID) -> frozenset[str]:
+        rows = self.session.scalars(select(UserTitle.slug).where(UserTitle.user_id == user_id)).all()
+        return frozenset(rows)
+
+    def add_milestone(self, user_id: uuid.UUID, kind: str, source_id: str, title: str) -> None:
+        try:
+            with self.session.begin_nested():
+                self.session.add(
+                    Milestone(user_id=user_id, kind=kind, source_id=source_id, title=title)
+                )
+                self.session.flush()
+        except IntegrityError:
+            return
+
+    def recent_milestones(self, user_id: uuid.UUID, limit: int = 8) -> list[Milestone]:
+        return list(
+            self.session.scalars(
+                select(Milestone)
+                .where(Milestone.user_id == user_id)
+                .order_by(Milestone.created_at.desc())
+                .limit(limit)
+            ).all()
+        )
+
+    def leaderboard_students(self, *, country: str | None = None, limit: int = 10) -> list[User]:
+        query = select(User).where(
+            User.role == "student",
+            User.suspended.is_(False),
+            User.leaderboard_opt_out.is_(False),
+        )
+        if country:
+            query = query.where(User.country_code == country)
+        return list(self.session.scalars(query.order_by(User.xp.desc(), User.created_at).limit(limit)).all())
+
+    def student_rank(self, user: User, *, country: str | None = None) -> int | None:
+        if user.role != "student" or user.suspended or user.leaderboard_opt_out:
+            return None
+        query = select(func.count()).select_from(User).where(
+            User.role == "student",
+            User.suspended.is_(False),
+            User.leaderboard_opt_out.is_(False),
+            (User.xp > user.xp)
+            | ((User.xp == user.xp) & (User.created_at < user.created_at)),
+        )
+        if country:
+            query = query.where(User.country_code == country)
+        ahead = int(self.session.scalar(query) or 0)
+        return ahead + 1
+
+    def badge_counts(self, user_ids: list[uuid.UUID]) -> dict[uuid.UUID, int]:
+        if not user_ids:
+            return {}
+        rows = self.session.execute(
+            select(UserAchievement.user_id, func.count())
+            .where(UserAchievement.user_id.in_(user_ids))
+            .group_by(UserAchievement.user_id)
+        ).all()
+        return {user_id: int(count) for user_id, count in rows}
 
     def lesson_completion_count(self, user_id: uuid.UUID) -> int:
         return int(

@@ -36,7 +36,7 @@ export default function GeneratePage() {
     <form className="max-w-xl" onSubmit={onSubmit}>
       <h1 className="text-3xl font-semibold tracking-tight">Generate</h1>
       <p className="mt-2 text-slate-600 dark:text-slate-300">
-        This drafts notes from the catalog scaffold. It does not call a model, and the draft stays in the library until someone reviews it.
+        This calls the configured model and saves a draft. If no model is set, the catalog scaffold is used. The draft stays in the library until a second person reviews it.
       </p>
       <label className="mt-4 block text-sm font-semibold">
         Concept
@@ -48,8 +48,8 @@ export default function GeneratePage() {
           ))}
         </select>
       </label>
-      <button className="mt-4 rounded-full bg-[#1d4ed8] px-4 py-2 font-semibold text-white" type="submit">
-        Create draft
+      <button className="mt-4 rounded-full bg-[#1d4ed8] px-4 py-2 font-semibold text-white" type="submit" disabled={generate.isPending}>
+        {generate.isPending ? "Drafting…" : "Create draft"}
       </button>
       {created ? (
         <p className="mt-3">

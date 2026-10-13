@@ -20,6 +20,7 @@
 | Requirements | New prefixes (PLT, TEN, IAM, AUTHZ, LRN, INS, ORG, ADM, CST, KM, KG, ASM, PER, NTF, MSG, SRCH, ANL, LIC, INT, EVT) and v1 prefixes continued from 101 | Cover instructor, institution, content, and platform capabilities absent from v1 | QA test plans, traceability | All v1 IDs remain valid; amended v1 requirements are listed in [Relationship to v1 documents](#relationship-to-v1-documents) |
 | Releases | v1 labels `MVP`, `R2`, `R3` replaced by R1–R5 | One release vocabulary across all documents ([README.md](README.md#releases)) | Roadmap, backlog | v1 `MVP` reads as R1; v1 `R2` reads as R2; v1 `R3` is re-tagged per section 4 |
 | Compliance | Adds FERPA, EU AI Act Annex III education obligations for AI-assisted marking, EN 301 549, SOC 2, ISO 27001, controller/processor split by account type | Institutional procurement and AI marking create new obligations (ADR 0021, ADR 0025) | Assessment, audit, identity, contracts | DPIA and AI Act conformity work before R3; accessibility conformance reports per app |
+| Ethical engagement | GAM-116 to GAM-122: streak freeze, skill cards, near-win copy, mentor stages, own-only milestones, daily 25 XP, titles are not credentials | Engagement without predatory loops | Learner App, `domain/gamification.py` | [17](17-engagement-specification.md); v1 GAM-001–052 stay |
 
 ## Relationship to v1 documents
 
@@ -789,6 +790,13 @@ v1 GAM-001 to GAM-052 and LB-001 to LB-013 remain normative unless amended here 
 - **GAM-113** `[M | R3 | T]` Instructors shall award cohort-scoped badges from a list defined by the organisation (max 50 per organisation) with a reason; such badges carry no platform XP.
 - **GAM-114** `[M | R4 | T]` Badges and course completions shall be exportable as Open Badges 3.0 credentials (INT-012).
 - **GAM-115** `[M | R1 | T]` Gamification events (`gamification.xp.awarded`, `gamification.badge.earned`, `gamification.level.reached`) shall be emitted through the outbox for notification and analytics.
+- **GAM-116** `[M | R1 | T]` A streak freeze shall cover exactly one missed learner calendar day, be earned when a run first crosses 7 and 30 days, cap at 2, and never be purchasable. Missing two or more days resets the current run to 1 and shall not decrement `longest_streak`.
+- **GAM-117** `[M | R1 | T]` Skill cards shall mint only from demonstrated concept mastery (bronze 60, silver 75, gold 90). They shall not drop at random and shall not be sold.
+- **GAM-118** `[M | R1 | T]` Progress cues shall state remaining lessons, remaining concepts, or percent complete. They shall not invent scarcity, timers, or discounts.
+- **GAM-119** `[M | R1 | T]` The mentor silhouette shall advance with level (novice, practitioner, expert, research, grandmaster) and shall be cosmetic: it shall not gate content or XP.
+- **GAM-120** `[M | R1 | T]` The milestone feed shall contain only the caller's own celebrations. The product shall not notify a learner that their rank fell.
+- **GAM-121** `[M | R1 | T]` The daily challenge shall be one authored item per learner local day, pay 25 XP once inside the 400 XP cap, and omit the answer key from every client payload.
+- **GAM-122** `[M | R1 | T]` Titles and completion documents shall be platform recognitions. Copy shall not claim an accredited degree, university appointment, or professional licence.
 
 #### 6.14.2 Leaderboards
 
@@ -1288,7 +1296,7 @@ Business requirement → requirement groups → applications → modules → rel
 | BR-105 Central master content and releases | CST, KM, I18N-102, I18N-107 | Content Studio, Instructor | `content`, `knowledge`, `retrieval`, `i18n` | R2–R4 |
 | BR-106 Graph-driven adaptivity | KG, PER-008, PER-009, INS-018 | Studio, Learner, Instructor | `knowledge`, `personalisation`, `learning` | R2 |
 | BR-107 Assessment with human accountability | ASM, INS-024 to INS-036, CMP-109, CMP-115 | Instructor, Learner | `assessment`, `ai_gateway`, `audit` | R3 |
-| BR-108 Platform-wide gamification | GAM-101 to GAM-115, LB-101 to LB-114 | Learner, Instructor, Institution | `gamification`, `analytics` | R1–R3 |
+| BR-108 Platform-wide gamification | GAM-101 to GAM-122, LB-101 to LB-114 | Learner, Instructor, Institution | `gamification`, `analytics` | R1–R3 |
 | BR-109 Three languages, five surfaces | I18N-101 to I18N-112, NFR-161 to NFR-163 | All | `i18n`, `content`, `tutor`, `assessment`, `reporting` | R1–R3 |
 | BR-110 Configurable mentor | TUT-101 to TUT-115, PER | Learner, Institution (policy) | `tutor`, `ai_gateway`, `personalisation` | R1–R3, R5 |
 | BR-111 Procurement readiness | IAM, INT, NFR-131 to NFR-138, SEC-109, CMP-112 | Institution | `identity`, `integration`, `audit` | R3–R4 |

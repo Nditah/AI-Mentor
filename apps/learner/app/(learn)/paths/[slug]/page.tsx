@@ -37,7 +37,15 @@ export default function PathDetailPage({ params }: { params: Promise<{ slug: str
   return (
     <div>
       <p className="text-sm">
-        {path.academy ? <Link className="underline" href={`/academies/${path.academy.slug}`}>{path.academy.title}</Link> : <Link className="underline" href="/academies">Academies</Link>}
+        <Link className="underline" href="/academies">World</Link>
+        {path.academy ? (
+          <>
+            {" · "}
+            <Link className="underline" href={`/academies/${path.academy.slug}`}>
+              {path.academy.title}
+            </Link>
+          </>
+        ) : null}
       </p>
       <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-[#1d4ed8]">{path.level}</p>
       <h1 className="font-display text-4xl tracking-tight">{path.title}</h1>

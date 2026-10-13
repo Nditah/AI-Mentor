@@ -23,6 +23,7 @@ Figures marked **(hypothesis)** are planning assumptions to validate with beta a
 | Monetisation | Consumer tiers Free, Pro, Research kept. Institution plans Classroom, Campus, Enterprise added. Marketplace in R5 | Institutional revenue diversifies the business and lowers churn | `commerce`, Institution App, Admin App | Seat licences and invoicing alongside Stripe subscriptions |
 | Releases | v1 MVP, R2, R3, and Phase 0–3 are replaced by R1–R5 | One schedule across five apps | All documents | Mapping in [15-roadmap.md](15-roadmap.md) |
 | Metrics | v1 KPIs kept for learners; institutional, instructor, and content KPIs added | Each app needs an outcome measure tied to the north star | `analytics`, `reporting` | Events from the outbox feed metrics per tenant |
+| Ethical engagement | Home, World, Today, Collection, and Ranks ship progress language, streak freezes, mastery cards, daily 25 XP, and global/country boards | STEM learning should feel like a mastery game without loot, purchased streaks, or rank-loss nagging | Learner App, `gamification`, [17](17-engagement-specification.md) | Live on SQLAlchemy `users`/`xp_events`; weekly/seasonal and institution boards stay R2–R3 |
 
 ## Relationship to v1 documents
 
@@ -269,15 +270,16 @@ Each feature below states its goal and scope, key behaviours, acceptance highlig
 - *Behaviours:* v1 F19. Coding challenges are daily or weekly challenges whose check is a coding test. Coding assessments in cohorts use the same runner. In-browser notebooks follow in R3.
 - *Acceptance:* v1 F19 criteria; the lab is not enabled in production until learner code runs in an isolated, secret-free, network-less runner ([../Security-Compliance.md](../Security-Compliance.md) section 8.6).
 
-**L-F08 Daily, weekly, and seasonal challenges.** R1 (daily: quiz, coding, lesson goal), R2 (research, debugging, robotics types; weekly and seasonal). Depends on `gamification`.
+**L-F08 Daily, weekly, and seasonal challenges.** R1 (daily authored item, 25 XP once per local day), R2 (research, debugging, robotics types; weekly and seasonal). Depends on `gamification`.
+- *Behaviours:* today's item is a hash of learner id and local date over published question-bank rows. The answer key never leaves the API. A wrong answer does not consume the award.
 - *Acceptance:* v1 F8 criteria; a seasonal challenge has fixed start and end dates in UTC and a published rule set.
 
-**L-F09 Gamification.** R1. Depends on `gamification`. v1 F9 retained.
-- *Behaviours:* XP rules, the 400 XP daily cap, and 250 XP per level stay as built. XP earned in any organisation accrues to the learner's account; organisation leaderboards count only XP earned in that tenant.
-- *Acceptance:* v1 F9 criteria.
+**L-F09 Gamification.** R1. Depends on `gamification`. v1 F9 retained. Detail in [17](17-engagement-specification.md).
+- *Behaviours:* XP rules, the 400 XP daily cap, and 250 XP per level stay as built. Chat grants 0 XP. A 7/30/100-day streak adds 5/10/15% to lesson XP only. Skill cards mint at mastery 60/75/90. Streak freezes (max 2, earned at 7 and 30 days) cover one missed day; the personal best is kept. Titles are recognitions, not degrees. XP earned in any organisation accrues to the learner's account; organisation leaderboards count only XP earned in that tenant.
+- *Acceptance:* v1 F9 criteria; no loot, no purchased streak restore, no rank-loss notification.
 
-**L-F10 Leaderboards.** R1 (global and country top 10, own rank and percentile), R2 (friend rankings), R3 (institution and cohort). Depends on `gamification`, `tenancy`.
-- *Behaviours:* each leaderboard shows rank, percentile, XP, achievements, and streak. Managed accounts are excluded from global and country leaderboards unless the organisation policy allows them. Guests see the pseudonymous global top 10 only.
+**L-F10 Leaderboards.** R1 (global and country top 10, own rank), R2 (friend rankings), R3 (institution and cohort). Depends on `gamification`, `tenancy`.
+- *Behaviours:* each leaderboard shows rank, XP, level, streak, optional title, and badge count. Managed accounts are excluded from global and country leaderboards unless the organisation policy allows them. Guests see the pseudonymous global top 10 only.
 - *Acceptance:* v1 F10 criteria; a cohort leaderboard shows only members of that cohort; an instructor can disable the cohort leaderboard.
 
 **L-F11 Progress tracking and learning analytics.** R1 (dashboard), R2 (weekly reports). Depends on `learning`, `analytics`, `reporting`.

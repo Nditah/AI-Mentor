@@ -6,7 +6,11 @@ from app.domain.knowledge.asset import (
     slugify,
     validate_record,
 )
-from app.domain.knowledge.connectors import normalise_bulk, validate_connector_payload
+from app.domain.knowledge.connectors import (
+    normalise_bulk,
+    parse_csv_resources,
+    validate_connector_payload,
+)
 from app.domain.knowledge.duplicates import find_duplicates, jaccard, pair_score
 from app.domain.knowledge.graph import (
     ConceptEdge,
@@ -219,6 +223,14 @@ def test_duplicates_and_ingestion_pipeline() -> None:
     assert items[0].record is not None
     assert validate_connector_payload({"title": "x"}) is not None
     assert len(normalise_bulk({"resources": [{"title": "a"}]})) == 1
+    rows = parse_csv_resources(
+        "title,url,resource_type,concepts,estimated_duration\n"
+        "Spinning Up,https://spinningup.openai.com/en/latest/,documentation,ppo|mdp,180\n"
+    )
+    assert rows[0]["title"] == "Spinning Up"
+    assert rows[0]["concepts"] == ["ppo", "mdp"]
+    assert rows[0]["estimated_duration"] == 180
+    assert len(normalise_bulk({"csv": "title,url\nNotes,https://example.com/notes\n"})) == 1
 
 
 def test_knowledge_pack_meets_launch_floor() -> None:

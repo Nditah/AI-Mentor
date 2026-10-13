@@ -66,6 +66,9 @@ class AchievementDef:
     description: str
     xp_reward: int
     icon: str
+    category: str = "learning"
+    tier: str = "bronze"
+    rarity: str = "common"
 
 
 @dataclass(frozen=True)
@@ -785,17 +788,79 @@ PROJECTS: tuple[ProjectDef, ...] = (
 
 ACHIEVEMENTS: tuple[AchievementDef, ...] = (
     AchievementDef("first_steps", "First steps", "Completed a lesson.", 20, "footprints"),
-    AchievementDef("streak_3", "Three-day streak", "Showed up three days in a row.", 30, "flame"),
-    AchievementDef("week_streak", "Week streak", "Showed up seven days in a row.", 80, "flame"),
+    AchievementDef("streak_3", "Three-day streak", "Showed up three days in a row.", 30, "flame", "streak"),
+    AchievementDef(
+        "week_streak", "Week streak", "Showed up seven days in a row.", 80, "flame", "streak", "silver"
+    ),
+    AchievementDef(
+        "streak_30",
+        "Thirty-day streak",
+        "Showed up thirty days in a row. A freeze covers one missed day.",
+        120,
+        "flame",
+        "streak",
+        "gold",
+        "rare",
+    ),
+    AchievementDef(
+        "streak_100",
+        "Hundred-day streak",
+        "A hundred local days of practice.",
+        200,
+        "flame",
+        "streak",
+        "platinum",
+        "epic",
+    ),
+    AchievementDef(
+        "streak_365",
+        "Year streak",
+        "A year of local days. Cosmetic recognition only.",
+        400,
+        "flame",
+        "streak",
+        "platinum",
+        "legendary",
+    ),
     AchievementDef("perfect_quiz", "Clean quiz", "Scored every part of a quiz.", 40, "check"),
-    AchievementDef("mastery", "Mastery", "Reached 80 on a concept.", 60, "seal"),
-    AchievementDef("reviewer", "Reviewer", "Ran a grounded paper pass.", 40, "scroll"),
+    AchievementDef("mastery", "Mastery", "Reached 80 on a concept.", 60, "seal", "mastery", "gold"),
+    AchievementDef("reviewer", "Reviewer", "Ran a grounded paper pass.", 40, "scroll", "research"),
     AchievementDef(
         "shipped_code",
         "Ran in the lab",
         "Ran a Python snippet the sandbox accepted.",
         30,
         "terminal",
+        "coding",
+    ),
+    AchievementDef(
+        "rl_pioneer",
+        "RL Pioneer",
+        "Completed the RL Foundations learning path.",
+        80,
+        "seal",
+        "mastery",
+        "gold",
+        "rare",
+    ),
+    AchievementDef(
+        "ai_apprentice",
+        "AI Apprentice",
+        "Reached level 10.",
+        40,
+        "spark",
+        "learning",
+        "silver",
+    ),
+    AchievementDef(
+        "grandmaster_architect",
+        "Grandmaster AI Architect",
+        "Reached level 40. A recognition title, not a degree.",
+        0,
+        "crown",
+        "mastery",
+        "platinum",
+        "legendary",
     ),
 )
 

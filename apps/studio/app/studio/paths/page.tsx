@@ -29,8 +29,8 @@ export default function PathBuilderPage() {
       <h1 className="text-3xl font-semibold tracking-tight">Learning path builder</h1>
       <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
         Catalog paths are ordered concept lists from the Knowledge Pack. Curriculum paths below are
-        the four studio tracks seeded from the catalog module. Full lesson and course editors remain
-        a later release.
+        the four studio tracks seeded from the catalog module. Topic pages, checks, and the
+        academy hierarchy are edited under Journey.
       </p>
       <h2 className="mt-8 text-xl font-semibold">Catalog paths</h2>
       {query.isLoading ? <p className="mt-3">Loading paths…</p> : null}

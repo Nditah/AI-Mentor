@@ -9,6 +9,9 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.domain.access import is_allowed
+from app.domain.catalog import get_concept
+from app.domain.gamification import card_tier, near_win
+from app.domain.learn.faculties import FACULTIES, LEVELS, faculty_ref
 from app.domain.learn.grading import grade_item, score_percent
 from app.models import (
     Academy,
@@ -18,10 +21,12 @@ from app.models import (
     AssessmentQuestion,
     Bookmark,
     Course,
+    KnowledgeAsset,
     KnowledgeCheck,
     KnowledgeCheckAttempt,
     KnowledgeCheckQuestion,
     LearningPath,
+    LearningPreference,
     Lesson,
     LessonResource,
     Module,
@@ -34,7 +39,11 @@ from app.models import (
 )
 from app.services.errors import ClientError
 
-_GROUPS = {"related": "Related resources", "further": "Further reading", "research": "Recommended research"}
+_GROUPS = {
+    "related": "Related resources",
+    "further": "Further reading",
+    "research": "Recommended research",
+}
 
 
 def _percent(done: int, total: int) -> int:
@@ -49,15 +58,96 @@ class LearnJourney:
         self.engine = engine
 
     def academies(self, user: User) -> list[dict]:
-        rows = self.session.scalars(
-            select(Academy).where(Academy.published.is_(True)).order_by(Academy.position, Academy.title)
-        ).all()
-        return [self._academy_card(user, row) for row in rows]
+        rows = list(
+            self.session.scalars(
+                select(Academy)
+                .where(Academy.published.is_(True))
+                .order_by(Academy.position, Academy.title)
+            ).all()
+        )
+        prefs = self.session.get(LearningPreference, user.id)
+        goal = None if prefs is None else prefs.career_goal
+        if goal:
+            rows.sort(key=lambda row: (0 if row.slug == goal else 1, row.position, row.title))
+        cards = []
+        for row in rows:
+            card = self._academy_card(user, row)
+            card["yours"] = goal == row.slug
+            cards.append(card)
+        return cards
+
+    def world(self, user: User) -> dict:
+        """Learning paths across faculties. Faculty and level are filters, not pages."""
+
+        prefs = self.session.get(LearningPreference, user.id)
+        goal = None if prefs is None else prefs.career_goal
+        academies = list(
+            self.session.scalars(
+                select(Academy)
+                .where(Academy.published.is_(True))
+                .order_by(Academy.position, Academy.title)
+            ).all()
+        )
+        faculty_order = {item["slug"]: index for index, item in enumerate(FACULTIES)}
+        ranked: list[tuple[tuple, dict]] = []
+        for academy in academies:
+            paths = list(
+                self.session.scalars(
+                    select(LearningPath)
+                    .where(LearningPath.academy_id == academy.id)
+                    .order_by(LearningPath.position)
+                ).all()
+            )
+            previous_open = True
+            yours = goal == academy.slug
+            for path in paths:
+                progress = self._path_progress(user, path)
+                locked = bool(path.gated and not previous_open)
+                card = self._program_card(
+                    user,
+                    path,
+                    academy=academy,
+                    progress=progress,
+                    locked=locked,
+                    yours=yours,
+                )
+                ranked.append(
+                    (
+                        (
+                            0 if yours else 1,
+                            faculty_order.get(academy.faculty, 99),
+                            academy.position,
+                            path.position,
+                        ),
+                        card,
+                    )
+                )
+                previous_open = progress >= 100
+        ranked.sort(key=lambda pair: pair[0])
+        return {
+            "filters": {
+                "faculties": [dict(item) for item in FACULTIES],
+                "levels": [dict(item) for item in LEVELS],
+                "academies": [
+                    {
+                        "slug": row.slug,
+                        "title": row.title,
+                        "summary": row.summary,
+                        "faculty": row.faculty,
+                        "yours": goal == row.slug,
+                    }
+                    for row in academies
+                ],
+            },
+            "programs": [card for _, card in ranked],
+        }
 
     def academy(self, user: User, slug: str) -> dict:
         row = self._academy(slug)
         paths = self.session.scalars(
-            select(LearningPath).where(LearningPath.academy_id == row.id).order_by(LearningPath.position)
+            select(LearningPath)
+            .where(LearningPath.academy_id == row.id)
+            .order_by(LearningPath.position)
         ).all()
         previous_open = True
         listed = []
@@ -67,14 +157,18 @@ class LearnJourney:
             listed.append({**self._path_card(path), "progress": progress, "locked": locked})
             previous_open = progress >= 100
         card = self._academy_card(user, row)
+        card["faculty"] = faculty_ref(row.faculty)
         card["paths"] = listed
+        card["tree"] = self._skill_tree(user, row.id)
         return card
 
     def path(self, user: User, slug: str) -> dict:
         path = self._path(slug)
         self._require_open(user, path)
         courses = self.session.scalars(
-            select(Course).where(Course.path_id == path.id, Course.published.is_(True)).order_by(Course.position)
+            select(Course)
+            .where(Course.path_id == path.id, Course.published.is_(True))
+            .order_by(Course.position)
         ).all()
         return {
             **self._path_card(path),
@@ -124,7 +218,9 @@ class LearnJourney:
         if page is None:
             raise ClientError("That page was not found.", 404)
         if page.kind == "knowledge_check":
-            check = self.session.scalar(select(KnowledgeCheck).where(KnowledgeCheck.page_id == page.id))
+            check = self.session.scalar(
+                select(KnowledgeCheck).where(KnowledgeCheck.page_id == page.id)
+            )
             if check is not None and not self._check_passed(user, check.id):
                 raise ClientError("Pass the knowledge check before leaving this page.", 409)
         self._touch_page(user, page, seconds=max(0, min(seconds, 60 * 60)), complete=True)
@@ -187,7 +283,9 @@ class LearnJourney:
                     answers=payload,
                 )
             ),
-            xp_source=("knowledge_check", str(check.id), None) if not self._check_passed(user, check.id) else None,
+            xp_source=("knowledge_check", str(check.id), None)
+            if not self._check_passed(user, check.id)
+            else None,
         )
 
     def assessment(self, user: User, assessment_id: uuid.UUID) -> dict:
@@ -283,7 +381,12 @@ class LearnJourney:
             .limit(8)
         ).all()
         dropoff = self.session.execute(
-            select(TopicPage.title, Lesson.title, func.coalesce(completed.c.n, 0), func.count(PageProgress.id))
+            select(
+                TopicPage.title,
+                Lesson.title,
+                func.coalesce(completed.c.n, 0),
+                func.count(PageProgress.id),
+            )
             .join(Lesson, Lesson.id == TopicPage.lesson_id)
             .outerjoin(PageProgress, PageProgress.page_id == TopicPage.id)
             .outerjoin(completed, completed.c.page_id == TopicPage.id)
@@ -307,7 +410,9 @@ class LearnJourney:
             )
         ranked.sort(key=lambda item: item["drop_off"], reverse=True)
         attempt_rows = self.session.execute(
-            select(Assessment.title, Assessment.scope, AssessmentAttempt.passed)
+            select(Assessment.title, Assessment.scope, AssessmentAttempt.passed).join(
+                AssessmentAttempt, AssessmentAttempt.assessment_id == Assessment.id
+            )
         ).all()
         buckets: dict[tuple[str, str], list[bool]] = {}
         for title, scope, passed in attempt_rows:
@@ -322,7 +427,9 @@ class LearnJourney:
             for (title, scope), flags in buckets.items()
         ]
         return {
-            "most_completed_lessons": [{"title": title, "completions": count} for title, count in lesson_done],
+            "most_completed_lessons": [
+                {"title": title, "completions": count} for title, count in lesson_done
+            ],
             "highest_drop_off_pages": ranked[:8],
             "assessment_pass_rates": assessments,
             "course_completion": self._scope_rates("course"),
@@ -335,7 +442,9 @@ class LearnJourney:
         tree = []
         for academy in academies:
             paths = self.session.scalars(
-                select(LearningPath).where(LearningPath.academy_id == academy.id).order_by(LearningPath.position)
+                select(LearningPath)
+                .where(LearningPath.academy_id == academy.id)
+                .order_by(LearningPath.position)
             ).all()
             tree.append(
                 {
@@ -348,7 +457,9 @@ class LearnJourney:
                             "courses": [
                                 {"slug": course.slug, "title": course.title}
                                 for course in self.session.scalars(
-                                    select(Course).where(Course.path_id == path.id).order_by(Course.position)
+                                    select(Course)
+                                    .where(Course.path_id == path.id)
+                                    .order_by(Course.position)
                                 ).all()
                             ],
                         }
@@ -358,8 +469,12 @@ class LearnJourney:
             )
         return tree
 
-    def add_page(self, lesson_slug: str, title: str, body_md: str, kind: str) -> dict:
+    def add_page(
+        self, lesson_slug: str, title: str, body_md: str, kind: str, asset_url: str = ""
+    ) -> dict:
         lesson = self._lesson(lesson_slug)
+        if kind not in {"reading", "video", "exercise", "knowledge_check", "summary"}:
+            raise ClientError("Unknown topic page kind.", 422)
         last = self.session.scalar(
             select(func.max(TopicPage.position)).where(TopicPage.lesson_id == lesson.id)
         )
@@ -377,6 +492,9 @@ class LearnJourney:
             position=0 if last is None else int(last) + 1,
             origin="authored",
         )
+        if asset_url:
+            resource_type = "coding_challenge" if kind == "exercise" else "video"
+            page.asset_id = self._catalog_for_url(asset_url, title, resource_type).id
         self.session.add(page)
         self.session.flush()
         if kind == "knowledge_check":
@@ -393,19 +511,51 @@ class LearnJourney:
         self.session.flush()
         return {"reordered": True}
 
-    def add_resource(self, lesson_slug: str, title: str, url: str, kind: str, group_name: str) -> dict:
+    def add_resource(
+        self,
+        lesson_slug: str,
+        group_name: str,
+        *,
+        asset_id: uuid.UUID | None = None,
+        url: str = "",
+        title: str = "",
+        resource_type: str = "documentation",
+    ) -> dict:
+        """Attach a catalog record to a lesson. A pasted URL becomes a catalog record first."""
+
         lesson = self._lesson(lesson_slug)
-        if not url.startswith(("http://", "https://")):
-            raise ClientError("Resource links must be http or https.", 422)
-        row = LessonResource(
-            lesson_id=lesson.id, title=title, url=url, kind=kind, group_name=group_name, note=""
-        )
+        if asset_id is not None:
+            asset = self.session.get(KnowledgeAsset, asset_id)
+            if asset is None:
+                raise ClientError("That catalog resource does not exist.", 422)
+        elif url.startswith(("http://", "https://")):
+            asset = self._catalog_for_url(url, title or url, resource_type)
+        else:
+            raise ClientError("Attach a catalog resource, or an http(s) URL to add one.", 422)
+        row = LessonResource(lesson_id=lesson.id, asset_id=asset.id, group_name=group_name)
         self.session.add(row)
         self.session.flush()
-        return {"id": str(row.id)}
+        return {"id": str(row.id), "asset_id": str(asset.id)}
+
+    def _catalog_for_url(self, url: str, title: str, resource_type: str) -> KnowledgeAsset:
+        asset = self.session.scalar(select(KnowledgeAsset).where(KnowledgeAsset.url == url))
+        if asset is not None:
+            return asset
+        asset = KnowledgeAsset(
+            slug=f"ref-{uuid.uuid4().hex[:16]}",
+            title=title[:200],
+            description=title,
+            url=url,
+            resource_type=resource_type,
+            kind="link",
+            state="published",
+            source_type="curated",
+        )
+        self.session.add(asset)
+        self.session.flush()
+        return asset
 
     def _grade(self, user, questions, answers, *, pass_score, store, xp_source) -> dict:
-        by_id = {str(item.id): item for item in questions}
         if not questions:
             raise ClientError("This check has no questions yet.", 422)
         given = {str(item["question_id"]): item.get("response") for item in answers}
@@ -430,25 +580,39 @@ class LearnJourney:
         if passed and xp_source is not None and self.engine is not None:
             source, source_id, computed = xp_source
             xp = self.engine.grant(user, source, source_id, computed)
-        return {"score": score, "passed": passed, "pass_score": pass_score, "results": results, "xp": xp}
+        return {
+            "score": score,
+            "passed": passed,
+            "pass_score": pass_score,
+            "results": results,
+            "xp": xp,
+        }
 
-    def _page_payload(self, user: User, lesson: Lesson, pages: list[TopicPage], page: TopicPage) -> dict:
+    def _page_payload(
+        self, user: User, lesson: Lesson, pages: list[TopicPage], page: TopicPage
+    ) -> dict:
         module = self.session.get(Module, lesson.module_id)
         course = None if module is None else self.session.get(Course, module.course_id)
-        path = None if course is None or course.path_id is None else self.session.get(LearningPath, course.path_id)
+        path = (
+            None
+            if course is None or course.path_id is None
+            else self.session.get(LearningPath, course.path_id)
+        )
         academy = None
         if path is not None and path.academy_id is not None:
             academy = self.session.get(Academy, path.academy_id)
         completed = self._completed_page_ids(user, [item.id for item in pages])
         index = pages.index(page)
         resources = self.session.scalars(
-            select(LessonResource).where(LessonResource.lesson_id == lesson.id)
+            select(LessonResource)
+            .where(LessonResource.lesson_id == lesson.id)
+            .order_by(LessonResource.position)
         ).all()
         grouped: dict[str, list[dict]] = {key: [] for key in _GROUPS}
         for resource in resources:
-            grouped.setdefault(resource.group_name, []).append(
-                {"title": resource.title, "url": resource.url, "kind": resource.kind}
-            )
+            view = self._resource_view(resource)
+            if view is not None:
+                grouped.setdefault(resource.group_name, []).append(view)
         note = self.session.scalar(
             select(PageNote).where(PageNote.user_id == user.id, PageNote.page_id == page.id)
         )
@@ -460,7 +624,9 @@ class LearnJourney:
         )
         check = None
         if page.kind == "knowledge_check":
-            row = self.session.scalar(select(KnowledgeCheck).where(KnowledgeCheck.page_id == page.id))
+            row = self.session.scalar(
+                select(KnowledgeCheck).where(KnowledgeCheck.page_id == page.id)
+            )
             if row is not None:
                 questions = self.session.scalars(
                     select(KnowledgeCheckQuestion)
@@ -481,10 +647,16 @@ class LearnJourney:
             "breadcrumbs": [
                 item
                 for item in (
-                    None if academy is None else {"label": academy.title, "href": f"/academies/{academy.slug}"},
+                    None
+                    if academy is None
+                    else {"label": academy.title, "href": f"/academies/{academy.slug}"},
                     None if path is None else {"label": path.title, "href": f"/paths/{path.slug}"},
-                    None if course is None else {"label": course.title, "href": f"/courses/{course.slug}"},
-                    None if module is None else {"label": module.title, "href": f"/modules/{module.slug}"},
+                    None
+                    if course is None
+                    else {"label": course.title, "href": f"/courses/{course.slug}"},
+                    None
+                    if module is None
+                    else {"label": module.title, "href": f"/modules/{module.slug}"},
                     {"label": lesson.title, "href": f"/learn/{lesson.slug}/{pages[0].slug}"},
                     {"label": page.title, "href": None},
                 )
@@ -492,7 +664,9 @@ class LearnJourney:
             ],
             "objectives": list(lesson.objectives or []),
             "resources": [
-                {"heading": label, "items": grouped[key]} for key, label in _GROUPS.items() if grouped[key]
+                {"heading": label, "items": grouped[key]}
+                for key, label in _GROUPS.items()
+                if grouped[key]
             ],
             "outline": {
                 "module": None if module is None else module.title,
@@ -527,6 +701,7 @@ class LearnJourney:
                 "bookmarked": bookmarked,
                 "note": "" if note is None else note.body,
                 "check": check,
+                "asset": self._asset_view(page.asset_id),
             },
             "progress": {
                 "lesson": self._lesson_percent(user, lesson.id),
@@ -543,9 +718,31 @@ class LearnJourney:
             "lesson": {"slug": lesson.slug, "title": lesson.title},
         }
 
+    def _resource_view(self, link: LessonResource) -> dict | None:
+        return self._asset_view(link.asset_id)
+
+    def _asset_view(self, asset_id: uuid.UUID | None) -> dict | None:
+        if asset_id is None:
+            return None
+        asset = self.session.get(KnowledgeAsset, asset_id)
+        if asset is None:
+            return None
+        extra = asset.extra or {}
+        return {
+            "asset_id": asset.id,
+            "title": asset.title,
+            "url": asset.url or "",
+            "kind": asset.resource_type,
+            "tags": list(asset.tags or []),
+            "topic": asset.topic,
+            "skills": list(extra.get("skills") or []),
+        }
+
     def _touch_page(self, user: User, page: TopicPage, *, seconds: int, complete: bool) -> None:
         row = self.session.scalar(
-            select(PageProgress).where(PageProgress.user_id == user.id, PageProgress.page_id == page.id)
+            select(PageProgress).where(
+                PageProgress.user_id == user.id, PageProgress.page_id == page.id
+            )
         )
         if row is None:
             row = PageProgress(user_id=user.id, page_id=page.id, status="seen")
@@ -586,15 +783,129 @@ class LearnJourney:
             self.session.add(UserAchievement(user_id=user.id, achievement_id=achievement.id))
 
     def _academy_card(self, user: User, row: Academy) -> dict:
-        paths = self.session.scalars(select(LearningPath).where(LearningPath.academy_id == row.id)).all()
-        progress = 0 if not paths else round(sum(self._path_progress(user, path) for path in paths) / len(paths))
+        paths = self.session.scalars(
+            select(LearningPath).where(LearningPath.academy_id == row.id)
+        ).all()
+        progress = (
+            0
+            if not paths
+            else round(sum(self._path_progress(user, path) for path in paths) / len(paths))
+        )
+        lessons = self._academy_lessons(row.id)
+        done = set(self._completed_lesson_ids(user.id))
+        remaining = sum(1 for lesson in lessons if lesson.id not in done)
+        next_unlock = None
+        for path in paths:
+            if self._path_progress(user, path) < 100:
+                next_unlock = path.title
+                break
         return {
             "slug": row.slug,
             "title": row.title,
             "summary": row.summary,
+            "faculty": row.faculty,
             "paths": len(paths),
             "progress": progress,
+            "remaining_lessons": remaining,
+            "cue": near_win(
+                remaining_lessons=remaining if progress > 0 else None,
+                next_unlock=next_unlock if progress > 0 else None,
+                percent=progress,
+            ),
         }
+
+    def _program_card(
+        self,
+        user: User,
+        path: LearningPath,
+        *,
+        academy: Academy,
+        progress: int,
+        locked: bool,
+        yours: bool,
+    ) -> dict:
+        lessons = self._path_lessons(path.id)
+        done = set(self._completed_lesson_ids(user.id))
+        remaining = sum(1 for lesson in lessons if lesson.id not in done)
+        courses = len(
+            self.session.scalars(select(Course.id).where(Course.path_id == path.id)).all()
+        )
+        return {
+            **self._path_card(path),
+            "faculty": faculty_ref(academy.faculty),
+            "academy": {"slug": academy.slug, "title": academy.title, "faculty": academy.faculty},
+            "progress": progress,
+            "locked": locked,
+            "yours": yours,
+            "courses": int(courses),
+            "remaining_lessons": remaining,
+            "href": None if locked else f"/paths/{path.slug}",
+            "cue": near_win(
+                remaining_lessons=remaining if progress > 0 else None,
+                next_unlock=None if locked or progress >= 100 else path.title,
+                percent=progress,
+            ),
+        }
+
+    def _path_lessons(self, path_id: uuid.UUID) -> list[Lesson]:
+        return list(
+            self.session.scalars(
+                select(Lesson)
+                .join(Module, Lesson.module_id == Module.id)
+                .join(Course, Module.course_id == Course.id)
+                .where(Course.path_id == path_id)
+                .order_by(Course.position, Module.position, Lesson.position)
+            ).all()
+        )
+
+    def _academy_lessons(self, academy_id: uuid.UUID) -> list[Lesson]:
+        return list(
+            self.session.scalars(
+                select(Lesson)
+                .join(Module, Lesson.module_id == Module.id)
+                .join(Course, Module.course_id == Course.id)
+                .join(LearningPath, Course.path_id == LearningPath.id)
+                .where(LearningPath.academy_id == academy_id)
+                .order_by(LearningPath.position, Course.position, Module.position, Lesson.position)
+            ).all()
+        )
+
+    def _completed_lesson_ids(self, user_id: uuid.UUID) -> list[uuid.UUID]:
+        return list(
+            self.session.scalars(
+                select(Progress.lesson_id).where(
+                    Progress.user_id == user_id, Progress.status == "completed"
+                )
+            ).all()
+        )
+
+    def _skill_tree(self, user: User, academy_id: uuid.UUID) -> list[dict]:
+        from app.models import ConceptMastery
+
+        lessons = self._academy_lessons(academy_id)
+        done = set(self._completed_lesson_ids(user.id))
+        scores = {
+            row.concept_slug: row.score
+            for row in self.session.scalars(
+                select(ConceptMastery).where(ConceptMastery.user_id == user.id)
+            ).all()
+        }
+        tree = []
+        for lesson in lessons:
+            catalog = get_concept(lesson.slug)
+            score = scores.get(lesson.slug, 0)
+            unlocked = lesson.id in done or score >= 60
+            tree.append(
+                {
+                    "slug": lesson.slug,
+                    "name": lesson.title,
+                    "unlocked": unlocked,
+                    "mastery": score,
+                    "tier": card_tier(score),
+                    "prerequisites": [] if catalog is None else list(catalog.prerequisites),
+                }
+            )
+        return tree
 
     def _path_card(self, path: LearningPath) -> dict:
         return {
@@ -642,22 +953,30 @@ class LearnJourney:
         courses = self.session.scalars(select(Course.id).where(Course.path_id == path.id)).all()
         if not courses:
             return 0
-        return round(sum(self._course_percent(user, course_id) for course_id in courses) / len(courses))
+        return round(
+            sum(self._course_percent(user, course_id) for course_id in courses) / len(courses)
+        )
 
     def _course_percent(self, user: User, course_id: uuid.UUID) -> int:
         modules = self.session.scalars(select(Module.id).where(Module.course_id == course_id)).all()
         if not modules:
             return 0
-        return round(sum(self._module_percent(user, module_id) for module_id in modules) / len(modules))
+        return round(
+            sum(self._module_percent(user, module_id) for module_id in modules) / len(modules)
+        )
 
     def _module_percent(self, user: User, module_id: uuid.UUID) -> int:
         lessons = self.session.scalars(select(Lesson.id).where(Lesson.module_id == module_id)).all()
         if not lessons:
             return 0
-        return round(sum(self._lesson_percent(user, lesson_id) for lesson_id in lessons) / len(lessons))
+        return round(
+            sum(self._lesson_percent(user, lesson_id) for lesson_id in lessons) / len(lessons)
+        )
 
     def _lesson_percent(self, user: User, lesson_id: uuid.UUID) -> int:
-        pages = self.session.scalars(select(TopicPage.id).where(TopicPage.lesson_id == lesson_id)).all()
+        pages = self.session.scalars(
+            select(TopicPage.id).where(TopicPage.lesson_id == lesson_id)
+        ).all()
         if not pages:
             return 0
         done = self._completed_page_ids(user, list(pages))
@@ -691,12 +1010,19 @@ class LearnJourney:
     def _best_attempt(self, user: User, assessment_id: uuid.UUID) -> AssessmentAttempt | None:
         return self.session.scalar(
             select(AssessmentAttempt)
-            .where(AssessmentAttempt.user_id == user.id, AssessmentAttempt.assessment_id == assessment_id)
+            .where(
+                AssessmentAttempt.user_id == user.id,
+                AssessmentAttempt.assessment_id == assessment_id,
+            )
             .order_by(AssessmentAttempt.passed.desc(), AssessmentAttempt.score.desc())
         )
 
     def _assessment_ref(self, user: User, **parent) -> dict | None:
-        row = self.session.scalar(select(Assessment).where(*[getattr(Assessment, key) == value for key, value in parent.items()]))
+        row = self.session.scalar(
+            select(Assessment).where(
+                *[getattr(Assessment, key) == value for key, value in parent.items()]
+            )
+        )
         if row is None:
             return None
         attempt = self._best_attempt(user, row.id)
@@ -714,7 +1040,9 @@ class LearnJourney:
             return
         earlier = self.session.scalars(
             select(LearningPath)
-            .where(LearningPath.academy_id == path.academy_id, LearningPath.position < path.position)
+            .where(
+                LearningPath.academy_id == path.academy_id, LearningPath.position < path.position
+            )
             .order_by(LearningPath.position)
         ).all()
         for item in earlier:
@@ -726,12 +1054,18 @@ class LearnJourney:
             return None
         nxt = self.session.scalar(
             select(LearningPath)
-            .where(LearningPath.academy_id == path.academy_id, LearningPath.position > path.position)
+            .where(
+                LearningPath.academy_id == path.academy_id, LearningPath.position > path.position
+            )
             .order_by(LearningPath.position)
         )
         if nxt is None:
             return None
-        return {"slug": nxt.slug, "title": nxt.title, "locked": self._path_progress(user, path) < 100}
+        return {
+            "slug": nxt.slug,
+            "title": nxt.title,
+            "locked": self._path_progress(user, path) < 100,
+        }
 
     def _scope_rates(self, scope: str) -> list[dict]:
         rows = self.session.scalars(select(Assessment).where(Assessment.scope == scope)).all()
@@ -771,7 +1105,9 @@ class LearnJourney:
     def _pages(self, lesson_id: uuid.UUID) -> list[TopicPage]:
         return list(
             self.session.scalars(
-                select(TopicPage).where(TopicPage.lesson_id == lesson_id).order_by(TopicPage.position)
+                select(TopicPage)
+                .where(TopicPage.lesson_id == lesson_id)
+                .order_by(TopicPage.position)
             ).all()
         )
 
@@ -824,7 +1160,7 @@ class LearnJourney:
         row = self.session.get(Academy, academy_id)
         if row is None:
             return None
-        return {"slug": row.slug, "title": row.title}
+        return {"slug": row.slug, "title": row.title, "faculty": row.faculty}
 
     def _path_ref(self, path_id: uuid.UUID) -> dict | None:
         row = self.session.get(LearningPath, path_id)

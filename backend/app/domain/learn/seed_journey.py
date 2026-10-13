@@ -1,3 +1,4 @@
+# ruff: noqa: E501
 """Idempotent Microsoft Learn-style curriculum.
 
 The Reinforcement Learning Academy is the worked example. Every other catalog
@@ -17,6 +18,7 @@ from app.models import (
     Assessment,
     AssessmentQuestion,
     Course,
+    KnowledgeAsset,
     KnowledgeCheck,
     KnowledgeCheckQuestion,
     LearningPath,
@@ -95,9 +97,44 @@ The set of every legal tuple is *S*. An illegal tuple (a robot outside the wareh
 Moving right from *s = 0* can only reach *s = 1*. The picture is the state space. The arrow is an action, which is the next lesson.""",
     },
     {
+        "slug": "watch",
+        "title": "Watch",
+        "kind": "video",
+        "minutes": 8,
+        "body": "Watch the lecture introduction, then come back and name the state in your own words.",
+        "catalog": {
+            "slug": "david-silver-rl-intro",
+            "title": "David Silver: Introduction to Reinforcement Learning",
+            "url": "https://www.youtube.com/watch?v=2pWv7GOvuf0",
+            "resource_type": "video",
+            "tags": ["reinforcement-learning", "mdp"],
+            "topic": "mdp",
+            "skills": ["markov-decision-process"],
+        },
+    },
+    {
+        "slug": "name-the-state",
+        "title": "Interactive exercise",
+        "kind": "exercise",
+        "minutes": 6,
+        "body": (
+            "A robot vacuum sees four squares. Write down a state that is enough to choose "
+            "the next move, and one fact you would leave out because it does not change the choice."
+        ),
+        "catalog": {
+            "slug": "name-the-grid-state",
+            "title": "Name the state of a four-square room",
+            "url": "",
+            "resource_type": "coding_challenge",
+            "tags": ["reinforcement-learning", "state"],
+            "topic": "mdp",
+            "skills": ["state-representation"],
+        },
+    },
+    {
         "slug": "summary",
         "title": "Summary",
-        "kind": "reading",
+        "kind": "summary",
         "minutes": 2,
         "body": """- A state is a sufficient summary of the present.
 - *S* is the set of those summaries.
@@ -195,6 +232,7 @@ RL_ACADEMY: dict = {
     "slug": "reinforcement-learning-academy",
     "title": "Reinforcement Learning Academy",
     "summary": "From the agent loop to policy optimisation, one page at a time.",
+    "faculty": "ai",
     "paths": (
         {
             "slug": "rl-foundations",
@@ -457,7 +495,9 @@ RL_ACADEMY: dict = {
                                 _lesson(
                                     "other-agents-are-not-noise",
                                     "Other agents are not noise",
-                                    ("Explain why another learner is not a stationary transition.",),
+                                    (
+                                        "Explain why another learner is not a stationary transition.",
+                                    ),
                                     _reading(
                                         "Other agents are not noise",
                                         "Another learning agent changes its policy, so the transition the first agent sees is not fixed.",
@@ -472,10 +512,72 @@ RL_ACADEMY: dict = {
     ),
 }
 
+DS_ACADEMY: dict = {
+    "slug": "data-science-academy",
+    "title": "Data Science Academy",
+    "summary": "Ask a question of a table before you fit a model.",
+    "faculty": "data-science",
+    "paths": (
+        {
+            "slug": "data-science-foundations",
+            "title": "Data Science Foundations",
+            "level": "beginner",
+            "description": "What the table is, what the question is, and why a plot can change both.",
+            "gated": False,
+            "courses": (
+                {
+                    "slug": "asking-questions-of-data",
+                    "title": "Asking questions of data",
+                    "description": "A dataset is not a result. A question plus a table is the start of the work.",
+                    "modules": (
+                        {
+                            "slug": "tables-and-questions",
+                            "title": "Tables and questions",
+                            "summary": "Name the rows, the columns, and the claim you want to test.",
+                            "lessons": (
+                                _lesson(
+                                    "what-is-a-dataset",
+                                    "What is a dataset?",
+                                    ("Name the unit of a row and the question the table could answer.",),
+                                    _reading(
+                                        "What is a dataset?",
+                                        "A dataset is a table you can ask a question of. Each row is one unit — a person, a trial, a day. Each column is a measurement of that unit. A chart that does not change what you would do next is decoration, not analysis.",
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+        },
+    ),
+}
+
 WRAPS = (
-    ("foundations-academy", "Foundations Academy", "The maths and Python the later academies assume.", "ai-fundamentals", 0),
-    ("robotics-academy", "Robotics Academy", "The robot loop, ROS 2, and where a policy may touch a motor.", "robotics", 0),
-    ("llm-academy", "LLM Engineering Academy", "Grounded language-model systems.", "llm-engineering", 0),
+    (
+        "foundations-academy",
+        "Foundations Academy",
+        "The maths and Python the later academies assume.",
+        "ai-fundamentals",
+        0,
+        "ai",
+    ),
+    (
+        "robotics-academy",
+        "Robotics Academy",
+        "The robot loop, ROS 2, and where a policy may touch a motor.",
+        "robotics",
+        2,
+        "robotics",
+    ),
+    (
+        "llm-academy",
+        "LLM Engineering Academy",
+        "Grounded language-model systems.",
+        "llm-engineering",
+        3,
+        "ai",
+    ),
 )
 
 
@@ -493,6 +595,9 @@ def _upsert_page(session: Session, lesson: Lesson, spec: dict, position: int) ->
     page.body_md = spec["body"]
     page.position = position
     page.estimated_minutes = spec["minutes"]
+    catalog = spec.get("catalog")
+    if catalog:
+        page.asset_id = _ensure_asset(session, catalog).id
     session.flush()
     questions = spec.get("questions")
     if questions:
@@ -623,8 +728,43 @@ def _ensure_catalog_pages(session: Session, lesson: Lesson) -> None:
 
 
 def seed_guided(session: Session) -> None:
-    academy = _academy(session, RL_ACADEMY["slug"], RL_ACADEMY["title"], RL_ACADEMY["summary"], 1)
-    for path_index, path_spec in enumerate(RL_ACADEMY["paths"]):
+    _seed_spec(session, RL_ACADEMY, 1)
+    _seed_spec(session, DS_ACADEMY, 4)
+
+    for slug, title, summary, path_slug, position, faculty in WRAPS:
+        wrapped = _academy(session, slug, title, summary, position, faculty)
+        path = session.scalar(select(LearningPath).where(LearningPath.slug == path_slug))
+        if path is not None:
+            path.academy_id = wrapped.id
+        course = session.scalar(select(Course).where(Course.slug == path_slug))
+        if course is not None and path is not None:
+            course.path_id = path.id
+            course.academy_id = wrapped.id
+
+    badge = session.scalar(select(Achievement).where(Achievement.slug == "rl-foundations"))
+    if badge is None:
+        session.add(
+            Achievement(
+                slug="rl-foundations",
+                name="RL Foundations",
+                description="Completed the RL Foundations learning path.",
+                xp_reward=0,
+                icon="seal",
+            )
+        )
+
+    for lesson in session.scalars(select(Lesson)).all():
+        if lesson.module.slug is None:
+            lesson.module.slug = f"{lesson.module.course.slug}-core"[:80]
+        _ensure_catalog_pages(session, lesson)
+    session.flush()
+
+
+def _seed_spec(session: Session, spec: dict, position: int) -> None:
+    academy = _academy(
+        session, spec["slug"], spec["title"], spec["summary"], position, spec["faculty"]
+    )
+    for path_index, path_spec in enumerate(spec["paths"]):
         path = _path(session, academy, path_spec, path_index)
         for course_index, course_spec in enumerate(path_spec["courses"]):
             course = _course(session, academy, path, course_spec, course_index)
@@ -667,42 +807,17 @@ def seed_guided(session: Session) -> None:
             wrong_b="C. Memorise a video without a check",
         )
 
-    for slug, title, summary, path_slug, position in WRAPS:
-        wrapped = _academy(session, slug, title, summary, position)
-        path = session.scalar(select(LearningPath).where(LearningPath.slug == path_slug))
-        if path is not None and path.academy_id is None:
-            path.academy_id = wrapped.id
-        course = session.scalar(select(Course).where(Course.slug == path_slug))
-        if course is not None and path is not None and course.path_id is None:
-            course.path_id = path.id
-            course.academy_id = wrapped.id
 
-    badge = session.scalar(select(Achievement).where(Achievement.slug == "rl-foundations"))
-    if badge is None:
-        session.add(
-            Achievement(
-                slug="rl-foundations",
-                name="RL Foundations",
-                description="Completed the RL Foundations learning path.",
-                xp_reward=0,
-                icon="seal",
-            )
-        )
-
-    for lesson in session.scalars(select(Lesson)).all():
-        if lesson.module.slug is None:
-            lesson.module.slug = f"{lesson.module.course.slug}-core"[:80]
-        _ensure_catalog_pages(session, lesson)
-    session.flush()
-
-
-def _academy(session: Session, slug: str, title: str, summary: str, position: int) -> Academy:
+def _academy(
+    session: Session, slug: str, title: str, summary: str, position: int, faculty: str
+) -> Academy:
     row = session.scalar(select(Academy).where(Academy.slug == slug))
     if row is None:
         row = Academy(slug=slug)
         session.add(row)
     row.title = title
     row.summary = summary
+    row.faculty = faculty
     row.position = position
     row.published = True
     session.flush()
@@ -725,7 +840,9 @@ def _path(session: Session, academy: Academy, spec: dict, position: int) -> Lear
     return row
 
 
-def _course(session: Session, academy: Academy, path: LearningPath, spec: dict, position: int) -> Course:
+def _course(
+    session: Session, academy: Academy, path: LearningPath, spec: dict, position: int
+) -> Course:
     row = session.scalar(select(Course).where(Course.slug == spec["slug"]))
     if row is None:
         row = Course(slug=spec["slug"])
@@ -772,19 +889,76 @@ def _lesson_row(session: Session, module: Module, spec: dict, position: int) -> 
     return row
 
 
+def _ensure_asset(session: Session, spec: dict) -> KnowledgeAsset:
+    """One catalog record per slug or URL. A lesson never stores a second copy of the file."""
+
+    url = spec.get("url") or None
+    row = session.scalar(select(KnowledgeAsset).where(KnowledgeAsset.slug == spec["slug"]))
+    if row is None and url:
+        row = session.scalar(select(KnowledgeAsset).where(KnowledgeAsset.url == url))
+    if row is None:
+        row = KnowledgeAsset(slug=spec["slug"][:80], title=spec["title"][:200])
+        session.add(row)
+    if row.slug.startswith("ref-") and row.slug != spec["slug"]:
+        row.slug = spec["slug"][:80]
+    owned = row.slug == spec["slug"]
+    if owned:
+        row.title = spec["title"][:200]
+        row.description = spec["title"]
+        row.url = url
+        row.resource_type = spec["resource_type"]
+        row.kind = "link" if url else "exercise"
+        row.state = "published"
+        row.topic = spec.get("topic") or ""
+        row.tags = list(spec.get("tags") or [])
+        row.source_type = "curated"
+        row.extra = {**(row.extra or {}), "skills": list(spec.get("skills") or [])}
+    session.flush()
+    return row
+
+
 def _state_resources(session: Session, lesson: Lesson) -> None:
     wanted = (
-        ("paper", "research", "Sutton and Barto, chapter 3", "http://incompleteideas.net/book/RLbook2020.pdf"),
-        ("repo", "related", "Gymnasium, the maintained successor of OpenAI Gym", "https://github.com/Farama-Foundation/Gymnasium"),
-        ("link", "further", "A short MDP primer", "https://en.wikipedia.org/wiki/Markov_decision_process"),
+        {
+            "slug": "sutton-barto-rl-book",
+            "title": "Sutton and Barto, Reinforcement Learning: An Introduction",
+            "url": "http://incompleteideas.net/book/RLbook2020.pdf",
+            "resource_type": "paper",
+            "group": "research",
+            "tags": ["reinforcement-learning", "mdp"],
+            "topic": "mdp",
+            "skills": ["markov-decision-process"],
+        },
+        {
+            "slug": "farama-gymnasium",
+            "title": "Gymnasium, the maintained successor of OpenAI Gym",
+            "url": "https://github.com/Farama-Foundation/Gymnasium",
+            "resource_type": "repository",
+            "group": "related",
+            "tags": ["reinforcement-learning", "environment"],
+            "topic": "mdp",
+            "skills": ["environment-simulation"],
+        },
+        {
+            "slug": "wikipedia-mdp",
+            "title": "Markov decision process",
+            "url": "https://en.wikipedia.org/wiki/Markov_decision_process",
+            "resource_type": "documentation",
+            "group": "further",
+            "tags": ["mdp"],
+            "topic": "mdp",
+            "skills": ["markov-decision-process"],
+        },
     )
-    for kind, group, title, url in wanted:
-        exists = session.scalar(
-            select(LessonResource).where(LessonResource.lesson_id == lesson.id, LessonResource.url == url)
-        )
-        if exists is None:
-            session.add(
-                LessonResource(
-                    lesson_id=lesson.id, kind=kind, group_name=group, title=title, url=url
-                )
+    for position, spec in enumerate(wanted):
+        asset = _ensure_asset(session, spec)
+        link = session.scalar(
+            select(LessonResource).where(
+                LessonResource.lesson_id == lesson.id, LessonResource.asset_id == asset.id
             )
+        )
+        if link is None:
+            link = LessonResource(lesson_id=lesson.id, asset_id=asset.id)
+            session.add(link)
+        link.group_name = spec["group"]
+        link.position = position

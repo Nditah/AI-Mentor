@@ -9,12 +9,17 @@ import {
   GraduationCap,
   LayoutDashboard,
   Map,
+  Medal,
   MessageSquare,
   Search,
+  Settings,
+  Sparkles,
   SquareStack,
+  Trophy,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { AppLauncher } from "@/components/app-launcher";
 import { api } from "@/lib/api";
 import type { Dashboard } from "@/lib/types";
@@ -26,7 +31,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 const links = [
   ["/dashboard", "Home", LayoutDashboard],
   ["/tutor", "Tutor", MessageSquare],
-  ["/academies", "Learn", GraduationCap],
+  ["/academies", "World", GraduationCap],
+  ["/daily", "Today", Sparkles],
+  ["/collection", "Collection", Medal],
+  ["/ranks", "Ranks", Trophy],
   ["/catalog", "Catalog", Search],
   ["/quiz", "Practice", ClipboardCheck],
   ["/flashcards", "Flashcards", SquareStack],
@@ -37,12 +45,19 @@ const links = [
 
 export function LearnerShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const devUserId = useStudio((state) => state.devUserId);
   const setDevUserId = useStudio((state) => state.setDevUserId);
   const dashboard = useQuery({
     queryKey: ["dashboard", devUserId],
     queryFn: () => api<Dashboard>("/api/v1/dashboard"),
   });
+  const onboarding = pathname.startsWith("/onboarding");
+  useEffect(() => {
+    if (!onboarding && dashboard.data && dashboard.data.onboarded === false) {
+      router.replace("/onboarding");
+    }
+  }, [dashboard.data, onboarding, router]);
 
   return (
     <div className="min-h-screen lg:grid lg:grid-cols-[240px_1fr]">
@@ -93,6 +108,18 @@ export function LearnerShell({ children }: { children: React.ReactNode }) {
             )}
           </p>
           <div className="flex items-center gap-2">
+            <Link
+              href="/settings"
+              className={cn(
+                "flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold",
+                pathname.startsWith("/settings")
+                  ? "bg-[#1d4ed8] text-white"
+                  : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800",
+              )}
+            >
+              <Settings aria-hidden size={16} />
+              Settings
+            </Link>
             {clerkEnabled ? <UserButton /> : null}
             {devAuth && !clerkEnabled ? (
               <label className="text-sm">

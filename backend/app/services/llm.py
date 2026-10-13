@@ -47,6 +47,19 @@ class ProviderRouter:
                 return text.strip()
         return None
 
+    def stream(self, *, system: str, messages: list[tuple[str, str]], max_tokens: int = 700):
+        """Yield token strings. Falls back to one chunk from `complete` without a stream."""
+
+        if self.settings.openai_api_key:
+            try:
+                yield from self._openai_stream(system, messages, max_tokens)
+                return
+            except Exception:
+                log.warning("model provider openai stream failed", exc_info=True)
+        text = self.complete(system=system, messages=messages, max_tokens=max_tokens)
+        if text:
+            yield text
+
     def _openai(self, system: str, messages: list[tuple[str, str]], max_tokens: int) -> str:
         from openai import OpenAI
 
@@ -64,6 +77,32 @@ class ProviderRouter:
             ],
         )
         return response.choices[0].message.content or ""
+
+    def _openai_stream(self, system: str, messages: list[tuple[str, str]], max_tokens: int):
+        from openai import OpenAI
+
+        client = OpenAI(
+            api_key=self.settings.openai_api_key,
+            timeout=self.settings.llm_timeout_seconds,
+            max_retries=self.settings.llm_max_retries,
+        )
+        response = client.chat.completions.create(
+            model=self.settings.openai_model,
+            max_tokens=max_tokens,
+            stream=True,
+            messages=[
+                {"role": "system", "content": system},
+                *[{"role": role, "content": content} for role, content in messages],
+            ],
+        )
+        for chunk in response:
+            choices = getattr(chunk, "choices", None) or []
+            if not choices:
+                continue
+            delta = getattr(choices[0], "delta", None)
+            text = getattr(delta, "content", None) if delta is not None else None
+            if text:
+                yield text
 
     def _anthropic(self, system: str, messages: list[tuple[str, str]], max_tokens: int) -> str:
         from anthropic import Anthropic

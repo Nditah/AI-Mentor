@@ -1,12 +1,20 @@
 "use client";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { FormEvent, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import Link from "next/link";
+import { FormEvent, useEffect, useState } from "react";
 import { MentorMarkdown } from "@/components/markdown-view";
 import { Button } from "@/components/ui/button";
-import { api } from "@/lib/api";
-import type { ChatReply } from "@/lib/types";
+import { api, apiStream, ApiError, readSse } from "@/lib/api";
 import { useStudio } from "@/stores/studio";
+
+type Prefs = {
+  tutor_mode: "socratic" | "direct";
+  learning_style: string;
+  maths_comfort: string | null;
+  programming_experience: string | null;
+  weekly_minutes: number | null;
+};
 
 type Turn = { role: "user" | "assistant"; content: string };
 
@@ -14,28 +22,82 @@ export default function TutorPage() {
   const client = useQueryClient();
   const notes = useStudio((state) => state.notes);
   const setNotes = useStudio((state) => state.setNotes);
+  const devUserId = useStudio((state) => state.devUserId);
+  const prefs = useQuery({
+    queryKey: ["prefs", devUserId],
+    queryFn: () => api<Prefs>("/api/v1/me/learning-preferences"),
+  });
   const [mode, setMode] = useState<"socratic" | "direct">("socratic");
+  useEffect(() => {
+    if (prefs.data?.tutor_mode) setMode(prefs.data.tutor_mode);
+  }, [prefs.data]);
+  const saveMode = useMutation({
+    mutationFn: (next: "socratic" | "direct") =>
+      api("/api/v1/me/learning-preferences", {
+        method: "PATCH",
+        body: JSON.stringify({ tutor_mode: next }),
+      }),
+  });
   const [draft, setDraft] = useState("Teach me Reinforcement Learning");
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [turns, setTurns] = useState<Turn[]>([]);
-  const send = useMutation({
-    mutationFn: (message: string) =>
-      api<ChatReply>("/api/v1/chat", {
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function sendMessage(message: string) {
+    setPending(true);
+    setError(null);
+    setTurns((current) => [...current, { role: "user", content: message }, { role: "assistant", content: "" }]);
+    setDraft("");
+    try {
+      const response = await apiStream("/api/v1/chat/stream", {
         method: "POST",
         body: JSON.stringify({ message, mode, conversation_id: conversationId }),
-      }),
-    onSuccess: (result, message) => {
+      });
+      let assembled = "";
+      for await (const event of readSse(response)) {
+        if (event.type === "error") {
+          throw new ApiError(Number(event.status) || 400, String(event.detail || "The tutor could not answer."));
+        }
+        if (event.type === "meta" && typeof event.conversation_id === "string") {
+          setConversationId(event.conversation_id);
+        }
+        if (event.type === "delta" && typeof event.text === "string") {
+          assembled += event.text;
+          const snapshot = assembled;
+          setTurns((current) => {
+            const next = [...current];
+            next[next.length - 1] = { role: "assistant", content: snapshot };
+            return next;
+          });
+        }
+        if (event.type === "done") {
+          const reply = event.reply as { content?: string } | undefined;
+          if (reply?.content) {
+            assembled = reply.content;
+            setTurns((current) => {
+              const next = [...current];
+              next[next.length - 1] = { role: "assistant", content: assembled };
+              return next;
+            });
+          }
+          if (typeof event.conversation_id === "string") setConversationId(event.conversation_id);
+        }
+      }
       client.invalidateQueries({ queryKey: ["dashboard"] });
-      setConversationId(result.conversation_id);
-      setTurns((current) => [...current, { role: "user", content: message }, { role: "assistant", content: result.reply.content }]);
-      setDraft("");
-    },
-  });
+    } catch (caught) {
+      setTurns((current) => current.slice(0, -2));
+      setDraft(message);
+      setError(caught instanceof ApiError ? caught.message : "The tutor could not answer.");
+    } finally {
+      setPending(false);
+    }
+  }
 
   function onSubmit(event: FormEvent) {
     event.preventDefault();
-    if (!draft.trim()) return;
-    send.mutate(draft.trim());
+    if (!draft.trim() || pending) return;
+    void sendMessage(draft.trim());
   }
 
   return (
@@ -52,7 +114,10 @@ export default function TutorPage() {
                   type="radio"
                   name="mode"
                   checked={mode === value}
-                  onChange={() => setMode(value)}
+                  onChange={() => {
+                    setMode(value);
+                    saveMode.mutate(value);
+                  }}
                 />
                 {value === "socratic" ? "Socratic" : "Direct"}
               </label>
@@ -73,7 +138,7 @@ export default function TutorPage() {
               }
             >
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{turn.role}</p>
-              <MentorMarkdown content={turn.content} />
+              {turn.content ? <MentorMarkdown content={turn.content} /> : <p className="mt-1 text-slate-500">Thinking…</p>}
             </article>
           ))}
         </div>
@@ -92,11 +157,11 @@ export default function TutorPage() {
           />
           <div className="flex items-center justify-between gap-3">
             <p className="text-sm text-slate-500">Press Command Enter to send.</p>
-            <Button type="submit" disabled={send.isPending}>
-              {send.isPending ? "Thinking" : "Send"}
+            <Button type="submit" disabled={pending}>
+              {pending ? "Thinking" : "Send"}
             </Button>
           </div>
-          {send.error ? <p className="text-sm text-red-800 dark:text-red-300">{send.error.message}</p> : null}
+          {error ? <p className="text-sm text-red-800 dark:text-red-300">{error}</p> : null}
         </form>
       </section>
       <aside className="space-y-4">
@@ -112,6 +177,19 @@ export default function TutorPage() {
             onChange={(event) => setNotes(event.target.value)}
           />
           <p className="mt-2 text-xs text-slate-500">Notes stay in this browser.</p>
+        </section>
+        <section className="rounded-3xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+          <h2 className="font-semibold">Teaching for you</h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {prefs.data
+              ? `${prefs.data.learning_style.replace("_", "-")} · ${prefs.data.maths_comfort || "maths unset"} · ${prefs.data.programming_experience || "programming unset"}${prefs.data.weekly_minutes ? ` · ${prefs.data.weekly_minutes} min/week` : ""}`
+              : "Load settings to adapt examples, maths, and session length."}
+          </p>
+          <p className="mt-2 text-sm">
+            <Link className="font-semibold text-[#1d4ed8] underline" href="/settings">
+              Change in Settings
+            </Link>
+          </p>
         </section>
         <section className="rounded-3xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
           <h2 className="font-semibold">Resources</h2>

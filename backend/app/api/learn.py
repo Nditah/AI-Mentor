@@ -41,7 +41,8 @@ class PageIn(BaseModel):
     lesson_slug: str = Field(min_length=1, max_length=80)
     title: str = Field(min_length=1, max_length=200)
     body_md: str = ""
-    kind: Literal["reading", "knowledge_check", "complete"] = "reading"
+    kind: Literal["reading", "video", "exercise", "knowledge_check", "summary"] = "reading"
+    asset_url: str = ""
 
 
 class ReorderIn(BaseModel):
@@ -51,10 +52,25 @@ class ReorderIn(BaseModel):
 
 class ResourceIn(BaseModel):
     lesson_slug: str = Field(min_length=1, max_length=80)
-    title: str = Field(min_length=1, max_length=200)
-    url: str = Field(min_length=8, max_length=500)
-    kind: Literal["video", "pdf", "paper", "link", "code", "repo"] = "link"
     group_name: Literal["related", "further", "research"] = "related"
+    asset_id: uuid.UUID | None = None
+    url: str = ""
+    title: str = ""
+    resource_type: Literal[
+        "book",
+        "course",
+        "paper",
+        "video",
+        "repository",
+        "dataset",
+        "tutorial",
+        "blog",
+        "certification",
+        "documentation",
+        "podcast",
+        "learning_path",
+        "coding_challenge",
+    ] = "documentation"
 
 
 def _journey(
@@ -84,8 +100,15 @@ def academies(user: User = Depends(_user), journey: LearnJourney = Depends(_jour
     return journey.academies(user)
 
 
+@router.get("/world")
+def world(user: User = Depends(_user), journey: LearnJourney = Depends(_journey)) -> dict:
+    return journey.world(user)
+
+
 @router.get("/academies/{slug}")
-def academy(slug: str, user: User = Depends(_user), journey: LearnJourney = Depends(_journey)) -> dict:
+def academy(
+    slug: str, user: User = Depends(_user), journey: LearnJourney = Depends(_journey)
+) -> dict:
     return journey.academy(user, slug)
 
 
@@ -95,12 +118,16 @@ def path(slug: str, user: User = Depends(_user), journey: LearnJourney = Depends
 
 
 @router.get("/courses/{slug}")
-def course(slug: str, user: User = Depends(_user), journey: LearnJourney = Depends(_journey)) -> dict:
+def course(
+    slug: str, user: User = Depends(_user), journey: LearnJourney = Depends(_journey)
+) -> dict:
     return journey.course(user, slug)
 
 
 @router.get("/modules/{slug}")
-def module(slug: str, user: User = Depends(_user), journey: LearnJourney = Depends(_journey)) -> dict:
+def module(
+    slug: str, user: User = Depends(_user), journey: LearnJourney = Depends(_journey)
+) -> dict:
     return journey.module(user, slug)
 
 
@@ -115,7 +142,9 @@ def lesson_page(
 
 
 @router.get("/continue")
-def continue_learning(user: User = Depends(_user), journey: LearnJourney = Depends(_journey)) -> dict:
+def continue_learning(
+    user: User = Depends(_user), journey: LearnJourney = Depends(_journey)
+) -> dict:
     nxt = journey.continue_for(user)
     return {"continue": nxt}
 
@@ -171,7 +200,9 @@ def submit_assessment(
     user: User = Depends(_user),
     journey: LearnJourney = Depends(_journey),
 ) -> dict:
-    return journey.submit_assessment(user, assessment_id, [item.model_dump() for item in body.answers])
+    return journey.submit_assessment(
+        user, assessment_id, [item.model_dump() for item in body.answers]
+    )
 
 
 content = APIRouter(prefix="/content/journey", dependencies=[Depends(_staff)])
@@ -184,7 +215,7 @@ def journey_outline(journey: LearnJourney = Depends(_journey)) -> list[dict]:
 
 @content.post("/pages", status_code=201)
 def add_page(body: PageIn, journey: LearnJourney = Depends(_journey)) -> dict:
-    return journey.add_page(body.lesson_slug, body.title, body.body_md, body.kind)
+    return journey.add_page(body.lesson_slug, body.title, body.body_md, body.kind, body.asset_url)
 
 
 @content.post("/pages/reorder")
@@ -194,12 +225,21 @@ def reorder_pages(body: ReorderIn, journey: LearnJourney = Depends(_journey)) ->
 
 @content.post("/resources", status_code=201)
 def add_resource(body: ResourceIn, journey: LearnJourney = Depends(_journey)) -> dict:
-    return journey.add_resource(body.lesson_slug, body.title, body.url, body.kind, body.group_name)
+    return journey.add_resource(
+        body.lesson_slug,
+        body.group_name,
+        asset_id=body.asset_id,
+        url=body.url,
+        title=body.title,
+        resource_type=body.resource_type,
+    )
 
 
 admin = APIRouter(prefix="/admin", dependencies=[Depends(_admin)])
 
 
 @admin.get("/learning")
-def learning_metrics(user: User = Depends(_user), journey: LearnJourney = Depends(_journey)) -> dict:
+def learning_metrics(
+    user: User = Depends(_user), journey: LearnJourney = Depends(_journey)
+) -> dict:
     return journey.metrics(user)

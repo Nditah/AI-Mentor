@@ -14,7 +14,7 @@ from dataclasses import dataclass
 
 from app.domain.embeddings import tokenize
 from app.domain.knowledge.asset import AssetRecord, difficulty_delta
-from app.domain.knowledge.vocabulary import FREE_COSTS, RESOURCE_TYPES, modality
+from app.domain.knowledge.vocabulary import FREE_COSTS, RESOURCE_TYPES
 
 STYLE_TYPES = {
     "visual": {"video"},
@@ -68,10 +68,6 @@ def matches_facets(record: AssetRecord, query: SearchQuery) -> bool:
         return False
     if query.cost == "free_only" and record.cost_type not in FREE_COSTS:
         return False
-    if query.learning_style:
-        allowed = STYLE_TYPES.get(query.learning_style, set(RESOURCE_TYPES))
-        if record.resource_type not in allowed and modality(record.resource_type) != "mixed":
-            return False
     return True
 
 

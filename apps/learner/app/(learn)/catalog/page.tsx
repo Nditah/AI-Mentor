@@ -48,7 +48,12 @@ export default function CatalogPage() {
     <div className="mx-auto max-w-4xl">
       <h1 className="font-display text-4xl tracking-tight">Catalog</h1>
       <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-        Search published books, papers, courses, videos, datasets, and repositories by topic, skill, or difficulty.
+        Search published books, papers, courses, videos, datasets, and repositories. Ranking
+        follows your style, goal academy, and free-only setting from{" "}
+        <a className="font-semibold text-[#1d4ed8] underline" href="/settings">
+          Settings
+        </a>
+        .
       </p>
       <form className="mt-6 flex flex-wrap gap-2" onSubmit={onSearch}>
         <input
@@ -77,7 +82,7 @@ export default function CatalogPage() {
       </form>
       {recs.data?.resources?.length ? (
         <section className="mt-8">
-          <h2 className="text-xl font-semibold">Recommended next</h2>
+          <h2 className="text-xl font-semibold">Recommended for you</h2>
           <ul className="mt-3 space-y-2">
             {recs.data.resources.slice(0, 4).map((item) => (
               <li key={item.id} className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">

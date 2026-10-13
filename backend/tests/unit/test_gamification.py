@@ -4,14 +4,21 @@ import pytest
 
 from app.domain.gamification import (
     BadgeContext,
+    advance_streak,
     award_amount,
+    card_tier,
+    earned_freezes,
     evaluate_badges,
+    evaluate_titles,
     grant_for,
     learner_day,
     level_progress,
+    mentor_stage,
+    near_win,
     next_streak,
     quiz_xp,
     requested_xp,
+    streak_bonus_percent,
     valid_timezone,
 )
 
@@ -83,4 +90,33 @@ def test_learner_day_uses_the_learner_timezone() -> None:
 def test_badges() -> None:
     assert "first_steps" in evaluate_badges(BadgeContext(lessons_completed=1))
     assert "week_streak" in evaluate_badges(BadgeContext(streak_days=7))
+    assert "streak_30" in evaluate_badges(BadgeContext(streak_days=30))
     assert evaluate_badges(BadgeContext()) == frozenset()
+
+
+def test_streak_freeze_covers_one_missed_day() -> None:
+    today = date(2026, 10, 13)
+    streak, freezes, used = advance_streak(12, today - timedelta(days=2), today, 1)
+    assert (streak, freezes, used) == (13, 0, True)
+    streak, freezes, used = advance_streak(12, today - timedelta(days=3), today, 1)
+    assert (streak, freezes, used) == (1, 1, False)
+
+
+def test_freezes_earned_at_marks() -> None:
+    assert earned_freezes(6, 7, 0) == 1
+    assert earned_freezes(7, 8, 1) == 1
+    assert earned_freezes(29, 30, 1) == 2
+    assert earned_freezes(29, 30, 2) == 2
+
+
+def test_ethical_bonus_and_cards() -> None:
+    assert streak_bonus_percent(6) == 0
+    assert streak_bonus_percent(7) == 5
+    assert streak_bonus_percent(100) == 15
+    assert card_tier(59) is None
+    assert card_tier(60) == "bronze"
+    assert card_tier(90) == "gold"
+    assert mentor_stage(1)["id"] == "novice"
+    assert mentor_stage(40)["id"] == "grandmaster"
+    assert "ml_engineer" in evaluate_titles(level=10, badges=frozenset())
+    assert "Only 2 lessons remaining." in near_win(remaining_lessons=2)

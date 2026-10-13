@@ -8,7 +8,10 @@ when the remote call is skipped: they return an empty collection.
 
 from __future__ import annotations
 
+import csv
+import re
 from dataclasses import dataclass
+from io import StringIO
 
 from app.domain.knowledge.taxonomy import SOURCES, SourceDef
 from app.domain.knowledge.vocabulary import RESOURCE_TYPES
@@ -83,8 +86,42 @@ def normalise_bulk(payload: list[dict] | dict) -> list[dict]:
     if isinstance(payload, dict):
         if "resources" in payload and isinstance(payload["resources"], list):
             return list(payload["resources"])
+        if isinstance(payload.get("csv"), str) and payload["csv"].strip():
+            return parse_csv_resources(payload["csv"])
         return [payload]
     return list(payload)
+
+
+def parse_csv_resources(text: str) -> list[dict]:
+    """Map a headered CSV to the same dictionaries the JSON importer accepts.
+
+    `concepts` may be split on commas, semicolons, or pipes. Other columns pass
+    through as strings, except `estimated_duration` which becomes an int.
+    """
+
+    reader = csv.DictReader(StringIO(text))
+    records: list[dict] = []
+    for row in reader:
+        item: dict = {}
+        for raw_key, raw_value in row.items():
+            if raw_key is None:
+                continue
+            key = str(raw_key).strip()
+            value = "" if raw_value is None else str(raw_value).strip()
+            if not key:
+                continue
+            if key == "concepts":
+                item[key] = [part.strip() for part in re.split(r"[,;|]", value) if part.strip()]
+            elif key == "estimated_duration" and value:
+                try:
+                    item[key] = int(value)
+                except ValueError:
+                    item[key] = value
+            else:
+                item[key] = value
+        if item:
+            records.append(item)
+    return records
 
 
 def validate_connector_payload(raw: dict) -> str | None:

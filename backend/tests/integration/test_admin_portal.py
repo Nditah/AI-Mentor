@@ -109,6 +109,28 @@ def test_published_assets_are_cited_and_archived_ones_are_not(client):
     assert "Temporal difference targets" not in after["reply"]["content"]
 
 
+def test_generate_draft_uses_model_then_stays_in_draft(client, monkeypatch):
+    monkeypatch.setattr(
+        "app.services.admin_portal.ProviderRouter.complete",
+        lambda self, **_kwargs: "# Q-learning\n\nA model-written draft of the tabular update.",
+    )
+    created = client.post(
+        "/api/v1/content/assets/generate",
+        headers={"X-Dev-User-Id": "demo-instructor"},
+        json={"concept_slug": "q-learning"},
+    )
+    assert created.status_code == 200, created.json()
+    body = created.json()
+    assert body["state"] == "draft"
+    assert "model" in body["description"].lower()
+    detail = client.get(
+        f"/api/v1/content/assets/{body['id']}", headers={"X-Dev-User-Id": "demo-instructor"}
+    )
+    assert detail.status_code == 200
+    assert "tabular update" in detail.json()["body_md"]
+    assert detail.json()["state"] == "draft"
+
+
 def test_unknown_licence_cannot_be_saved(client):
     response = client.post(
         "/api/v1/admin/assets",

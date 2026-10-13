@@ -8,7 +8,17 @@ export type PathProgress = {
   completed: number;
   total: number;
 };
-export type Badge = { slug: string; name: string; description: string; earned: boolean };
+export type Badge = {
+  slug: string;
+  name: string;
+  description: string;
+  earned: boolean;
+  category?: string;
+  tier?: string;
+  rarity?: string;
+  icon?: string;
+};
+export type Milestone = { kind: string; title: string; at: string };
 export type Dashboard = {
   display_name: string;
   role: string;
@@ -17,6 +27,12 @@ export type Dashboard = {
   xp_into_level: number;
   xp_per_level: number;
   streak_days: number;
+  longest_streak: number;
+  streak_freezes: number;
+  streak_bonus_percent: number;
+  title: string | null;
+  mentor: { id: string; name: string };
+  cue: string;
   subscription_status: string;
   mastery: number;
   strengths: ConceptScore[];
@@ -27,6 +43,19 @@ export type Dashboard = {
   badges: Badge[];
   lessons_completed: number;
   quizzes_taken: number;
+  collection_count: number;
+  milestones: Milestone[];
+  onboarded: boolean;
+  personalisation?: {
+    academy_slug: string | null;
+    academy_title: string | null;
+    learning_style: string;
+    maths_comfort: string | null;
+    programming_experience: string | null;
+    weekly_minutes: number | null;
+    cost_preference: string;
+    tutor_mode: string;
+  };
 };
 export type ChatReply = {
   conversation_id: string;

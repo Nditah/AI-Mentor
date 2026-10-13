@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import uuid
-from typing import Literal
+from typing import Literal, Self
 
 from fastapi import APIRouter, Depends, Query
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 from sqlalchemy.orm import Session
 
 from app.api.deps import settings_dep, user_dep
@@ -52,6 +52,23 @@ class PreferencesIn(BaseModel):
     languages: list[str] | None = None
     weekly_minutes: int | None = Field(default=None, ge=0, le=10080)
     cost_preference: Literal["free_only", "any"] | None = None
+    maths_comfort: Literal["none", "light", "moderate", "formal"] | None = None
+    programming_experience: Literal["none", "some", "daily"] | None = None
+    tutor_mode: Literal["socratic", "direct"] | None = None
+
+
+class PlacementAnswerIn(BaseModel):
+    id: str = Field(min_length=1, max_length=40)
+    response: str = Field(min_length=1, max_length=8)
+
+
+class OnboardingIn(BaseModel):
+    academy_slug: str = Field(min_length=1, max_length=80)
+    learning_style: Literal["visual", "reading", "hands_on", "auditory", "balanced"] = "balanced"
+    maths_comfort: Literal["none", "light", "moderate", "formal"] | None = None
+    programming_experience: Literal["none", "some", "daily"] | None = None
+    weekly_minutes: int | None = Field(default=None, ge=0, le=10080)
+    answers: list[PlacementAnswerIn] | None = None
 
 
 class MarkIn(BaseModel):
@@ -61,7 +78,14 @@ class MarkIn(BaseModel):
 
 class BulkImportIn(BaseModel):
     source: str = Field(default="curated-pack", max_length=80)
-    resources: list[dict] = Field(min_length=1, max_length=500)
+    resources: list[dict] | None = Field(default=None, max_length=500)
+    csv: str | None = Field(default=None, max_length=2_000_000)
+
+    @model_validator(mode="after")
+    def require_payload(self) -> Self:
+        if not self.resources and not (self.csv and self.csv.strip()):
+            raise ValueError("Upload a resources array or a CSV string.")
+        return self
 
 
 class DuplicateResolveIn(BaseModel):
@@ -84,7 +108,8 @@ def list_resources(
     user: User = Depends(_user),
     catalog: CatalogService = Depends(_catalog),
 ) -> dict:
-    del user
+    prefs = catalog.preferences(user)
+    langs = prefs.get("languages") or []
     query = SearchQuery(
         text=q or tag or "",
         topic=topic or tag,
@@ -93,8 +118,10 @@ def list_resources(
         difficulty=difficulty,
         resource_type=resource_type,
         provider=provider,
-        language=language,
+        language=language or (langs[0] if langs else None),
         category=category,
+        cost=prefs.get("cost_preference") if prefs.get("cost_preference") == "free_only" else None,
+        learning_style=None if resource_type else prefs.get("learning_style"),
         limit=limit,
     )
     items = catalog.search(query)
@@ -165,6 +192,22 @@ def patch_preferences(
     return catalog.update_preferences(user, body.model_dump(exclude_unset=True))
 
 
+@router.get("/onboarding")
+def get_onboarding(
+    user: User = Depends(_user), catalog: CatalogService = Depends(_catalog)
+) -> dict:
+    return catalog.onboarding(user)
+
+
+@router.post("/onboarding")
+def post_onboarding(
+    body: OnboardingIn, user: User = Depends(_user), catalog: CatalogService = Depends(_catalog)
+) -> dict:
+    return catalog.complete_onboarding(
+        user, {**body.model_dump(), "answers": [item.model_dump() for item in body.answers or []]}
+    )
+
+
 admin = APIRouter(dependencies=[Depends(_staff)])
 
 
@@ -211,7 +254,12 @@ def admin_refresh(
 def admin_import(
     body: BulkImportIn, user: User = Depends(_staff), ingest: IngestionService = Depends(_ingest)
 ) -> dict:
-    return ingest.import_bulk(user, {"resources": body.resources}, source_slug=body.source)
+    payload: dict
+    if body.resources:
+        payload = {"resources": body.resources}
+    else:
+        payload = {"csv": body.csv or ""}
+    return ingest.import_bulk(user, payload, source_slug=body.source)
 
 
 @admin.get("/jobs")

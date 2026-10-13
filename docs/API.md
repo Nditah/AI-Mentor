@@ -33,11 +33,11 @@ In development and test only, `X-Dev-User-Id` may be `demo-student`, `demo-instr
 
 ## Account
 
-`GET /me` returns id, email, display name, role, handle, locale, time zone, country, leaderboard opt-out, subscription status, XP, level, and streak.
+`GET /me` returns id, email, display name, role, handle, locale, time zone, country, leaderboard opt-out, subscription status, equipped title, XP, level, and streak.
 
 `GET /me/apps` returns the five applications (`learner`, `instructor`, `institution`, `studio`, `admin`) with origin and `available` for this account's role. Every signed-in person may open the Learner App. Instructor, Institution, and Content Studio need instructor or admin. The Admin App needs admin.
 
-`PATCH /me` with any of `handle` (`^[A-Za-z0-9_]{3,24}$`, unique ignoring case; 409 if taken), `locale` (`en`, `fr`, `es`), `timezone` (IANA name; 422 otherwise), `country_code` (ISO 3166 alpha-2), `leaderboard_opt_out`.
+`PATCH /me` with any of `handle` (`^[A-Za-z0-9_]{3,24}$`, unique ignoring case; 409 if taken), `locale` (`en`, `fr`, `es`), `timezone` (IANA name; 422 otherwise), `country_code` (ISO 3166 alpha-2), `leaderboard_opt_out`, `equipped_title` (must already be earned; 422 otherwise).
 
 `GET /me/export` returns the learner's profile, conversations with messages, quiz results, documents, code submissions, flashcards, study plans, mastery, and XP ledger as JSON.
 
@@ -58,6 +58,10 @@ Public: `GET /health`, `GET /api/v1/learning-paths`, `GET /api/v1/knowledge-grap
 ```
 
 `mode` is `socratic` or `direct`. Response: `conversation_id`, `mode`, `stage`, `concept_slug`, `reply.content`.
+
+`POST /chat/stream` is the same turn as SSE. Events are `meta`, `delta` (token or scripted opener), `done`, or `error`. Socratic stages 0 and 1 stay scripted.
+
+`GET /onboarding` returns academies and placement questions (no answer keys). `POST /onboarding` `{ "academy_slug", "learning_style", "maths_comfort", "programming_experience", "answers" }` saves preferences, grades the optional diagnostic without XP, and returns a recommended academy. Learners change those answers later on `/settings`. `GET /me` and `GET /dashboard` include `onboarded`.
 
 `GET /conversations` and `GET /conversations/{id}` return history for the current user.
 
@@ -81,13 +85,15 @@ Returns `status` (`ok`, `rejected`, or `error`), `stdout`, `stderr`, `review`. A
 
 ## Study
 
-`GET /dashboard` returns display name, role, XP, level, streak, mastery, strengths, developing, weaknesses, recommendations, path progress, badges, lessons completed, quizzes taken.
+`GET /dashboard` returns display name, role, XP, level, streak, longest streak, freezes, streak bonus percent, title, mentor stage, progress cue, mastery, strengths, developing, weaknesses, recommendations (biased to the goal academy), `personalisation`, path progress, badges (with tier and rarity), lessons completed, quizzes taken, collection count, and own milestones.
 
 `GET /progress` returns XP and per-concept scores.
 
 `POST /progress/lessons/{slug}/complete`
 
-`GET /learning-paths` and `GET /learning-paths/{slug}`
+`GET /learning-paths` and `GET /learning-paths/{slug}` remain the flat catalog list.
+
+The guided journey is under `/learn`. `GET /learn/world` lists learning paths with faculty, level, and academy filters (World starts unfiltered). `GET /learn/academies` remains the academy list for Settings. Paths, courses, modules, topic pages, knowledge checks, and assessments follow. Answer keys are not in those payloads. Admin metrics are `GET /admin/learning`. Authoring is `GET|POST /content/journey`. See [Learning experience](Learning-Experience.md).
 
 `GET /knowledge-graph?domain=` returns nodes and a Mermaid diagram.
 
@@ -103,7 +109,7 @@ Returns `status` (`ok`, `rejected`, or `error`), `stdout`, `stderr`, `review`. A
 
 `GET /catalog/facets`, `GET /catalog/recommendations`, `GET /catalog/graph?category=`.
 
-`GET|PATCH /me/learning-preferences` stores goals, career, style, preferred types, languages, weekly minutes, and free-only.
+`GET|PATCH /me/learning-preferences` stores goals, career, style, preferred types, languages, weekly minutes, free-only, maths, programming, and default tutor mode (`socratic` or `direct`). Search and recommendations use those fields. `PATCH /me` also accepts `display_name`. Learners edit both from the Learner App Settings page.
 
 Staff: `/admin/catalog/import`, `/admin/catalog/sources`, `/admin/catalog/jobs`, `/admin/catalog/duplicates`. Content Studio aliases the same routes under `/content/catalog/*`, and adds `/content/home`, `/content/questions` (no answer keys), `/content/challenges` (no hidden tests), and `/content/assets` (authored library only). See [Knowledge-Catalog.md](Knowledge-Catalog.md).
 
@@ -117,7 +123,13 @@ Staff: `/admin/catalog/import`, `/admin/catalog/sources`, `/admin/catalog/jobs`,
 
 `POST /career/advise`
 
-`GET /leaderboard` (public) returns the top 10 learners: `rank`, `display_name` (the learner's handle or a stable `Learner-xxxxxx` pseudonym), `xp`, `level`, `streak_days`. Staff, suspended accounts, and opted-out learners are excluded.
+`GET /leaderboard` (public) returns the top 10 learners: `rank`, `display_name` (the learner's handle or a stable `Learner-xxxxxx` pseudonym), `xp`, `level`, `streak_days`, optional `title` and `badges`. Staff, suspended accounts, and opted-out learners are excluded.
+
+`GET /leaderboards?scope=global|country` (authenticated) returns `entries` plus `me.rank`. Country scope is 409 until `PATCH /me` sets `country_code`. Institution and friends scopes return 422.
+
+`GET /engagement/collection` returns skill cards minted at mastery 60/75/90.
+
+`GET /engagement/daily` returns today's authored item without the answer key. `POST /engagement/daily` `{ "response": "..." }` grades it; 25 XP once per local day inside the 400 cap.
 
 ## Research
 

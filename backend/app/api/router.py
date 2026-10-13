@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import json
 import uuid
+from collections.abc import Iterator
 from typing import Literal
 from urllib.parse import urlsplit
 
-from fastapi import APIRouter, Depends, File, HTTPException, Request, Response, UploadFile
+from fastapi import APIRouter, Depends, File, HTTPException, Query, Request, Response, UploadFile
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
@@ -17,7 +19,7 @@ from app.api.learn import admin as learn_admin
 from app.api.learn import content as learn_content
 from app.api.learn import router as learn_router
 from app.core.config import Settings
-from app.core.database import get_db
+from app.core.database import get_db, session_scope
 from app.domain.access import is_allowed
 from app.models import User
 from app.repositories.sql import SqlRepository
@@ -137,11 +139,13 @@ class GenerateAssetIn(BaseModel):
 
 
 class ProfileIn(BaseModel):
+    display_name: str | None = Field(default=None, min_length=2, max_length=120)
     handle: str | None = Field(default=None, pattern=r"^[A-Za-z0-9_]{3,24}$")
     locale: Literal["en", "fr", "es"] | None = None
     timezone: str | None = Field(default=None, min_length=1, max_length=64)
     country_code: str | None = Field(default=None, pattern=r"^[A-Z]{2}$")
     leaderboard_opt_out: bool | None = None
+    equipped_title: str | None = Field(default=None, min_length=1, max_length=60)
 
 
 class CheckoutIn(BaseModel):
@@ -230,6 +234,34 @@ def chat(
     body: ChatIn, user: User = Depends(_user), engine: MentorEngine = Depends(_engine)
 ) -> dict:
     return engine.chat(user, body.message, body.conversation_id, body.mode)
+
+
+@router.post("/chat/stream")
+def chat_stream(
+    body: ChatIn,
+    user: User = Depends(_user),
+    settings: Settings = Depends(settings_dep),
+) -> StreamingResponse:
+    """SSE after the socratic policy layer. Stages 0–1 stay scripted."""
+
+    def events() -> Iterator[str]:
+        with session_scope() as session:
+            account = session.get(User, user.id)
+            if account is None:
+                payload = {"type": "error", "detail": "Sign in required.", "status": 401}
+                yield f"data: {json.dumps(payload)}\n\n"
+                return
+            engine = MentorEngine(session, settings)
+            try:
+                for event in engine.chat_stream(
+                    account, body.message, body.conversation_id, body.mode
+                ):
+                    yield f"data: {json.dumps(event)}\n\n"
+            except ClientError as exc:
+                payload = {"type": "error", "detail": exc.message, "status": exc.status_code}
+                yield f"data: {json.dumps(payload)}\n\n"
+
+    return StreamingResponse(events(), media_type="text/event-stream")
 
 
 @router.get("/conversations")
@@ -321,6 +353,37 @@ def dashboard(user: User = Depends(_user), engine: MentorEngine = Depends(_engin
 @router.get("/leaderboard")
 def leaderboard(engine: MentorEngine = Depends(_engine)) -> list[dict]:
     return engine.leaderboard()
+
+
+@router.get("/leaderboards")
+def scoped_leaderboards(
+    scope: Literal["global", "country"] = "global",
+    limit: int = Query(default=10, ge=1, le=50),
+    user: User = Depends(_user),
+    engine: MentorEngine = Depends(_engine),
+) -> dict:
+    return engine.scoped_leaderboard(user, scope, limit)
+
+
+@router.get("/engagement/collection")
+def collection(user: User = Depends(_user), engine: MentorEngine = Depends(_engine)) -> dict:
+    return engine.collection(user)
+
+
+@router.get("/engagement/daily")
+def daily_challenge(user: User = Depends(_user), engine: MentorEngine = Depends(_engine)) -> dict:
+    return engine.daily(user)
+
+
+class DailyIn(BaseModel):
+    response: str | list[str] = ""
+
+
+@router.post("/engagement/daily")
+def complete_daily(
+    body: DailyIn, user: User = Depends(_user), engine: MentorEngine = Depends(_engine)
+) -> dict:
+    return engine.complete_daily(user, body.response)
 
 
 @router.post("/leads", status_code=202)

@@ -832,6 +832,7 @@ v1 SAD section 10 rules (XP table, daily cap, levels, titles, anti-abuse) remain
 | Seasons | `game.seasons` per scope type; weekly and monthly as v1, plus custom term seasons for organisations |
 | Leaderboard scope registry | `game.leaderboard_scopes` lists active (scope, scope id, periods, metrics, visibility) so rebuild and close jobs know what to maintain |
 | Academic XP | XP for released grades (when the organisation enables it) is awarded by the gamification subscriber on `assessment.grade.released`, idempotent on (account, `assessment_grade`, grade id) |
+| R1 running path | Until `game.*` is cut over, awards stay on `public.users`, `xp_events`, `user_titles`, and `milestones` with rules in `domain/gamification.py`. Live scopes are `global` and `country` only. Detail: [17](17-engagement-specification.md) |
 
 Redis key format: `lb:{scope}:{scope_id}:{period}:{metric}`.
 

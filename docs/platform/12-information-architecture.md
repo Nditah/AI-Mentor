@@ -222,12 +222,12 @@ The leaderboard route serves both guests and signed-in learners; scope, period, 
 | # | Desktop sidebar | Contains | Visible when |
 | --- | --- | --- | --- |
 | 1 | Home | `/dashboard` | Always |
-| 2 | Today | `/today` | Always |
+| 2 | Today | `/today` (R1 live route `/daily`) | Always |
 | 3 | Tutor | `/tutor` | Always |
-| 4 | Learn | `/learn` hub: paths, courses, plan, concept map, research | Always |
+| 4 | Learn | `/learn` hub: paths, courses, plan, concept map, research. R1 also exposes World at `/academies` and Collection at `/collection` | Always |
 | 5 | Practice | `/practice` hub: challenges, quiz, flashcards, lab | Always |
 | 6 | Classes | `/classes`, `/grades` | The learner has a cohort membership in the active organisation |
-| 7 | Compete | `/leaderboard`, `/seasons`, `/achievements`, `/friends` | Always (a learner who opts out still sees achievements) |
+| 7 | Compete | `/leaderboard`, `/seasons`, `/achievements`, `/friends`. R1 live route `/ranks` (global and country) | Always (a learner who opts out still sees achievements) |
 
 Account menu holds Me items: profile, career, analytics, notifications, settings, help. Mobile bottom navigation keeps 5 items: **Home, Tutor, Learn, Practice, Me** (DesignSpec 17.2). On mobile, Today is the first card on Home, Classes is the first section of Learn when present, and Compete sits in Me.
 
@@ -623,7 +623,7 @@ Examples:
 
 | App | Page | Breadcrumb |
 | --- | --- | --- |
-| Learner | Lesson in a path | Paths › Reinforcement Learning › RL Foundations › Module 2 › Bellman expectation equation |
+| Learner | Lesson in a path | Academies › Reinforcement Learning Academy › RL Foundations › Markov Decision Processes › States & Actions › What is a State? |
 | Learner | Assignment | Classes › ML 101 › Problem set 3 |
 | Instructor | Marking workspace | Cohorts › ML 101 › Midterm › Submission 7 |
 | Institution | Unit | Organisation › Main campus › Faculty of Engineering |
@@ -750,6 +750,10 @@ Rules:
 | `/` (landing, `apps/www`) | Marketing site | `<domain>/` | `learn.<domain>/` redirects guests to `<domain>` and signed-in learners to `/dashboard` |
 | `/sign-in`, `/sign-up` | Learner App | Same | Clerk, unchanged |
 | `/(learn)/dashboard` | Learner App | `/dashboard` (label "Home") | Route group renamed from `(studio)` to `(learn)` |
+| `/(learn)/academies` | Learner App | `/academies` (label "World") | All learning paths; Faculty and Level filters; academies are filters; skill tree on `/academies/[slug]` |
+| `/(learn)/daily` | Learner App | `/daily` (label "Today") | R1 daily authored item; weekly/seasonal still R2 |
+| `/(learn)/collection` | Learner App | `/collection` | Skill cards from mastery |
+| `/(learn)/ranks` | Learner App | `/ranks` | Live global and country; Compete hub later |
 | `/(learn)/tutor` | Learner App | `/tutor`, `/tutor/[conversationId]` | |
 | `/(learn)/quiz` | Learner App | `/quiz` | Reached from Practice |
 | `/(learn)/paths` | Learner App | `/paths` redirects to `/learn?tab=paths`; public `/catalogue` | |

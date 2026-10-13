@@ -2,12 +2,13 @@ import type { NextConfig } from "next";
 
 const deployEnv = process.env.DEPLOY_ENV || process.env.VERCEL_ENV || "";
 const production = deployEnv === "production";
+const hosted = production || deployEnv === "preview" || deployEnv === "staging";
 
-if (production && process.env.NEXT_PUBLIC_DEV_AUTH === "true") {
-  throw new Error("NEXT_PUBLIC_DEV_AUTH=true is refused in a production build.");
+if (hosted && process.env.NEXT_PUBLIC_DEV_AUTH === "true") {
+  throw new Error("NEXT_PUBLIC_DEV_AUTH=true is refused in a hosted build.");
 }
-if (production && !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
-  throw new Error("NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is required in a production build.");
+if (hosted && !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
+  throw new Error("NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is required in a hosted build.");
 }
 
 const securityHeaders = [

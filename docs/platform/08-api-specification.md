@@ -18,6 +18,7 @@
 | Authorisation | Every operation names a permission and its attribute conditions | Scoped RBAC with ABAC (ADR 0016) | API, RBAC matrix | `require(...)` on every route; route-coverage test |
 | Conventions | Idempotency keys, cursor pagination, ETags, async jobs, problem types, deprecation headers are mandatory for v2 operations | Bulk classroom work, concurrent content editing, retries from mobile clients | API kernel, client package | Shared kernel helpers; contract tests |
 | Errors | `about:blank` problems gain specific `urn:ai-mentor:problem:<kind>` types; catalogue fixed | Clients need stable machine-readable failures | API, apps | Problem handler mapping; `openapi.yaml` description corrected |
+| R1 engagement aliases | `GET /leaderboards`, `GET\|POST /engagement/daily`, `GET /engagement/collection` are live on v1 | Ethical engagement ships before the `/learn` root cutover | Learner App, [17](17-engagement-specification.md), `openapi.yaml` | Keep v1 paths until `/learn/gamification/*` exists; do not duplicate ledgers |
 | Integrations | LTI 1.3, SCIM 2.0, OneRoster, xAPI, and outbound webhooks are specified | Institutional interoperability (ADR 0026) | `integration` context | Standards endpoints outside `/api/v1` |
 | Rate limits | Per-user limits gain per-tenant budgets and AI quotas | Noisy-neighbour control at 2,000 organisations | Redis limiter, `ai_gateway` | New 429 variants with `limit_scope` |
 
@@ -346,15 +347,15 @@ Paths are relative to `/api/v1` unless they start with `/lti`, `/scim/v2`, or `/
 | GET | `/learn/practice/lab/projects` | Lab projects | `learning.practice:use` | R2 |
 | POST | `/learn/practice/lab/runs` | Run code in the sandbox | `learning.practice:use` (`self`, `entitled(lab)`) | R2; rate class `exec` |
 | POST | `/learn/practice/lab/reviews` | Coding review | `learning.practice:use` (`self`) | R2; `ai` |
-| GET | `/learn/challenges/today` | Daily challenge | `learning.practice:use` | R2 |
-| POST | `/learn/challenges/{challenge_id}/attempts` | Submit challenge | `learning.practice:use` (`self`) | R2; Idempotency-Key |
+| GET | `/learn/challenges/today` | Daily challenge | `learning.practice:use` | R2; R1 live alias is `GET /engagement/daily` |
+| POST | `/learn/challenges/{challenge_id}/attempts` | Submit challenge | `learning.practice:use` (`self`) | R2; Idempotency-Key; R1 live alias is `POST /engagement/daily` |
 | POST | `/learn/research/documents` | Upload a paper | `retrieval.document:upload` (`self`, `entitled(research)`) | R2; rate class `upload`; 202 |
 | POST | `/learn/research/analyses` | Analyse an owned document | `retrieval.document:upload` (`self`) | R2; `ai` |
 | POST, GET | `/learn/study-plans` | Create and list self-directed plans | `self` | R2 |
 | GET | `/learn/gamification/summary` | XP, level, title, streak, season standing | `learning.progress:read` (`self`) | R2 |
 | GET | `/learn/gamification/badges` | Earned and available badges | `learning.progress:read` (`self`) | R2 |
 | GET | `/learn/gamification/xp-events` | XP ledger (cursor) | `learning.progress:read` (`self`) | R2 |
-| GET | `/learn/leaderboards` | Ranked entries for `scope` (`global`, `country`, `organisation`, `cohort`, `friends`, `competition`), `scope_id`, `period`, `metric` | `gamification.leaderboard:read` (scope visible to the learner; `org_policy(leaderboards)` for organisation and cohort) | R2 (global, country, friends), R3 (organisation, cohort, competition); public top 10 stays at v1 `/leaderboard` |
+| GET | `/learn/leaderboards` | Ranked entries for `scope` (`global`, `country`, `organisation`, `cohort`, `friends`, `competition`), `scope_id`, `period`, `metric` | `gamification.leaderboard:read` (scope visible to the learner; `org_policy(leaderboards)` for organisation and cohort) | R2 (friends), R3 (organisation, cohort, competition); R1 live `GET /leaderboards?scope=global\|country`; public top 10 stays at v1 `/leaderboard` |
 | GET | `/learn/leaderboards/standing` | The learner's rank and percentile per scope | `gamification.leaderboard:read` (`self`) | R2 |
 | GET | `/learn/competitions` | Competitions open to the learner | `gamification.leaderboard:read` | R3 |
 | POST | `/learn/competitions/{competition_id}/entries` | Join a competition | `learning.practice:use` (`self`, eligible) | R3; Idempotency-Key |

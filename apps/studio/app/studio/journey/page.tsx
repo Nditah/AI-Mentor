@@ -20,12 +20,19 @@ export default function JourneyAuthorPage() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [kind, setKind] = useState("reading");
+  const [assetUrl, setAssetUrl] = useState("");
   const [notice, setNotice] = useState("");
   const add = useMutation({
     mutationFn: () =>
       api<{ slug: string }>("/api/v1/content/journey/pages", {
         method: "POST",
-        body: JSON.stringify({ lesson_slug: lesson, title, body_md: body, kind }),
+        body: JSON.stringify({
+          lesson_slug: lesson,
+          title,
+          body_md: body,
+          kind,
+          asset_url: assetUrl,
+        }),
       }),
     onSuccess: (created) => {
       setNotice(`Added “${title}”. Preview ${learner}/learn/${lesson}/${created.slug}`);
@@ -76,10 +83,23 @@ export default function JourneyAuthorPage() {
           Kind
           <select className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-950" value={kind} onChange={(event) => setKind(event.target.value)}>
             <option value="reading">Reading</option>
+            <option value="video">Video</option>
+            <option value="exercise">Interactive exercise</option>
             <option value="knowledge_check">Knowledge check</option>
-            <option value="complete">Lesson complete</option>
+            <option value="summary">Summary</option>
           </select>
         </label>
+        {kind === "video" || kind === "exercise" ? (
+          <label className="block text-sm">
+            Catalog URL
+            <input
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-950"
+              value={assetUrl}
+              onChange={(event) => setAssetUrl(event.target.value)}
+              placeholder="https:// — stored once in the resource catalog"
+            />
+          </label>
+        ) : null}
         <label className="block text-sm">
           Body
           <textarea className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 dark:border-slate-600 dark:bg-slate-950" rows={6} value={body} onChange={(event) => setBody(event.target.value)} />

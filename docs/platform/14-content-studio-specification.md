@@ -64,6 +64,8 @@ Content Studio is the first-class application for knowledge management, curricul
 
 A person who also teaches uses the Instructor App for cohorts and marking. Cross-app links ("View as learner", "Open in Studio") are defined in [12](12-information-architecture.md#10-deep-links-across-apps).
 
+Journey (`/studio/journey`) is the authoring screen for academies, paths, courses, topic pages, and resources. The workflow is in [Learning experience](../Learning-Experience.md).
+
 ## 2. One API, this app
 
 The backend stays one FastAPI modular monolith (ADR 0002, 0017). Content Studio is a Next.js client of that API.

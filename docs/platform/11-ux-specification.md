@@ -7,7 +7,7 @@
 | Date | 13 October 2026 |
 | Status | Approved direction. Target design; the Learner App and the admin portal exist today, the other three apps do not |
 | Owner | Product Design, with Frontend Engineering |
-| Related | [README.md](README.md) (canonical vocabulary), [12-information-architecture.md](12-information-architecture.md), [14-content-studio-specification.md](14-content-studio-specification.md), [16-public-website-specification.md](16-public-website-specification.md), [03-srs.md](03-srs.md), [07-database-design.md](07-database-design.md), [09-security-model.md](09-security-model.md), [10-rbac-matrix.md](10-rbac-matrix.md), [../DesignSpec.md](../DesignSpec.md), ADR [0013](../adr/0013-five-applications-shared-platform.md), [0014](../adr/0014-monorepo-shared-packages.md), [0015](../adr/0015-organisation-tenancy.md), [0016](../adr/0016-scoped-rbac-abac.md), [0019](../adr/0019-content-studio-releases.md), 0022, 0023, 0024, 0025 |
+| Related | [README.md](README.md) (canonical vocabulary), [12-information-architecture.md](12-information-architecture.md), [14-content-studio-specification.md](14-content-studio-specification.md), [16-public-website-specification.md](16-public-website-specification.md), [17-engagement-specification.md](17-engagement-specification.md), [03-srs.md](03-srs.md), [07-database-design.md](07-database-design.md), [09-security-model.md](09-security-model.md), [10-rbac-matrix.md](10-rbac-matrix.md), [../DesignSpec.md](../DesignSpec.md), ADR [0013](../adr/0013-five-applications-shared-platform.md), [0014](../adr/0014-monorepo-shared-packages.md), [0015](../adr/0015-organisation-tenancy.md), [0016](../adr/0016-scoped-rbac-abac.md), [0019](../adr/0019-content-studio-releases.md), 0022, 0023, 0024, 0025 |
 
 ## Change record
 
@@ -25,6 +25,7 @@
 | Content Studio | Content half of `admin/`; detail moved to document 14 | ADR 0019 | `apps/studio`, `/api/v1/content` | This document fixes only shared patterns |
 | Localisation | Expansion budget raised to 35%; translation status and mixed-locale fallback patterns | ADR 0023 | `packages/i18n`, all apps | Visual regression in `fr`, `es`, and a pseudo-locale |
 | AI transparency | One pattern set for AI labels, confidence, evidence, and human decisions | ADR 0022, 0025; EU AI Act human oversight (03 CMP-109) | All apps | `AIProposalCard` is the only way to show an AI-proposed decision |
+| Ethical engagement | Home shows mentor, cue, streak freeze, mastery ring, own milestones. World / Today / Collection / Ranks are first-class nav | Progress must always be visible; collections are earned | `apps/learner` `/academies`, `/daily`, `/collection`, `/ranks` | `engagement.tsx`; reduced motion in `globals.css`; [17](17-engagement-specification.md) |
 
 ## Relationship to v1 documents
 
@@ -453,8 +454,8 @@ DesignSpec 11 is the base; v2 changes the widget set by organisation context.
 | --- | --- | --- | --- |
 | 1 | Continue | Top recommendation, or the next plan item due within 48 hours | "Pick a path to get a recommendation." [Browse paths] |
 | 2 | Due soon (cohort members) | Next 3 assignments and plan items: due date, class, status | Hidden without cohorts; "Nothing due this week." |
-| 3 | Today | Daily challenge, due flashcards, streak | DesignSpec 11.2 |
-| 4 | Standing | Level, XP, `StreakFlame`, rank and `PercentileChip` (default scope Institution for organisation learners, Global for personal), achievements | "Not ranked yet. Earn XP this week to be ranked." |
+| 3 | Today | Daily challenge, due flashcards, streak, freeze count | DesignSpec 11.2; freeze is grace, never a shop |
+| 4 | Standing | Level, XP, `StreakFlame`, mentor silhouette, rank (Global or Country in R1), achievements, collection count | "Not ranked yet. Earn XP this week to be ranked." |
 | 5 | New feedback | Grades released and comments since last visit | Hidden when none |
 | 6 | Mastery | Strengths and gaps | DesignSpec |
 | 7 | Season (when active) | Name, days left, personal and team progress | Hidden |
@@ -546,7 +547,7 @@ Today · Tuesday 13 October                          [flame] 12 day streak
 |  ML 101 · Problem set 3 (Lagos University)      Due 23:59   [Open]       |
 |  Live session: Policy gradients  14:00–15:00    [Join]   Attendance on   |
 | Practice                                                                 |
-|  Daily challenge · Debugging · 50 XP · 9 h left [Start]                  |
+|  Daily challenge · authored item · 25 XP · once today [Start]            |
 |  23 flashcards due                              [Review]                 |
 | Season: Autumn RL Sprint · day 12 of 30 · cohort 3rd of 8  [View season] |
 +--------------------------------------------------------------------------+
@@ -676,6 +677,10 @@ Career · Target role: Reinforcement Learning Engineer          [ Change goal ]
 ```
 
 Readiness uses the same definition as the workforce report ([10.10](#1010-workforce-development-report)), so learner and employer see the same number, always with its breakdown.
+
+### 8.12 Guided lesson
+
+The running Learner App teaches one topic page at a time. The shell Learn item opens academies, then a path, a course, a module, and a lesson. The lesson screen keeps the outline on the left, the page in the centre, and objectives, resources, notes, and progress on the right. Previous and Next move between pages. A knowledge check gives immediate feedback and blocks Next until the learner passes. The layout, routes, and progress rules are in [Learning experience](../Learning-Experience.md).
 
 ---
 

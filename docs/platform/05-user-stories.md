@@ -20,6 +20,7 @@
 | Story template | Adds Size, Release, and Trace to the v1 Priority, Dependencies, and Use case fields | Multi-release planning across five apps needs size and release on every story | Planning, roadmap | Stories without a release are not ready |
 | Acceptance criteria | Tenant isolation and permission checks are written into the criteria of every tenant-scoped story | Cross-tenant leakage is the highest-impact defect class in a multi-tenant system (ADR 0015) | API, PostgreSQL row-level security, tests | Each such story needs at least one cross-tenant negative test |
 | Definition of ready and done | Adds five multi-tenant checks (tenant isolation, permission declared, events documented, i18n keys, accessibility) | Shared platform work must be safe for every organisation from the first release | All teams | See [Definition of ready and done additions](#12-definition-of-ready-and-done-additions) |
+| Ethical engagement | EP-L11 (US-L-042 to US-L-048): remaining-work cues, streak freeze, skill cards, daily 25 XP, titles, own milestones, R1 boards | Make STEM feel like a mastery game without predatory loops | Learner App, gamification | [17](17-engagement-specification.md) |
 
 ## Relationship to v1 documents
 
@@ -315,6 +316,57 @@ As a **learner**, I want **to enter a time-boxed competition at platform, organi
 - Given a competition open for entry, when I join before its start time, then I appear on its board; after the start time, late entry follows the competition's rule.
 - Given a cohort competition, when a learner outside the cohort requests it, then the API returns 404.
 - Given the competition ends, when 24 hours of review pass, then results become final and excluded entries (US-141) are listed only to staff.
+
+### EP-L11 Ethical engagement loops
+
+#### US-L-042 See remaining work on every learning surface
+As a **learner**, I want **percent complete and remaining lessons on Home and the academy world**, so that **I always know the next honest step**.\
+**Priority:** Must · **Size:** S · **Release:** R1 · **Dependencies:** None · **Use case:** UC-L-08 · **Trace:** GAM-118
+- Given a path with 2 unfinished lessons, when Home or World loads, then the cue is "Only 2 lessons remaining."
+- Given 0% progress, when Home loads, then the cue is "Start a lesson to open today's run."
+- Given a cue, when it renders, then it never invents a discount, timer, or fake scarcity.
+
+#### US-L-043 Keep a streak without harsh punishment
+As a **learner**, I want **a freeze for one missed day and a personal best that never decreases**, so that **a busy day does not erase my habit**.\
+**Priority:** Must · **Size:** M · **Release:** R1 · **Dependencies:** US-L-042 · **Use case:** UC-L-08 · **Trace:** GAM-116
+- Given a 12-day streak and 1 freeze, when I miss exactly one calendar day then return, then the streak becomes 13 and the freeze is 0.
+- Given a freeze, when I miss two or more days, then the current run is 1, unused freezes remain, and `longest_streak` is unchanged.
+- Given I try to buy a freeze, when I look in billing, then no such product exists.
+
+#### US-L-044 Collect skill cards from mastery
+As a **learner**, I want **to collect algorithm and concept cards by demonstrating mastery**, so that **the collection reflects skill, not luck**.\
+**Priority:** Must · **Size:** M · **Release:** R1 · **Dependencies:** US-L-042 · **Use case:** UC-L-08 · **Trace:** GAM-117
+- Given mastery 59, when I open Collection, then that concept has no card.
+- Given mastery 60, 75, or 90, when Collection loads, then the card is bronze, silver, or gold.
+- Given Collection, when it loads, then no payload contains an answer key.
+
+#### US-L-045 Complete one daily challenge
+As a **learner**, I want **one authored question each local day worth 25 XP**, so that **I have a short, fair ritual**.\
+**Priority:** Must · **Size:** S · **Release:** R1 · **Dependencies:** US-070 · **Use case:** UC-L-08 · **Trace:** GAM-121
+- Given Today, when it loads, then I see a prompt and options without the key.
+- Given a wrong answer, when I submit, then XP is 0, the streak is unchanged, and I may retry.
+- Given a correct answer twice the same local day, when I submit the second time, then `xp` is 0 and `completed` is true.
+
+#### US-L-046 Wear a title I earned
+As a **learner**, I want **to display one recognition title on my profile and on boards**, so that **progress has a professional identity**.\
+**Priority:** Should · **Size:** S · **Release:** R1 · **Dependencies:** US-L-042 · **Use case:** UC-L-08 · **Trace:** GAM-122
+- Given I reach level 10, when badges sync, then I hold "Machine Learning Engineer".
+- Given I PATCH an unearned title, when the API responds, then it is 422.
+- Given a title on a board, when a guest reads it, then copy does not call it a degree.
+
+#### US-L-047 See my own milestones
+As a **learner**, I want **a feed of my badges, levels, and streaks**, so that **progress is celebrated without comparing me to strangers**.\
+**Priority:** Must · **Size:** S · **Release:** R1 · **Dependencies:** US-L-043 · **Use case:** UC-L-08 · **Trace:** GAM-120
+- Given I earn a badge, when Home loads, then that milestone appears.
+- Given another learner's achievement, when my Home loads, then it is absent.
+- Given I drop a rank, when notifications run, then no "you fell" message is sent.
+
+#### US-L-048 Compare on global and country boards
+As a **learner**, I want **my rank on global and country boards**, so that **I can see standing without institution or friends yet**.\
+**Priority:** Must · **Size:** M · **Release:** R1 · **Dependencies:** US-L-021 · **Use case:** UC-L-08 · **Trace:** LB-101
+- Given Ranks with scope global, when it loads, then I see top entries plus my rank.
+- Given country scope and no `country_code`, when I request the board, then the API is 409 and the page lets me set a code.
+- Given friends or institution scope, when I request it in R1, then the API is 422.
 
 ### EP-L07 Knowledge search
 
@@ -1742,6 +1794,7 @@ As an **organisation compliance officer**, I want **erased accounts removed from
 | EP-L04 Mentor modes and persona | UC-L-06 | US-L-013 to US-L-016 | R2 | 2 | 2 | 0 |
 | EP-L05 Personalisation dimensions | UC-L-07 | US-L-017 to US-L-020 | R2, R3 | 2 | 2 | 0 |
 | EP-L06 Scoped leaderboards, competitions, and challenges | UC-L-08, UC-P-03 | US-L-021 to US-L-025 | R2, R3 | 2 | 1 | 2 |
+| EP-L11 Ethical engagement loops | UC-L-08 | US-L-042 to US-L-048 | R1 | 6 | 1 | 0 |
 | EP-L07 Knowledge search | UC-L-09 | US-L-026 to US-L-029 | R2, R3 | 2 | 2 | 0 |
 | EP-L08 Career planning and learning passport | UC-L-10, UC-L-11 | US-L-030 to US-L-033 | R2, R4 | 0 | 3 | 1 |
 | EP-L09 Learner analytics | v1 UC-20 | US-L-034 to US-L-037 | R2, R3 | 1 | 2 | 1 |

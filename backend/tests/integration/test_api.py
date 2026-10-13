@@ -26,6 +26,16 @@ def test_socratic_opener_and_dashboard(student) -> None:
     assert any(item["slug"] == "reinforcement-learning" for item in payload["paths"])
     assert "ppo" not in {item["slug"] for item in payload["recommendations"]}
 
+    stream = client.post(
+        "/api/v1/chat/stream",
+        headers=headers,
+        json={"message": "Teach me Reinforcement Learning", "mode": "socratic"},
+    )
+    assert stream.status_code == 200
+    assert stream.headers["content-type"].startswith("text/event-stream")
+    assert "What do you think an agent does in an environment?" in stream.text
+    assert "mermaid" not in stream.text
+
 
 def test_quiz_grade_updates_progress(student) -> None:
     client, headers = student

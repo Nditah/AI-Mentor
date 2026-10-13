@@ -22,9 +22,9 @@ from sqlalchemy import (
     UniqueConstraint,
     Uuid,
     false,
-    true,
     func,
     text,
+    true,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.types import JSON
@@ -74,6 +74,10 @@ class User(TimestampMixin, Base):
     xp: Mapped[int] = mapped_column(Integer, default=0)
     level: Mapped[int] = mapped_column(Integer, default=1)
     streak_days: Mapped[int] = mapped_column(Integer, default=0)
+    longest_streak: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    streak_freezes: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    equipped_title: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    onboarded_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     last_active_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     stripe_customer_id: Mapped[str | None] = mapped_column(String(128), unique=True, nullable=True)
     subscription_status: Mapped[str] = mapped_column(String(32), default="free")
@@ -479,6 +483,21 @@ class ConceptMastery(TimestampMixin, Base):
 
 class Achievement(TimestampMixin, Base):
     __tablename__ = "achievements"
+    __table_args__ = (
+        CheckConstraint(
+            "category in ('learning','streak','mastery','coding',"
+            "'research','community','challenge','special')",
+            name="ck_achievements_category",
+        ),
+        CheckConstraint(
+            "tier in ('bronze','silver','gold','platinum')",
+            name="ck_achievements_tier",
+        ),
+        CheckConstraint(
+            "rarity in ('common','rare','epic','legendary')",
+            name="ck_achievements_rarity",
+        ),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     slug: Mapped[str] = mapped_column(String(80), unique=True)
@@ -486,6 +505,9 @@ class Achievement(TimestampMixin, Base):
     description: Mapped[str] = mapped_column(Text, default="")
     xp_reward: Mapped[int] = mapped_column(Integer, default=0)
     icon: Mapped[str] = mapped_column(String(40), default="seal")
+    category: Mapped[str] = mapped_column(String(24), default="learning", server_default="learning")
+    tier: Mapped[str] = mapped_column(String(16), default="bronze", server_default="bronze")
+    rarity: Mapped[str] = mapped_column(String(16), default="common", server_default="common")
 
 
 class UserAchievement(TimestampMixin, Base):
@@ -500,6 +522,38 @@ class UserAchievement(TimestampMixin, Base):
         ForeignKey("achievements.id", ondelete="CASCADE")
     )
     awarded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class UserTitle(TimestampMixin, Base):
+    __tablename__ = "user_titles"
+    __table_args__ = (UniqueConstraint("user_id", "slug", name="uq_user_titles_slug"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
+    )
+    slug: Mapped[str] = mapped_column(String(60))
+    earned_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class Milestone(TimestampMixin, Base):
+    """A learner's own celebration log. Never used to nag about rank loss."""
+
+    __tablename__ = "milestones"
+    __table_args__ = (
+        UniqueConstraint("user_id", "kind", "source_id", name="uq_milestones_source"),
+        Index("ix_milestones_user", "user_id", "created_at"),
+        CheckConstraint(
+            "kind in ('badge','title','level','streak','card','path','daily')",
+            name="ck_milestones_kind",
+        ),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    kind: Mapped[str] = mapped_column(String(16))
+    source_id: Mapped[str] = mapped_column(String(80))
+    title: Mapped[str] = mapped_column(String(200))
 
 
 class Flashcard(TimestampMixin, Base):
@@ -737,24 +791,31 @@ class Academy(TimestampMixin, Base):
     """A product curriculum. Paths inside it are taken in order when `gated` is set."""
 
     __tablename__ = "academies"
+    __table_args__ = (
+        CheckConstraint(
+            "faculty in ('ai', 'robotics', 'data-science')", name="ck_academies_faculty"
+        ),
+        Index("ix_academies_faculty", "faculty"),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     slug: Mapped[str] = mapped_column(String(80), unique=True)
     title: Mapped[str] = mapped_column(String(200))
     summary: Mapped[str] = mapped_column(Text, default="")
+    faculty: Mapped[str] = mapped_column(String(32), default="ai", server_default="ai")
     position: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
     published: Mapped[bool] = mapped_column(default=True, server_default=true())
 
 
 class TopicPage(TimestampMixin, Base):
-    """One screen of a lesson. Learners move with Previous and Next, not by scrolling a long article."""
+    """One screen of a lesson. Learners move with Previous and Next."""
 
     __tablename__ = "topic_pages"
     __table_args__ = (
         UniqueConstraint("lesson_id", "slug", name="uq_topic_pages_lesson_slug"),
         Index("ix_topic_pages_lesson", "lesson_id", "position"),
         CheckConstraint(
-            "kind in ('reading', 'knowledge_check', 'complete')",
+            "kind in ('reading', 'video', 'exercise', 'knowledge_check', 'summary')",
             name="ck_topic_pages_kind",
         ),
         CheckConstraint("origin in ('seed', 'authored')", name="ck_topic_pages_origin"),
@@ -771,17 +832,19 @@ class TopicPage(TimestampMixin, Base):
     position: Mapped[int] = mapped_column(Integer, default=0)
     estimated_minutes: Mapped[int] = mapped_column(Integer, default=3, server_default="3")
     origin: Mapped[str] = mapped_column(String(16), default="seed", server_default="seed")
+    asset_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("knowledge_assets.id", ondelete="SET NULL"), nullable=True, index=True
+    )
     lesson: Mapped[Lesson] = relationship(back_populates="pages")
 
 
 class LessonResource(TimestampMixin, Base):
+    """Where a catalog resource sits in a lesson. The asset itself stays on knowledge_assets."""
+
     __tablename__ = "lesson_resources"
     __table_args__ = (
-        Index("ix_lesson_resources_lesson", "lesson_id"),
-        CheckConstraint(
-            "kind in ('video', 'pdf', 'paper', 'link', 'code', 'repo')",
-            name="ck_lesson_resources_kind",
-        ),
+        Index("ix_lesson_resources_lesson", "lesson_id", "position"),
+        Index("ix_lesson_resources_asset", "asset_id"),
         CheckConstraint(
             "group_name in ('related', 'further', 'research')",
             name="ck_lesson_resources_group",
@@ -793,10 +856,11 @@ class LessonResource(TimestampMixin, Base):
     page_id: Mapped[uuid.UUID | None] = mapped_column(
         ForeignKey("topic_pages.id", ondelete="CASCADE"), nullable=True
     )
-    kind: Mapped[str] = mapped_column(String(16), default="link")
+    asset_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("knowledge_assets.id", ondelete="SET NULL"), nullable=True
+    )
     group_name: Mapped[str] = mapped_column(String(16), default="related", server_default="related")
-    title: Mapped[str] = mapped_column(String(200))
-    url: Mapped[str] = mapped_column(String(500))
+    position: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
     note: Mapped[str] = mapped_column(Text, default="", server_default="")
 
 
@@ -925,7 +989,9 @@ class Bookmark(TimestampMixin, Base):
     __table_args__ = (UniqueConstraint("user_id", "page_id", name="uq_bookmarks_user_page"),)
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
+    )
     page_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("topic_pages.id", ondelete="CASCADE"))
 
 
@@ -934,7 +1000,9 @@ class PageNote(TimestampMixin, Base):
     __table_args__ = (UniqueConstraint("user_id", "page_id", name="uq_page_notes_user_page"),)
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True
+    )
     page_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("topic_pages.id", ondelete="CASCADE"))
     body: Mapped[str] = mapped_column(Text, default="")
 
