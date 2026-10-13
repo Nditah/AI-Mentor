@@ -1,4 +1,4 @@
-.PHONY: up down test test-pg lint lint-migrations migrate seed seed-pack write-pack grant-admin api web admin audit
+.PHONY: up down test test-pg lint lint-migrations migrate seed seed-pack write-pack grant-admin api web learner admin instructor institution studio www audit
 
 PG_URL ?= postgresql+psycopg://mentor:mentor@localhost:5432/mentor
 
@@ -40,14 +40,30 @@ grant-admin:
 
 audit:
 	cd backend && ../.venv/bin/pip-audit --skip-editable && ../.venv/bin/bandit -q -r app -ll
-	cd frontend && npm audit --omit=dev --audit-level=high
-	cd admin && npm audit --omit=dev --audit-level=high
+	cd apps/learner && npm audit --omit=dev --audit-level=high
+	cd apps/admin && npm audit --omit=dev --audit-level=high
+	cd apps/instructor && npm audit --omit=dev --audit-level=high
+	cd apps/institution && npm audit --omit=dev --audit-level=high
+	cd apps/studio && npm audit --omit=dev --audit-level=high
+	cd apps/www && npm audit --omit=dev --audit-level=high
 
 api:
 	cd backend && ../.venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 
-web:
-	cd frontend && npm run dev
+learner web:
+	cd apps/learner && npm run dev
 
 admin:
-	cd admin && npm run dev
+	cd apps/admin && npm run dev
+
+instructor:
+	cd apps/instructor && npm run dev
+
+institution:
+	cd apps/institution && npm run dev
+
+studio:
+	cd apps/studio && npm run dev
+
+www:
+	cd apps/www && npm run dev

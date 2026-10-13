@@ -5,7 +5,7 @@
 | Document | 14 — Content Studio specification |
 | Version | 2.0 |
 | Date | 13 October 2026 |
-| Status | Approved direction. Target application; content screens today live in `admin/` until the R1 split |
+| Status | Approved. Content Studio is `apps/studio` on port 3004. Builders, `/content` root, and workspaces still follow the roadmap |
 | Owner | Learning (CLO) for pedagogy and workflow; Product Design for screens; Engineering for `/api/v1/content` |
 | Related | [README.md](README.md), [02-prd.md](02-prd.md) C-F01–C-F14, [03-srs.md](03-srs.md), [04-use-cases.md](04-use-cases.md) UC-C-01–12, [11-ux-specification.md](11-ux-specification.md) §12, [12-information-architecture.md](12-information-architecture.md) §8, [13-knowledge-management-architecture.md](13-knowledge-management-architecture.md), [../Admin.md](../Admin.md), [../Knowledge-Catalog.md](../Knowledge-Catalog.md), [../DesignSpec.md](../DesignSpec.md) §15–16, ADR 0013, 0019, 0020, 0023 |
 
@@ -13,7 +13,7 @@
 
 | Area | What changed | Why | Impacted systems | Implementation implications |
 | --- | --- | --- | --- | --- |
-| Application | Content Studio is specified as its own Next.js app (`apps/studio`, `studio.<domain>`, port 3004), not a section of the Admin App | ADR 0013: content operations and platform operations have different users, density, and release cadence | `admin/`, new `apps/studio`, Clerk `azp`, CORS | R1 splits `admin/` content routes into Studio; API root `/api/v1/content` |
+| Application | Content Studio is its own Next.js app (`apps/studio`, `studio.<domain>`, port 3004), not a section of the Admin App | ADR 0013: content operations and platform operations have different users, density, and release cadence | `apps/studio`, Clerk `azp`, CORS | Library, catalog, review, curriculum, taxonomy, graph, generate, and challenges live here; `/api/v1/content` still aliases `/admin` content routes |
 | Ownership | Master repository belongs to platform content roles; instructors never edit master | Quality and licensing at multi-tenant scale (ADR 0019) | `content`, `knowledge`, Instructor App overlays | Workspace-scoped roles; overlays and derived courses instead of forks |
 | Hierarchy | Builders follow Knowledge Asset → Lesson → Module → Course → Learning Path | Matches the content model in the README | `content`, `knowledge` | Course is the assignable, releasable unit; paths compose courses |
 | Workflow | Two-person review, immutable releases, localisation jobs, AI drafts with provenance | Cohorts pin releases; generated content must be attributable | `content`, `retrieval`, `i18n`, `ai_gateway` | Semver releases; answer keys never leave `/content` |
@@ -71,8 +71,7 @@ The backend stays one FastAPI modular monolith (ADR 0002, 0017). Content Studio 
 | Item | Value |
 | --- | --- |
 | Origin | `studio.<domain>` (local port 3004) |
-| Source (target) | `apps/studio` |
-| Source (today) | Content half of `admin/` — library, review, curriculum, taxonomy, graph, generate, challenges, catalog |
+| Source | `apps/studio` — library, review, curriculum, taxonomy, graph, generate, challenges, catalog |
 | Clerk audience | `studio` (`azp`) |
 | API root | `/api/v1/content/...` |
 | Tenant context | Workspace slug in the path (`/w/{workspaceSlug}/…`); `master` or an organisation slug |
@@ -221,11 +220,11 @@ Workspace-scoped: which lessons stall, which assets are opened, which graph edge
 
 | Release | What ships in Studio |
 | --- | --- |
-| **R1** | Split from `admin/`. Library, review queue, taxonomy, graph page, generate page, catalog import, Knowledge Pack seed into `master` as release `1.0.0` of each path. Workflow state rename `review` → `in_review`. `/content` aliases for today's `/admin` content routes |
+| **R1** | App split is done (`apps/studio`). Remaining: Knowledge Pack seed into `master` as release `1.0.0` of each path, workflow state rename `review` → `in_review`, `/content` aliases for today's `/admin` content routes |
 | **R2** | Builders (lesson, course, path, items), 13 asset kinds with rights, typed weighted graph edits, metadata schemas, immutable releases, localisation jobs, content analytics |
 | **R3** | Derived courses, org workspaces, overlay-aware impact analysis |
 
-Until R1 lands, catalog and content screens remain on `admin :3001`. That is a holding pattern, not the product shape.
+Catalog and content screens run on Content Studio `:3004`. The Admin App redirects former content routes there.
 
 ## 14. Open questions
 

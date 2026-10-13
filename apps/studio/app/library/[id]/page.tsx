@@ -35,11 +35,11 @@ export default function AssetPage({ params }: { params: Promise<{ id: string }> 
   const client = useQueryClient();
   const query = useQuery({
     queryKey: ["asset", id],
-    queryFn: () => api<Asset>(`/api/v1/admin/assets/${id}`),
+    queryFn: () => api<Asset>(`/api/v1/content/assets/${id}`),
   });
   const move = useMutation({
     mutationFn: (state: string) =>
-      api(`/api/v1/admin/assets/${id}/transition`, {
+      api(`/api/v1/content/assets/${id}/transition`, {
         method: "POST",
         body: JSON.stringify({ state, note: "" }),
       }),
@@ -47,6 +47,8 @@ export default function AssetPage({ params }: { params: Promise<{ id: string }> 
       client.invalidateQueries({ queryKey: ["asset", id] });
       client.invalidateQueries({ queryKey: ["assets"] });
       client.invalidateQueries({ queryKey: ["overview"] });
+      client.invalidateQueries({ queryKey: ["studio-home"] });
+      client.invalidateQueries({ queryKey: ["review"] });
     },
   });
   if (!query.data) return <p>Loading the resource…</p>;

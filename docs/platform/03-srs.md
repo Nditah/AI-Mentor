@@ -14,7 +14,7 @@
 
 | Area | What changed | Why | Impacted systems | Implementation implications |
 | --- | --- | --- | --- | --- |
-| Product structure | One learner app plus a staff portal becomes five applications (Learner App, Instructor App, Institution App, Admin App, Content Studio) on one platform | CPO/CTO direction: each user group gets its own application experience (ADR 0013) | `frontend/`, `admin/`, all API routers | Monorepo with `apps/*` and shared packages (ADR 0014); the admin portal is split into Admin App and Content Studio |
+| Product structure | One learner app plus a staff portal becomes five applications (Learner App, Instructor App, Institution App, Admin App, Content Studio) on one platform | CPO/CTO direction: each user group gets its own application experience (ADR 0013) | `apps/*`, all API routers | Apps exist; shared packages (ADR 0014) and `/orgs` `/content` `/platform` roots still follow the roadmap |
 | Tenancy | Every request runs in one organisation (tenant). B2C learners belong to the consumer organisation | Serve up to 2,000 organisations with isolation (ADR 0015) | All schemas, PostgreSQL RLS, Qdrant payloads, caches | `tenant_id` on every tenant-scoped row from R1; tenant-aware tests on every endpoint |
 | Authorisation | Linear rank `student < instructor < admin` replaced by scoped role assignments and ABAC policy evaluation | Institutions need roles per campus, department, and cohort (ADR 0016) | `backend/app/domain/access.py`, every router dependency | New `authz` module; `users.role` removed after migration; permission checks replace `is_allowed(role, minimum)` |
 | Requirements | New prefixes (PLT, TEN, IAM, AUTHZ, LRN, INS, ORG, ADM, CST, KM, KG, ASM, PER, NTF, MSG, SRCH, ANL, LIC, INT, EVT) and v1 prefixes continued from 101 | Cover instructor, institution, content, and platform capabilities absent from v1 | QA test plans, traceability | All v1 IDs remain valid; amended v1 requirements are listed in [Relationship to v1 documents](#relationship-to-v1-documents) |
@@ -241,7 +241,7 @@ The 23 modules and their ownership are canonical in [README.md](README.md#shared
 
 | Area | Built today (13 October 2026) | Target |
 | --- | --- | --- |
-| Frontends | `frontend/` (learner, v1 "studio") and `admin/` (staff portal) as separate Next.js apps | Five apps in `apps/*` with shared packages (ADR 0014) |
+| Frontends | Five Next.js apps in `apps/{learner,admin,instructor,institution,studio}` | Shared packages and one lockfile (ADR 0014) |
 | Roles | `users.role` with linear rank `student < instructor < admin` in `backend/app/domain/access.py`; staff MFA via `fva` | Scoped role assignments with ABAC (section 6.4) |
 | Tenancy | None; all data is global or per user | Organisation tenancy with RLS (section 6.2) |
 | Content | Knowledge assets with versions and four-eyes workflow (`draft → review → approved → published → archived`), indexing on publish | Content Studio with releases, overlays, `in_review` state, localisation (sections 6.9, 6.10) |

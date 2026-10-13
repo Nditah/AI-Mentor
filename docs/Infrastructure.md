@@ -142,7 +142,7 @@ Local Compose (`infrastructure/compose.yaml`) is a development stack: Postgres `
 
 The image command starts Uvicorn only, with `--proxy-headers --forwarded-allow-ips "$FORWARDED_ALLOW_IPS"`; set that variable to the Container Apps ingress range. Migrations and seed run from the same image as `python -m app.cli migrate` in the `caj-mentor-migrate` job (section 7), so replicas never race to migrate.
 
-The studio image is a Next.js standalone build on Node 22, also uid 10001. Vercel builds from the same `frontend/` directory and does not need that image.
+The Learner App image is a Next.js standalone build on Node 22, also uid 10001. Vercel builds each app from `apps/<name>` and does not need that image.
 
 ## 4. CI/CD pipelines
 

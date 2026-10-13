@@ -13,7 +13,7 @@
 
 | Area | What changed | Why | Impacted systems | Implementation implications |
 | --- | --- | --- | --- | --- |
-| Applications | One learner app and one staff portal become five applications: Learner App, Instructor App, Institution App, Admin App, Content Studio | Each user group needs its own journeys, navigation, session rules, and release timing (ADR 0013) | `frontend/`, `admin/`, Vercel, Clerk | Monorepo move in R1 (ADR 0014); new apps in R3; `APP_AUDIENCES` setting in the API |
+| Applications | One learner app and one staff portal become five applications: Learner App, Instructor App, Institution App, Admin App, Content Studio | Each user group needs its own journeys, navigation, session rules, and release timing (ADR 0013) | `apps/*`, Vercel, Clerk | Apps exist under `apps/`; shared packages (ADR 0014) and `APP_AUDIENCES` still follow the roadmap |
 | Tenancy | The implicit single tenant becomes organisation tenancy with an org-unit tree | Institutions buy licences, need isolation, branding, SSO, and policies (ADR 0015) | Every tenant-scoped table, RLS, API, caches, Qdrant payloads | `tenant_id` on every tenant-scoped row in R1; `app.tenant_id` session setting; tenant context resolver |
 | Authorisation | The linear role rank becomes scoped role assignments with attribute conditions | A rank cannot express "instructor of cohort A only" or "no tutor solutions during an exam" (ADR 0016) | `domain/access.py`, every router | `require(permission)` dependency on every route; decision log; route-coverage test |
 | Backend structure | Layers (`domain`, `services`, `repositories`) become bounded-context packages with their own schemas and public interfaces | Twenty modules cannot share one service layer without coupling (ADR 0017) | `backend/app` | Package move to `backend/app/modules/<module>` (ADR 0017); import-linter contracts in CI |
@@ -90,7 +90,7 @@ AI Mentor becomes five applications on one shared platform, serving many organis
 
 | Capability | Built today | Target (this document) | Release |
 | --- | --- | --- | --- |
-| Frontends | `frontend/` (learner), `admin/` (staff), two Vercel projects | Five apps in `apps/*`, shared `packages/*` | R1 (three apps), R3 (five) |
+| Frontends | Five apps in `apps/*`, five Vercel projects | Shared `packages/*` and one lockfile | Remaining (ADR 0014) |
 | Tenancy | None; rows belong to a user or to the platform | Organisation tenancy, org-unit tree, RLS on `app.tenant_id` | R1 |
 | Roles | `student < instructor < admin` rank in `domain/access.py` | Scoped role assignments, policy engine, decision log | R1 (engine and migration), R3 (classroom roles) |
 | Backend layout | `domain`, `services`, `repositories`, `agents`, one `router.py` | `modules/<module>/{domain/, models.py, repositories/, services/, api/, events.py, interface.py}` | R1–R2 |
@@ -1237,7 +1237,7 @@ The strangler steps keep the product shippable at every step. Each row lists wha
 
 | Release | Step | Built | Retired or frozen |
 | --- | --- | --- | --- |
-| R1 | 1. Monorepo | `apps/learner` (from `frontend/`), `apps/admin` and `apps/studio` (split from `admin/`), shared packages | `frontend/`, `admin/` directories |
+| R1 | 1. Monorepo | `apps/{learner,admin,instructor,institution,studio}` exist. Remaining: shared packages | `packages/*` |
 | R1 | 2. Kernel and worker | `core/` additions (db context, `core.events` outbox and inbox, problems, pagination), worker entrypoint, Service Bus Premium, `events` schema, relay | Synchronous ingestion in the request |
 | R1 | 3. Tenancy foundation | `tenancy` schema, consumer organisation, `tenant_id` on tenant-scoped tables (expand, backfill, enforce), RLS on `app.tenant_id`, `X-Org-Id` resolution | Implicit single tenant |
 | R1 | 4. Authorisation | `authz` schema and seeded roles; policy engine at `app/domain/authz`; `require(...)` on every route; v1 role migration; `is_allowed` shim | Direct use of `users.role` in routers |

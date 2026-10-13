@@ -1,6 +1,6 @@
 # ADR 0014 — Monorepo with shared front-end packages
 
-- Status: Accepted (target architecture; not yet implemented)
+- Status: Accepted (apps live under `apps/`; shared packages and the single lockfile are not extracted yet)
 - Date: 2026-10-13
 
 ## Context

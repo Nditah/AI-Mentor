@@ -1292,6 +1292,8 @@ Learning outcomes are our moat and our most important investor and institutional
 
 ## 15. Monetisation Strategy
 
+The list prices, bands, and discounts in this section stand. Packaging beyond the three consumer tiers, the credit system, and the planning model are in [Pricing-Commercialisation.md](Pricing-Commercialisation.md), which is the commercial source of truth.
+
 ### Model: freemium subscription, followed by institutional licensing
 
 The Free tier must be **genuinely useful** — enough to form a habit and experience the "aha" — while the paid tiers remove limits and unlock depth, hands-on practice, and research tools.

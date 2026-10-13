@@ -201,7 +201,7 @@ AI Mentor is a new, standalone web platform with a separate admin portal. It is 
 
 ### 2.4 Operating environment
 
-- Frontend: two Next.js 16 App Router applications with one stack (TypeScript, Tailwind CSS, shadcn/ui-pattern primitives, TanStack Query), each deployed as its own Vercel project: the learner studio (`frontend/`) and the admin portal (`admin/`, served at `admin.<domain>`). See ADR 0012.
+- Frontend: five Next.js 16 App Router applications with one stack (TypeScript, Tailwind CSS, shadcn/ui-pattern primitives, TanStack Query), each deployed as its own Vercel project: Learner App (`apps/learner`), Admin App (`apps/admin`), Instructor App (`apps/instructor`), Institution App (`apps/institution`), Content Studio (`apps/studio`). See ADR 0012 and ADR 0013.
 - API: FastAPI on Python 3.12, Pydantic v2, deployed as one container image on Azure Container Apps (ADR 0006).
 - Database: Azure Database for PostgreSQL Flexible Server (PostgreSQL 16), SQLAlchemy 2, Alembic.
 - Vectors: Qdrant (managed or self-hosted on Azure), HTTP/gRPC.

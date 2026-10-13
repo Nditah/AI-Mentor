@@ -2,12 +2,15 @@
 
 AI Mentor is a modular monolith. Teaching rules do not import FastAPI or SQLAlchemy. HTTP handlers do not decide what to teach.
 
-This page describes the code that runs today. The target design is five Next.js applications on this same API ([ADR 0013](adr/0013-five-applications-shared-platform.md), [platform/README.md](platform/README.md)). [SystemArchitecture.md](SystemArchitecture.md) and [platform/06-system-architecture.md](platform/06-system-architecture.md) describe that later shape. Where they differ from this page, this page and the records in [adr/README.md](adr/README.md) match the repository.
+This page describes the code that runs today: five Next.js applications on one FastAPI API ([ADR 0013](adr/0013-five-applications-shared-platform.md), [platform/README.md](platform/README.md)). Tenancy, scoped RBAC, and shared front-end packages are still on the [roadmap](platform/15-roadmap.md). [SystemArchitecture.md](SystemArchitecture.md) and [platform/06-system-architecture.md](platform/06-system-architecture.md) describe that later shape. Where they differ from this page, this page and the records in [adr/README.md](adr/README.md) match the repository.
 
 ```mermaid
 flowchart LR
-  Learner["Learner App frontend :3000"]
-  Admin["Admin portal :3001"]
+  Learner["Learner App :3000"]
+  Admin["Admin App :3001"]
+  Instructor["Instructor App :3002"]
+  Institution["Institution App :3003"]
+  Studio["Content Studio :3004"]
   API["FastAPI /api/v1"]
   Engine["Mentor engine"]
   Portal["Admin portal service"]
@@ -21,6 +24,9 @@ flowchart LR
 
   Learner -->|Bearer JWT| API
   Admin -->|Bearer JWT| API
+  Instructor -->|Bearer JWT| API
+  Institution -->|Bearer JWT| API
+  Studio -->|Bearer JWT| API
   API --> RD
   API --> Engine
   API --> Portal
@@ -101,7 +107,7 @@ That is a filter, not isolation. The lab is off by default in production, and pr
 
 ## What this is not
 
-- Not five frontend applications yet. Today there are two: the Learner App (`frontend/`, still labelled "studio" in its route group) and one staff portal (`admin/`) that mixes platform operations with content tooling. Instructor App, Institution App, and Content Studio are target apps on this same API (ADR 0013). Content screens move to `apps/studio` in R1.
+- Not a complete tenant platform yet. The five apps exist (`apps/learner`, `apps/instructor`, `apps/institution`, `apps/admin`, `apps/studio`) on this API. Organisation-scoped data, RLS, and `/orgs/{org_id}` routes still follow the roadmap. Instructors consume published releases; they do not own the master catalog.
 - Not a microservice mesh. Splitting agents into services would duplicate the learner record.
 - Not event sourcing. Dashboard and mastery are computed read models.
 - Not three cloud backends. One image. Vercel for the frontends. Azure Container Apps is the primary API host; AWS pulls the same image.

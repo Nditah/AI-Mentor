@@ -4,7 +4,7 @@
 | --- | --- |
 | Version | 2.0 |
 | Date | 13 October 2026 |
-| Status | Approved direction. Target architecture; most of it is not built yet |
+| Status | Approved direction. Five apps exist under `apps/`. Tenancy, scoped RBAC, events, and shared packages are still the target |
 | Owners | Product (CPO), Technology (CTO), Learning (CLO), Enterprise Architecture |
 | Supersedes in part | The v1 documents listed in [Relationship to v1 documents](#relationship-to-v1-documents) |
 
@@ -57,6 +57,7 @@ Read in this order. Numbers are stable; do not renumber.
 | 15 | Content Studio specification | [14-content-studio-specification.md](14-content-studio-specification.md) |
 | 16 | Roadmap | [15-roadmap.md](15-roadmap.md) |
 | 17 | Architecture decision records | [ADR 0013 to 0027](../adr/README.md) |
+| 18 | Public website specification | [16-public-website-specification.md](16-public-website-specification.md) |
 
 Every document in this folder opens with a **Change record** table with four rows: what changed, why, impacted systems, and implementation implications. That is how each update explains itself.
 
@@ -95,11 +96,11 @@ Users are not "roles inside one app". Each user group has its own application, w
 
 | App | Code name | Primary users | Purpose | Origin | Source directory (target) |
 | --- | --- | --- | --- | --- | --- |
-| Learner App | `learner` | Learners | Learning, assessment, engagement, competition, career progression | `learn.<domain>` (marketing site at `<domain>`) | `apps/learner` (today `frontend/`) |
-| Instructor App | `instructor` | Lead instructors, instructors, teaching assistants | Teaching, learner management, assessment, intervention | `teach.<domain>` | `apps/instructor` (new) |
-| Institution App | `institution` | Organisation owners and admins, campus and department admins, report viewers, compliance officers, billing managers | Organisation-level management | `org.<domain>` | `apps/institution` (new) |
-| Admin App | `admin` | Platform admins, operators, AI admins, support, auditors, finance | Platform governance and operations | `admin.<domain>` | `apps/admin` (today the operations half of `admin/`) |
-| Content Studio | `studio` | Content authors (SMEs, curriculum designers), reviewers, publishers, knowledge stewards, localisation editors | Knowledge management, curriculum creation, content operations, learning asset management | `studio.<domain>` | `apps/studio` (today the content half of `admin/`) |
+| Learner App | `learner` | Learners | Learning, assessment, engagement, competition, career progression | `learn.<domain>` (marketing site at `<domain>`) | `apps/learner` |
+| Instructor App | `instructor` | Lead instructors, instructors, teaching assistants | Teaching, learner management, assessment, intervention | `teach.<domain>` | `apps/instructor` |
+| Institution App | `institution` | Organisation owners and admins, campus and department admins, report viewers, compliance officers, billing managers | Organisation-level management | `org.<domain>` | `apps/institution` |
+| Admin App | `admin` | Platform admins, operators, AI admins, support, auditors, finance | Platform governance and operations | `admin.<domain>` | `apps/admin` |
+| Content Studio | `studio` | Content authors (SMEs, curriculum designers), reviewers, publishers, knowledge stewards, localisation editors | Knowledge management, curriculum creation, content operations, learning asset management | `studio.<domain>` | `apps/studio` |
 
 Rules:
 

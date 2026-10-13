@@ -2,7 +2,7 @@
 
 AI Mentor is a learning studio for artificial intelligence, machine learning, reinforcement learning, robotics, and LLM engineering. The tutor opens with a question. Quizzes are graded from authored answer keys. An uploaded paper is quoted, and a critique appears only when the model cites a chunk from that file.
 
-The Learner App and the staff admin portal are Next.js applications. The mentor is **one FastAPI service**, backed by PostgreSQL, Qdrant, and Redis. Instructors, institution administrators, and content teams will each get their own frontend on that same API; they are not extra roles inside the learner UI.
+Five Next.js applications share **one FastAPI service**, backed by PostgreSQL, Qdrant, and Redis. Instructors, institution administrators, platform operators, and content teams each have their own frontend. They are not extra roles inside the learner UI.
 
 ## Contents
 
@@ -28,7 +28,7 @@ Four tracks ship in the catalog: AI Fundamentals, Reinforcement Learning, Roboti
 
 Identity is Clerk. Roles (`student`, `instructor`, `admin`) are stored in Postgres and never read from a token. The first admin is granted from the command line (`make grant-admin`). In development, a session switcher sends `X-Dev-User-Id`. Production refuses that header, and a production frontend build fails if it is enabled.
 
-AI Mentor is growing into a learning ecosystem of five applications on one platform: the Learner App (this repository's `frontend/`), an Instructor App, an Institution App, the Admin App, and Content Studio, serving many organisations. That direction, and everything not built yet, is documented in [docs/platform](docs/platform/README.md), starting with the [gap analysis](docs/platform/00-gap-analysis.md) and the [roadmap](docs/platform/15-roadmap.md). The sections below describe the code that runs today.
+The five applications are the Learner App, Instructor App, Institution App, Admin App, and Content Studio (`apps/learner` through `apps/studio`). Tenancy, scoped RBAC, and shared UI packages are still on the [platform roadmap](docs/platform/15-roadmap.md). The product direction is in [docs/platform](docs/platform/README.md). The sections below describe the code that runs today.
 
 The original product brief is in [Requirements.md](docs/Requirements.md). The knowledge-portal brief is in [Admin.md](docs/Admin.md). Engineering notes:
 
@@ -40,12 +40,13 @@ The original product brief is in [Requirements.md](docs/Requirements.md). The kn
 - [Security](docs/Security.md) and the normative [Security-Compliance](docs/Security-Compliance.md)
 - [Runbook](docs/Runbook.md)
 - [Roadmap](docs/Roadmap.md)
+- [Pricing and commercialisation](docs/Pricing-Commercialisation.md)
 
 ## Features
 
 | Surface | What it does |
 | --- | --- |
-| Landing | Tracks, pricing, illustrative scenarios, and an FAQ |
+| Public website | Apex marketing site (`apps/www`, `:3005`): three funnels, live catalog proof bar, demo leads |
 | Dashboard | Mastery bands, path progress, recommendations, XP, streaks, and badges |
 | Tutor | Socratic or direct chat. Opening turns stay on the catalog script |
 | Quiz | Authored items, graded on the server. The answer key is not in the quiz payload |
@@ -57,7 +58,10 @@ The original product brief is in [Requirements.md](docs/Requirements.md). The kn
 | Career | Role readiness from the learner's mastery map |
 | Leaderboard | Top 10 by XP under a handle or pseudonym. Learners can opt out |
 | Account | Profile settings, data export, and account erasure (`/api/v1/me`) |
-| Admin portal | Curated library with review, four-eyes approval, and publishing into the tutor's search; users and roles; audit log; analytics |
+| Instructor App | Cohorts, learners, assessments, marking, messages, and insights (`:3002`) |
+| Institution App | Organisation structure, people, licences, compliance, and reports (`:3003`) |
+| Admin App | Platform users, providers, configuration, moderation, audit, and analytics (`:3001`) |
+| Content Studio | Library, Resource Catalog import, review, curriculum, taxonomy, graph, generate, challenges (`:3004`) |
 | Billing | Stripe Checkout. Returns 503 until price and secret keys are set. Subscription state changes only from signed webhooks |
 
 XP follows SRS GAM-002. Each lesson, quiz, project, review, and analysis pays once, with per-day limits, a daily cap of 400 on the learner's local day, and a level of `1 + xp // 250`. Chat updates the streak and does not grant XP.
@@ -69,7 +73,11 @@ Teaching rules live in `backend/app/domain` and do not import FastAPI or SQLAlch
 ```mermaid
 flowchart LR
   Learner["Learner App :3000"]
-  Admin["Admin portal :3001"]
+  Admin["Admin App :3001"]
+  Instructor["Instructor App :3002"]
+  Institution["Institution App :3003"]
+  Studio["Content Studio :3004"]
+  Www["Public site :3005"]
   API["FastAPI /api/v1"]
   Engine["Mentor engine and admin portal"]
   Domain["Domain policies"]
@@ -81,6 +89,10 @@ flowchart LR
 
   Learner -->|Bearer JWT| API
   Admin -->|Bearer JWT| API
+  Instructor -->|Bearer JWT| API
+  Institution -->|Bearer JWT| API
+  Studio -->|Bearer JWT| API
+  Www -->|catalog stats and leads| API
   API --> RD
   API --> Engine
   Engine --> Domain
@@ -90,7 +102,7 @@ flowchart LR
   Engine --> QD
 ```
 
-Three more frontends share this API when they ship: Instructor App (`teach.`, :3002), Institution App (`org.`, :3003), Content Studio (`studio.`, :3004). See [ADR 0013](docs/adr/0013-five-applications-shared-platform.md).
+Origins and app audiences are in [ADR 0013](docs/adr/0013-five-applications-shared-platform.md). `GET /api/v1/me/apps` feeds the launcher in each app.
 
 With no model API key, the tutor still answers from the authored curriculum. With `QDRANT_URL` set to an HTTP address, vectors go to Qdrant and an OpenAI key is required for embeddings. Otherwise, in development only, a local store keeps deterministic hash vectors in Postgres.
 
@@ -157,8 +169,9 @@ The full list, with comments, is [.env.example](.env.example). The ones you are 
 | `DATABASE_URL` | `postgresql+psycopg://mentor:mentor@localhost:5432/mentor` | SQLAlchemy URL. SQLite is allowed outside production |
 | `QDRANT_URL` / `QDRANT_API_KEY` | `memory` / unset | `http(s)://...` uses Qdrant. Any other value uses the local store |
 | `REDIS_URL` | unset | Shared rate-limit counters. Without it, limits are per process |
-| `CORS_ORIGINS` | `http://localhost:3000,http://localhost:3001` | Studio and admin origins |
-| `STUDIO_ORIGINS` | first CORS origin | Allowed Stripe return origins, matched exactly |
+| `CORS_ORIGINS` | six local origins, ports 3000–3005 | Learner, Admin, Instructor, Institution, Content Studio, public site |
+| `APP_ORIGINS` | derived from CORS order | Optional `learner=…,admin=…` map for `GET /me/apps` |
+| `LEARNER_ORIGINS` / `INSTITUTION_ORIGINS` | Learner and Institution origins | Allowed Stripe return origins. `STUDIO_ORIGINS` is a Learner App alias |
 | `CLERK_JWKS_URL`, `CLERK_ISSUER` | unset | Token verification |
 | `CLERK_AUTHORIZED_PARTIES` | the CORS origins | Allowed `azp` values |
 | `CLERK_AUDIENCE` | unset | Checked when set |
@@ -177,9 +190,9 @@ The full list, with comments, is [.env.example](.env.example). The ones you are 
 
 Production startup fails if dev auth is on, Clerk verification or the Clerk secret is missing, `DATABASE_URL` is not PostgreSQL, Qdrant is not `https://` with a key, Redis or an OpenAI key is missing, the lab is on, staff MFA is off, or any origin is not explicit `https://`.
 
-### Studio and admin
+### Frontends
 
-Copy `frontend/.env.example` to `frontend/.env.local`, and `admin/.env.example` to `admin/.env.local`:
+Copy each app's `.env.example` to `.env.local` under `apps/learner`, `apps/admin`, `apps/instructor`, `apps/institution`, `apps/studio`, and `apps/www`:
 
 | Variable | Local value | Purpose |
 | --- | --- | --- |
@@ -189,7 +202,7 @@ Copy `frontend/.env.example` to `frontend/.env.local`, and `admin/.env.example` 
 | `CLERK_SECRET_KEY` | empty locally | Server-side Clerk key for the middleware |
 | `NEXT_PUBLIC_CLERK_SIGN_IN_URL` | `/sign-in` | |
 | `NEXT_PUBLIC_CLERK_SIGN_UP_URL` | `/sign-up` | Studio only |
-| `NEXT_PUBLIC_ADMIN_URL` / `NEXT_PUBLIC_STUDIO_URL` | `http://localhost:3001` / `http://localhost:3000` | Links between the two apps |
+| `NEXT_PUBLIC_*_URL` | ports 3000–3005 | Cross-app links (learner, admin, instructor, institution, studio, www) |
 
 A production build is one where `DEPLOY_ENV` or `VERCEL_ENV` is `production`.
 
@@ -216,13 +229,17 @@ In a second terminal:
 make web
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The API health check is [http://localhost:8000/health](http://localhost:8000/health). The admin portal is a separate app:
+Open [http://localhost:3000](http://localhost:3000). The API health check is [http://localhost:8000/health](http://localhost:8000/health). The other apps:
 
 ```bash
-make admin
+make admin         # http://localhost:3001  platform operations
+make instructor    # http://localhost:3002  teaching
+make institution   # http://localhost:3003  organisation
+make studio        # http://localhost:3004  content
+make www           # http://localhost:3005  public website
 ```
 
-It listens on [http://localhost:3001](http://localhost:3001). Local sessions default to Demo admin.
+Local sessions default to Demo admin in Admin and Studio, and Demo instructor in the Instructor and Institution apps.
 
 With PostgreSQL, `make migrate` applies the Alembic migrations and seeds the catalog and demo accounts. With SQLite, development startup creates the tables and seeds instead. Learner progress is kept across restarts.
 
@@ -234,7 +251,7 @@ The whole backend together:
 make up
 ```
 
-That Compose file runs Postgres 16 (`mentor` / `mentor`, database `mentor`), Qdrant, Redis, a one-off migrate job, and the API on port 8000 with dev auth enabled. Every port is bound to `127.0.0.1`. Do not publish that stack to the internet. Stop it with `make down`. The frontends are still `make web` and `make admin`.
+That Compose file runs Postgres 16 (`mentor` / `mentor`, database `mentor`), Qdrant, Redis, a one-off migrate job, and the API on port 8000 with dev auth enabled. Every port is bound to `127.0.0.1`. Do not publish that stack to the internet. Stop it with `make down`. The frontends stay on the host: `make learner` (alias `make web`), `make admin`, `make instructor`, `make institution`, `make studio`.
 
 To make a Clerk user the first admin (the command is audited):
 
@@ -254,18 +271,18 @@ make lint-migrations  # squawk on every migration after the frozen baseline
 make audit      # pip-audit, bandit, npm audit
 ```
 
-Frontend checks, in `frontend/` and `admin/`:
+Frontend checks, in each `apps/<name>/` directory:
 
 ```bash
 npm run typecheck
 npm run build
 ```
 
-GitHub Actions (`.github/workflows/ci.yml`) runs lint and tests on SQLite and on PostgreSQL 16, checks migrations against the models, verifies the target database schema, scans for secrets and vulnerable dependencies, builds both frontends, and asserts that a production build with dev auth fails.
+GitHub Actions (`.github/workflows/ci.yml`) runs lint and tests on SQLite and on PostgreSQL 16, checks migrations against the models, verifies the target database schema, scans for secrets and vulnerable dependencies, builds all five frontends, and asserts that a production build with dev auth fails.
 
 ## Deployment
 
-The studio and admin portal deploy to Vercel as separate projects. The API is one image, built from `backend/Dockerfile` (Python 3.12, non-root user `mentor`, Uvicorn on `0.0.0.0:8000` behind trusted proxies). Migrations do not run in the web process: run `python -m app.cli migrate` from the same image as a one-off job before each rollout.
+Each of the five apps deploys to Vercel as its own project (`apps/learner`, `apps/admin`, `apps/instructor`, `apps/institution`, `apps/studio`). The API is one image, built from `backend/Dockerfile` (Python 3.12, non-root user `mentor`, Uvicorn on `0.0.0.0:8000` behind trusted proxies). Migrations do not run in the web process: run `python -m app.cli migrate` from the same image as a one-off job before each rollout.
 
 `.github/workflows/publish.yml` pushes that image to GHCR on a `v*` tag or a manual run. It does not deploy on every push. Azure Container Apps is the primary API host. AWS ECS or App Runner can pull the same image.
 
@@ -293,13 +310,13 @@ AI-Mentor/
 │   ├── tests/integration/
 │   ├── Dockerfile
 │   └── pyproject.toml
-├── frontend/               # Learner App today (target apps/learner)
-│   ├── app/                # Landing page and learner routes
-│   ├── components/
-│   ├── lib/
-│   ├── stores/
-│   └── Dockerfile
-├── admin/                  # Staff portal today: operations + content (splits into Admin App and Content Studio)
+├── apps/
+│   ├── learner/            # Learner App :3000 (learn.)
+│   ├── admin/              # Admin App :3001 (admin.)
+│   ├── instructor/         # Instructor App :3002 (teach.)
+│   ├── institution/        # Institution App :3003 (org.)
+│   ├── studio/             # Content Studio :3004 (studio.)
+│   └── www/                # Public website :3005 (apex / www.)
 ├── infrastructure/
 │   └── compose.yaml        # Postgres, Qdrant, Redis, migrate job, and the API
 ├── seed-data/              # Knowledge Pack v1.0 JSON (make write-pack)
@@ -308,7 +325,7 @@ AI-Mentor/
 └── Makefile
 ```
 
-Learner App routes live under `frontend/app/(studio)/` until the R1 rename: dashboard, tutor, quiz, paths, catalog, graph, flashcards, lab, research, and a link to admin. Target apps (`apps/learner`, `apps/instructor`, `apps/institution`, `apps/admin`, `apps/studio`) are specified in [docs/platform](docs/platform/README.md). The Resource Catalog that runs today is [Knowledge-Catalog.md](docs/Knowledge-Catalog.md).
+Learner App routes live under `apps/learner/app/(learn)/`: dashboard, tutor, quiz, paths, catalog, graph, flashcards, lab, research, and the app launcher. Specs for each app are in [docs/platform](docs/platform/README.md). The public website (apex domain) is specified in [16-public-website-specification.md](docs/platform/16-public-website-specification.md). The Resource Catalog is [Knowledge-Catalog.md](docs/Knowledge-Catalog.md).
 
 ## Contribution Guidelines
 
@@ -316,12 +333,12 @@ Open a pull request against the main branch. Keep the change focused on one beha
 
 - Put teaching decisions in `backend/app/domain`. Routes validate and delegate.
 - Keep domain coverage at or above 90 percent. Run `make test` and `make lint` before you push.
-- For frontend changes, run `npm run typecheck` and `npm run build` in `frontend/` or `admin/`.
+- For frontend changes, run `npm run typecheck` and `npm run build` in the app you changed under `apps/`.
 - Schema changes need an Alembic revision; `alembic check` in CI fails on drift.
 - If you add or change an HTTP route, update [docs/openapi.yaml](docs/openapi.yaml) and [docs/API.md](docs/API.md). Mark a route `live` only when the handler exists.
-- Do not commit `.env` files, API keys, `dev.sqlite`, or `frontend/.next`.
+- Do not commit `.env` files, API keys, `dev.sqlite`, or `apps/*/.next`.
 - Ruff line length is 100. Follow [docs/Documentation-Standards.md](docs/Documentation-Standards.md) for docstrings, TypeDoc comments, and API notes.
-- Describe the behavior a reviewer can verify. Screenshots help for studio layout changes.
+- Describe the behavior a reviewer can verify. Screenshots help for layout changes.
 
 CI must pass. A drop below the coverage gate fails the backend job.
 

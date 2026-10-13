@@ -25,12 +25,15 @@ from app.domain.knowledge.search import SearchQuery, search
 from app.domain.knowledge.taxonomy import CAREER_ROLES, SKILLS, SOURCES, TAXONOMY
 from app.domain.knowledge.vocabulary import RESOURCE_TYPE_LABELS
 from app.models import (
+    ChallengeSpec,
     Concept,
     ConceptMastery,
     ConceptRelation,
     KnowledgeAsset,
     LearnerResource,
     LearningPreference,
+    PathStep,
+    QuestionBankItem,
     User,
 )
 from app.services.errors import ClientError
@@ -144,7 +147,132 @@ class CatalogService:
         row = self.session.get(KnowledgeAsset, asset_id)
         if row is None or row.state != "published":
             raise ClientError("Resource not found.", 404)
-        return public_payload(row, include_body=True)
+        payload = public_payload(row, include_body=True)
+        steps = list(
+            self.session.scalars(
+                select(PathStep)
+                .where(PathStep.path_id == row.id)
+                .order_by(PathStep.position, PathStep.title)
+            ).all()
+        )
+        if steps:
+            payload["steps"] = [
+                {
+                    "position": step.position,
+                    "kind": step.kind,
+                    "title": step.title,
+                    "concept_slug": step.concept_slug,
+                    "estimated_minutes": step.estimated_minutes,
+                    "optional": step.optional,
+                }
+                for step in steps
+            ]
+        spec = self.session.get(ChallengeSpec, row.id)
+        if spec is not None:
+            payload["challenge"] = {
+                "language": spec.language,
+                "entrypoint": spec.entrypoint,
+                "variant": spec.variant,
+                "starter_code": spec.starter_code,
+                "visible_tests": list(spec.visible_tests or []),
+                "hidden_test_count": len(spec.hidden_tests or []),
+                "has_reference": bool(spec.reference_solution),
+            }
+        return payload
+
+    def studio_home(self) -> dict:
+        pack = (
+            self.session.scalar(
+                select(func.count()).where(
+                    KnowledgeAsset.state == "published",
+                    KnowledgeAsset.pack_version.is_not(None),
+                )
+            )
+            or 0
+        )
+        library_drafts = (
+            self.session.scalar(
+                select(func.count()).where(
+                    KnowledgeAsset.pack_version.is_(None),
+                    KnowledgeAsset.state == "draft",
+                )
+            )
+            or 0
+        )
+        library_review = (
+            self.session.scalar(
+                select(func.count()).where(
+                    KnowledgeAsset.pack_version.is_(None),
+                    KnowledgeAsset.state == "review",
+                )
+            )
+            or 0
+        )
+        questions = self.session.scalar(select(func.count()).select_from(QuestionBankItem)) or 0
+        challenges = self.session.scalar(select(func.count()).select_from(ChallengeSpec)) or 0
+        overview = self.overview_counts()
+        return {
+            "published": overview["published"],
+            "by_type": overview["by_type"],
+            "pack_published": int(pack),
+            "drafts": int(library_drafts),
+            "review_queue": int(library_review),
+            "questions": int(questions),
+            "challenges": int(challenges),
+            "workspace": "master",
+            "note": (
+                "Content Studio works in the master workspace. Knowledge Pack rows are "
+                "published catalog assets. Drafts and the review queue are authored library items."
+            ),
+        }
+
+    def list_questions(self, *, concept: str | None = None, limit: int = 50) -> list[dict]:
+        query = select(QuestionBankItem).where(QuestionBankItem.state == "published")
+        if concept:
+            query = query.where(QuestionBankItem.concept_slug == concept)
+        query = query.order_by(QuestionBankItem.concept_slug, QuestionBankItem.key).limit(limit)
+        rows = list(self.session.scalars(query).all())
+        return [
+            {
+                "id": str(row.id),
+                "key": row.key,
+                "concept_slug": row.concept_slug,
+                "difficulty": row.difficulty,
+                "kind": row.kind,
+                "prompt": row.prompt,
+                "options": list(row.options or []),
+                "bloom_level": row.bloom_level,
+                "tags": list(row.tags or []),
+                "origin": row.origin,
+            }
+            for row in rows
+        ]
+
+    def list_challenges(self, *, limit: int = 50) -> list[dict]:
+        rows = list(
+            self.session.execute(
+                select(KnowledgeAsset, ChallengeSpec)
+                .join(ChallengeSpec, ChallengeSpec.asset_id == KnowledgeAsset.id)
+                .where(KnowledgeAsset.state == "published")
+                .order_by(KnowledgeAsset.title)
+                .limit(limit)
+            ).all()
+        )
+        return [
+            {
+                **public_payload(asset),
+                "challenge": {
+                    "language": spec.language,
+                    "entrypoint": spec.entrypoint,
+                    "variant": spec.variant,
+                    "starter_code": spec.starter_code,
+                    "visible_tests": list(spec.visible_tests or []),
+                    "hidden_test_count": len(spec.hidden_tests or []),
+                    "has_reference": bool(spec.reference_solution),
+                },
+            }
+            for asset, spec in rows
+        ]
 
     def graph(self, category: str | None = None) -> dict:
         kg = self.load_graph()
@@ -352,4 +480,67 @@ class CatalogService:
                 or 0
             ),
             "by_type": by_type,
+        }
+
+    def public_stats(self) -> dict:
+        """Return published catalog counts for the public website proof bar.
+
+        Drafts and review items are omitted. Counts are live, not rounded marketing figures.
+
+        Returns:
+            Totals plus a short list of published learning-path titles.
+        """
+
+        overview = self.overview_counts()
+        by_type = {str(key): int(value) for key, value in overview["by_type"].items()}
+        questions = int(
+            self.session.scalar(
+                select(func.count())
+                .select_from(QuestionBankItem)
+                .where(QuestionBankItem.state == "published")
+            )
+            or 0
+        )
+        challenges = int(
+            self.session.scalar(
+                select(func.count())
+                .select_from(ChallengeSpec)
+                .join(KnowledgeAsset, ChallengeSpec.asset_id == KnowledgeAsset.id)
+                .where(KnowledgeAsset.state == "published")
+            )
+            or 0
+        )
+        concepts = int(
+            self.session.scalar(
+                select(func.count()).select_from(Concept).where(Concept.status == "active")
+            )
+            or 0
+        )
+        pack_paths = [
+            {
+                "slug": row.slug,
+                "title": row.title,
+                "description": (row.description or "")[:280],
+                "difficulty": row.difficulty,
+                "estimated_minutes": row.estimated_minutes or None,
+            }
+            for row in self.session.scalars(
+                select(KnowledgeAsset)
+                .where(
+                    KnowledgeAsset.state == "published",
+                    KnowledgeAsset.resource_type == "learning_path",
+                )
+                .order_by(KnowledgeAsset.title)
+                .limit(24)
+            ).all()
+        ]
+        return {
+            "published": int(overview["published"]),
+            "questions": questions,
+            "challenges": challenges,
+            "paths": int(by_type.get("learning_path", 0)),
+            "concepts": concepts,
+            "by_type": by_type,
+            "pack_paths": pack_paths,
+            "note": "Knowledge Pack and published catalog. Drafts are omitted.",
         }

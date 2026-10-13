@@ -15,9 +15,9 @@
 | --- | --- | --- | --- | --- |
 | Documentation scope | Audited all 34 hand-written documents in `docs/` (about 23,000 lines) against the enterprise ecosystem direction | The platform vision moved from one AI tutoring app to five applications serving many organisations | All documentation | v1 documents are retained as the learner baseline; the v2 set in `docs/platform/` is authoritative for anything new |
 | Gap register | Recorded 32 gaps (G-01 to G-32) and 18 internal inconsistencies (X-01 to X-18) | So that every v2 change traces to a stated gap | All v2 documents | Each gap names the v2 document that closes it and the release that implements it |
-| Code impact | Listed the code facts that contradict the new direction | So that engineering can size R1 foundations | `backend/app/domain/access.py`, `backend/app/models/entities.py`, `frontend/`, `admin/`, `backend/db/schema/` | R1 includes tenancy, scoped roles, and the admin/Studio split (see [15-roadmap.md](15-roadmap.md)) |
+| Code impact | Listed the code facts that contradict the new direction | So that engineering can size R1 foundations | `backend/app/domain/access.py`, `backend/app/models/entities.py`, `apps/*`, `backend/db/schema/` | Five apps exist; R1 still includes tenancy and scoped roles (see [15-roadmap.md](15-roadmap.md)) |
 | Content Studio spec | Document 14 was referenced from 01–13 and 15 but missing from the tree | The set claimed a first-class Studio app without an application spec | Content Studio, Admin App split | [14-content-studio-specification.md](14-content-studio-specification.md) now exists |
-| Resource Catalog | Knowledge Pack v1.0 and catalog screens landed in `admin/` | Studio was not yet a separate app; launch still needed seed content | `admin/app/catalog`, Learner App `/catalog` | Holding pattern until R1; target home is Studio Library ([14](14-content-studio-specification.md), [Knowledge-Catalog.md](../Knowledge-Catalog.md)) |
+| Resource Catalog | Knowledge Pack v1.0 and catalog screens live in Content Studio | Staff import is not an Admin App concern | `apps/studio/app/catalog`, Learner App `/catalog` | Learner search stays in the Learner App; Studio owns import, quality, and duplicates |
 
 ## Relationship to v1 documents
 
@@ -90,12 +90,12 @@ This document changes no v1 document. It records why each one is retained, amend
 | `API.md`, `openapi.yaml` | 87, contract | Live routes | Retain; v2 target in 08 | No `/orgs`, `/content`, `/platform`, standards endpoints | 08 |
 | `Security.md` | 42 | Current controls | Retain unchanged | n/a | n/a |
 | `Security-Compliance.md` | 1,048 | Security and privacy specification | Amend: keep §0–3, §6–18; supersede §4–5 | No tenant isolation, SSO, SCIM, LTI, AI-marking, controller/processor split | 09, 10 |
-| `DesignSpec.md` | 2,711 | UI/UX specification | Amend: keep §1–7 for all apps; extend §8–17 | Two apps only; no instructor, institution, or Studio UX; no app launcher | 11, 12, 14 |
+| `DesignSpec.md` | 2,711 | UI/UX specification | Amend: keep §1–7 for all apps; extend §8–17 | Five apps exist; density and tokens still follow ADR 0012 copies until packages land | 11, 12, 14 |
 | `TestPlan.md` | 2,513 | MVP test plan | Retain for R1; v2 test plan is follow-up | No tenant isolation, BOLA-across-tenants, SSO, or marking tests | follow-up F-01 |
 | `Roadmap.md` | 28 | Current build slice | Retain (describes build slice) | No R2–R5 | 15 |
 | `Documentation-Standards.md` | 697 | Doc and comment rules | Retain; add v2 doc conventions (change record) | Does not cover `docs/platform` | README §Document set |
 | ADR 0001–0012 | ~750 | Implemented decisions | Retain; 0001, 0002, 0005, 0008, 0009, 0010, 0012 amended by 0013–0025 | No enterprise decisions | ADR 0013–0027 |
-| `Knowledge-Catalog.md` | ~100 | Running Resource Catalog and Knowledge Pack | Retain as running-code notes; target home is Content Studio | Screens sit in `admin/` until the R1 split | 13, 14 |
+| `Knowledge-Catalog.md` | ~100 | Running Resource Catalog and Knowledge Pack | Retain as running-code notes; home is Content Studio | Learner search stays in the Learner App | 13, 14 |
 
 ## 4. Gap register
 
@@ -167,8 +167,8 @@ The documentation change creates engineering work. These are the facts in the re
 | Roles are `("student", "instructor", "admin")` with a numeric rank | `backend/app/domain/access.py` | Replace with role assignments and a policy evaluator in `backend/app/domain/authz` (ADR 0016). Keep `role_change_issue` rules as policies | R1 |
 | `users.role` column constrained to three values | `backend/app/models/entities.py`, DDL `01_identity.sql` | Add `authz.role_assignments`; backfill with the README mapping; drop `users.role` after cut-over | R1 |
 | No `tenant_id` on any table | Models and DDL | Add `tenancy` schema and `tenant_id` with the consumer organisation backfilled; RLS on `app.tenant_id` | R1 |
-| Learner frontend named "studio" | `frontend/app/(studio)`, README, ADR 0001 | Move to `apps/learner`; rename route group `(learn)` | R1 |
-| Admin portal mixes operations and content | `admin/app/{library,review,curriculum,taxonomy,graph,generate,challenges,catalog}` alongside `{users,configuration,providers,audit,moderation,analytics}` | Split into `apps/studio` and `apps/admin` (ADR 0013). Catalog import, duplicates, and quality go with Studio | R1 |
+| Learner frontend named "studio" | `apps/learner/app/(learn)` | Done: moved from `frontend/`; route group is `(learn)` | R1 (done) |
+| Admin portal mixes operations and content | `apps/admin` vs `apps/studio` | Done: operations in Admin, catalog and content in Studio (ADR 0013) | R1 (done) |
 | API routes are flat (`/admin/users`, `/admin/analytics`) | `backend/app/api/router.py` | Add `/me`, `/learn`, `/orgs/{org_id}`, `/content`, `/platform` roots; keep v1 routes as aliases until clients move | R1–R2 |
 | Curriculum source is `catalog.py` | `backend/app/domain/catalog.py` | Becomes a seed import into the `master` workspace (ADR 0019) | R2 |
 | `vector.sync_outbox` is the only outbox | DDL `04_vector.sql` | Add `events.outbox` and `events.inbox`; vector outbox may stay specialised | R1 |

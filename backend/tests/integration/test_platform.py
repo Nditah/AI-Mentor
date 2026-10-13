@@ -49,6 +49,32 @@ def test_a_complete_production_configuration_starts() -> None:
     assert settings.billing_return_origins == ["https://studio.example.test"]
 
 
+def test_local_defaults_map_all_five_apps() -> None:
+    settings = Settings()
+    assert settings.origins == [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:3002",
+        "http://localhost:3003",
+        "http://localhost:3004",
+        "http://localhost:3005",
+    ]
+    assert settings.app_origin_map["learner"] == "http://localhost:3000"
+    assert settings.app_origin_map["studio"] == "http://localhost:3004"
+    assert "www" not in settings.app_origin_map
+    assert set(settings.app_origin_map) == {
+        "learner",
+        "admin",
+        "instructor",
+        "institution",
+        "studio",
+    }
+    assert settings.billing_return_origins == [
+        "http://localhost:3000",
+        "http://localhost:3003",
+    ]
+
+
 @pytest.mark.parametrize(
     ("change", "message"),
     [

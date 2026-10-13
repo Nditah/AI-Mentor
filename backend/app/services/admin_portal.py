@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 import uuid
 
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.config import Settings
@@ -13,7 +14,7 @@ from app.domain.catalog import CONCEPTS, get_concept
 from app.domain.chunking import chunk_text
 from app.domain.gamification import DAILY_XP_CAP, XP_PER_LEVEL, XP_RULES
 from app.domain.publishing import transition_issue, validate_asset
-from app.models import KnowledgeAsset, User
+from app.models import Concept, KnowledgeAsset, User
 from app.repositories.sql import SqlRepository
 from app.services.errors import ClientError
 from app.services.retrieval import IndexUnavailable, index_asset, unindex_asset
@@ -57,10 +58,12 @@ class AdminPortal:
             ),
         }
 
-    def list_assets(self, user: User, state: str | None) -> list[dict]:
+    def list_assets(self, user: User, state: str | None, *, library: bool = True) -> list[dict]:
         self._staff(user)
         rows = []
         for asset in self.repo.assets(state):
+            if library and asset.pack_version:
+                continue
             if user.role != "admin" and asset.state == "draft" and asset.owner_id != user.id:
                 continue
             rows.append(self._brief(asset))
@@ -107,6 +110,7 @@ class AdminPortal:
             licence=fields.get("licence") or "own-work",
             body_md=fields.get("body_md") or "",
             owner_id=user.id,
+            source_type=fields.get("source_type") or "authored",
         )
         self.session.add(asset)
         self.session.flush()
@@ -116,27 +120,45 @@ class AdminPortal:
 
     def generate_draft(self, user: User, concept_slug: str) -> dict:
         concept = get_concept(concept_slug)
-        if concept is None:
-            raise ClientError("Unknown concept.", 404)
+        if concept is not None:
+            name, summary, topic, difficulty, slug = (
+                concept.name,
+                concept.scaffold,
+                concept.domain,
+                concept.difficulty,
+                concept.slug,
+            )
+        else:
+            row = self.session.scalar(select(Concept).where(Concept.slug == concept_slug))
+            if row is None:
+                raise ClientError("Unknown concept.", 404)
+            name, summary, topic, difficulty, slug = (
+                row.name,
+                row.summary,
+                row.domain,
+                row.difficulty,
+                row.slug,
+            )
         body = (
-            f"# {concept.name}\n\n{concept.scaffold}\n\n"
+            f"# {name}\n\n{summary}\n\n"
             "Review this draft before it enters the queue. "
             "It is the catalog scaffold, not a model-written lesson."
         )
         return self.create_asset(
             user,
             {
-                "title": concept.name,
+                "title": name,
                 "description": (
-                    f"Draft notes for {concept.name}, taken from the catalog scaffold for review."
+                    f"Draft notes for {name}, taken from the catalog scaffold for review."
                 ),
-                "topic": concept.domain,
-                "difficulty": concept.difficulty,
+                "topic": topic,
+                "difficulty": difficulty,
                 "kind": "notes",
                 "estimated_minutes": 25,
-                "tags": [concept.slug],
+                "tags": [slug],
                 "body_md": body,
                 "source": "catalog",
+                "source_type": "ai_generated",
             },
         )
 

@@ -15,11 +15,11 @@ export default function DuplicatesPage() {
   const client = useQueryClient();
   const query = useQuery({
     queryKey: ["duplicates"],
-    queryFn: () => api<Hit[]>("/api/v1/admin/catalog/duplicates"),
+    queryFn: () => api<Hit[]>("/api/v1/content/catalog/duplicates"),
   });
   const resolve = useMutation({
     mutationFn: ({ id, status }: { id: string; status: string }) =>
-      api(`/api/v1/admin/catalog/duplicates/${id}`, { method: "POST", body: JSON.stringify({ status }) }),
+      api(`/api/v1/content/catalog/duplicates/${id}`, { method: "POST", body: JSON.stringify({ status }) }),
     onSuccess: () => client.invalidateQueries({ queryKey: ["duplicates"] }),
   });
   return (

@@ -12,7 +12,7 @@ const sans = Source_Sans_3({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: { default: "Admin", template: "%s · AI Mentor Admin" },
-  description: "Curate the knowledge library, review drafts, and manage the studio.",
+  description: "Operate the platform: users, providers, trust, and analytics.",
   robots: { index: false, follow: false },
 };
 

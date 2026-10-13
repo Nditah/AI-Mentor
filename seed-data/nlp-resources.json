@@ -1270,6 +1270,45 @@
     ]
   },
   {
+    "id": "paper-efficient-estimation-of-word-representations-in-vector-space-paper-297",
+    "title": "Efficient Estimation of Word Representations in Vector Space",
+    "description": "Mikolov et al. (2013). A primary paper for embeddings. Read the abstract, the claims, and the experimental section before the related work.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "Mikolov et al.",
+    "url": "https://arxiv.org/abs/1301.3781",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "paper",
+      "embeddings",
+      "2013"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2013",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Mikolov et al. (2013). A primary paper for embeddings. Read the abstract, the claims, and the experimental section before the related work.",
+    "metadata": {
+      "arxiv_id": "1301.3781",
+      "year": 2013
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings",
+      "representation-nlp"
+    ]
+  },
+  {
     "id": "book-speech-and-language-processing",
     "title": "Speech and Language Processing",
     "description": "Jurafsky, Martin (2023). A book-length treatment of language models used as a spine for the corresponding concepts in this catalog.",
@@ -1449,6 +1488,40 @@
     "licence": "cc-by",
     "concepts": [
       "tokenization"
+    ]
+  },
+  {
+    "id": "course-hugging-face-tokenizers-and-embeddings",
+    "title": "Hugging Face tokenizers and embeddings",
+    "description": "A structured course from Hugging Face covering embeddings. Work the assignments, not only the lectures.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "course",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/docs/transformers/en/model_doc/bert",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1200,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A structured course from Hugging Face covering embeddings. Work the assignments, not only the lectures.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
     ]
   },
   {
@@ -3386,6 +3459,76 @@
     ]
   },
   {
+    "id": "video-explainer-video-nlp-fundamentals",
+    "title": "Explainer video: NLP fundamentals",
+    "description": "A short explainer for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Pause and write the definition in your own words.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=nlp+fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "video-explainer-video-embeddings",
+    "title": "Explainer video: Embeddings",
+    "description": "A short explainer for Embeddings. Vectors that put similar text near similar text. Pause and write the definition in your own words.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Embeddings. Vectors that put similar text near similar text. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
     "id": "documentation-user-guide-tokenization",
     "title": "User guide: Tokenization",
     "description": "User guide for Tokenization. Words, subwords, and BPE. Source of record: Hugging Face NLP course.",
@@ -4330,16 +4473,336 @@
     ]
   },
   {
-    "id": "coursera-guided-project-tokenization",
-    "title": "Coursera guided project: Tokenization",
-    "description": "A short coursera guided project on Tokenization. Words, subwords, and BPE. Complete the exercises before claiming the concept.",
+    "id": "documentation-user-guide-nlp-fundamentals",
+    "title": "User guide: NLP fundamentals",
+    "description": "User guide for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "documentation",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=nlp-fundamentals&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "nlp-fundamentals",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-nlp-fundamentals",
+    "title": "Worked tutorial: NLP fundamentals",
+    "description": "Worked tutorial for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "tutorial",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=nlp-fundamentals&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "nlp-fundamentals",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "blog-explainer-nlp-fundamentals",
+    "title": "Explainer: NLP fundamentals",
+    "description": "Explainer for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "blog",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=nlp-fundamentals&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "nlp-fundamentals",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "podcast-conversation-nlp-fundamentals",
+    "title": "Conversation: NLP fundamentals",
+    "description": "Conversation for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "podcast",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=nlp-fundamentals&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "nlp-fundamentals",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-embeddings",
+    "title": "User guide: Embeddings",
+    "description": "User guide for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "documentation",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=embeddings&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "embeddings",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-embeddings",
+    "title": "Worked tutorial: Embeddings",
+    "description": "Worked tutorial for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "tutorial",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=embeddings&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "embeddings",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "blog-explainer-embeddings",
+    "title": "Explainer: Embeddings",
+    "description": "Explainer for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "blog",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=embeddings&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "embeddings",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "podcast-conversation-embeddings",
+    "title": "Conversation: Embeddings",
+    "description": "Conversation for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "podcast",
+    "provider": "Hugging Face NLP course",
+    "author": "Hugging Face NLP course",
+    "url": "https://huggingface.co/learn/nlp-course?topic=embeddings&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "embeddings",
+      "nlp"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Embeddings. Vectors that put similar text near similar text. Source of record: Hugging Face NLP course.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "course-kaggle-learn-micro-course-tokenization",
+    "title": "Kaggle Learn micro-course: Tokenization",
+    "description": "A short kaggle learn micro-course on Tokenization. Words, subwords, and BPE. Complete the exercises before claiming the concept.",
     "category": "nlp",
     "subcategory": "",
     "topic": "tokenization",
     "resource_type": "course",
-    "provider": "Coursera",
-    "author": "Coursera guided project",
-    "url": "https://www.coursera.org?q=tokenization",
+    "provider": "Kaggle",
+    "author": "Kaggle Learn micro-course",
+    "url": "https://www.kaggle.com/learn?q=tokenization",
     "language": "en",
     "difficulty": "beginner",
     "estimated_duration": 180,
@@ -4359,7 +4822,7 @@
     "thumbnail": "",
     "source_type": "curated",
     "quality_score": 73,
-    "ai_generated_summary": "A short coursera guided project on Tokenization. Words, subwords, and BPE. Complete the exercises before claiming the concept.",
+    "ai_generated_summary": "A short kaggle learn micro-course on Tokenization. Words, subwords, and BPE. Complete the exercises before claiming the concept.",
     "metadata": {},
     "licence": "cc-by",
     "concepts": [
@@ -4367,16 +4830,16 @@
     ]
   },
   {
-    "id": "course-kaggle-learn-micro-course-language-models",
-    "title": "Kaggle Learn micro-course: Language models",
-    "description": "A short kaggle learn micro-course on Language models. n-grams to neural LMs. Complete the exercises before claiming the concept.",
+    "id": "course-microsoft-learn-module-language-models",
+    "title": "Microsoft Learn module: Language models",
+    "description": "A short microsoft learn module on Language models. n-grams to neural LMs. Complete the exercises before claiming the concept.",
     "category": "nlp",
     "subcategory": "",
     "topic": "language-models",
     "resource_type": "course",
-    "provider": "Kaggle",
-    "author": "Kaggle Learn micro-course",
-    "url": "https://www.kaggle.com/learn?q=language-models",
+    "provider": "Microsoft",
+    "author": "Microsoft Learn module",
+    "url": "https://learn.microsoft.com?q=language-models",
     "language": "en",
     "difficulty": "intermediate",
     "estimated_duration": 180,
@@ -4395,7 +4858,7 @@
     "thumbnail": "",
     "source_type": "curated",
     "quality_score": 73,
-    "ai_generated_summary": "A short kaggle learn micro-course on Language models. n-grams to neural LMs. Complete the exercises before claiming the concept.",
+    "ai_generated_summary": "A short microsoft learn module on Language models. n-grams to neural LMs. Complete the exercises before claiming the concept.",
     "metadata": {},
     "licence": "cc-by",
     "concepts": [
@@ -4403,16 +4866,16 @@
     ]
   },
   {
-    "id": "course-microsoft-learn-module-linguistic-representations",
-    "title": "Microsoft Learn module: Linguistic representations",
-    "description": "A short microsoft learn module on Linguistic representations. Word2Vec, BERT, and sentence embeddings. Complete the exercises before claiming the concept.",
+    "id": "course-edx-short-course-linguistic-representations",
+    "title": "edX short course: Linguistic representations",
+    "description": "A short edx short course on Linguistic representations. Word2Vec, BERT, and sentence embeddings. Complete the exercises before claiming the concept.",
     "category": "nlp",
     "subcategory": "",
     "topic": "representation-nlp",
     "resource_type": "course",
-    "provider": "Microsoft",
-    "author": "Microsoft Learn module",
-    "url": "https://learn.microsoft.com?q=representation-nlp",
+    "provider": "edX",
+    "author": "edX short course",
+    "url": "https://www.edx.org?q=representation-nlp",
     "language": "en",
     "difficulty": "intermediate",
     "estimated_duration": 180,
@@ -4431,7 +4894,7 @@
     "thumbnail": "",
     "source_type": "curated",
     "quality_score": 73,
-    "ai_generated_summary": "A short microsoft learn module on Linguistic representations. Word2Vec, BERT, and sentence embeddings. Complete the exercises before claiming the concept.",
+    "ai_generated_summary": "A short edx short course on Linguistic representations. Word2Vec, BERT, and sentence embeddings. Complete the exercises before claiming the concept.",
     "metadata": {},
     "licence": "cc-by",
     "concepts": [
@@ -4439,16 +4902,16 @@
     ]
   },
   {
-    "id": "course-edx-short-course-sequence-labelling",
-    "title": "edX short course: Sequence labelling",
-    "description": "A short edx short course on Sequence labelling. NER, parsing, and tagging. Complete the exercises before claiming the concept.",
+    "id": "coursera-guided-project-sequence-labelling",
+    "title": "Coursera guided project: Sequence labelling",
+    "description": "A short coursera guided project on Sequence labelling. NER, parsing, and tagging. Complete the exercises before claiming the concept.",
     "category": "nlp",
     "subcategory": "",
     "topic": "sequence-labeling",
     "resource_type": "course",
-    "provider": "edX",
-    "author": "edX short course",
-    "url": "https://www.edx.org?q=sequence-labeling",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=sequence-labeling",
     "language": "en",
     "difficulty": "intermediate",
     "estimated_duration": 180,
@@ -4467,7 +4930,7 @@
     "thumbnail": "",
     "source_type": "curated",
     "quality_score": 73,
-    "ai_generated_summary": "A short edx short course on Sequence labelling. NER, parsing, and tagging. Complete the exercises before claiming the concept.",
+    "ai_generated_summary": "A short coursera guided project on Sequence labelling. NER, parsing, and tagging. Complete the exercises before claiming the concept.",
     "metadata": {},
     "licence": "cc-by",
     "concepts": [
@@ -4475,16 +4938,16 @@
     ]
   },
   {
-    "id": "coursera-guided-project-text-generation",
-    "title": "Coursera guided project: Text generation",
-    "description": "A short coursera guided project on Text generation. Decoding, evaluation, and hallucination. Complete the exercises before claiming the concept.",
+    "id": "course-kaggle-learn-micro-course-text-generation",
+    "title": "Kaggle Learn micro-course: Text generation",
+    "description": "A short kaggle learn micro-course on Text generation. Decoding, evaluation, and hallucination. Complete the exercises before claiming the concept.",
     "category": "nlp",
     "subcategory": "",
     "topic": "generation",
     "resource_type": "course",
-    "provider": "Coursera",
-    "author": "Coursera guided project",
-    "url": "https://www.coursera.org?q=generation",
+    "provider": "Kaggle",
+    "author": "Kaggle Learn micro-course",
+    "url": "https://www.kaggle.com/learn?q=generation",
     "language": "en",
     "difficulty": "advanced",
     "estimated_duration": 180,
@@ -4504,7 +4967,7 @@
     "thumbnail": "",
     "source_type": "curated",
     "quality_score": 73,
-    "ai_generated_summary": "A short coursera guided project on Text generation. Decoding, evaluation, and hallucination. Complete the exercises before claiming the concept.",
+    "ai_generated_summary": "A short kaggle learn micro-course on Text generation. Decoding, evaluation, and hallucination. Complete the exercises before claiming the concept.",
     "metadata": {},
     "licence": "cc-by",
     "concepts": [
@@ -4512,16 +4975,16 @@
     ]
   },
   {
-    "id": "course-kaggle-learn-micro-course-speech-processing",
-    "title": "Kaggle Learn micro-course: Speech processing",
-    "description": "A short kaggle learn micro-course on Speech processing. ASR, TTS, and spectrograms. Complete the exercises before claiming the concept.",
+    "id": "course-microsoft-learn-module-speech-processing",
+    "title": "Microsoft Learn module: Speech processing",
+    "description": "A short microsoft learn module on Speech processing. ASR, TTS, and spectrograms. Complete the exercises before claiming the concept.",
     "category": "nlp",
     "subcategory": "",
     "topic": "language-models",
     "resource_type": "course",
-    "provider": "Kaggle",
-    "author": "Kaggle Learn micro-course",
-    "url": "https://www.kaggle.com/learn?q=speech",
+    "provider": "Microsoft",
+    "author": "Microsoft Learn module",
+    "url": "https://learn.microsoft.com?q=speech",
     "language": "en",
     "difficulty": "advanced",
     "estimated_duration": 180,
@@ -4540,11 +5003,85 @@
     "thumbnail": "",
     "source_type": "curated",
     "quality_score": 73,
-    "ai_generated_summary": "A short kaggle learn micro-course on Speech processing. ASR, TTS, and spectrograms. Complete the exercises before claiming the concept.",
+    "ai_generated_summary": "A short microsoft learn module on Speech processing. ASR, TTS, and spectrograms. Complete the exercises before claiming the concept.",
     "metadata": {},
     "licence": "cc-by",
     "concepts": [
       "speech"
+    ]
+  },
+  {
+    "id": "coursera-guided-project-nlp-fundamentals",
+    "title": "Coursera guided project: NLP fundamentals",
+    "description": "A short coursera guided project on NLP fundamentals. What language tasks are, before you fine-tune a transformer. Complete the exercises before claiming the concept.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "course",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short coursera guided project on NLP fundamentals. What language tasks are, before you fine-tune a transformer. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "course-kaggle-learn-micro-course-embeddings",
+    "title": "Kaggle Learn micro-course: Embeddings",
+    "description": "A short kaggle learn micro-course on Embeddings. Vectors that put similar text near similar text. Complete the exercises before claiming the concept.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "course",
+    "provider": "Kaggle",
+    "author": "Kaggle Learn micro-course",
+    "url": "https://www.kaggle.com/learn?q=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short kaggle learn micro-course on Embeddings. Vectors that put similar text near similar text. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
     ]
   },
   {
@@ -5232,6 +5769,234 @@
     ]
   },
   {
+    "id": "repository-official-examples-for-nlp-fundamentals",
+    "title": "Official examples for NLP fundamentals",
+    "description": "Public examples related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=nlp-fundamentals%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "nlp-fundamentals",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-nlp-fundamentals",
+    "title": "Teaching notebooks for NLP fundamentals",
+    "description": "Public notebooks related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=nlp-fundamentals%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "nlp-fundamentals",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-nlp-fundamentals",
+    "title": "Curated awesome list for NLP fundamentals",
+    "description": "Public awesome related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "nlp-fundamentals",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-embeddings",
+    "title": "Official examples for Embeddings",
+    "description": "Public examples related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=embeddings%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "embeddings",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-embeddings",
+    "title": "Teaching notebooks for Embeddings",
+    "description": "Public notebooks related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=embeddings%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "embeddings",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-embeddings",
+    "title": "Curated awesome list for Embeddings",
+    "description": "Public awesome related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "embeddings",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
     "id": "dataset-hugging-face-datasets-tagged-tokenization",
     "title": "Hugging Face datasets tagged tokenization",
     "description": "Hugging Face datasets whose cards mention Tokenization. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
@@ -5652,16 +6417,156 @@
     ]
   },
   {
-    "id": "certification-microsoft-learn-applied-skill-tokenization",
-    "title": "Microsoft Learn applied skill: Tokenization",
+    "id": "dataset-hugging-face-datasets-tagged-nlp-fundamentals",
+    "title": "Hugging Face datasets tagged nlp-fundamentals",
+    "description": "Hugging Face datasets whose cards mention NLP fundamentals. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention NLP fundamentals. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-nlp-fundamentals",
+    "title": "Kaggle datasets tagged nlp-fundamentals",
+    "description": "Kaggle datasets whose cards mention NLP fundamentals. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention NLP fundamentals. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-embeddings",
+    "title": "Hugging Face datasets tagged embeddings",
+    "description": "Hugging Face datasets whose cards mention Embeddings. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Embeddings. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-embeddings",
+    "title": "Kaggle datasets tagged embeddings",
+    "description": "Kaggle datasets whose cards mention Embeddings. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Embeddings. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "certification-aws-skill-builder-digital-badge-tokenization",
+    "title": "AWS skill builder digital badge: Tokenization",
     "description": "A vendor skill badge touching Tokenization. Treat it as evidence of a lab, not as mastery of the concept graph.",
     "category": "nlp",
     "subcategory": "",
     "topic": "tokenization",
     "resource_type": "certification",
-    "provider": "Microsoft",
-    "author": "Microsoft",
-    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=tokenization",
+    "provider": "Amazon Web Services",
+    "author": "Amazon Web Services",
+    "url": "https://skillbuilder.aws?skill=tokenization",
     "language": "en",
     "difficulty": "beginner",
     "estimated_duration": 480,
@@ -5686,16 +6591,16 @@
     ]
   },
   {
-    "id": "certification-aws-skill-builder-digital-badge-language-models",
-    "title": "AWS skill builder digital badge: Language models",
+    "id": "certification-google-cloud-skill-badge-language-models",
+    "title": "Google Cloud skill badge: Language models",
     "description": "A vendor skill badge touching Language models. Treat it as evidence of a lab, not as mastery of the concept graph.",
     "category": "nlp",
     "subcategory": "",
     "topic": "language-models",
     "resource_type": "certification",
-    "provider": "Amazon Web Services",
-    "author": "Amazon Web Services",
-    "url": "https://skillbuilder.aws?skill=language-models",
+    "provider": "Google Cloud",
+    "author": "Google Cloud",
+    "url": "https://www.cloudskillsboost.google?skill=language-models",
     "language": "en",
     "difficulty": "intermediate",
     "estimated_duration": 480,
@@ -5720,16 +6625,16 @@
     ]
   },
   {
-    "id": "certification-google-cloud-skill-badge-linguistic-representations",
-    "title": "Google Cloud skill badge: Linguistic representations",
+    "id": "certification-microsoft-learn-applied-skill-linguistic-representations",
+    "title": "Microsoft Learn applied skill: Linguistic representations",
     "description": "A vendor skill badge touching Linguistic representations. Treat it as evidence of a lab, not as mastery of the concept graph.",
     "category": "nlp",
     "subcategory": "",
     "topic": "representation-nlp",
     "resource_type": "certification",
-    "provider": "Google Cloud",
-    "author": "Google Cloud",
-    "url": "https://www.cloudskillsboost.google?skill=representation-nlp",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=representation-nlp",
     "language": "en",
     "difficulty": "intermediate",
     "estimated_duration": 480,
@@ -5754,16 +6659,16 @@
     ]
   },
   {
-    "id": "certification-microsoft-learn-applied-skill-sequence-labelling",
-    "title": "Microsoft Learn applied skill: Sequence labelling",
+    "id": "certification-aws-skill-builder-digital-badge-sequence-labelling",
+    "title": "AWS skill builder digital badge: Sequence labelling",
     "description": "A vendor skill badge touching Sequence labelling. Treat it as evidence of a lab, not as mastery of the concept graph.",
     "category": "nlp",
     "subcategory": "",
     "topic": "sequence-labeling",
     "resource_type": "certification",
-    "provider": "Microsoft",
-    "author": "Microsoft",
-    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=sequence-labeling",
+    "provider": "Amazon Web Services",
+    "author": "Amazon Web Services",
+    "url": "https://skillbuilder.aws?skill=sequence-labeling",
     "language": "en",
     "difficulty": "intermediate",
     "estimated_duration": 480,
@@ -5785,6 +6690,142 @@
     "licence": "cc-by",
     "concepts": [
       "sequence-labeling"
+    ]
+  },
+  {
+    "id": "certification-google-cloud-skill-badge-text-generation",
+    "title": "Google Cloud skill badge: Text generation",
+    "description": "A vendor skill badge touching Text generation. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "generation",
+    "resource_type": "certification",
+    "provider": "Google Cloud",
+    "author": "Google Cloud",
+    "url": "https://www.cloudskillsboost.google?skill=generation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "generation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Text generation. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "generation"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-speech-processing",
+    "title": "Microsoft Learn applied skill: Speech processing",
+    "description": "A vendor skill badge touching Speech processing. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "language-models",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=speech",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "speech"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Speech processing. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "speech"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-nlp-fundamentals",
+    "title": "Microsoft Learn applied skill: NLP fundamentals",
+    "description": "A vendor skill badge touching NLP fundamentals. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching NLP fundamentals. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "certification-aws-skill-builder-digital-badge-embeddings",
+    "title": "AWS skill builder digital badge: Embeddings",
+    "description": "A vendor skill badge touching Embeddings. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "certification",
+    "provider": "Amazon Web Services",
+    "author": "Amazon Web Services",
+    "url": "https://skillbuilder.aws?skill=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Embeddings. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
     ]
   },
   {
@@ -6437,6 +7478,226 @@
     "licence": "own-work",
     "concepts": [
       "speech"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-nlp-fundamentals",
+    "title": "Lecture notes: NLP fundamentals",
+    "description": "Open lecture notes covering NLP fundamentals. What language tasks are, before you fine-tune a transformer. Use them as a book-length spine when a commercial text is not required.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering NLP fundamentals. What language tasks are, before you fine-tune a transformer. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "book-handbook-of-nlp-fundamentals",
+    "title": "Handbook of NLP fundamentals",
+    "description": "A field handbook for NLP fundamentals: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for NLP fundamentals: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "book-problem-book-nlp-fundamentals",
+    "title": "Problem book: NLP fundamentals",
+    "description": "Worked problems for NLP fundamentals. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for NLP fundamentals. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-embeddings",
+    "title": "Lecture notes: Embeddings",
+    "description": "Open lecture notes covering Embeddings. Vectors that put similar text near similar text. Use them as a book-length spine when a commercial text is not required.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Embeddings. Vectors that put similar text near similar text. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "book-handbook-of-embeddings",
+    "title": "Handbook of Embeddings",
+    "description": "A field handbook for Embeddings: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Embeddings: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "book-problem-book-embeddings",
+    "title": "Problem book: Embeddings",
+    "description": "Worked problems for Embeddings. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Embeddings. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
     ]
   },
   {
@@ -7280,6 +8541,286 @@
     ]
   },
   {
+    "id": "paper-a-survey-of-nlp-fundamentals",
+    "title": "A survey of NLP fundamentals",
+    "description": "A survey of NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=nlp%2Bfundamentals&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-nlp-fundamentals",
+    "title": "Open problems in NLP fundamentals",
+    "description": "Open problems in NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=nlp%2Bfundamentals&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-nlp-fundamentals",
+    "title": "Reproducibility notes on NLP fundamentals",
+    "description": "Reproducibility notes on NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=nlp%2Bfundamentals&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-nlp-fundamentals",
+    "title": "A practitioner's reading of NLP fundamentals",
+    "description": "A practitioner's reading of NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=nlp%2Bfundamentals&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of NLP fundamentals. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-embeddings",
+    "title": "A survey of Embeddings",
+    "description": "A survey of Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=embeddings&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-embeddings",
+    "title": "Open problems in Embeddings",
+    "description": "Open problems in Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=embeddings&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-embeddings",
+    "title": "Reproducibility notes on Embeddings",
+    "description": "Reproducibility notes on Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=embeddings&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-embeddings",
+    "title": "A practitioner's reading of Embeddings",
+    "description": "A practitioner's reading of Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=embeddings&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Embeddings. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
     "id": "learning-path-nlp-foundations",
     "title": "Nlp · foundations",
     "description": "A foundations path through nlp. Order follows the knowledge graph.",
@@ -7292,7 +8833,7 @@
     "url": "",
     "language": "en",
     "difficulty": "beginner",
-    "estimated_duration": 270,
+    "estimated_duration": 360,
     "cost_type": "free",
     "rating": null,
     "tags": [
@@ -7315,7 +8856,9 @@
       "representation-nlp",
       "sequence-labeling",
       "generation",
-      "speech"
+      "speech",
+      "nlp-fundamentals",
+      "embeddings"
     ]
   },
   {
@@ -7331,7 +8874,7 @@
     "url": "",
     "language": "en",
     "difficulty": "beginner",
-    "estimated_duration": 270,
+    "estimated_duration": 360,
     "cost_type": "free",
     "rating": null,
     "tags": [
@@ -7354,7 +8897,9 @@
       "representation-nlp",
       "sequence-labeling",
       "generation",
-      "speech"
+      "speech",
+      "nlp-fundamentals",
+      "embeddings"
     ]
   },
   {
@@ -7370,7 +8915,7 @@
     "url": "",
     "language": "en",
     "difficulty": "beginner",
-    "estimated_duration": 270,
+    "estimated_duration": 360,
     "cost_type": "free",
     "rating": null,
     "tags": [
@@ -7393,7 +8938,53 @@
       "representation-nlp",
       "sequence-labeling",
       "generation",
-      "speech"
+      "speech",
+      "nlp-fundamentals",
+      "embeddings"
+    ]
+  },
+  {
+    "id": "learning-path-natural-language-processing-academy",
+    "title": "Natural Language Processing Academy",
+    "description": "Tokens to products: embeddings, transformers, RAG, and agents. Order follows the knowledge graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 495,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "nlp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "Tokens to products: embeddings, transformers, RAG, and agents. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals",
+      "tokenization",
+      "language-models",
+      "representation-nlp",
+      "sequence-labeling",
+      "generation",
+      "embeddings",
+      "transformers",
+      "llm-engineering",
+      "rag",
+      "agents"
     ]
   },
   {
@@ -8362,6 +9953,334 @@
     "licence": "own-work",
     "concepts": [
       "speech"
+    ]
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-implement",
+    "title": "Implement · NLP fundamentals",
+    "description": "A implement exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-nlp-fundamentals-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-debug",
+    "title": "Debug · NLP fundamentals",
+    "description": "A debug exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-nlp-fundamentals-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-predict",
+    "title": "Predict · NLP fundamentals",
+    "description": "A predict exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-nlp-fundamentals-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-project",
+    "title": "Mini-project · NLP fundamentals",
+    "description": "Combine the three drills for NLP fundamentals into one function with tests.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for NLP fundamentals into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-nlp-fundamentals-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "coding-challenge-embeddings-implement",
+    "title": "Implement · Embeddings",
+    "description": "A implement exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-embeddings-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "coding-challenge-embeddings-debug",
+    "title": "Debug · Embeddings",
+    "description": "A debug exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-embeddings-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "coding-challenge-embeddings-predict",
+    "title": "Predict · Embeddings",
+    "description": "A predict exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-embeddings-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "coding-challenge-embeddings-project",
+    "title": "Mini-project · Embeddings",
+    "description": "Combine the three drills for Embeddings into one function with tests.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Embeddings into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-embeddings-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
     ]
   }
 ]

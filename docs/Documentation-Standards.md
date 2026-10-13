@@ -31,7 +31,7 @@ Document a symbol when a reader cannot recover the rule from the type signature 
 | Every public module in `backend/app` | Tests, migrations, and generated files |
 | Public functions in `domain`, `services`, `agents`, and `repositories` | Private helpers whose body is the whole explanation |
 | Public classes, dataclasses, and exceptions | Pydantic fields that already carry `Field(description=...)` |
-| Exported functions, classes, and hooks in `frontend/lib` and `frontend/components` | JSX that names the control it renders |
+| Exported functions, classes, and hooks in `apps/*/lib` and `apps/*/components` | JSX that names the control it renders |
 | A route, in [openapi.yaml](openapi.yaml), whenever the HTTP shape changes | A restatement of the parameter types |
 
 The first sentence is the summary. It stands alone in the Sphinx or TypeDoc index. Keep it to one line, about 100 characters, and end it with a period.
@@ -139,10 +139,10 @@ Props interfaces are documented on the component, not on every prop, unless a pr
 ```json
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["frontend/lib", "frontend/components", "frontend/stores"],
+  "entryPoints": ["apps/learner/lib", "apps/learner/components", "apps/learner/stores"],
   "entryPointStrategy": "expand",
   "exclude": ["**/*.test.ts", "**/*.test.tsx"],
-  "tsconfig": "frontend/tsconfig.json",
+  "tsconfig": "apps/learner/tsconfig.json",
   "excludePrivate": true,
   "excludeInternal": true
 }
@@ -446,7 +446,7 @@ Target-state documents for the five-application ecosystem live in [platform/](pl
 | `app/domain` | The standard library and other domain modules | FastAPI, SQLAlchemy, HTTP clients, `app.services` |
 | `app/api` | Pydantic, domain types, the engine | SQL text, prompt strings |
 | `app/services` | Domain, repositories, providers | React or studio code |
-| Learner App (`frontend` today) | The API over HTTP | Python modules, the database. It must not render Instructor, Institution, Admin, or Content Studio routes |
+| Learner App (`apps/learner`) | The API over HTTP | Python modules, the database. It must not render Instructor, Institution, Admin, or Content Studio routes |
 
 When a change breaks one of these rows, update the table in the same pull request.
 
@@ -648,7 +648,7 @@ export function TutorPanel(): JSX.Element {
 }
 ```
 
-Page components in `frontend/app` may use the file-level block from [section 5](#5-module-documentation-templates) instead of repeating it on the default export.
+Page components in `apps/*/app` may use the file-level block from [section 5](#5-module-documentation-templates) instead of repeating it on the default export.
 
 ### Hook
 
@@ -690,7 +690,7 @@ Pair each domain failure sentence with the status the handler uses.
 
 ### Architecture layer row
 
-When a new directory is added under `backend/app` or `frontend`, add one row to the layer table in `Architecture.md`:
+When a new directory is added under `backend/app` or `apps/`, add one row to the layer table in `Architecture.md`:
 
 ```markdown
 | `app/repositories` | Queries. Routes do not write SQL. | FastAPI response models |

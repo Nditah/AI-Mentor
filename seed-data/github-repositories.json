@@ -2448,6 +2448,546 @@
     ]
   },
   {
+    "id": "repository-detr",
+    "title": "DETR",
+    "description": "The facebookresearch/detr repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "repository",
+    "provider": "facebookresearch",
+    "author": "facebookresearch",
+    "url": "https://github.com/facebookresearch/detr",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "detr"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The facebookresearch/detr repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "facebookresearch/detr"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "repository-pytorch3d",
+    "title": "PyTorch3D",
+    "description": "The facebookresearch/pytorch3d repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "3d-vision",
+    "resource_type": "repository",
+    "provider": "facebookresearch",
+    "author": "facebookresearch",
+    "url": "https://github.com/facebookresearch/pytorch3d",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "3d-vision"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The facebookresearch/pytorch3d repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "facebookresearch/pytorch3d"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "3d-vision"
+    ]
+  },
+  {
+    "id": "repository-lidar-bonnetal",
+    "title": "LiDAR-Bonnetal",
+    "description": "The PRBonn/lidar-bonnetal repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "repository",
+    "provider": "PRBonn",
+    "author": "PRBonn",
+    "url": "https://github.com/PRBonn/lidar-bonnetal",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "lidar"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The PRBonn/lidar-bonnetal repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "PRBonn/lidar-bonnetal"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "repository-flower",
+    "title": "Flower",
+    "description": "The adap/flower repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "adap",
+    "author": "adap",
+    "url": "https://github.com/adap/flower",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The adap/flower repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "adap/flower"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-pysyft",
+    "title": "PySyft",
+    "description": "The OpenMined/PySyft repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "OpenMined",
+    "author": "OpenMined",
+    "url": "https://github.com/OpenMined/PySyft",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The OpenMined/PySyft repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "OpenMined/PySyft"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-tensorflow-privacy",
+    "title": "TensorFlow Privacy",
+    "description": "The tensorflow/privacy repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "tensorflow",
+    "author": "tensorflow",
+    "url": "https://github.com/tensorflow/privacy",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The tensorflow/privacy repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "tensorflow/privacy"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-mediapipe",
+    "title": "MediaPipe",
+    "description": "The google-ai-edge/mediapipe repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "google-ai-edge",
+    "author": "google-ai-edge",
+    "url": "https://github.com/google-ai-edge/mediapipe",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The google-ai-edge/mediapipe repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "google-ai-edge/mediapipe"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-c-core-guidelines",
+    "title": "C++ Core Guidelines",
+    "description": "The isocpp/CppCoreGuidelines repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "isocpp",
+    "author": "isocpp",
+    "url": "https://github.com/isocpp/CppCoreGuidelines",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The isocpp/CppCoreGuidelines repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "isocpp/CppCoreGuidelines"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-rclcpp",
+    "title": "rclcpp",
+    "description": "The ros2/rclcpp repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "ros2",
+    "author": "ros2",
+    "url": "https://github.com/ros2/rclcpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The ros2/rclcpp repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "ros2/rclcpp"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-carla",
+    "title": "CARLA",
+    "description": "The carla-simulator/carla repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "repository",
+    "provider": "carla-simulator",
+    "author": "carla-simulator",
+    "url": "https://github.com/carla-simulator/carla",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The carla-simulator/carla repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "carla-simulator/carla"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "repository-airsim",
+    "title": "AirSim",
+    "description": "The microsoft/AirSim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "repository",
+    "provider": "microsoft",
+    "author": "microsoft",
+    "url": "https://github.com/microsoft/AirSim",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "airsim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The microsoft/AirSim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "microsoft/AirSim"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "repository-gazebo-sim",
+    "title": "Gazebo Sim",
+    "description": "The gazebosim/gz-sim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "repository",
+    "provider": "gazebosim",
+    "author": "gazebosim",
+    "url": "https://github.com/gazebosim/gz-sim",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The gazebosim/gz-sim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "gazebosim/gz-sim"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "repository-isaac-sim",
+    "title": "Isaac Sim",
+    "description": "The isaac-sim/IsaacSim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "repository",
+    "provider": "isaac-sim",
+    "author": "isaac-sim",
+    "url": "https://github.com/isaac-sim/IsaacSim",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The isaac-sim/IsaacSim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "isaac-sim/IsaacSim"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "repository-webots",
+    "title": "Webots",
+    "description": "The cyberbotics/webots repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "repository",
+    "provider": "cyberbotics",
+    "author": "cyberbotics",
+    "url": "https://github.com/cyberbotics/webots",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "webots"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The cyberbotics/webots repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "cyberbotics/webots"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "repository-coppeliasim",
+    "title": "CoppeliaSim",
+    "description": "The CoppeliaRobotics/coppeliasim-plugin-sim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "repository",
+    "provider": "CoppeliaRobotics",
+    "author": "CoppeliaRobotics",
+    "url": "https://github.com/CoppeliaRobotics",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "coppeliasim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The CoppeliaRobotics/coppeliasim-plugin-sim repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "CoppeliaRobotics/coppeliasim-plugin-sim"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
     "id": "repository-official-examples-for-ai-fundamentals",
     "title": "Official examples for AI Fundamentals",
     "description": "Public examples related to AI Fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
@@ -3129,6 +3669,120 @@
     "licence": "cc-by",
     "concepts": [
       "ai-history"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-python",
+    "title": "Official examples for Python",
+    "description": "Public examples related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=python-language%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "python-language",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-python",
+    "title": "Teaching notebooks for Python",
+    "description": "Public notebooks related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=python-language%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "python-language",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-python",
+    "title": "Curated awesome list for Python",
+    "description": "Public awesome related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "python-language",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
     ]
   },
   {
@@ -14765,7 +15419,7 @@
     "description": "Public examples related to 3D vision. Pin a commit and read the licence before you assign the repo in a lab.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "repository",
     "provider": "GitHub",
     "author": "community",
@@ -14803,7 +15457,7 @@
     "description": "Public notebooks related to 3D vision. Pin a commit and read the licence before you assign the repo in a lab.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "repository",
     "provider": "GitHub",
     "author": "community",
@@ -14841,7 +15495,7 @@
     "description": "Public awesome related to 3D vision. Pin a commit and read the licence before you assign the repo in a lab.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "repository",
     "provider": "GitHub",
     "author": "community",
@@ -17379,6 +18033,2970 @@
     "licence": "cc-by",
     "concepts": [
       "grant-writing"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-opencv",
+    "title": "Official examples for OpenCV",
+    "description": "Public examples related to OpenCV. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=opencv%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to OpenCV. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "opencv",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-opencv",
+    "title": "Teaching notebooks for OpenCV",
+    "description": "Public notebooks related to OpenCV. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=opencv%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to OpenCV. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "opencv",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-opencv",
+    "title": "Curated awesome list for OpenCV",
+    "description": "Public awesome related to OpenCV. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/opencv",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to OpenCV. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "opencv",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-yolo",
+    "title": "Official examples for YOLO",
+    "description": "Public examples related to YOLO. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=yolo%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "yolo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to YOLO. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "yolo",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-yolo",
+    "title": "Teaching notebooks for YOLO",
+    "description": "Public notebooks related to YOLO. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=yolo%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "yolo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to YOLO. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "yolo",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-yolo",
+    "title": "Curated awesome list for YOLO",
+    "description": "Public awesome related to YOLO. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/yolo",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "yolo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to YOLO. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "yolo",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-detr",
+    "title": "Official examples for DETR",
+    "description": "Public examples related to DETR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=detr%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "detr"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to DETR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "detr",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-detr",
+    "title": "Teaching notebooks for DETR",
+    "description": "Public notebooks related to DETR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=detr%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "detr"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to DETR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "detr",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-detr",
+    "title": "Curated awesome list for DETR",
+    "description": "Public awesome related to DETR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/detr",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "detr"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to DETR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "detr",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-image-segmentation",
+    "title": "Official examples for Image segmentation",
+    "description": "Public examples related to Image segmentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=segmentation%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "segmentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Image segmentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "segmentation",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-image-segmentation",
+    "title": "Teaching notebooks for Image segmentation",
+    "description": "Public notebooks related to Image segmentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=segmentation%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "segmentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Image segmentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "segmentation",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-image-segmentation",
+    "title": "Curated awesome list for Image segmentation",
+    "description": "Public awesome related to Image segmentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/segmentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "segmentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Image segmentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "segmentation",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-stereo-vision",
+    "title": "Official examples for Stereo vision",
+    "description": "Public examples related to Stereo vision. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=stereo-vision%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "stereo-vision"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Stereo vision. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "stereo-vision",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-stereo-vision",
+    "title": "Teaching notebooks for Stereo vision",
+    "description": "Public notebooks related to Stereo vision. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=stereo-vision%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "stereo-vision"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Stereo vision. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "stereo-vision",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-stereo-vision",
+    "title": "Curated awesome list for Stereo vision",
+    "description": "Public awesome related to Stereo vision. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/stereo-vision",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "stereo-vision"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Stereo vision. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "stereo-vision",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-lidar",
+    "title": "Official examples for LiDAR",
+    "description": "Public examples related to LiDAR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=lidar%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "lidar"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to LiDAR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "lidar",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-lidar",
+    "title": "Teaching notebooks for LiDAR",
+    "description": "Public notebooks related to LiDAR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=lidar%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "lidar"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to LiDAR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "lidar",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-lidar",
+    "title": "Curated awesome list for LiDAR",
+    "description": "Public awesome related to LiDAR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/lidar",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "lidar"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to LiDAR. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "lidar",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-nlp-fundamentals",
+    "title": "Official examples for NLP fundamentals",
+    "description": "Public examples related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=nlp-fundamentals%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "nlp-fundamentals",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-nlp-fundamentals",
+    "title": "Teaching notebooks for NLP fundamentals",
+    "description": "Public notebooks related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=nlp-fundamentals%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "nlp-fundamentals",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-nlp-fundamentals",
+    "title": "Curated awesome list for NLP fundamentals",
+    "description": "Public awesome related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to NLP fundamentals. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "nlp-fundamentals",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-embeddings",
+    "title": "Official examples for Embeddings",
+    "description": "Public examples related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=embeddings%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "embeddings",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-embeddings",
+    "title": "Teaching notebooks for Embeddings",
+    "description": "Public notebooks related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=embeddings%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "embeddings",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-embeddings",
+    "title": "Curated awesome list for Embeddings",
+    "description": "Public awesome related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Embeddings. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "embeddings",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-federated-learning",
+    "title": "Official examples for Federated learning",
+    "description": "Public examples related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=federated-learning%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "federated-learning",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-federated-learning",
+    "title": "Teaching notebooks for Federated learning",
+    "description": "Public notebooks related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=federated-learning%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "federated-learning",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-federated-learning",
+    "title": "Curated awesome list for Federated learning",
+    "description": "Public awesome related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "federated-learning",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-fedavg",
+    "title": "Official examples for FedAvg",
+    "description": "Public examples related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedavg%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedavg",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-fedavg",
+    "title": "Teaching notebooks for FedAvg",
+    "description": "Public notebooks related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedavg%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedavg",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-fedavg",
+    "title": "Curated awesome list for FedAvg",
+    "description": "Public awesome related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedavg",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-fedprox",
+    "title": "Official examples for FedProx",
+    "description": "Public examples related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedprox%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedprox",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-fedprox",
+    "title": "Teaching notebooks for FedProx",
+    "description": "Public notebooks related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedprox%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedprox",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-fedprox",
+    "title": "Curated awesome list for FedProx",
+    "description": "Public awesome related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedprox",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-differential-privacy",
+    "title": "Official examples for Differential privacy",
+    "description": "Public examples related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=differential-privacy%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "differential-privacy",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-differential-privacy",
+    "title": "Teaching notebooks for Differential privacy",
+    "description": "Public notebooks related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=differential-privacy%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "differential-privacy",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-differential-privacy",
+    "title": "Curated awesome list for Differential privacy",
+    "description": "Public awesome related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "differential-privacy",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-edge-ai",
+    "title": "Official examples for Edge AI",
+    "description": "Public examples related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=edge-ai%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "edge-ai",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-edge-ai",
+    "title": "Teaching notebooks for Edge AI",
+    "description": "Public notebooks related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=edge-ai%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "edge-ai",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-edge-ai",
+    "title": "Curated awesome list for Edge AI",
+    "description": "Public awesome related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "edge-ai",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-c",
+    "title": "Official examples for C++",
+    "description": "Public examples related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=cpp%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "cpp",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-c",
+    "title": "Teaching notebooks for C++",
+    "description": "Public notebooks related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=cpp%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "cpp",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-c",
+    "title": "Curated awesome list for C++",
+    "description": "Public awesome related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "cpp",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-ros-2-c",
+    "title": "Official examples for ROS 2 C++",
+    "description": "Public examples related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=ros2-cpp%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "ros2-cpp",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-ros-2-c",
+    "title": "Teaching notebooks for ROS 2 C++",
+    "description": "Public notebooks related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=ros2-cpp%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "ros2-cpp",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-ros-2-c",
+    "title": "Curated awesome list for ROS 2 C++",
+    "description": "Public awesome related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "ros2-cpp",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-software-engineering",
+    "title": "Official examples for Software engineering",
+    "description": "Public examples related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=software-engineering%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "software-engineering",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-software-engineering",
+    "title": "Teaching notebooks for Software engineering",
+    "description": "Public notebooks related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=software-engineering%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "software-engineering",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-software-engineering",
+    "title": "Curated awesome list for Software engineering",
+    "description": "Public awesome related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "software-engineering",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-matlab",
+    "title": "Official examples for MATLAB",
+    "description": "Public examples related to MATLAB. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=matlab%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to MATLAB. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "matlab",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-matlab",
+    "title": "Teaching notebooks for MATLAB",
+    "description": "Public notebooks related to MATLAB. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=matlab%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to MATLAB. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "matlab",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-matlab",
+    "title": "Curated awesome list for MATLAB",
+    "description": "Public awesome related to MATLAB. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/matlab",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to MATLAB. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "matlab",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-simulink",
+    "title": "Official examples for Simulink",
+    "description": "Public examples related to Simulink. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=simulink%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "simulink"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Simulink. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "simulink",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-simulink",
+    "title": "Teaching notebooks for Simulink",
+    "description": "Public notebooks related to Simulink. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=simulink%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "simulink"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Simulink. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "simulink",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-simulink",
+    "title": "Curated awesome list for Simulink",
+    "description": "Public awesome related to Simulink. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/simulink",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "simulink"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Simulink. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "simulink",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-gazebo",
+    "title": "Official examples for Gazebo",
+    "description": "Public examples related to Gazebo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=gazebo%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Gazebo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "gazebo",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-gazebo",
+    "title": "Teaching notebooks for Gazebo",
+    "description": "Public notebooks related to Gazebo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=gazebo%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Gazebo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "gazebo",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-gazebo",
+    "title": "Curated awesome list for Gazebo",
+    "description": "Public awesome related to Gazebo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/gazebo",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Gazebo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "gazebo",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-isaac-sim",
+    "title": "Official examples for Isaac Sim",
+    "description": "Public examples related to Isaac Sim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=isaac-sim%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Isaac Sim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "isaac-sim",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-isaac-sim",
+    "title": "Teaching notebooks for Isaac Sim",
+    "description": "Public notebooks related to Isaac Sim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=isaac-sim%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Isaac Sim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "isaac-sim",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-isaac-sim",
+    "title": "Curated awesome list for Isaac Sim",
+    "description": "Public awesome related to Isaac Sim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/isaac-sim",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Isaac Sim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "isaac-sim",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-mujoco",
+    "title": "Official examples for MuJoCo",
+    "description": "Public examples related to MuJoCo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=mujoco%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "mujoco"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to MuJoCo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "mujoco",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-mujoco",
+    "title": "Teaching notebooks for MuJoCo",
+    "description": "Public notebooks related to MuJoCo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=mujoco%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "mujoco"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to MuJoCo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "mujoco",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-mujoco",
+    "title": "Curated awesome list for MuJoCo",
+    "description": "Public awesome related to MuJoCo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/mujoco",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "mujoco"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to MuJoCo. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "mujoco",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-carla",
+    "title": "Official examples for CARLA",
+    "description": "Public examples related to CARLA. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=carla%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to CARLA. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "carla",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-carla",
+    "title": "Teaching notebooks for CARLA",
+    "description": "Public notebooks related to CARLA. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=carla%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to CARLA. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "carla",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-carla",
+    "title": "Curated awesome list for CARLA",
+    "description": "Public awesome related to CARLA. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/carla",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to CARLA. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "carla",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-airsim",
+    "title": "Official examples for AirSim",
+    "description": "Public examples related to AirSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=airsim%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "airsim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to AirSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "airsim",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-airsim",
+    "title": "Teaching notebooks for AirSim",
+    "description": "Public notebooks related to AirSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=airsim%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "airsim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to AirSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "airsim",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-airsim",
+    "title": "Curated awesome list for AirSim",
+    "description": "Public awesome related to AirSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/airsim",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "airsim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to AirSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "airsim",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-webots",
+    "title": "Official examples for Webots",
+    "description": "Public examples related to Webots. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=webots%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "webots"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Webots. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "webots",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-webots",
+    "title": "Teaching notebooks for Webots",
+    "description": "Public notebooks related to Webots. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=webots%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "webots"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Webots. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "webots",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-webots",
+    "title": "Curated awesome list for Webots",
+    "description": "Public awesome related to Webots. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/webots",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "webots"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Webots. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "webots",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-coppeliasim",
+    "title": "Official examples for CoppeliaSim",
+    "description": "Public examples related to CoppeliaSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=coppeliasim%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "coppeliasim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to CoppeliaSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "coppeliasim",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-coppeliasim",
+    "title": "Teaching notebooks for CoppeliaSim",
+    "description": "Public notebooks related to CoppeliaSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=coppeliasim%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "coppeliasim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to CoppeliaSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "coppeliasim",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-coppeliasim",
+    "title": "Curated awesome list for CoppeliaSim",
+    "description": "Public awesome related to CoppeliaSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/coppeliasim",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "coppeliasim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to CoppeliaSim. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "coppeliasim",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-digital-twins",
+    "title": "Official examples for Digital twins",
+    "description": "Public examples related to Digital twins. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=digital-twins%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "digital-twins"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Digital twins. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "digital-twins",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "digital-twins"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-digital-twins",
+    "title": "Teaching notebooks for Digital twins",
+    "description": "Public notebooks related to Digital twins. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=digital-twins%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "digital-twins"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Digital twins. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "digital-twins",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "digital-twins"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-digital-twins",
+    "title": "Curated awesome list for Digital twins",
+    "description": "Public awesome related to Digital twins. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/digital-twins",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "digital-twins"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Digital twins. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "digital-twins",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "digital-twins"
     ]
   }
 ]

@@ -30,6 +30,12 @@
     "weight": 1.0
   },
   {
+    "source": "python-language",
+    "target": "python-for-ml",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
     "source": "ai-fundamentals",
     "target": "probability",
     "relation_type": "prerequisite_of",
@@ -1074,6 +1080,234 @@
     "weight": 1.0
   },
   {
+    "source": "computer-vision",
+    "target": "opencv",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "detection",
+    "target": "yolo",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "detection",
+    "target": "detr",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "detr",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "segmentation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "computer-vision",
+    "target": "segmentation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "image-formation",
+    "target": "stereo-vision",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "stereo-vision",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "computer-vision",
+    "target": "lidar",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "lidar",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "nlp-fundamentals",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "tokenization",
+    "target": "embeddings",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "nlp-fundamentals",
+    "target": "embeddings",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "federated-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "federated-learning",
+    "target": "fedavg",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "fedavg",
+    "target": "fedprox",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "differential-privacy",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "federated-learning",
+    "target": "differential-privacy",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "edge-ai",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "federated-learning",
+    "target": "edge-ai",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-language",
+    "target": "cpp",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ros2",
+    "target": "ros2-cpp",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cpp",
+    "target": "ros2-cpp",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-language",
+    "target": "software-engineering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "matlab",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "matlab",
+    "target": "simulink",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "calculus",
+    "target": "simulink",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "gazebo",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "isaac-sim",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "mujoco",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "control-theory",
+    "target": "mujoco",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "carla",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "computer-vision",
+    "target": "carla",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "airsim",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "webots",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulation",
+    "target": "coppeliasim",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "simulink",
+    "target": "digital-twins",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "gazebo",
+    "target": "digital-twins",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
     "source": "bellman",
     "target": "q-learning",
     "relation_type": "builds_on",
@@ -1144,5 +1378,83 @@
     "target": "ros2",
     "relation_type": "related_to",
     "weight": 0.4
+  },
+  {
+    "source": "opencv",
+    "target": "yolo",
+    "relation_type": "applies_to",
+    "weight": 0.7
+  },
+  {
+    "source": "detection",
+    "target": "detr",
+    "relation_type": "contrasts_with",
+    "weight": 0.6
+  },
+  {
+    "source": "segmentation",
+    "target": "detection",
+    "relation_type": "related_to",
+    "weight": 0.7
+  },
+  {
+    "source": "stereo-vision",
+    "target": "3d-vision",
+    "relation_type": "builds_on",
+    "weight": 0.7
+  },
+  {
+    "source": "lidar",
+    "target": "3d-vision",
+    "relation_type": "related_to",
+    "weight": 0.6
+  },
+  {
+    "source": "embeddings",
+    "target": "rag",
+    "relation_type": "applies_to",
+    "weight": 0.8
+  },
+  {
+    "source": "transformers",
+    "target": "llm-engineering",
+    "relation_type": "applies_to",
+    "weight": 0.7
+  },
+  {
+    "source": "fedavg",
+    "target": "fedprox",
+    "relation_type": "contrasts_with",
+    "weight": 0.7
+  },
+  {
+    "source": "differential-privacy",
+    "target": "edge-ai",
+    "relation_type": "related_to",
+    "weight": 0.5
+  },
+  {
+    "source": "cpp",
+    "target": "ros2-cpp",
+    "relation_type": "applies_to",
+    "weight": 0.8
+  },
+  {
+    "source": "gazebo",
+    "target": "isaac-sim",
+    "relation_type": "contrasts_with",
+    "weight": 0.6
+  },
+  {
+    "source": "mujoco",
+    "target": "rl-robotics",
+    "relation_type": "applies_to",
+    "weight": 0.6
+  },
+  {
+    "source": "matlab",
+    "target": "simulink",
+    "relation_type": "builds_on",
+    "weight": 0.8
   }
 ]

@@ -1,0 +1,5250 @@
+[
+  {
+    "id": "paper-communication-efficient-learning-of-deep-networks-from-decentralized-data",
+    "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+    "description": "McMahan et al. (2017). A primary paper for fedavg. Read the abstract, the claims, and the experimental section before the related work.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "McMahan et al.",
+    "url": "https://arxiv.org/abs/1602.05629",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "paper",
+      "fedavg",
+      "2017"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2017",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "McMahan et al. (2017). A primary paper for fedavg. Read the abstract, the claims, and the experimental section before the related work.",
+    "metadata": {
+      "arxiv_id": "1602.05629",
+      "year": 2017
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg",
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "paper-federated-optimization-in-heterogeneous-networks",
+    "title": "Federated Optimization in Heterogeneous Networks",
+    "description": "Li et al. (2020). A primary paper for fedprox. Read the abstract, the claims, and the experimental section before the related work.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "Li et al.",
+    "url": "https://arxiv.org/abs/1812.06127",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "paper",
+      "fedprox",
+      "2020"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Li et al. (2020). A primary paper for fedprox. Read the abstract, the claims, and the experimental section before the related work.",
+    "metadata": {
+      "arxiv_id": "1812.06127",
+      "year": 2020
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox",
+      "fedavg"
+    ]
+  },
+  {
+    "id": "paper-deep-learning-with-differential-privacy",
+    "title": "Deep Learning with Differential Privacy",
+    "description": "Abadi et al. (2016). A primary paper for differential privacy. Read the abstract, the claims, and the experimental section before the related work.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "Abadi et al.",
+    "url": "https://arxiv.org/abs/1607.00133",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "paper",
+      "differential-privacy",
+      "2016"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2016",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Abadi et al. (2016). A primary paper for differential privacy. Read the abstract, the claims, and the experimental section before the related work.",
+    "metadata": {
+      "arxiv_id": "1607.00133",
+      "year": 2016
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "paper-the-algorithmic-foundations-of-differential-privacy",
+    "title": "The Algorithmic Foundations of Differential Privacy",
+    "description": "Dwork, Roth (2014). A primary paper for differential privacy. Read the abstract, the claims, and the experimental section before the related work.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "Dwork, Roth",
+    "url": "https://doi.org/10.1561/0400000042",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "paper",
+      "differential-privacy",
+      "2014"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2014",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Dwork, Roth (2014). A primary paper for differential privacy. Read the abstract, the claims, and the experimental section before the related work.",
+    "metadata": {
+      "arxiv_id": "10.1561/0400000042",
+      "year": 2014
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-the-algorithmic-foundations-of-differential-privacy",
+    "title": "The Algorithmic Foundations of Differential Privacy",
+    "description": "Dwork, Roth (2014). A book-length treatment of differential privacy used as a spine for the corresponding concepts in this catalog.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "Dwork",
+    "author": "Dwork, Roth",
+    "url": "https://www.nowpublishers.com/article/Details/TCS-042",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2014",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Dwork, Roth (2014). A book-length treatment of differential privacy used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781601988188",
+      "year": 2014
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "differential-privacy",
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "course-flower-federated-learning-course",
+    "title": "Flower federated learning course",
+    "description": "A structured course from Flower Labs covering fedavg. Work the assignments, not only the lectures.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "course",
+    "provider": "Flower Labs",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/blog/2023-05-31-flower-ai-course/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1200,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A structured course from Flower Labs covering fedavg. Work the assignments, not only the lectures.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-flower",
+    "title": "Flower",
+    "description": "The adap/flower repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "adap",
+    "author": "adap",
+    "url": "https://github.com/adap/flower",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The adap/flower repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "adap/flower"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-pysyft",
+    "title": "PySyft",
+    "description": "The OpenMined/PySyft repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "OpenMined",
+    "author": "OpenMined",
+    "url": "https://github.com/OpenMined/PySyft",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The OpenMined/PySyft repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "OpenMined/PySyft"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-tensorflow-privacy",
+    "title": "TensorFlow Privacy",
+    "description": "The tensorflow/privacy repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "tensorflow",
+    "author": "tensorflow",
+    "url": "https://github.com/tensorflow/privacy",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The tensorflow/privacy repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "tensorflow/privacy"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-mediapipe",
+    "title": "MediaPipe",
+    "description": "The google-ai-edge/mediapipe repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "google-ai-edge",
+    "author": "google-ai-edge",
+    "url": "https://github.com/google-ai-edge/mediapipe",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The google-ai-edge/mediapipe repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "google-ai-edge/mediapipe"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "dataset-leaf-federated-datasets",
+    "title": "LEAF federated datasets",
+    "description": "The LEAF federated datasets dataset from LEAF. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "dataset",
+    "provider": "LEAF",
+    "author": "LEAF",
+    "url": "https://leaf.cmu.edu",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The LEAF federated datasets dataset from LEAF. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "dataset-tensorflow-federated-datasets",
+    "title": "TensorFlow Federated datasets",
+    "description": "The TensorFlow Federated datasets dataset from Google. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "dataset",
+    "provider": "Google",
+    "author": "Google",
+    "url": "https://www.tensorflow.org/federated",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The TensorFlow Federated datasets dataset from Google. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "certification-nvidia-certified-associate-ai-infrastructure",
+    "title": "NVIDIA-Certified Associate: AI Infrastructure",
+    "description": "NVIDIA credential covering edge ai. Use it as a goal, not as a substitute for the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "certification",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://www.nvidia.com/en-us/training/certification/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 2400,
+    "cost_type": "paid",
+    "rating": null,
+    "tags": [
+      "certification",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "NVIDIA credential covering edge ai. Use it as a goal, not as a substitute for the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-1",
+    "title": "Flower federated learning tutorials · lecture 1",
+    "description": "Lecture 1 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-2",
+    "title": "Flower federated learning tutorials · lecture 2",
+    "description": "Lecture 2 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-3",
+    "title": "Flower federated learning tutorials · lecture 3",
+    "description": "Lecture 3 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-4",
+    "title": "Flower federated learning tutorials · lecture 4",
+    "description": "Lecture 4 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-5",
+    "title": "Flower federated learning tutorials · lecture 5",
+    "description": "Lecture 5 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-6",
+    "title": "Flower federated learning tutorials · lecture 6",
+    "description": "Lecture 6 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-7",
+    "title": "Flower federated learning tutorials · lecture 7",
+    "description": "Lecture 7 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-8",
+    "title": "Flower federated learning tutorials · lecture 8",
+    "description": "Lecture 8 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-explainer-video-federated-learning",
+    "title": "Explainer video: Federated learning",
+    "description": "A short explainer for Federated learning. Train across clients without sending the raw rows. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=federated+learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Federated learning. Train across clients without sending the raw rows. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "video-explainer-video-fedavg",
+    "title": "Explainer video: FedAvg",
+    "description": "A short explainer for FedAvg. Average client updates on a server, then broadcast the new weights. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for FedAvg. Average client updates on a server, then broadcast the new weights. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-explainer-video-fedprox",
+    "title": "Explainer video: FedProx",
+    "description": "A short explainer for FedProx. A proximal term so heterogeneous clients do not drift apart. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for FedProx. A proximal term so heterogeneous clients do not drift apart. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "video-explainer-video-differential-privacy",
+    "title": "Explainer video: Differential privacy",
+    "description": "A short explainer for Differential privacy. A privacy budget on what a trained model can reveal about one row. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=differential+privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Differential privacy. A privacy budget on what a trained model can reveal about one row. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "video-explainer-video-edge-ai",
+    "title": "Explainer video: Edge AI",
+    "description": "A short explainer for Edge AI. Inference and on-device training next to the sensor. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=edge+ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Edge AI. Inference and on-device training next to the sensor. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-federated-learning",
+    "title": "User guide: Federated learning",
+    "description": "User guide for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "documentation",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=federated-learning&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "federated-learning",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-federated-learning",
+    "title": "Worked tutorial: Federated learning",
+    "description": "Worked tutorial for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "tutorial",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=federated-learning&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "federated-learning",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "blog-explainer-federated-learning",
+    "title": "Explainer: Federated learning",
+    "description": "Explainer for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "blog",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=federated-learning&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "federated-learning",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "podcast-conversation-federated-learning",
+    "title": "Conversation: Federated learning",
+    "description": "Conversation for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "podcast",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=federated-learning&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "federated-learning",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Federated learning. Train across clients without sending the raw rows. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-fedavg",
+    "title": "User guide: FedAvg",
+    "description": "User guide for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "documentation",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedavg&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "fedavg",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-fedavg",
+    "title": "Worked tutorial: FedAvg",
+    "description": "Worked tutorial for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "tutorial",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedavg&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "fedavg",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "blog-explainer-fedavg",
+    "title": "Explainer: FedAvg",
+    "description": "Explainer for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "blog",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedavg&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "fedavg",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "podcast-conversation-fedavg",
+    "title": "Conversation: FedAvg",
+    "description": "Conversation for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "podcast",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedavg&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "fedavg",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for FedAvg. Average client updates on a server, then broadcast the new weights. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-fedprox",
+    "title": "User guide: FedProx",
+    "description": "User guide for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "documentation",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedprox&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "fedprox",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-fedprox",
+    "title": "Worked tutorial: FedProx",
+    "description": "Worked tutorial for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "tutorial",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedprox&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "fedprox",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "blog-explainer-fedprox",
+    "title": "Explainer: FedProx",
+    "description": "Explainer for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "blog",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedprox&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "fedprox",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "podcast-conversation-fedprox",
+    "title": "Conversation: FedProx",
+    "description": "Conversation for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "podcast",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=fedprox&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "fedprox",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for FedProx. A proximal term so heterogeneous clients do not drift apart. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-differential-privacy",
+    "title": "User guide: Differential privacy",
+    "description": "User guide for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "documentation",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=differential-privacy&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "differential-privacy",
+      "federated-learning"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-differential-privacy",
+    "title": "Worked tutorial: Differential privacy",
+    "description": "Worked tutorial for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "tutorial",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=differential-privacy&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "differential-privacy",
+      "federated-learning"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "blog-explainer-differential-privacy",
+    "title": "Explainer: Differential privacy",
+    "description": "Explainer for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "blog",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=differential-privacy&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "differential-privacy",
+      "federated-learning"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "podcast-conversation-differential-privacy",
+    "title": "Conversation: Differential privacy",
+    "description": "Conversation for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "podcast",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=differential-privacy&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "differential-privacy",
+      "federated-learning"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Differential privacy. A privacy budget on what a trained model can reveal about one row. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-edge-ai",
+    "title": "User guide: Edge AI",
+    "description": "User guide for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "documentation",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=edge-ai&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "edge-ai",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-edge-ai",
+    "title": "Worked tutorial: Edge AI",
+    "description": "Worked tutorial for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "tutorial",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=edge-ai&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "edge-ai",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "blog-explainer-edge-ai",
+    "title": "Explainer: Edge AI",
+    "description": "Explainer for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "blog",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=edge-ai&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "edge-ai",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "podcast-conversation-edge-ai",
+    "title": "Conversation: Edge AI",
+    "description": "Conversation for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "podcast",
+    "provider": "Flower",
+    "author": "Flower",
+    "url": "https://flower.ai/docs/framework/?topic=edge-ai&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "edge-ai",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Edge AI. Inference and on-device training next to the sensor. Source of record: Flower.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "course-microsoft-learn-module-federated-learning",
+    "title": "Microsoft Learn module: Federated learning",
+    "description": "A short microsoft learn module on Federated learning. Train across clients without sending the raw rows. Complete the exercises before claiming the concept.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "course",
+    "provider": "Microsoft",
+    "author": "Microsoft Learn module",
+    "url": "https://learn.microsoft.com?q=federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short microsoft learn module on Federated learning. Train across clients without sending the raw rows. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "course-edx-short-course-fedavg",
+    "title": "edX short course: FedAvg",
+    "description": "A short edx short course on FedAvg. Average client updates on a server, then broadcast the new weights. Complete the exercises before claiming the concept.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "course",
+    "provider": "edX",
+    "author": "edX short course",
+    "url": "https://www.edx.org?q=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short edx short course on FedAvg. Average client updates on a server, then broadcast the new weights. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "coursera-guided-project-fedprox",
+    "title": "Coursera guided project: FedProx",
+    "description": "A short coursera guided project on FedProx. A proximal term so heterogeneous clients do not drift apart. Complete the exercises before claiming the concept.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "course",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short coursera guided project on FedProx. A proximal term so heterogeneous clients do not drift apart. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "course-kaggle-learn-micro-course-differential-privacy",
+    "title": "Kaggle Learn micro-course: Differential privacy",
+    "description": "A short kaggle learn micro-course on Differential privacy. A privacy budget on what a trained model can reveal about one row. Complete the exercises before claiming the concept.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "course",
+    "provider": "Kaggle",
+    "author": "Kaggle Learn micro-course",
+    "url": "https://www.kaggle.com/learn?q=differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short kaggle learn micro-course on Differential privacy. A privacy budget on what a trained model can reveal about one row. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "course-microsoft-learn-module-edge-ai",
+    "title": "Microsoft Learn module: Edge AI",
+    "description": "A short microsoft learn module on Edge AI. Inference and on-device training next to the sensor. Complete the exercises before claiming the concept.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "course",
+    "provider": "Microsoft",
+    "author": "Microsoft Learn module",
+    "url": "https://learn.microsoft.com?q=edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short microsoft learn module on Edge AI. Inference and on-device training next to the sensor. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-federated-learning",
+    "title": "Official examples for Federated learning",
+    "description": "Public examples related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=federated-learning%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "federated-learning",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-federated-learning",
+    "title": "Teaching notebooks for Federated learning",
+    "description": "Public notebooks related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=federated-learning%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "federated-learning",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-federated-learning",
+    "title": "Curated awesome list for Federated learning",
+    "description": "Public awesome related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Federated learning. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "federated-learning",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-fedavg",
+    "title": "Official examples for FedAvg",
+    "description": "Public examples related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedavg%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedavg",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-fedavg",
+    "title": "Teaching notebooks for FedAvg",
+    "description": "Public notebooks related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedavg%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedavg",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-fedavg",
+    "title": "Curated awesome list for FedAvg",
+    "description": "Public awesome related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to FedAvg. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedavg",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-fedprox",
+    "title": "Official examples for FedProx",
+    "description": "Public examples related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedprox%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedprox",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-fedprox",
+    "title": "Teaching notebooks for FedProx",
+    "description": "Public notebooks related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=fedprox%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedprox",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-fedprox",
+    "title": "Curated awesome list for FedProx",
+    "description": "Public awesome related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to FedProx. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "fedprox",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-differential-privacy",
+    "title": "Official examples for Differential privacy",
+    "description": "Public examples related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=differential-privacy%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "differential-privacy",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-differential-privacy",
+    "title": "Teaching notebooks for Differential privacy",
+    "description": "Public notebooks related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=differential-privacy%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "differential-privacy",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-differential-privacy",
+    "title": "Curated awesome list for Differential privacy",
+    "description": "Public awesome related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Differential privacy. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "differential-privacy",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-edge-ai",
+    "title": "Official examples for Edge AI",
+    "description": "Public examples related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=edge-ai%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "edge-ai",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-edge-ai",
+    "title": "Teaching notebooks for Edge AI",
+    "description": "Public notebooks related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=edge-ai%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "edge-ai",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-edge-ai",
+    "title": "Curated awesome list for Edge AI",
+    "description": "Public awesome related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Edge AI. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "edge-ai",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-federated-learning",
+    "title": "Hugging Face datasets tagged federated-learning",
+    "description": "Hugging Face datasets whose cards mention Federated learning. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Federated learning. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-federated-learning",
+    "title": "Kaggle datasets tagged federated-learning",
+    "description": "Kaggle datasets whose cards mention Federated learning. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Federated learning. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-fedavg",
+    "title": "Hugging Face datasets tagged fedavg",
+    "description": "Hugging Face datasets whose cards mention FedAvg. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention FedAvg. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-fedavg",
+    "title": "Kaggle datasets tagged fedavg",
+    "description": "Kaggle datasets whose cards mention FedAvg. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention FedAvg. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-fedprox",
+    "title": "Hugging Face datasets tagged fedprox",
+    "description": "Hugging Face datasets whose cards mention FedProx. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention FedProx. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-fedprox",
+    "title": "Kaggle datasets tagged fedprox",
+    "description": "Kaggle datasets whose cards mention FedProx. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention FedProx. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-differential-privacy",
+    "title": "Hugging Face datasets tagged differential-privacy",
+    "description": "Hugging Face datasets whose cards mention Differential privacy. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Differential privacy. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-differential-privacy",
+    "title": "Kaggle datasets tagged differential-privacy",
+    "description": "Kaggle datasets whose cards mention Differential privacy. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Differential privacy. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-edge-ai",
+    "title": "Hugging Face datasets tagged edge-ai",
+    "description": "Hugging Face datasets whose cards mention Edge AI. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Edge AI. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-edge-ai",
+    "title": "Kaggle datasets tagged edge-ai",
+    "description": "Kaggle datasets whose cards mention Edge AI. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Edge AI. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "certification-google-cloud-skill-badge-federated-learning",
+    "title": "Google Cloud skill badge: Federated learning",
+    "description": "A vendor skill badge touching Federated learning. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "certification",
+    "provider": "Google Cloud",
+    "author": "Google Cloud",
+    "url": "https://www.cloudskillsboost.google?skill=federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Federated learning. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-fedavg",
+    "title": "Microsoft Learn applied skill: FedAvg",
+    "description": "A vendor skill badge touching FedAvg. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching FedAvg. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "certification-aws-skill-builder-digital-badge-fedprox",
+    "title": "AWS skill builder digital badge: FedProx",
+    "description": "A vendor skill badge touching FedProx. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "certification",
+    "provider": "Amazon Web Services",
+    "author": "Amazon Web Services",
+    "url": "https://skillbuilder.aws?skill=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching FedProx. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "certification-google-cloud-skill-badge-differential-privacy",
+    "title": "Google Cloud skill badge: Differential privacy",
+    "description": "A vendor skill badge touching Differential privacy. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "certification",
+    "provider": "Google Cloud",
+    "author": "Google Cloud",
+    "url": "https://www.cloudskillsboost.google?skill=differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Differential privacy. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-edge-ai",
+    "title": "Microsoft Learn applied skill: Edge AI",
+    "description": "A vendor skill badge touching Edge AI. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Edge AI. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-federated-learning",
+    "title": "Lecture notes: Federated learning",
+    "description": "Open lecture notes covering Federated learning. Train across clients without sending the raw rows. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Federated learning. Train across clients without sending the raw rows. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-handbook-of-federated-learning",
+    "title": "Handbook of Federated learning",
+    "description": "A field handbook for Federated learning: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Federated learning: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-problem-book-federated-learning",
+    "title": "Problem book: Federated learning",
+    "description": "Worked problems for Federated learning. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Federated learning. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-fedavg",
+    "title": "Lecture notes: FedAvg",
+    "description": "Open lecture notes covering FedAvg. Average client updates on a server, then broadcast the new weights. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering FedAvg. Average client updates on a server, then broadcast the new weights. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "book-handbook-of-fedavg",
+    "title": "Handbook of FedAvg",
+    "description": "A field handbook for FedAvg: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for FedAvg: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "book-problem-book-fedavg",
+    "title": "Problem book: FedAvg",
+    "description": "Worked problems for FedAvg. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for FedAvg. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-fedprox",
+    "title": "Lecture notes: FedProx",
+    "description": "Open lecture notes covering FedProx. A proximal term so heterogeneous clients do not drift apart. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering FedProx. A proximal term so heterogeneous clients do not drift apart. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "book-handbook-of-fedprox",
+    "title": "Handbook of FedProx",
+    "description": "A field handbook for FedProx: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for FedProx: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "book-problem-book-fedprox",
+    "title": "Problem book: FedProx",
+    "description": "Worked problems for FedProx. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for FedProx. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-differential-privacy",
+    "title": "Lecture notes: Differential privacy",
+    "description": "Open lecture notes covering Differential privacy. A privacy budget on what a trained model can reveal about one row. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Differential privacy. A privacy budget on what a trained model can reveal about one row. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-handbook-of-differential-privacy",
+    "title": "Handbook of Differential privacy",
+    "description": "A field handbook for Differential privacy: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Differential privacy: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-problem-book-differential-privacy",
+    "title": "Problem book: Differential privacy",
+    "description": "Worked problems for Differential privacy. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Differential privacy. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-edge-ai",
+    "title": "Lecture notes: Edge AI",
+    "description": "Open lecture notes covering Edge AI. Inference and on-device training next to the sensor. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Edge AI. Inference and on-device training next to the sensor. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "book-handbook-of-edge-ai",
+    "title": "Handbook of Edge AI",
+    "description": "A field handbook for Edge AI: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Edge AI: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "book-problem-book-edge-ai",
+    "title": "Problem book: Edge AI",
+    "description": "Worked problems for Edge AI. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Edge AI. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-federated-learning",
+    "title": "A survey of Federated learning",
+    "description": "A survey of Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=federated%2Blearning&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-federated-learning",
+    "title": "Open problems in Federated learning",
+    "description": "Open problems in Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=federated%2Blearning&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-federated-learning",
+    "title": "Reproducibility notes on Federated learning",
+    "description": "Reproducibility notes on Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=federated%2Blearning&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-federated-learning",
+    "title": "A practitioner's reading of Federated learning",
+    "description": "A practitioner's reading of Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=federated%2Blearning&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Federated learning. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-fedavg",
+    "title": "A survey of FedAvg",
+    "description": "A survey of FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedavg&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-fedavg",
+    "title": "Open problems in FedAvg",
+    "description": "Open problems in FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedavg&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-fedavg",
+    "title": "Reproducibility notes on FedAvg",
+    "description": "Reproducibility notes on FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedavg&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-fedavg",
+    "title": "A practitioner's reading of FedAvg",
+    "description": "A practitioner's reading of FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedavg&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of FedAvg. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-fedprox",
+    "title": "A survey of FedProx",
+    "description": "A survey of FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedprox&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-fedprox",
+    "title": "Open problems in FedProx",
+    "description": "Open problems in FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedprox&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-fedprox",
+    "title": "Reproducibility notes on FedProx",
+    "description": "Reproducibility notes on FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedprox&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-fedprox",
+    "title": "A practitioner's reading of FedProx",
+    "description": "A practitioner's reading of FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=fedprox&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of FedProx. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-differential-privacy",
+    "title": "A survey of Differential privacy",
+    "description": "A survey of Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=differential%2Bprivacy&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-differential-privacy",
+    "title": "Open problems in Differential privacy",
+    "description": "Open problems in Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=differential%2Bprivacy&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-differential-privacy",
+    "title": "Reproducibility notes on Differential privacy",
+    "description": "Reproducibility notes on Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=differential%2Bprivacy&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-differential-privacy",
+    "title": "A practitioner's reading of Differential privacy",
+    "description": "A practitioner's reading of Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=differential%2Bprivacy&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Differential privacy. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-edge-ai",
+    "title": "A survey of Edge AI",
+    "description": "A survey of Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=edge%2Bai&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-edge-ai",
+    "title": "Open problems in Edge AI",
+    "description": "Open problems in Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=edge%2Bai&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-edge-ai",
+    "title": "Reproducibility notes on Edge AI",
+    "description": "Reproducibility notes on Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=edge%2Bai&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-edge-ai",
+    "title": "A practitioner's reading of Edge AI",
+    "description": "A practitioner's reading of Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=edge%2Bai&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Edge AI. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "learning-path-federated-learning-foundations",
+    "title": "Federated Learning · foundations",
+    "description": "A foundations path through federated learning. Order follows the knowledge graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A foundations path through federated learning. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning",
+      "fedavg",
+      "fedprox",
+      "differential-privacy",
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "learning-path-federated-learning-applied",
+    "title": "Federated Learning · applied",
+    "description": "A applied path through federated learning. Order follows the knowledge graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A applied path through federated learning. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning",
+      "fedavg",
+      "fedprox",
+      "differential-privacy",
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "learning-path-federated-learning-research",
+    "title": "Federated Learning · research",
+    "description": "A research path through federated learning. Order follows the knowledge graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A research path through federated learning. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning",
+      "fedavg",
+      "fedprox",
+      "differential-privacy",
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "learning-path-federated-learning-academy",
+    "title": "Federated Learning Academy",
+    "description": "Train across clients without centralising the raw data. Order follows the knowledge graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "Train across clients without centralising the raw data. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning",
+      "fedavg",
+      "fedprox",
+      "differential-privacy",
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "coding-challenge-federated-learning-implement",
+    "title": "Implement · Federated learning",
+    "description": "A implement exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-federated-learning-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "coding-challenge-federated-learning-debug",
+    "title": "Debug · Federated learning",
+    "description": "A debug exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-federated-learning-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "coding-challenge-federated-learning-predict",
+    "title": "Predict · Federated learning",
+    "description": "A predict exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-federated-learning-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "coding-challenge-federated-learning-project",
+    "title": "Mini-project · Federated learning",
+    "description": "Combine the three drills for Federated learning into one function with tests.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Federated learning into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-federated-learning-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedavg-implement",
+    "title": "Implement · FedAvg",
+    "description": "A implement exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedavg-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedavg-debug",
+    "title": "Debug · FedAvg",
+    "description": "A debug exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedavg-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedavg-predict",
+    "title": "Predict · FedAvg",
+    "description": "A predict exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedavg-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedavg-project",
+    "title": "Mini-project · FedAvg",
+    "description": "Combine the three drills for FedAvg into one function with tests.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for FedAvg into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedavg-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedprox-implement",
+    "title": "Implement · FedProx",
+    "description": "A implement exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedprox-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedprox-debug",
+    "title": "Debug · FedProx",
+    "description": "A debug exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedprox-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedprox-predict",
+    "title": "Predict · FedProx",
+    "description": "A predict exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedprox-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "coding-challenge-fedprox-project",
+    "title": "Mini-project · FedProx",
+    "description": "Combine the three drills for FedProx into one function with tests.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for FedProx into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-fedprox-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "coding-challenge-differential-privacy-implement",
+    "title": "Implement · Differential privacy",
+    "description": "A implement exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-differential-privacy-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "coding-challenge-differential-privacy-debug",
+    "title": "Debug · Differential privacy",
+    "description": "A debug exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-differential-privacy-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "coding-challenge-differential-privacy-predict",
+    "title": "Predict · Differential privacy",
+    "description": "A predict exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-differential-privacy-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "coding-challenge-differential-privacy-project",
+    "title": "Mini-project · Differential privacy",
+    "description": "Combine the three drills for Differential privacy into one function with tests.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Differential privacy into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-differential-privacy-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "coding-challenge-edge-ai-implement",
+    "title": "Implement · Edge AI",
+    "description": "A implement exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-edge-ai-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "coding-challenge-edge-ai-debug",
+    "title": "Debug · Edge AI",
+    "description": "A debug exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-edge-ai-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "coding-challenge-edge-ai-predict",
+    "title": "Predict · Edge AI",
+    "description": "A predict exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-edge-ai-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "coding-challenge-edge-ai-project",
+    "title": "Mini-project · Edge AI",
+    "description": "Combine the three drills for Edge AI into one function with tests.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Edge AI into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-edge-ai-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 # ADR 0013 — Five applications on one shared platform
 
-- Status: Accepted (target architecture; not yet implemented)
+- Status: Accepted (five apps live in `apps/`; API audiences, tenancy, and `/content` `/platform` roots still follow the roadmap)
 - Date: 2026-10-13
 - Amends: [ADR 0001](0001-nextjs-studio.md) (the learner frontend is no longer called "studio"), [ADR 0012](0012-separate-admin-app.md) (the admin portal splits in two)
 
@@ -18,13 +18,13 @@ Decide how many frontend applications the platform has, what each one owns, wher
 
 AI Mentor has five Next.js applications on one API. Each is its own Vercel project, its own origin, and its own Clerk authorised party (`azp`).
 
-| App | Code name | Origin | Source (target) | Today | Local port |
-| --- | --- | --- | --- | --- | --- |
-| Learner App | `learner` | `learn.<domain>` (marketing at `<domain>`) | `apps/learner` | `frontend/` | 3000 |
-| Admin App | `admin` | `admin.<domain>` | `apps/admin` | operations half of `admin/` | 3001 |
-| Instructor App | `instructor` | `teach.<domain>` | `apps/instructor` | none | 3002 |
-| Institution App | `institution` | `org.<domain>` | `apps/institution` | none | 3003 |
-| Content Studio | `studio` | `studio.<domain>` | `apps/studio` | content half of `admin/` | 3004 |
+| App | Code name | Origin | Source | Local port |
+| --- | --- | --- | --- | --- |
+| Learner App | `learner` | `learn.<domain>` (marketing at `<domain>`) | `apps/learner` | 3000 |
+| Admin App | `admin` | `admin.<domain>` | `apps/admin` | 3001 |
+| Instructor App | `instructor` | `teach.<domain>` | `apps/instructor` | 3002 |
+| Institution App | `institution` | `org.<domain>` | `apps/institution` | 3003 |
+| Content Studio | `studio` | `studio.<domain>` | `apps/studio` | 3004 |
 
 The current `admin/` routes split as follows:
 
@@ -71,7 +71,7 @@ App audiences add a second check beside permissions. That is deliberate: a stole
 
 ## Consequences
 
-- R1 moves `frontend/` to `apps/learner` and splits `admin/` into `apps/admin` and `apps/studio`. Instructor and Institution Apps start in R3.
+- The five Next.js apps live under `apps/`. `GET /api/v1/me/apps` feeds the launcher. Instructor and Institution screens that need tenancy show empty organisation queues until `/orgs/{org_id}` lands. Shared packages (ADR 0014) are not extracted yet.
 - `CORS_ORIGINS` lists all five origins. Stripe return URLs are validated against a Learner App and Institution App list only (closes the ADR 0012 future consideration).
 - The API settings gain an `APP_AUDIENCES` map from `azp` to code name. A request with an unknown `azp` is rejected with 401.
 - v1 documents that say "studio" for the learner app are read as "Learner App".

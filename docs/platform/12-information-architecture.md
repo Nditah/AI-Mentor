@@ -7,7 +7,7 @@
 | Date | 13 October 2026 |
 | Status | Approved direction. Target structure; only the Learner App and the admin portal routes exist today |
 | Owner | Product Design (information architecture), with Frontend Engineering |
-| Related | [README.md](README.md), [11-ux-specification.md](11-ux-specification.md), [14-content-studio-specification.md](14-content-studio-specification.md), [08-api-specification.md](08-api-specification.md), [10-rbac-matrix.md](10-rbac-matrix.md), [13-knowledge-management-architecture.md](13-knowledge-management-architecture.md), [../DesignSpec.md](../DesignSpec.md) section 10, ADR [0013](../adr/0013-five-applications-shared-platform.md), [0014](../adr/0014-monorepo-shared-packages.md), [0015](../adr/0015-organisation-tenancy.md), [0016](../adr/0016-scoped-rbac-abac.md), [0019](../adr/0019-content-studio-releases.md), 0023 |
+| Related | [README.md](README.md), [11-ux-specification.md](11-ux-specification.md), [14-content-studio-specification.md](14-content-studio-specification.md), [16-public-website-specification.md](16-public-website-specification.md), [08-api-specification.md](08-api-specification.md), [10-rbac-matrix.md](10-rbac-matrix.md), [13-knowledge-management-architecture.md](13-knowledge-management-architecture.md), [../DesignSpec.md](../DesignSpec.md) section 10, ADR [0013](../adr/0013-five-applications-shared-platform.md), [0014](../adr/0014-monorepo-shared-packages.md), [0015](../adr/0015-organisation-tenancy.md), [0016](../adr/0016-scoped-rbac-abac.md), [0019](../adr/0019-content-studio-releases.md), 0023 |
 
 ## Change record
 
@@ -20,7 +20,8 @@
 | Deep links | Cross-app link patterns ("Open in Content Studio", "View as learner") | People move between apps mid-task | `packages/ui` `AppLauncher`, `packages/config` origins | Links are absolute URLs to the target origin; the target re-checks access |
 | Search | Search scopes per app | Different apps search different objects at different scopes | Search Platform (`search`) | Scope is a request parameter; results are security-trimmed server-side |
 | Terminology | UX label versus data model term per locale | Consistent wording in en, fr, es; org-specific labels | `packages/i18n` catalogues, organisation settings | Glossary feeds translation memory |
-| Route mapping | Every current route in `frontend/app/(studio)` and `admin/app` mapped to a target app and route | R1 migration (ADR 0013, 0014) | Redirect tables | Redirects for 12 months after each move |
+| Route mapping | Current routes in `apps/learner`, `apps/admin`, `apps/studio`, `apps/instructor`, `apps/institution` | Five apps are live; remaining IA routes wait on APIs | Redirect tables | Admin content paths redirect to Studio |
+| Marketing site | Apex `<domain>` is the public website; `learn.<domain>/` sends guests there | ADR 0013 named marketing at `<domain>` but left the app unspecified | `apps/www` on port 3005; Learner `/` redirects guests there | See [16-public-website-specification.md](16-public-website-specification.md) |
 
 ## Relationship to v1 documents
 
@@ -742,24 +743,24 @@ Rules:
 
 ## 17. Mapping from current routes
 
-### 17.1 Learner frontend (`frontend/app`)
+### 17.1 Learner App (`apps/learner/app`)
 
 | Current route | Target app | Target route | Notes |
 | --- | --- | --- | --- |
-| `/` (landing, `frontend/app/page.tsx`) | Marketing site | `<domain>/` | `learn.<domain>/` redirects guests to `<domain>` and signed-in learners to `/dashboard` |
+| `/` (landing, `apps/www`) | Marketing site | `<domain>/` | `learn.<domain>/` redirects guests to `<domain>` and signed-in learners to `/dashboard` |
 | `/sign-in`, `/sign-up` | Learner App | Same | Clerk, unchanged |
-| `/(studio)/dashboard` | Learner App | `/dashboard` (label "Home") | Route group renamed from `(studio)` to `(app)` (ADR 0013 rule 1) |
-| `/(studio)/tutor` | Learner App | `/tutor`, `/tutor/[conversationId]` | |
-| `/(studio)/quiz` | Learner App | `/quiz` | Reached from Practice |
-| `/(studio)/paths` | Learner App | `/paths` redirects to `/learn?tab=paths`; public `/catalogue` | |
-| `/(studio)/paths/[slug]` | Learner App | `/paths/[pathSlug]` | Lesson links inside move to `/courses/[courseSlug]/lessons/[lessonSlug]`; the legacy `/paths/[slug]/[lessonId]` (DesignSpec 10.1) redirects |
-| `/(studio)/graph` | Learner App | `/graph` | |
-| `/(studio)/flashcards` | Learner App | `/flashcards` | |
-| `/(studio)/lab` | Learner App | `/lab` | |
-| `/(studio)/research` | Learner App | `/research` | |
-| `/(studio)/admin` | Removed | Replaced by the app launcher | Redirects to the launcher's first staff app for staff, `/dashboard` otherwise |
+| `/(learn)/dashboard` | Learner App | `/dashboard` (label "Home") | Route group renamed from `(studio)` to `(learn)` |
+| `/(learn)/tutor` | Learner App | `/tutor`, `/tutor/[conversationId]` | |
+| `/(learn)/quiz` | Learner App | `/quiz` | Reached from Practice |
+| `/(learn)/paths` | Learner App | `/paths` redirects to `/learn?tab=paths`; public `/catalogue` | |
+| `/(learn)/paths/[slug]` | Learner App | `/paths/[pathSlug]` | Lesson links inside move to `/courses/[courseSlug]/lessons/[lessonSlug]`; the legacy `/paths/[slug]/[lessonId]` (DesignSpec 10.1) redirects |
+| `/(learn)/graph` | Learner App | `/graph` | |
+| `/(learn)/flashcards` | Learner App | `/flashcards` | |
+| `/(learn)/lab` | Learner App | `/lab` | |
+| `/(learn)/research` | Learner App | `/research` | |
+| `/(learn)/admin` | Learner App | App launcher page | Lists the other apps this account may open |
 
-### 17.2 Admin portal (`admin/app`)
+### 17.2 Admin App and Content Studio (`apps/admin`, `apps/studio`)
 
 Allocation follows ADR 0013. Old `admin.<domain>` content URLs redirect to `studio.<domain>/w/master/...`.
 
@@ -787,17 +788,21 @@ Allocation follows ADR 0013. Old `admin.<domain>` content URLs redirect to `stud
 | `/audit` | Admin App | `/trust/audit` | |
 | `/sign-in` | Admin App and Content Studio | Each app's `/sign-in` | |
 
-The `admin/components/shell.tsx` navigation (13 links filtered by the v1 `role`) is replaced by two `AppShell` navigation configs, driven by capabilities rather than `role === "admin"`. Its "Back to studio" link is replaced by the app launcher.
+Admin and Studio each have their own shell. The Admin App redirects former content paths (`/library`, `/catalog`, `/review`, …) to Content Studio. The app launcher replaces "Back to studio".
 
-### 17.3 New routes with no current equivalent
+### 17.3 Instructor and Institution Apps
 
-All Instructor App and Institution App routes; Learner `/today`, `/classes`, `/grades`, `/seasons`, `/achievements`, `/friends`, `/career`, `/search`, `/join`, `/catalogue`; Admin `/organisations`, `/ai/*` except providers, `/platform/flags`, `/trust/security`, `/trust/break-glass`, `/trust/knowledge`, `/commerce/*`, `/insights/reports`; Studio `/health`, `/build/lessons`, `/build/items`, `/build/assessments`, `/build/courses`, `/build/curricula`, `/build/derived`, `/knowledge/quality`, `/knowledge/metadata`, `/knowledge/vocabularies`, `/releases`, `/localisation`.
+First slices live under `apps/instructor/app/o/[orgSlug]/` and `apps/institution/app/o/[orgSlug]/` with the navigation from sections 5 and 6. Organisation-scoped APIs are not routed yet; those pages render empty queues against the shared API.
+
+### 17.4 Routes still ahead of the API
+
+Learner `/today`, `/classes`, `/grades`, `/seasons`, `/achievements`, `/friends`, `/career`, `/search`, `/join`, `/catalogue`; Admin `/ai/*` except providers, `/platform/flags`, `/trust/security`, `/trust/break-glass`, `/trust/knowledge`, `/commerce/*`, `/insights/reports`; Studio `/w/[workspace]/…` builders, `/releases`, `/localisation`.
 
 ---
 
 ## 18. Open questions
 
-1. **Marketing site ownership.** ADR 0013 puts marketing at `<domain>` but names no app or repository for it. This document assumes a separate marketing deployment; if it stays in `apps/learner`, the `(public)` group gains the landing page.
+1. **Marketing site ownership.** Closed. Apex `<domain>` is the public website ([16](16-public-website-specification.md)) in `apps/www` on port 3005. `learn.<domain>/` redirects guests to the apex and signed-in learners to `/dashboard`.
 2. **Learner tenant in URL.** Learners use the switcher, not a path prefix. If organisations start sharing lesson links widely (LMS embeds), `?org=` may not be enough; LTI launches already carry context.
 3. **`cohort_label` setting.** The configurable cohort label is introduced here as an organisation setting; it needs a field in `tenancy.org_policies` or organisation profile (07).
 4. **Taxonomy slug style.** 07 and 13 use underscores in slugs (`bellman_equation`), the README example uses hyphens (`bellman-equation`). URLs here convert underscores to hyphens; the canonical slug style should be fixed in the README.

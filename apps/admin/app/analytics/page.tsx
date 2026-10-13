@@ -12,10 +12,23 @@ type Analytics = {
   average_mastery: number;
 };
 
+type Learning = {
+  most_completed_lessons: { title: string; completions: number }[];
+  highest_drop_off_pages: { page: string; lesson: string; drop_off: number; seen: number }[];
+  assessment_pass_rates: { title: string; scope: string; attempts: number; pass_rate: number }[];
+  course_completion: { title: string; attempts: number; pass_rate: number }[];
+  path_completion: { title: string; attempts: number; pass_rate: number }[];
+  time_on_lesson: { title: string; minutes: number }[];
+};
+
 export default function AnalyticsPage() {
   const query = useQuery({
     queryKey: ["analytics"],
     queryFn: () => api<Analytics>("/api/v1/admin/analytics"),
+  });
+  const learning = useQuery({
+    queryKey: ["learning-metrics"],
+    queryFn: () => api<Learning>("/api/v1/admin/learning"),
   });
   const data = query.data;
   return (
@@ -43,6 +56,35 @@ export default function AnalyticsPage() {
       ) : (
         <p className="mt-6">Loading analytics…</p>
       )}
+      <h2 className="mt-10 text-xl font-semibold">Guided learning</h2>
+      {learning.data ? <LearningTables data={learning.data} /> : <p className="mt-3">Loading learning metrics…</p>}
+    </div>
+  );
+}
+
+function LearningTables({ data }: { data: Learning }) {
+  const blocks: [string, string[]][] = [
+    ["Most completed lessons", data.most_completed_lessons.map((item) => `${item.title} · ${item.completions}`)],
+    ["Highest drop-off pages", data.highest_drop_off_pages.map((item) => `${item.lesson} / ${item.page} · ${item.drop_off}% of ${item.seen}`)],
+    ["Assessment pass rates", data.assessment_pass_rates.map((item) => `${item.scope} · ${item.title} · ${item.pass_rate}% of ${item.attempts}`)],
+    ["Course completion", data.course_completion.map((item) => `${item.title} · ${item.pass_rate}% of ${item.attempts}`)],
+    ["Learning path completion", data.path_completion.map((item) => `${item.title} · ${item.pass_rate}% of ${item.attempts}`)],
+    ["Time on lesson", data.time_on_lesson.map((item) => `${item.title} · ${item.minutes} min`)],
+  ];
+  return (
+    <div className="mt-4 grid gap-4 lg:grid-cols-2">
+      {blocks.map(([title, rows]) => (
+        <section key={title} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+          <h3 className="font-semibold">{title}</h3>
+          {rows.length ? (
+            <ul className="mt-2 space-y-1 text-sm">
+              {rows.map((row) => <li key={row}>{row}</li>)}
+            </ul>
+          ) : (
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">No rows yet.</p>
+          )}
+        </section>
+      ))}
     </div>
   );
 }

@@ -22,11 +22,30 @@ const securityHeaders = [
     : []),
 ];
 
+const studio = process.env.NEXT_PUBLIC_STUDIO_URL || "http://localhost:3004";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
+  },
+  async redirects() {
+    const moved = [
+      "library",
+      "review",
+      "curriculum",
+      "taxonomy",
+      "graph",
+      "generate",
+      "challenges",
+      "catalog",
+      "studio",
+    ];
+    return moved.flatMap((route) => [
+      { source: `/${route}`, destination: `${studio}/${route}`, permanent: false },
+      { source: `/${route}/:path*`, destination: `${studio}/${route}/:path*`, permanent: false },
+    ]);
   },
 };
 

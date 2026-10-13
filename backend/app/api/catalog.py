@@ -121,6 +121,13 @@ def mark_resource(
     return catalog.mark(user, resource_id, body.status, body.rating)
 
 
+@router.get("/catalog/stats")
+def catalog_stats(catalog: CatalogService = Depends(_catalog)) -> dict:
+    """Published catalog counts for the public website. No authentication."""
+
+    return catalog.public_stats()
+
+
 @router.get("/catalog/facets")
 def facets(user: User = Depends(_user), catalog: CatalogService = Depends(_catalog)) -> dict:
     del user
@@ -158,7 +165,7 @@ def patch_preferences(
     return catalog.update_preferences(user, body.model_dump(exclude_unset=True))
 
 
-admin = APIRouter(prefix="/admin/catalog", dependencies=[Depends(_staff)])
+admin = APIRouter(dependencies=[Depends(_staff)])
 
 
 @admin.get("/overview")
@@ -240,4 +247,37 @@ def admin_resolve_duplicate(
     return ingest.resolve_duplicate(user, candidate_id, body.status)
 
 
-router.include_router(admin)
+router.include_router(admin, prefix="/admin/catalog")
+router.include_router(admin, prefix="/content/catalog")
+
+studio = APIRouter(prefix="/content", dependencies=[Depends(_staff)])
+
+
+@studio.get("/home")
+def content_home(user: User = Depends(_staff), catalog: CatalogService = Depends(_catalog)) -> dict:
+    del user
+    return catalog.studio_home()
+
+
+@studio.get("/questions")
+def content_questions(
+    concept: str | None = None,
+    limit: int = Query(default=50, ge=1, le=200),
+    user: User = Depends(_staff),
+    catalog: CatalogService = Depends(_catalog),
+) -> dict:
+    del user
+    return {"items": catalog.list_questions(concept=concept, limit=limit)}
+
+
+@studio.get("/challenges")
+def content_challenges(
+    limit: int = Query(default=50, ge=1, le=200),
+    user: User = Depends(_staff),
+    catalog: CatalogService = Depends(_catalog),
+) -> dict:
+    del user
+    return {"items": catalog.list_challenges(limit=limit)}
+
+
+router.include_router(studio)

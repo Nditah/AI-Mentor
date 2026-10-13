@@ -7,7 +7,7 @@
 | Date | 13 October 2026 |
 | Status | Approved direction. Target design; the Learner App and the admin portal exist today, the other three apps do not |
 | Owner | Product Design, with Frontend Engineering |
-| Related | [README.md](README.md) (canonical vocabulary), [12-information-architecture.md](12-information-architecture.md), [14-content-studio-specification.md](14-content-studio-specification.md), [03-srs.md](03-srs.md), [07-database-design.md](07-database-design.md), [09-security-model.md](09-security-model.md), [10-rbac-matrix.md](10-rbac-matrix.md), [../DesignSpec.md](../DesignSpec.md), ADR [0013](../adr/0013-five-applications-shared-platform.md), [0014](../adr/0014-monorepo-shared-packages.md), [0015](../adr/0015-organisation-tenancy.md), [0016](../adr/0016-scoped-rbac-abac.md), [0019](../adr/0019-content-studio-releases.md), 0022, 0023, 0024, 0025 |
+| Related | [README.md](README.md) (canonical vocabulary), [12-information-architecture.md](12-information-architecture.md), [14-content-studio-specification.md](14-content-studio-specification.md), [16-public-website-specification.md](16-public-website-specification.md), [03-srs.md](03-srs.md), [07-database-design.md](07-database-design.md), [09-security-model.md](09-security-model.md), [10-rbac-matrix.md](10-rbac-matrix.md), [../DesignSpec.md](../DesignSpec.md), ADR [0013](../adr/0013-five-applications-shared-platform.md), [0014](../adr/0014-monorepo-shared-packages.md), [0015](../adr/0015-organisation-tenancy.md), [0016](../adr/0016-scoped-rbac-abac.md), [0019](../adr/0019-content-studio-releases.md), 0022, 0023, 0024, 0025 |
 
 ## Change record
 

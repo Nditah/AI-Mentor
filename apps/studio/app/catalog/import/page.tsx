@@ -9,11 +9,11 @@ type Job = { id: string; kind: string; status: string; stats: Record<string, num
 
 export default function ImportPage() {
   const [note, setNote] = useState("");
-  const sources = useQuery({ queryKey: ["sources"], queryFn: () => api<Source[]>("/api/v1/admin/catalog/sources") });
-  const jobs = useQuery({ queryKey: ["jobs"], queryFn: () => api<Job[]>("/api/v1/admin/catalog/jobs") });
+  const sources = useQuery({ queryKey: ["sources"], queryFn: () => api<Source[]>("/api/v1/content/catalog/sources") });
+  const jobs = useQuery({ queryKey: ["jobs"], queryFn: () => api<Job[]>("/api/v1/content/catalog/jobs") });
   const upload = useMutation({
     mutationFn: async (resources: unknown[]) =>
-      api("/api/v1/admin/catalog/import", { method: "POST", body: JSON.stringify({ source: "curated-pack", resources }) }),
+      api("/api/v1/content/catalog/import", { method: "POST", body: JSON.stringify({ source: "curated-pack", resources }) }),
     onSuccess: () => {
       setNote("Import finished. Check the job log.");
       jobs.refetch();
@@ -21,7 +21,7 @@ export default function ImportPage() {
     onError: (error) => setNote(error instanceof ApiError ? error.message : "Import failed."),
   });
   const refresh = useMutation({
-    mutationFn: (slug: string) => api(`/api/v1/admin/catalog/sources/${slug}/refresh`, { method: "POST" }),
+    mutationFn: (slug: string) => api(`/api/v1/content/catalog/sources/${slug}/refresh`, { method: "POST" }),
     onSuccess: () => sources.refetch(),
   });
 

@@ -21,7 +21,7 @@ export default function NewAssetPage() {
   const [body, setBody] = useState("");
   const save = useMutation({
     mutationFn: () =>
-      api<{ id: string }>("/api/v1/admin/assets", {
+      api<{ id: string }>("/api/v1/content/assets", {
         method: "POST",
         body: JSON.stringify({
           title,

@@ -1,6 +1,6 @@
 # Resource Catalog and Knowledge Pack
 
-> **v2.0 amendment (13 October 2026).** This page describes the catalog that runs today. The Learner App searches published assets. Staff import and graph screens currently live in the Admin portal (`admin/`) because Content Studio is not a separate app yet. The target home is Content Studio (`apps/studio`, `/api/v1/content`) per [ADR 0013](adr/0013-five-applications-shared-platform.md) and [platform/14-content-studio-specification.md](platform/14-content-studio-specification.md). Knowledge Pack rows seed the `master` workspace (ADR 0019). Instructors do not own this repository; they consume releases.
+> **v2.0 amendment (13 October 2026).** This page describes the catalog that runs today. The Learner App searches published assets. Import, quality, duplicates, and graph screens live in Content Studio (`apps/studio`, port 3004). The API root `/api/v1/content` still aliases today's `/api/v1/admin/catalog/*` until R2. Knowledge Pack rows seed the `master` workspace (ADR 0019). Instructors do not own this repository; they consume releases.
 
 The Resource Catalog is the bounded context that holds books, courses, papers, videos, repositories, datasets, tutorials, blogs, certifications, documentation, podcasts, learning paths, and coding challenges. Every record is a `KnowledgeAsset`. The four Learner App tracks in `backend/app/domain/catalog.py` still seed lessons and quiz keys. The catalog sits beside them and feeds search, recommendations, and Content Studio.
 
@@ -57,9 +57,11 @@ Twelve stages, in order: source registration, asset collection, metadata extract
 
 `GET /api/v1/resources` filters published rows and ranks with 0.45 lexical, 0.20 quality, 0.15 type/style, 0.10 difficulty fit, 0.10 recency. Resource recommendations add 0.35 goals, 0.25 weak skills, 0.20 career, 0.10 progress, 0.10 learning style.
 
-## Knowledge Pack v1.0
+## Knowledge Pack v1.1
 
-Compiler: `app.domain.knowledge.pack.compile_pack`. Seed files: `/seed-data`. Launch floor: 2,000 resources, 500 papers, 300 books, 500 videos, 150 courses, 100 certifications, 200 datasets, 300 repositories, 50 paths, 2,000 quiz items, 500 coding challenges. The compiled pack currently holds 4,005 resources (817 papers, 464 books, 554 videos, 171 courses, 109 certifications, 320 datasets, 461 repositories, 61 paths), 2,227 quiz items, and 524 coding challenges.
+Compiler: `app.domain.knowledge.pack.compile_pack`. Seed files: `/seed-data`. Launch floor: 2,000 resources, 500 papers, 300 books, 500 videos, 150 courses, 100 certifications, 200 datasets, 300 repositories, 50 paths, 2,000 quiz items, 500 coding challenges. The compiled pack currently holds 4,839 resources (937 papers, 551 books, 661 videos, 212 courses, 200 certifications, 379 datasets, 557 repositories, 78 paths), 2,686 quiz items, 632 coding challenges, and 158 concepts.
+
+Five named academies are first-class paths: Computer Vision, Natural Language Processing, Federated Learning, Programming, and Modelling and Simulation. Each required module has a concept, assessments, a project-style challenge, and catalog resources. Definitions live in `pack_academies.py`; `academy_gaps()` fails the unit tests if a module is missing.
 
 ```bash
 make write-pack   # emit seed-data JSON
@@ -72,13 +74,13 @@ make seed-pack    # load into the database
 
 Live learner routes: `GET /api/v1/resources`, `GET /api/v1/resources/{id}`, `POST /api/v1/resources/{id}/progress`, `GET /api/v1/catalog/facets`, `GET /api/v1/catalog/recommendations`, `GET /api/v1/catalog/graph`, `GET|PATCH /api/v1/me/learning-preferences`.
 
-Staff: `GET /api/v1/admin/catalog/overview`, `POST /api/v1/admin/catalog/import`, `GET /api/v1/admin/catalog/sources`, `POST /api/v1/admin/catalog/sources/{slug}/refresh`, `GET /api/v1/admin/catalog/jobs`, `GET /api/v1/admin/catalog/duplicates`, `POST /api/v1/admin/catalog/duplicates/{id}`.
+Staff: `GET /api/v1/admin/catalog/overview`, `POST /api/v1/admin/catalog/import`, `GET /api/v1/admin/catalog/sources`, `POST /api/v1/admin/catalog/sources/{slug}/refresh`, `GET /api/v1/admin/catalog/jobs`, `GET /api/v1/admin/catalog/duplicates`, `POST /api/v1/admin/catalog/duplicates/{id}`. Content Studio uses the same operations under `/api/v1/content/catalog/*`, plus `GET /api/v1/content/home` (queue counts), `GET /api/v1/content/questions` (prompts and options, no answer keys), and `GET /api/v1/content/challenges` (starter and visible tests, no hidden tests or reference solutions). Library drafts stay on `/api/v1/content/assets` and omit Knowledge Pack rows.
 
 Answer keys on `question_bank_items` and hidden tests on `challenge_specs` are never serialised to learners.
 
 ## Admin and Content Studio
 
-Until R1 splits `admin/` (ADR 0013), content screens stay on the admin portal at port 3001. That portal is **not** the Institution App or the Instructor App. Those are separate frontends on the same API.
+These screens run in Content Studio (`apps/studio`, port 3004). That app is **not** the Institution App or the Instructor App. Those are separate frontends on the same API. The Admin App keeps users, providers, configuration, moderation, audit, and analytics.
 
 | Screen | Route |
 | --- | --- |

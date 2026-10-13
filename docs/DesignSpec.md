@@ -1,6 +1,6 @@
 # AI Mentor — UI/UX Design Specification
 
-> **v2.0 amendment (13 October 2026).** Sections 1–7 (philosophy, colour, typography, tokens, components, responsive layout, accessibility) apply to all five applications. Sections 8–17 describe the Learner App and the v1 admin portal, and are extended by [platform/11-ux-specification.md](platform/11-ux-specification.md), [platform/12-information-architecture.md](platform/12-information-architecture.md), and [platform/14-content-studio-specification.md](platform/14-content-studio-specification.md). "Studio" in this document means the learner app; in v2 it means Content Studio only.
+> **v2.0 amendment (13 October 2026).** Sections 1–7 (philosophy, colour, typography, tokens, components, responsive layout, accessibility) apply to all five applications and to the public website. Sections 8–17 describe the Learner App and the v1 admin portal, and are extended by [platform/11-ux-specification.md](platform/11-ux-specification.md), [platform/12-information-architecture.md](platform/12-information-architecture.md), [platform/14-content-studio-specification.md](platform/14-content-studio-specification.md), and [platform/16-public-website-specification.md](platform/16-public-website-specification.md). "Studio" in this document means the learner app; in v2 it means Content Studio only. The marketing site does not fork these tokens.
 
 | | |
 | --- | --- |

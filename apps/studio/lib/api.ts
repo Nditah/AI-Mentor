@@ -1,14 +1,14 @@
 import { sessionToken } from "@/lib/auth";
 
 export const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-export const studioUrl = process.env.NEXT_PUBLIC_STUDIO_URL || "http://localhost:3000";
 export const devAuth = process.env.NEXT_PUBLIC_DEV_AUTH === "true";
 
-const key = "ai-mentor-admin-user";
+const key = "ai-mentor-studio-user";
+const fallback = "demo-admin";
 
 export function devUser(): string {
-  if (typeof window === "undefined") return "demo-admin";
-  return window.localStorage.getItem(key) || "demo-admin";
+  if (typeof window === "undefined") return fallback;
+  return window.localStorage.getItem(key) || fallback;
 }
 
 export function setDevUser(id: string) {

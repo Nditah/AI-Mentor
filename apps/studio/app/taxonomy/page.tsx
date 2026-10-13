@@ -8,7 +8,7 @@ type Node = { slug: string; name: string; domain: string; difficulty: string; pr
 export default function TaxonomyPage() {
   const query = useQuery({
     queryKey: ["taxonomy"],
-    queryFn: () => api<Node[]>("/api/v1/admin/taxonomy"),
+    queryFn: () => api<Node[]>("/api/v1/content/taxonomy"),
   });
   const nodes = query.data || [];
   const domains = [...new Set(nodes.map((node) => node.domain))];

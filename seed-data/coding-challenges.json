@@ -882,6 +882,157 @@
     "estimated_duration": 45
   },
   {
+    "id": "coding-challenge-python-language-implement",
+    "title": "Implement · Python",
+    "concept_slug": "python-language",
+    "difficulty": "beginner",
+    "description": "A implement exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "skills": [
+      "python",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying python-language.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-python-language-debug",
+    "title": "Debug · Python",
+    "concept_slug": "python-language",
+    "difficulty": "beginner",
+    "description": "A debug exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "skills": [
+      "python",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-python-language-predict",
+    "title": "Predict · Python",
+    "concept_slug": "python-language",
+    "difficulty": "beginner",
+    "description": "A predict exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "skills": [
+      "python",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-python-language-project",
+    "title": "Mini-project · Python",
+    "concept_slug": "python-language",
+    "difficulty": "beginner",
+    "description": "Combine the three drills for Python into one function with tests.",
+    "skills": [
+      "python",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Python drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
     "id": "coding-challenge-python-for-ml-implement",
     "title": "Implement · Python for machine learning",
     "concept_slug": "python-for-ml",
@@ -19480,6 +19631,3932 @@
     "entrypoint": "solve",
     "variant": "implement",
     "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Research communication drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-opencv-implement",
+    "title": "Implement · OpenCV",
+    "concept_slug": "opencv",
+    "difficulty": "beginner",
+    "description": "A implement exercise for OpenCV. Cameras, filters, contours, and a first calibrated image. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying opencv.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-opencv-debug",
+    "title": "Debug · OpenCV",
+    "concept_slug": "opencv",
+    "difficulty": "beginner",
+    "description": "A debug exercise for OpenCV. Cameras, filters, contours, and a first calibrated image. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-opencv-predict",
+    "title": "Predict · OpenCV",
+    "concept_slug": "opencv",
+    "difficulty": "beginner",
+    "description": "A predict exercise for OpenCV. Cameras, filters, contours, and a first calibrated image. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-opencv-project",
+    "title": "Mini-project · OpenCV",
+    "concept_slug": "opencv",
+    "difficulty": "beginner",
+    "description": "Combine the three drills for OpenCV into one function with tests.",
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a OpenCV drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-yolo-implement",
+    "title": "Implement · YOLO",
+    "concept_slug": "yolo",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for YOLO. Single-shot boxes with a real-time budget. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying yolo.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-yolo-debug",
+    "title": "Debug · YOLO",
+    "concept_slug": "yolo",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for YOLO. Single-shot boxes with a real-time budget. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-yolo-predict",
+    "title": "Predict · YOLO",
+    "concept_slug": "yolo",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for YOLO. Single-shot boxes with a real-time budget. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-yolo-project",
+    "title": "Mini-project · YOLO",
+    "concept_slug": "yolo",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for YOLO into one function with tests.",
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a YOLO drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-detr-implement",
+    "title": "Implement · DETR",
+    "concept_slug": "detr",
+    "difficulty": "advanced",
+    "description": "A implement exercise for DETR. Detection as set prediction, without anchors. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying detr.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-detr-debug",
+    "title": "Debug · DETR",
+    "concept_slug": "detr",
+    "difficulty": "advanced",
+    "description": "A debug exercise for DETR. Detection as set prediction, without anchors. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-detr-predict",
+    "title": "Predict · DETR",
+    "concept_slug": "detr",
+    "difficulty": "advanced",
+    "description": "A predict exercise for DETR. Detection as set prediction, without anchors. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-detr-project",
+    "title": "Mini-project · DETR",
+    "concept_slug": "detr",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for DETR into one function with tests.",
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a DETR drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-segmentation-implement",
+    "title": "Implement · Image segmentation",
+    "concept_slug": "segmentation",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Image segmentation. Pixels to classes, instances, and panoptic maps. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying segmentation.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-segmentation-debug",
+    "title": "Debug · Image segmentation",
+    "concept_slug": "segmentation",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Image segmentation. Pixels to classes, instances, and panoptic maps. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-segmentation-predict",
+    "title": "Predict · Image segmentation",
+    "concept_slug": "segmentation",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Image segmentation. Pixels to classes, instances, and panoptic maps. Hidden tests stay on the server.",
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-segmentation-project",
+    "title": "Mini-project · Image segmentation",
+    "concept_slug": "segmentation",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Image segmentation into one function with tests.",
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Image segmentation drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-stereo-vision-implement",
+    "title": "Implement · Stereo vision",
+    "concept_slug": "stereo-vision",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Stereo vision. Two views, disparity, and a depth map you can check. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying stereo-vision.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-stereo-vision-debug",
+    "title": "Debug · Stereo vision",
+    "concept_slug": "stereo-vision",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Stereo vision. Two views, disparity, and a depth map you can check. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-stereo-vision-predict",
+    "title": "Predict · Stereo vision",
+    "concept_slug": "stereo-vision",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Stereo vision. Two views, disparity, and a depth map you can check. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-stereo-vision-project",
+    "title": "Mini-project · Stereo vision",
+    "concept_slug": "stereo-vision",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Stereo vision into one function with tests.",
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Stereo vision drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-lidar-implement",
+    "title": "Implement · LiDAR",
+    "concept_slug": "lidar",
+    "difficulty": "advanced",
+    "description": "A implement exercise for LiDAR. Range returns to objects, lanes, and maps. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying lidar.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-lidar-debug",
+    "title": "Debug · LiDAR",
+    "concept_slug": "lidar",
+    "difficulty": "advanced",
+    "description": "A debug exercise for LiDAR. Range returns to objects, lanes, and maps. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-lidar-predict",
+    "title": "Predict · LiDAR",
+    "concept_slug": "lidar",
+    "difficulty": "advanced",
+    "description": "A predict exercise for LiDAR. Range returns to objects, lanes, and maps. Hidden tests stay on the server.",
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-lidar-project",
+    "title": "Mini-project · LiDAR",
+    "concept_slug": "lidar",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for LiDAR into one function with tests.",
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "category": "computer-vision",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a LiDAR drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-implement",
+    "title": "Implement · NLP fundamentals",
+    "concept_slug": "nlp-fundamentals",
+    "difficulty": "beginner",
+    "description": "A implement exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying nlp-fundamentals.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-debug",
+    "title": "Debug · NLP fundamentals",
+    "concept_slug": "nlp-fundamentals",
+    "difficulty": "beginner",
+    "description": "A debug exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-predict",
+    "title": "Predict · NLP fundamentals",
+    "concept_slug": "nlp-fundamentals",
+    "difficulty": "beginner",
+    "description": "A predict exercise for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Hidden tests stay on the server.",
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-nlp-fundamentals-project",
+    "title": "Mini-project · NLP fundamentals",
+    "concept_slug": "nlp-fundamentals",
+    "difficulty": "beginner",
+    "description": "Combine the three drills for NLP fundamentals into one function with tests.",
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a NLP fundamentals drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-embeddings-implement",
+    "title": "Implement · Embeddings",
+    "concept_slug": "embeddings",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying embeddings.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-embeddings-debug",
+    "title": "Debug · Embeddings",
+    "concept_slug": "embeddings",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-embeddings-predict",
+    "title": "Predict · Embeddings",
+    "concept_slug": "embeddings",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Embeddings. Vectors that put similar text near similar text. Hidden tests stay on the server.",
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-embeddings-project",
+    "title": "Mini-project · Embeddings",
+    "concept_slug": "embeddings",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Embeddings into one function with tests.",
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "category": "nlp",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Embeddings drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-federated-learning-implement",
+    "title": "Implement · Federated learning",
+    "concept_slug": "federated-learning",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying federated-learning.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-federated-learning-debug",
+    "title": "Debug · Federated learning",
+    "concept_slug": "federated-learning",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-federated-learning-predict",
+    "title": "Predict · Federated learning",
+    "concept_slug": "federated-learning",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Federated learning. Train across clients without sending the raw rows. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-federated-learning-project",
+    "title": "Mini-project · Federated learning",
+    "concept_slug": "federated-learning",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Federated learning into one function with tests.",
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Federated learning drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-fedavg-implement",
+    "title": "Implement · FedAvg",
+    "concept_slug": "fedavg",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying fedavg.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-fedavg-debug",
+    "title": "Debug · FedAvg",
+    "concept_slug": "fedavg",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-fedavg-predict",
+    "title": "Predict · FedAvg",
+    "concept_slug": "fedavg",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for FedAvg. Average client updates on a server, then broadcast the new weights. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-fedavg-project",
+    "title": "Mini-project · FedAvg",
+    "concept_slug": "fedavg",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for FedAvg into one function with tests.",
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a FedAvg drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-fedprox-implement",
+    "title": "Implement · FedProx",
+    "concept_slug": "fedprox",
+    "difficulty": "advanced",
+    "description": "A implement exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying fedprox.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-fedprox-debug",
+    "title": "Debug · FedProx",
+    "concept_slug": "fedprox",
+    "difficulty": "advanced",
+    "description": "A debug exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-fedprox-predict",
+    "title": "Predict · FedProx",
+    "concept_slug": "fedprox",
+    "difficulty": "advanced",
+    "description": "A predict exercise for FedProx. A proximal term so heterogeneous clients do not drift apart. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-fedprox-project",
+    "title": "Mini-project · FedProx",
+    "concept_slug": "fedprox",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for FedProx into one function with tests.",
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a FedProx drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-differential-privacy-implement",
+    "title": "Implement · Differential privacy",
+    "concept_slug": "differential-privacy",
+    "difficulty": "advanced",
+    "description": "A implement exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying differential-privacy.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-differential-privacy-debug",
+    "title": "Debug · Differential privacy",
+    "concept_slug": "differential-privacy",
+    "difficulty": "advanced",
+    "description": "A debug exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-differential-privacy-predict",
+    "title": "Predict · Differential privacy",
+    "concept_slug": "differential-privacy",
+    "difficulty": "advanced",
+    "description": "A predict exercise for Differential privacy. A privacy budget on what a trained model can reveal about one row. Hidden tests stay on the server.",
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-differential-privacy-project",
+    "title": "Mini-project · Differential privacy",
+    "concept_slug": "differential-privacy",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for Differential privacy into one function with tests.",
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Differential privacy drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-edge-ai-implement",
+    "title": "Implement · Edge AI",
+    "concept_slug": "edge-ai",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying edge-ai.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-edge-ai-debug",
+    "title": "Debug · Edge AI",
+    "concept_slug": "edge-ai",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-edge-ai-predict",
+    "title": "Predict · Edge AI",
+    "concept_slug": "edge-ai",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Edge AI. Inference and on-device training next to the sensor. Hidden tests stay on the server.",
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-edge-ai-project",
+    "title": "Mini-project · Edge AI",
+    "concept_slug": "edge-ai",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Edge AI into one function with tests.",
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "category": "federated-learning",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Edge AI drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-cpp-implement",
+    "title": "Implement · C++",
+    "concept_slug": "cpp",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying cpp.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-cpp-debug",
+    "title": "Debug · C++",
+    "concept_slug": "cpp",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-cpp-predict",
+    "title": "Predict · C++",
+    "concept_slug": "cpp",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-cpp-project",
+    "title": "Mini-project · C++",
+    "concept_slug": "cpp",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for C++ into one function with tests.",
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a C++ drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-implement",
+    "title": "Implement · ROS 2 C++",
+    "concept_slug": "ros2-cpp",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying ros2-cpp.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-debug",
+    "title": "Debug · ROS 2 C++",
+    "concept_slug": "ros2-cpp",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-predict",
+    "title": "Predict · ROS 2 C++",
+    "concept_slug": "ros2-cpp",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-project",
+    "title": "Mini-project · ROS 2 C++",
+    "concept_slug": "ros2-cpp",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for ROS 2 C++ into one function with tests.",
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a ROS 2 C++ drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-software-engineering-implement",
+    "title": "Implement · Software engineering",
+    "concept_slug": "software-engineering",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying software-engineering.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-software-engineering-debug",
+    "title": "Debug · Software engineering",
+    "concept_slug": "software-engineering",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-software-engineering-predict",
+    "title": "Predict · Software engineering",
+    "concept_slug": "software-engineering",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-software-engineering-project",
+    "title": "Mini-project · Software engineering",
+    "concept_slug": "software-engineering",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Software engineering into one function with tests.",
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "category": "programming",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Software engineering drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-matlab-implement",
+    "title": "Implement · MATLAB",
+    "concept_slug": "matlab",
+    "difficulty": "beginner",
+    "description": "A implement exercise for MATLAB. Arrays, plots, and a numerical experiment you can re-run. Hidden tests stay on the server.",
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying matlab.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-matlab-debug",
+    "title": "Debug · MATLAB",
+    "concept_slug": "matlab",
+    "difficulty": "beginner",
+    "description": "A debug exercise for MATLAB. Arrays, plots, and a numerical experiment you can re-run. Hidden tests stay on the server.",
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-matlab-predict",
+    "title": "Predict · MATLAB",
+    "concept_slug": "matlab",
+    "difficulty": "beginner",
+    "description": "A predict exercise for MATLAB. Arrays, plots, and a numerical experiment you can re-run. Hidden tests stay on the server.",
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-matlab-project",
+    "title": "Mini-project · MATLAB",
+    "concept_slug": "matlab",
+    "difficulty": "beginner",
+    "description": "Combine the three drills for MATLAB into one function with tests.",
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a MATLAB drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-simulink-implement",
+    "title": "Implement · Simulink",
+    "concept_slug": "simulink",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Simulink. Block diagrams of continuous and discrete plants. Hidden tests stay on the server.",
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying simulink.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-simulink-debug",
+    "title": "Debug · Simulink",
+    "concept_slug": "simulink",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Simulink. Block diagrams of continuous and discrete plants. Hidden tests stay on the server.",
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-simulink-predict",
+    "title": "Predict · Simulink",
+    "concept_slug": "simulink",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Simulink. Block diagrams of continuous and discrete plants. Hidden tests stay on the server.",
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-simulink-project",
+    "title": "Mini-project · Simulink",
+    "concept_slug": "simulink",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Simulink into one function with tests.",
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Simulink drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-gazebo-implement",
+    "title": "Implement · Gazebo",
+    "concept_slug": "gazebo",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying gazebo.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-gazebo-debug",
+    "title": "Debug · Gazebo",
+    "concept_slug": "gazebo",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-gazebo-predict",
+    "title": "Predict · Gazebo",
+    "concept_slug": "gazebo",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-gazebo-project",
+    "title": "Mini-project · Gazebo",
+    "concept_slug": "gazebo",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Gazebo into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Gazebo drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-isaac-sim-implement",
+    "title": "Implement · Isaac Sim",
+    "concept_slug": "isaac-sim",
+    "difficulty": "advanced",
+    "description": "A implement exercise for Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying isaac-sim.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-isaac-sim-debug",
+    "title": "Debug · Isaac Sim",
+    "concept_slug": "isaac-sim",
+    "difficulty": "advanced",
+    "description": "A debug exercise for Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-isaac-sim-predict",
+    "title": "Predict · Isaac Sim",
+    "concept_slug": "isaac-sim",
+    "difficulty": "advanced",
+    "description": "A predict exercise for Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-isaac-sim-project",
+    "title": "Mini-project · Isaac Sim",
+    "concept_slug": "isaac-sim",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for Isaac Sim into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Isaac Sim drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-mujoco-implement",
+    "title": "Implement · MuJoCo",
+    "concept_slug": "mujoco",
+    "difficulty": "advanced",
+    "description": "A implement exercise for MuJoCo. Contact-rich physics for control and RL. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying mujoco.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-mujoco-debug",
+    "title": "Debug · MuJoCo",
+    "concept_slug": "mujoco",
+    "difficulty": "advanced",
+    "description": "A debug exercise for MuJoCo. Contact-rich physics for control and RL. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-mujoco-predict",
+    "title": "Predict · MuJoCo",
+    "concept_slug": "mujoco",
+    "difficulty": "advanced",
+    "description": "A predict exercise for MuJoCo. Contact-rich physics for control and RL. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-mujoco-project",
+    "title": "Mini-project · MuJoCo",
+    "concept_slug": "mujoco",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for MuJoCo into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a MuJoCo drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-carla-implement",
+    "title": "Implement · CARLA",
+    "concept_slug": "carla",
+    "difficulty": "advanced",
+    "description": "A implement exercise for CARLA. Urban driving: sensors, traffic, and a closed loop. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying carla.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-carla-debug",
+    "title": "Debug · CARLA",
+    "concept_slug": "carla",
+    "difficulty": "advanced",
+    "description": "A debug exercise for CARLA. Urban driving: sensors, traffic, and a closed loop. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-carla-predict",
+    "title": "Predict · CARLA",
+    "concept_slug": "carla",
+    "difficulty": "advanced",
+    "description": "A predict exercise for CARLA. Urban driving: sensors, traffic, and a closed loop. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-carla-project",
+    "title": "Mini-project · CARLA",
+    "concept_slug": "carla",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for CARLA into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a CARLA drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-airsim-implement",
+    "title": "Implement · AirSim",
+    "concept_slug": "airsim",
+    "difficulty": "advanced",
+    "description": "A implement exercise for AirSim. Aerial and ground vehicles in Unreal scenes. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying airsim.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-airsim-debug",
+    "title": "Debug · AirSim",
+    "concept_slug": "airsim",
+    "difficulty": "advanced",
+    "description": "A debug exercise for AirSim. Aerial and ground vehicles in Unreal scenes. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-airsim-predict",
+    "title": "Predict · AirSim",
+    "concept_slug": "airsim",
+    "difficulty": "advanced",
+    "description": "A predict exercise for AirSim. Aerial and ground vehicles in Unreal scenes. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-airsim-project",
+    "title": "Mini-project · AirSim",
+    "concept_slug": "airsim",
+    "difficulty": "advanced",
+    "description": "Combine the three drills for AirSim into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a AirSim drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-webots-implement",
+    "title": "Implement · Webots",
+    "concept_slug": "webots",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for Webots. Cross-platform robot scenes with controllers you can step. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying webots.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-webots-debug",
+    "title": "Debug · Webots",
+    "concept_slug": "webots",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for Webots. Cross-platform robot scenes with controllers you can step. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-webots-predict",
+    "title": "Predict · Webots",
+    "concept_slug": "webots",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for Webots. Cross-platform robot scenes with controllers you can step. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-webots-project",
+    "title": "Mini-project · Webots",
+    "concept_slug": "webots",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for Webots into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Webots drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-coppeliasim-implement",
+    "title": "Implement · CoppeliaSim",
+    "concept_slug": "coppeliasim",
+    "difficulty": "intermediate",
+    "description": "A implement exercise for CoppeliaSim. Scenes, child scripts, and inverse kinematics. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying coppeliasim.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-coppeliasim-debug",
+    "title": "Debug · CoppeliaSim",
+    "concept_slug": "coppeliasim",
+    "difficulty": "intermediate",
+    "description": "A debug exercise for CoppeliaSim. Scenes, child scripts, and inverse kinematics. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-coppeliasim-predict",
+    "title": "Predict · CoppeliaSim",
+    "concept_slug": "coppeliasim",
+    "difficulty": "intermediate",
+    "description": "A predict exercise for CoppeliaSim. Scenes, child scripts, and inverse kinematics. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-coppeliasim-project",
+    "title": "Mini-project · CoppeliaSim",
+    "concept_slug": "coppeliasim",
+    "difficulty": "intermediate",
+    "description": "Combine the three drills for CoppeliaSim into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a CoppeliaSim drill.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          2.0
+        ],
+        "expect": {
+          "mean": 1.5,
+          "count": 2
+        }
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [],
+        "expect": {
+          "mean": 0.0,
+          "count": 0
+        }
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> dict:\n    if not values:\n        return {'mean': 0.0, 'count': 0}\n    return {'mean': sum(values) / len(values), 'count': len(values)}\n",
+    "estimated_duration": 45
+  },
+  {
+    "id": "coding-challenge-digital-twins-implement",
+    "title": "Implement · Digital twins",
+    "concept_slug": "digital-twins",
+    "difficulty": "expert",
+    "description": "A implement exercise for Digital twins. A live model kept honest by measurements. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> float:\n    \"\"\"Return a statistic used when studying digital-twins.\"\"\"\n    raise NotImplementedError\n",
+    "visible_tests": [
+      {
+        "values": [
+          1.0,
+          3.0,
+          5.0
+        ],
+        "expect": 3.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 20
+  },
+  {
+    "id": "coding-challenge-digital-twins-debug",
+    "title": "Debug · Digital twins",
+    "concept_slug": "digital-twins",
+    "difficulty": "expert",
+    "description": "A debug exercise for Digital twins. A live model kept honest by measurements. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "debug",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / 0\n",
+    "visible_tests": [
+      {
+        "values": [
+          2.0,
+          2.0
+        ],
+        "expect": 2.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values) if values else 0.0\n",
+    "estimated_duration": 30
+  },
+  {
+    "id": "coding-challenge-digital-twins-predict",
+    "title": "Predict · Digital twins",
+    "concept_slug": "digital-twins",
+    "difficulty": "expert",
+    "description": "A predict exercise for Digital twins. A live model kept honest by measurements. Hidden tests stay on the server.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "predict",
+    "starter_code": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n# What does solve([10, 30]) return?\n",
+    "visible_tests": [
+      {
+        "values": [
+          10.0,
+          30.0
+        ],
+        "expect": 20.0
+      }
+    ],
+    "hidden_tests": [
+      {
+        "values": [
+          0.0,
+          4.0,
+          8.0
+        ],
+        "expect": 4.0
+      }
+    ],
+    "reference_solution": "def solve(values: list[float]) -> float:\n    return sum(values) / len(values)\n",
+    "estimated_duration": 40
+  },
+  {
+    "id": "coding-challenge-digital-twins-project",
+    "title": "Mini-project · Digital twins",
+    "concept_slug": "digital-twins",
+    "difficulty": "expert",
+    "description": "Combine the three drills for Digital twins into one function with tests.",
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "category": "modelling-simulation",
+    "language": "python",
+    "entrypoint": "solve",
+    "variant": "implement",
+    "starter_code": "def solve(values: list[float]) -> dict:\n    \"\"\"Return mean and count for a Digital twins drill.\"\"\"\n    raise NotImplementedError\n",
     "visible_tests": [
       {
         "values": [

@@ -38,7 +38,7 @@ services:
       QDRANT_URL: ${QDRANT_URL:-memory}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       REDIS_URL: redis://redis:6379/0
-      CORS_ORIGINS: http://localhost:3000,http://localhost:3001
+      CORS_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:3004,http://localhost:3005
     depends_on:
       postgres:
         condition: service_healthy

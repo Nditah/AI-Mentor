@@ -35,13 +35,19 @@ In development and test only, `X-Dev-User-Id` may be `demo-student`, `demo-instr
 
 `GET /me` returns id, email, display name, role, handle, locale, time zone, country, leaderboard opt-out, subscription status, XP, level, and streak.
 
+`GET /me/apps` returns the five applications (`learner`, `instructor`, `institution`, `studio`, `admin`) with origin and `available` for this account's role. Every signed-in person may open the Learner App. Instructor, Institution, and Content Studio need instructor or admin. The Admin App needs admin.
+
 `PATCH /me` with any of `handle` (`^[A-Za-z0-9_]{3,24}$`, unique ignoring case; 409 if taken), `locale` (`en`, `fr`, `es`), `timezone` (IANA name; 422 otherwise), `country_code` (ISO 3166 alpha-2), `leaderboard_opt_out`.
 
 `GET /me/export` returns the learner's profile, conversations with messages, quiz results, documents, code submissions, flashcards, study plans, mastery, and XP ledger as JSON.
 
 `DELETE /me` erases the account (204): the Clerk user, Qdrant points, and PostgreSQL rows; the Stripe customer is anonymised. Returns 503 if a dependency could not be reached, and nothing is deleted locally in that case.
 
-Public: `GET /health`, `GET /api/v1/learning-paths`, `GET /api/v1/knowledge-graph`, `GET /api/v1/lab/projects`, `GET /api/v1/leaderboard`. Path detail and every other learning route require a user.
+Public: `GET /health`, `GET /api/v1/learning-paths`, `GET /api/v1/knowledge-graph`, `GET /api/v1/lab/projects`, `GET /api/v1/leaderboard`, `GET /api/v1/catalog/stats`, `POST /api/v1/leads`. Path detail and every other learning route require a user.
+
+`GET /api/v1/catalog/stats` returns live published-catalog counts (resources, questions, challenges, paths, concepts) plus a short list of published learning-path titles. Drafts are omitted. The public site uses this for the proof bar; it must not call staff `/content/home`.
+
+`POST /api/v1/leads` accepts a demo or contact form (`202`). It writes an audit row and does not create an account or grant a role. A filled `website` honeypot is accepted without an audit row.
 
 ## Tutor
 
@@ -99,7 +105,7 @@ Returns `status` (`ok`, `rejected`, or `error`), `stdout`, `stderr`, `review`. A
 
 `GET|PATCH /me/learning-preferences` stores goals, career, style, preferred types, languages, weekly minutes, and free-only.
 
-Staff: `/admin/catalog/import`, `/admin/catalog/sources`, `/admin/catalog/jobs`, `/admin/catalog/duplicates`. See [Knowledge-Catalog.md](Knowledge-Catalog.md).
+Staff: `/admin/catalog/import`, `/admin/catalog/sources`, `/admin/catalog/jobs`, `/admin/catalog/duplicates`. Content Studio aliases the same routes under `/content/catalog/*`, and adds `/content/home`, `/content/questions` (no answer keys), `/content/challenges` (no hidden tests), and `/content/assets` (authored library only). See [Knowledge-Catalog.md](Knowledge-Catalog.md).
 
 `POST /study-plan/create` `{ "goal": "..." }` and `GET /study-plans`
 

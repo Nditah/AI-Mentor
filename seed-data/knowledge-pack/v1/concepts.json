@@ -82,12 +82,27 @@
     "summary": "Symbolic, statistical, and foundation-model eras."
   },
   {
+    "slug": "python-language",
+    "name": "Python",
+    "category": "programming",
+    "topic": "python-language",
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "summary": "Syntax, types, packaging, and tests before a training loop."
+  },
+  {
     "slug": "python-for-ml",
     "name": "Python for machine learning",
     "category": "machine-learning",
     "topic": "linear-models",
     "difficulty": "beginner",
-    "prerequisites": [],
+    "prerequisites": [
+      "python-language"
+    ],
     "skills": [
       "python",
       "numpy",
@@ -1606,7 +1621,7 @@
     "slug": "3d-vision",
     "name": "3D vision",
     "category": "computer-vision",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "difficulty": "expert",
     "prerequisites": [
       "multiview",
@@ -1940,5 +1955,407 @@
       "communication"
     ],
     "summary": "Proposals, talks, and a claim a funder can test."
+  },
+  {
+    "slug": "opencv",
+    "name": "OpenCV",
+    "category": "computer-vision",
+    "topic": "opencv",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "computer-vision"
+    ],
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "summary": "Cameras, filters, contours, and a first calibrated image."
+  },
+  {
+    "slug": "yolo",
+    "name": "YOLO",
+    "category": "computer-vision",
+    "topic": "yolo",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "detection"
+    ],
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "summary": "Single-shot boxes with a real-time budget."
+  },
+  {
+    "slug": "detr",
+    "name": "DETR",
+    "category": "computer-vision",
+    "topic": "detr",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "detection",
+      "transformers"
+    ],
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "summary": "Detection as set prediction, without anchors."
+  },
+  {
+    "slug": "segmentation",
+    "name": "Image segmentation",
+    "category": "computer-vision",
+    "topic": "segmentation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "cnns",
+      "computer-vision"
+    ],
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "summary": "Pixels to classes, instances, and panoptic maps."
+  },
+  {
+    "slug": "stereo-vision",
+    "name": "Stereo vision",
+    "category": "computer-vision",
+    "topic": "stereo-vision",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "image-formation",
+      "linear-algebra"
+    ],
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "summary": "Two views, disparity, and a depth map you can check."
+  },
+  {
+    "slug": "lidar",
+    "name": "LiDAR",
+    "category": "computer-vision",
+    "topic": "lidar",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "computer-vision",
+      "probability"
+    ],
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "summary": "Range returns to objects, lanes, and maps."
+  },
+  {
+    "slug": "nlp-fundamentals",
+    "name": "NLP fundamentals",
+    "category": "nlp",
+    "topic": "nlp-survey",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "python-for-ml"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "summary": "What language tasks are, before you fine-tune a transformer."
+  },
+  {
+    "slug": "embeddings",
+    "name": "Embeddings",
+    "category": "nlp",
+    "topic": "embeddings",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "tokenization",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "summary": "Vectors that put similar text near similar text."
+  },
+  {
+    "slug": "federated-learning",
+    "name": "Federated learning",
+    "category": "federated-learning",
+    "topic": "fl-intro",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "summary": "Train across clients without sending the raw rows."
+  },
+  {
+    "slug": "fedavg",
+    "name": "FedAvg",
+    "category": "federated-learning",
+    "topic": "fedavg",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "summary": "Average client updates on a server, then broadcast the new weights."
+  },
+  {
+    "slug": "fedprox",
+    "name": "FedProx",
+    "category": "federated-learning",
+    "topic": "fedprox",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "summary": "A proximal term so heterogeneous clients do not drift apart."
+  },
+  {
+    "slug": "differential-privacy",
+    "name": "Differential privacy",
+    "category": "federated-learning",
+    "topic": "differential-privacy",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "probability",
+      "federated-learning"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "summary": "A privacy budget on what a trained model can reveal about one row."
+  },
+  {
+    "slug": "edge-ai",
+    "name": "Edge AI",
+    "category": "federated-learning",
+    "topic": "edge-ai",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "neural-networks",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "summary": "Inference and on-device training next to the sensor."
+  },
+  {
+    "slug": "cpp",
+    "name": "C++",
+    "category": "programming",
+    "topic": "cpp",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "python-language"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "summary": "Types, memory, and the subset used on robots."
+  },
+  {
+    "slug": "ros2-cpp",
+    "name": "ROS 2 C++",
+    "category": "programming",
+    "topic": "ros2-cpp",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "ros2",
+      "cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "summary": "rclcpp nodes, executors, parameters, and lifecycle."
+  },
+  {
+    "slug": "software-engineering",
+    "name": "Software engineering",
+    "category": "programming",
+    "topic": "software-engineering",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "python-language"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "summary": "Design, tests, reviews, and a change you can revert."
+  },
+  {
+    "slug": "matlab",
+    "name": "MATLAB",
+    "category": "modelling-simulation",
+    "topic": "matlab",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "summary": "Arrays, plots, and a numerical experiment you can re-run."
+  },
+  {
+    "slug": "simulink",
+    "name": "Simulink",
+    "category": "modelling-simulation",
+    "topic": "simulink",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "matlab",
+      "calculus"
+    ],
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "summary": "Block diagrams of continuous and discrete plants."
+  },
+  {
+    "slug": "gazebo",
+    "name": "Gazebo",
+    "category": "modelling-simulation",
+    "topic": "gazebo",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "simulation"
+    ],
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "summary": "Rigid-body robots, sensors, and a ROS 2 bring-up in simulation."
+  },
+  {
+    "slug": "isaac-sim",
+    "name": "Isaac Sim",
+    "category": "modelling-simulation",
+    "topic": "isaac-sim",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "simulation"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "summary": "GPU-native scenes, synthetic data, and domain randomisation."
+  },
+  {
+    "slug": "mujoco",
+    "name": "MuJoCo",
+    "category": "modelling-simulation",
+    "topic": "mujoco",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "simulation",
+      "control-theory"
+    ],
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "summary": "Contact-rich physics for control and RL."
+  },
+  {
+    "slug": "carla",
+    "name": "CARLA",
+    "category": "modelling-simulation",
+    "topic": "carla",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "simulation",
+      "computer-vision"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "summary": "Urban driving: sensors, traffic, and a closed loop."
+  },
+  {
+    "slug": "airsim",
+    "name": "AirSim",
+    "category": "modelling-simulation",
+    "topic": "airsim",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "simulation"
+    ],
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "summary": "Aerial and ground vehicles in Unreal scenes."
+  },
+  {
+    "slug": "webots",
+    "name": "Webots",
+    "category": "modelling-simulation",
+    "topic": "webots",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "simulation"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "summary": "Cross-platform robot scenes with controllers you can step."
+  },
+  {
+    "slug": "coppeliasim",
+    "name": "CoppeliaSim",
+    "category": "modelling-simulation",
+    "topic": "coppeliasim",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "simulation"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "summary": "Scenes, child scripts, and inverse kinematics."
+  },
+  {
+    "slug": "digital-twins",
+    "name": "Digital twins",
+    "category": "modelling-simulation",
+    "topic": "digital-twins",
+    "difficulty": "expert",
+    "prerequisites": [
+      "simulink",
+      "gazebo"
+    ],
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "summary": "A live model kept honest by measurements."
   }
 ]

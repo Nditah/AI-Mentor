@@ -24,6 +24,9 @@ CATEGORY_FILES = {
     "mathematics": "mathematics-resources.json",
     "generative-ai": "genai-resources.json",
     "llm-engineering": "llm-engineering-resources.json",
+    "federated-learning": "federated-learning-resources.json",
+    "programming": "programming-resources.json",
+    "modelling-simulation": "modelling-simulation-resources.json",
 }
 
 TYPE_FILES = {

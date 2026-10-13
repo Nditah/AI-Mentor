@@ -6,6 +6,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.domain.catalog import ACHIEVEMENTS, CONCEPTS, PATHS, PROJECTS, Concept
+from app.domain.learn.seed_journey import seed_guided
 from app.models import (
     Achievement,
     ConceptRelation,
@@ -137,6 +138,8 @@ def seed_catalog(session: Session, *, demo_accounts: bool = False) -> None:
         row.description = achievement.description
         row.xp_reward = achievement.xp_reward
         row.icon = achievement.icon
+
+    seed_guided(session)
 
     for project in PROJECTS:
         row = session.scalar(select(Project).where(Project.slug == project.slug))

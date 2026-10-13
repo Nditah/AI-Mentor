@@ -1,8 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { api, ApiError } from "@/lib/api";
+import { api, ApiError, studioUrl } from "@/lib/api";
 
 type Overview = {
   users: number;
@@ -49,9 +48,9 @@ export default function OverviewPage() {
         <h2 className="text-xl font-semibold">Needs attention</h2>
         <ul className="mt-2 space-y-1">
           <li>
-            <Link className="underline" href="/review">
-              {data.review_queue} resources in review
-            </Link>
+            <a className="underline" href={`${studioUrl}/review`}>
+              {data.review_queue} resources in review (Content Studio)
+            </a>
           </li>
         </ul>
       </section>

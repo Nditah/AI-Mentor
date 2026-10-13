@@ -12,7 +12,7 @@
 | Owner | Principal QA Engineer / Test Architect |
 | Standard | Structure follows ISO/IEC/IEEE 29119-3 (test plan, test design, test case specifications) |
 | Normative inputs | [SRS.md](SRS.md) (requirements and acceptance criteria), [UseCases.md](UseCases.md), [PRD.md](PRD.md), [Admin.md](Admin.md), [Requirements.md](Requirements.md) |
-| Informative inputs | [SystemArchitecture.md](SystemArchitecture.md), [Architecture.md](Architecture.md), [API.md](API.md), current code in `backend/` and `frontend/` |
+| Informative inputs | [SystemArchitecture.md](SystemArchitecture.md), [Architecture.md](Architecture.md), [API.md](API.md), current code in `backend/` and `apps/` |
 
 This plan defines how AI Mentor is verified before the MVP release and on every change after it. Every test case carries the SRS requirement IDs it verifies. The traceability matrix in section 16 is built from those IDs, and every `M` or `S` requirement for the MVP release maps to at least one test.
 
@@ -286,7 +286,7 @@ All SRS requirements tagged `MVP` with priority `M` or `S`, as listed in the tra
 | API | `backend/app` | Git SHA of release candidate |
 | Domain rules | `backend/app/domain` | same |
 | Prompts | `backend/app/prompts` | Prompt version IDs (NFR-MNT-004) |
-| Web app | `frontend/` | same SHA |
+| Web apps | `apps/learner`, `apps/admin`, `apps/instructor`, `apps/institution`, `apps/studio` | same SHA |
 | Admin portal | `admin/` | same SHA |
 | Migrations | `backend/alembic/versions` | same |
 | Infrastructure | `infrastructure/` | same |

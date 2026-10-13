@@ -98,6 +98,10 @@ tags:
     description: Retrieval over a learner's papers and, by contract, the published knowledge base.
   - name: Resources
     description: Published knowledge assets visible to learners. Contract.
+  - name: Catalog
+    description: Published catalog summaries. Public stats feed the marketing site.
+  - name: Leads
+    description: Public demo and contact forms. Never grant a role.
   - name: Knowledge Repository
     description: Admin and instructor curation, versioning, and publishing. Contract.
   - name: Coding Lab
@@ -263,6 +267,45 @@ paths:
           $ref: "#/components/responses/TooManyRequests"
         "503":
           $ref: "#/components/responses/ServiceUnavailable"
+
+  /api/v1/me/apps:
+    get:
+      tags: [Authentication, Users]
+      operationId: listMyApps
+      summary: Applications this account may open
+      description: |
+        Returns the five platform apps with their origins and whether this account's
+        role may use each one. The Learner App is available to every signed-in person.
+        Instructor, Institution, and Content Studio require instructor or admin.
+        The Admin App requires admin. Each app uses this list for its launcher.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: App launcher entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required: [code, name, url, available]
+                  properties:
+                    code:
+                      type: string
+                      enum: [learner, instructor, institution, studio, admin]
+                    name:
+                      type: string
+                    url:
+                      type: string
+                      format: uri
+                    available:
+                      type: boolean
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
 
   /api/v1/me/export:
     get:
@@ -809,6 +852,59 @@ paths:
                 maxItems: 10
                 items:
                   $ref: "#/components/schemas/LeaderboardEntry"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/catalog/stats:
+    get:
+      tags: [Catalog]
+      operationId: getCatalogStats
+      summary: Published catalog counts
+      description: |
+        Public. Live published-resource, question, challenge, path, and concept totals
+        for the public website proof bar. Drafts are omitted. Does not grant access to
+        staff `/content/home`.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      responses:
+        "200":
+          description: Published catalog summary.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CatalogStats"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/leads:
+    post:
+      tags: [Leads]
+      operationId: createLead
+      summary: Accept a demo or contact lead
+      description: |
+        Public. Writes an audit row and returns 202. Does not create an account or grant
+        a role. A filled `website` honeypot is accepted without an audit row.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: standard
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeadIn"
+      responses:
+        "202":
+          description: Lead accepted.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeadAccepted"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
@@ -3538,6 +3634,107 @@ components:
         streak_days:
           type: integer
           minimum: 0
+
+    CatalogPathSummary:
+      type: object
+      additionalProperties: false
+      required: [slug, title, description, difficulty]
+      properties:
+        slug:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        difficulty:
+          type: string
+        estimated_minutes:
+          type: [integer, "null"]
+
+    CatalogStats:
+      type: object
+      additionalProperties: false
+      required: [published, questions, challenges, paths, concepts, by_type, pack_paths, note]
+      properties:
+        published:
+          type: integer
+          minimum: 0
+        questions:
+          type: integer
+          minimum: 0
+        challenges:
+          type: integer
+          minimum: 0
+        paths:
+          type: integer
+          minimum: 0
+        concepts:
+          type: integer
+          minimum: 0
+        by_type:
+          type: object
+          additionalProperties:
+            type: integer
+        pack_paths:
+          type: array
+          items:
+            $ref: "#/components/schemas/CatalogPathSummary"
+        note:
+          type: string
+
+    LeadIn:
+      type: object
+      additionalProperties: false
+      required: [kind, name, email]
+      properties:
+        kind:
+          type: string
+          enum: [instructor, enterprise, sales, support, partnership, content]
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        email:
+          type: string
+          maxLength: 320
+        organisation:
+          type: [string, "null"]
+          maxLength: 200
+        role:
+          type: [string, "null"]
+          maxLength: 80
+        seats:
+          type: [integer, "null"]
+          minimum: 1
+        country:
+          type: [string, "null"]
+        cohort_size:
+          type: [integer, "null"]
+          minimum: 1
+        start_month:
+          type: [string, "null"]
+        sso:
+          type: [boolean, "null"]
+        lms:
+          type: [string, "null"]
+          enum: [canvas, moodle, other, none]
+        message:
+          type: string
+          maxLength: 4000
+        website:
+          type: string
+          description: Honeypot. Leave empty.
+
+    LeadAccepted:
+      type: object
+      additionalProperties: false
+      required: [status]
+      properties:
+        status:
+          type: string
+          const: accepted
+        id:
+          type: string
 
     ScopedLeaderboard:
       type: object

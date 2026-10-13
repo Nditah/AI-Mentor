@@ -18,7 +18,7 @@ type Asset = {
 export default function LibraryPage() {
   const query = useQuery({
     queryKey: ["assets"],
-    queryFn: () => api<Asset[]>("/api/v1/admin/assets"),
+    queryFn: () => api<Asset[]>("/api/v1/content/assets"),
   });
   return (
     <div>
@@ -29,7 +29,8 @@ export default function LibraryPage() {
         </Link>
       </div>
       <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-        Drafts stay private. Students see a resource only after an admin publishes it.
+        Authored drafts stay private and separate from Knowledge Pack rows. Students see a resource
+        only after an admin publishes it.
       </p>
       {query.isLoading ? <p className="mt-6">Loading the library…</p> : null}
       {query.data && query.data.length === 0 ? (

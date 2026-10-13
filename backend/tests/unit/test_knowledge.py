@@ -20,6 +20,7 @@ from app.domain.knowledge.graph import (
 )
 from app.domain.knowledge.ingestion import PipelineContext, run_pipeline
 from app.domain.knowledge.pack import compile_graph, compile_pack, pack_meets_launch
+from app.domain.knowledge.pack_academies import ACADEMIES, academy_gaps
 from app.domain.knowledge.quality import score_record
 from app.domain.knowledge.recommend import LearnerState, recommend_resources
 from app.domain.knowledge.search import SearchQuery, reciprocal_rank_fusion, search
@@ -235,3 +236,14 @@ def test_knowledge_pack_meets_launch_floor() -> None:
     assert counts["questions"] >= 2000
     assert counts["challenges"] >= 500
     assert len(pack.paths) >= 50
+
+
+def test_mandatory_academies_are_complete() -> None:
+    pack = compile_pack()
+    assert academy_gaps(pack) == []
+    titles = {path.title for path in pack.paths}
+    for academy in ACADEMIES:
+        assert academy.title in titles
+        path = next(item for item in pack.paths if item.title == academy.title)
+        for _label, slug in academy.modules:
+            assert slug in path.concepts

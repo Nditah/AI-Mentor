@@ -32,6 +32,11 @@ XP_RULES: dict[str, XpRule] = {
     "project": XpRule(CODE_XP),
     "review": XpRule(REVIEW_XP, daily_limit=20),
     "analysis": XpRule(ANALYSIS_XP, daily_limit=3),
+    # Guided journey. Each source key pays once. Amounts for assessments and paths
+    # are the authored reward, passed in by the caller.
+    "knowledge_check": XpRule(5, daily_limit=20),
+    "assessment": XpRule(None, daily_limit=10),
+    "path": XpRule(None),
 }
 
 

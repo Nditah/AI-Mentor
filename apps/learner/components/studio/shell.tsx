@@ -11,11 +11,11 @@ import {
   Map,
   MessageSquare,
   Search,
-  Shield,
   SquareStack,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AppLauncher } from "@/components/app-launcher";
 import { api } from "@/lib/api";
 import type { Dashboard } from "@/lib/types";
 import { clerkEnabled } from "@/lib/csp";
@@ -24,19 +24,18 @@ import { useStudio } from "@/stores/studio";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
-  ["/dashboard", "Dashboard", LayoutDashboard],
+  ["/dashboard", "Home", LayoutDashboard],
   ["/tutor", "Tutor", MessageSquare],
-  ["/quiz", "Quiz", ClipboardCheck],
-  ["/paths", "Paths", GraduationCap],
+  ["/academies", "Learn", GraduationCap],
   ["/catalog", "Catalog", Search],
-  ["/graph", "Concept map", Map],
+  ["/quiz", "Practice", ClipboardCheck],
   ["/flashcards", "Flashcards", SquareStack],
-  ["/lab", "Coding lab", FlaskConical],
+  ["/lab", "Lab", FlaskConical],
+  ["/graph", "Concept map", Map],
   ["/research", "Research", BookOpen],
-  ["/admin", "Admin", Shield],
 ] as const;
 
-export function StudioShell({ children }: { children: React.ReactNode }) {
+export function LearnerShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const devUserId = useStudio((state) => state.devUserId);
   const setDevUserId = useStudio((state) => state.setDevUserId);
@@ -51,9 +50,14 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
         <Link href="/" className="font-display text-2xl tracking-tight">
           AI Mentor
         </Link>
-        <nav className="mt-4 flex gap-1 overflow-x-auto lg:flex-col" aria-label="Studio">
+        <p className="text-sm text-slate-500">Learner App</p>
+        <AppLauncher current="learner" />
+        <nav className="mt-4 flex gap-1 overflow-x-auto lg:flex-col" aria-label="Learner">
           {links.map(([href, label, Icon]) => {
-            const active = pathname === href || pathname.startsWith(`${href}/`);
+            const learn = ["/academies", "/paths", "/courses", "/modules", "/learn", "/assessments"];
+            const active = href === "/academies"
+              ? learn.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`))
+              : pathname === href || pathname.startsWith(`${href}/`);
             return (
               <Link
                 key={href}
@@ -85,7 +89,7 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
                 {dashboard.data.streak_days} day streak
               </>
             ) : (
-              "Studio"
+              "Learner App"
             )}
           </p>
           <div className="flex items-center gap-2">

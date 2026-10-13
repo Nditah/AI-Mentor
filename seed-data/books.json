@@ -2687,6 +2687,233 @@
     ]
   },
   {
+    "id": "book-learning-opencv-3",
+    "title": "Learning OpenCV 3",
+    "description": "Kaehler, Bradski (2016). A book-length treatment of opencv used as a spine for the corresponding concepts in this catalog.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "book",
+    "provider": "Kaehler",
+    "author": "Kaehler, Bradski",
+    "url": "https://docs.opencv.org",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2016",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Kaehler, Bradski (2016). A book-length treatment of opencv used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781491937990",
+      "year": 2016
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "opencv",
+      "image-formation"
+    ]
+  },
+  {
+    "id": "book-the-algorithmic-foundations-of-differential-privacy",
+    "title": "The Algorithmic Foundations of Differential Privacy",
+    "description": "Dwork, Roth (2014). A book-length treatment of differential privacy used as a spine for the corresponding concepts in this catalog.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "Dwork",
+    "author": "Dwork, Roth",
+    "url": "https://www.nowpublishers.com/article/Details/TCS-042",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2014",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Dwork, Roth (2014). A book-length treatment of differential privacy used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781601988188",
+      "year": 2014
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "differential-privacy",
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-a-tour-of-c",
+    "title": "A Tour of C++",
+    "description": "Stroustrup (2022). A book-length treatment of cpp used as a spine for the corresponding concepts in this catalog.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "Stroustrup",
+    "author": "Stroustrup",
+    "url": "https://www.stroustrup.com/tour3.html",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2022",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Stroustrup (2022). A book-length treatment of cpp used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9780136816485",
+      "year": 2022
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "cpp",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-python-packaging-user-guide",
+    "title": "Python Packaging User Guide",
+    "description": "PyPA (2024). A book-length treatment of python language used as a spine for the corresponding concepts in this catalog.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "PyPA",
+    "author": "PyPA",
+    "url": "https://packaging.python.org",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2024",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 72,
+    "ai_generated_summary": "PyPA (2024). A book-length treatment of python language used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "pypa-packaging",
+      "year": 2024
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "python-language",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-matlab-documentation",
+    "title": "MATLAB documentation",
+    "description": "MathWorks (2024). A book-length treatment of matlab used as a spine for the corresponding concepts in this catalog.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "book",
+    "provider": "MathWorks",
+    "author": "MathWorks",
+    "url": "https://www.mathworks.com/help/matlab/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2024",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 72,
+    "ai_generated_summary": "MathWorks (2024). A book-length treatment of matlab used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "matlab-docs",
+      "year": 2024
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "book-gazebo-documentation",
+    "title": "Gazebo documentation",
+    "description": "Open Robotics (2024). A book-length treatment of gazebo used as a spine for the corresponding concepts in this catalog.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "book",
+    "provider": "Open Robotics",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2024",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 72,
+    "ai_generated_summary": "Open Robotics (2024). A book-length treatment of gazebo used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "gazebo-docs",
+      "year": 2024
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "gazebo",
+      "simulation"
+    ]
+  },
+  {
     "id": "book-lecture-notes-ai-fundamentals",
     "title": "Lecture notes: AI Fundamentals",
     "description": "Open lecture notes covering AI Fundamentals. Agents, data, and the difference between a rule and a learned policy. Use them as a book-length spine when a commercial text is not required.",
@@ -3332,6 +3559,116 @@
     "licence": "own-work",
     "concepts": [
       "ai-history"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-python",
+    "title": "Lecture notes: Python",
+    "description": "Open lecture notes covering Python. Syntax, types, packaging, and tests before a training loop. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Python. Syntax, types, packaging, and tests before a training loop. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "book-handbook-of-python",
+    "title": "Handbook of Python",
+    "description": "A field handbook for Python: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Python: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "book-problem-book-python",
+    "title": "Problem book: Python",
+    "description": "Worked problems for Python. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Python. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
     ]
   },
   {
@@ -14462,7 +14799,7 @@
     "description": "Open lecture notes covering 3D vision. Depth, NeRF, and Gaussian splatting. Use them as a book-length spine when a commercial text is not required.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "book",
     "provider": "Open courseware",
     "author": "University faculty",
@@ -14497,7 +14834,7 @@
     "description": "A field handbook for 3D vision: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "book",
     "provider": "AI Mentor",
     "author": "AI Mentor content organisation",
@@ -14534,7 +14871,7 @@
     "description": "Worked problems for 3D vision. Each exercise has a short solution sketch and a pointer back to the concept graph.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "book",
     "provider": "AI Mentor",
     "author": "AI Mentor content organisation",
@@ -16956,6 +17293,2866 @@
     "licence": "own-work",
     "concepts": [
       "grant-writing"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-opencv",
+    "title": "Lecture notes: OpenCV",
+    "description": "Open lecture notes covering OpenCV. Cameras, filters, contours, and a first calibrated image. Use them as a book-length spine when a commercial text is not required.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=opencv",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering OpenCV. Cameras, filters, contours, and a first calibrated image. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "book-handbook-of-opencv",
+    "title": "Handbook of OpenCV",
+    "description": "A field handbook for OpenCV: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "opencv"
+    ],
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for OpenCV: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "book-problem-book-opencv",
+    "title": "Problem book: OpenCV",
+    "description": "Worked problems for OpenCV. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "opencv"
+    ],
+    "skills": [
+      "opencv",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for OpenCV. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-yolo",
+    "title": "Lecture notes: YOLO",
+    "description": "Open lecture notes covering YOLO. Single-shot boxes with a real-time budget. Use them as a book-length spine when a commercial text is not required.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=yolo",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "yolo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering YOLO. Single-shot boxes with a real-time budget. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "book-handbook-of-yolo",
+    "title": "Handbook of YOLO",
+    "description": "A field handbook for YOLO: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "yolo"
+    ],
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for YOLO: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "book-problem-book-yolo",
+    "title": "Problem book: YOLO",
+    "description": "Worked problems for YOLO. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "yolo"
+    ],
+    "skills": [
+      "detection",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for YOLO. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-detr",
+    "title": "Lecture notes: DETR",
+    "description": "Open lecture notes covering DETR. Detection as set prediction, without anchors. Use them as a book-length spine when a commercial text is not required.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=detr",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "detr"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering DETR. Detection as set prediction, without anchors. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "book-handbook-of-detr",
+    "title": "Handbook of DETR",
+    "description": "A field handbook for DETR: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "detr"
+    ],
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for DETR: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "book-problem-book-detr",
+    "title": "Problem book: DETR",
+    "description": "Worked problems for DETR. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "detr"
+    ],
+    "skills": [
+      "detection",
+      "transformers"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for DETR. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-image-segmentation",
+    "title": "Lecture notes: Image segmentation",
+    "description": "Open lecture notes covering Image segmentation. Pixels to classes, instances, and panoptic maps. Use them as a book-length spine when a commercial text is not required.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=segmentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "segmentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Image segmentation. Pixels to classes, instances, and panoptic maps. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "book-handbook-of-image-segmentation",
+    "title": "Handbook of Image segmentation",
+    "description": "A field handbook for Image segmentation: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "segmentation"
+    ],
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Image segmentation: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "book-problem-book-image-segmentation",
+    "title": "Problem book: Image segmentation",
+    "description": "Worked problems for Image segmentation. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "segmentation"
+    ],
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Image segmentation. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-stereo-vision",
+    "title": "Lecture notes: Stereo vision",
+    "description": "Open lecture notes covering Stereo vision. Two views, disparity, and a depth map you can check. Use them as a book-length spine when a commercial text is not required.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=stereo-vision",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "stereo-vision"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Stereo vision. Two views, disparity, and a depth map you can check. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "book-handbook-of-stereo-vision",
+    "title": "Handbook of Stereo vision",
+    "description": "A field handbook for Stereo vision: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "stereo-vision"
+    ],
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Stereo vision: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "book-problem-book-stereo-vision",
+    "title": "Problem book: Stereo vision",
+    "description": "Worked problems for Stereo vision. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "stereo-vision"
+    ],
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Stereo vision. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-lidar",
+    "title": "Lecture notes: LiDAR",
+    "description": "Open lecture notes covering LiDAR. Range returns to objects, lanes, and maps. Use them as a book-length spine when a commercial text is not required.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=lidar",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "lidar"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering LiDAR. Range returns to objects, lanes, and maps. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "book-handbook-of-lidar",
+    "title": "Handbook of LiDAR",
+    "description": "A field handbook for LiDAR: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "lidar"
+    ],
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for LiDAR: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "book-problem-book-lidar",
+    "title": "Problem book: LiDAR",
+    "description": "Worked problems for LiDAR. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "lidar"
+    ],
+    "skills": [
+      "opencv",
+      "detection"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for LiDAR. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-nlp-fundamentals",
+    "title": "Lecture notes: NLP fundamentals",
+    "description": "Open lecture notes covering NLP fundamentals. What language tasks are, before you fine-tune a transformer. Use them as a book-length spine when a commercial text is not required.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=nlp-fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering NLP fundamentals. What language tasks are, before you fine-tune a transformer. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "book-handbook-of-nlp-fundamentals",
+    "title": "Handbook of NLP fundamentals",
+    "description": "A field handbook for NLP fundamentals: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for NLP fundamentals: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "book-problem-book-nlp-fundamentals",
+    "title": "Problem book: NLP fundamentals",
+    "description": "Worked problems for NLP fundamentals. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "nlp-fundamentals"
+    ],
+    "skills": [
+      "huggingface",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for NLP fundamentals. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-embeddings",
+    "title": "Lecture notes: Embeddings",
+    "description": "Open lecture notes covering Embeddings. Vectors that put similar text near similar text. Use them as a book-length spine when a commercial text is not required.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Embeddings. Vectors that put similar text near similar text. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "book-handbook-of-embeddings",
+    "title": "Handbook of Embeddings",
+    "description": "A field handbook for Embeddings: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Embeddings: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "book-problem-book-embeddings",
+    "title": "Problem book: Embeddings",
+    "description": "Worked problems for Embeddings. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "embeddings"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Embeddings. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-federated-learning",
+    "title": "Lecture notes: Federated learning",
+    "description": "Open lecture notes covering Federated learning. Train across clients without sending the raw rows. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=federated-learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Federated learning. Train across clients without sending the raw rows. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-handbook-of-federated-learning",
+    "title": "Handbook of Federated learning",
+    "description": "A field handbook for Federated learning: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Federated learning: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-problem-book-federated-learning",
+    "title": "Problem book: Federated learning",
+    "description": "Worked problems for Federated learning. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "federated-learning"
+    ],
+    "skills": [
+      "federated-learning",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Federated learning. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-fedavg",
+    "title": "Lecture notes: FedAvg",
+    "description": "Open lecture notes covering FedAvg. Average client updates on a server, then broadcast the new weights. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering FedAvg. Average client updates on a server, then broadcast the new weights. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "book-handbook-of-fedavg",
+    "title": "Handbook of FedAvg",
+    "description": "A field handbook for FedAvg: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for FedAvg: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "book-problem-book-fedavg",
+    "title": "Problem book: FedAvg",
+    "description": "Worked problems for FedAvg. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "fedavg"
+    ],
+    "skills": [
+      "federated-learning",
+      "pytorch"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for FedAvg. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-fedprox",
+    "title": "Lecture notes: FedProx",
+    "description": "Open lecture notes covering FedProx. A proximal term so heterogeneous clients do not drift apart. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering FedProx. A proximal term so heterogeneous clients do not drift apart. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "book-handbook-of-fedprox",
+    "title": "Handbook of FedProx",
+    "description": "A field handbook for FedProx: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for FedProx: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "book-problem-book-fedprox",
+    "title": "Problem book: FedProx",
+    "description": "Worked problems for FedProx. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "fedprox"
+    ],
+    "skills": [
+      "federated-learning",
+      "optimisation"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for FedProx. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-differential-privacy",
+    "title": "Lecture notes: Differential privacy",
+    "description": "Open lecture notes covering Differential privacy. A privacy budget on what a trained model can reveal about one row. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=differential-privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Differential privacy. A privacy budget on what a trained model can reveal about one row. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-handbook-of-differential-privacy",
+    "title": "Handbook of Differential privacy",
+    "description": "A field handbook for Differential privacy: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Differential privacy: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-problem-book-differential-privacy",
+    "title": "Problem book: Differential privacy",
+    "description": "Worked problems for Differential privacy. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "differential-privacy"
+    ],
+    "skills": [
+      "differential-privacy",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Differential privacy. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-edge-ai",
+    "title": "Lecture notes: Edge AI",
+    "description": "Open lecture notes covering Edge AI. Inference and on-device training next to the sensor. Use them as a book-length spine when a commercial text is not required.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=edge-ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Edge AI. Inference and on-device training next to the sensor. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "book-handbook-of-edge-ai",
+    "title": "Handbook of Edge AI",
+    "description": "A field handbook for Edge AI: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Edge AI: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "book-problem-book-edge-ai",
+    "title": "Problem book: Edge AI",
+    "description": "Worked problems for Edge AI. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "edge-ai"
+    ],
+    "skills": [
+      "federated-learning",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Edge AI. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-c",
+    "title": "Lecture notes: C++",
+    "description": "Open lecture notes covering C++. Types, memory, and the subset used on robots. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering C++. Types, memory, and the subset used on robots. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "book-handbook-of-c",
+    "title": "Handbook of C++",
+    "description": "A field handbook for C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "book-problem-book-c",
+    "title": "Problem book: C++",
+    "description": "Worked problems for C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-ros-2-c",
+    "title": "Lecture notes: ROS 2 C++",
+    "description": "Open lecture notes covering ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "book-handbook-of-ros-2-c",
+    "title": "Handbook of ROS 2 C++",
+    "description": "A field handbook for ROS 2 C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for ROS 2 C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "book-problem-book-ros-2-c",
+    "title": "Problem book: ROS 2 C++",
+    "description": "Worked problems for ROS 2 C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for ROS 2 C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-software-engineering",
+    "title": "Lecture notes: Software engineering",
+    "description": "Open lecture notes covering Software engineering. Design, tests, reviews, and a change you can revert. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Software engineering. Design, tests, reviews, and a change you can revert. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-handbook-of-software-engineering",
+    "title": "Handbook of Software engineering",
+    "description": "A field handbook for Software engineering: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Software engineering: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-problem-book-software-engineering",
+    "title": "Problem book: Software engineering",
+    "description": "Worked problems for Software engineering. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Software engineering. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-matlab",
+    "title": "Lecture notes: MATLAB",
+    "description": "Open lecture notes covering MATLAB. Arrays, plots, and a numerical experiment you can re-run. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=matlab",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering MATLAB. Arrays, plots, and a numerical experiment you can re-run. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "book-handbook-of-matlab",
+    "title": "Handbook of MATLAB",
+    "description": "A field handbook for MATLAB: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "matlab"
+    ],
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for MATLAB: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "book-problem-book-matlab",
+    "title": "Problem book: MATLAB",
+    "description": "Worked problems for MATLAB. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "matlab"
+    ],
+    "skills": [
+      "matlab",
+      "linear-algebra"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for MATLAB. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-simulink",
+    "title": "Lecture notes: Simulink",
+    "description": "Open lecture notes covering Simulink. Block diagrams of continuous and discrete plants. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=simulink",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "simulink"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Simulink. Block diagrams of continuous and discrete plants. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "book-handbook-of-simulink",
+    "title": "Handbook of Simulink",
+    "description": "A field handbook for Simulink: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "simulink"
+    ],
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Simulink: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "book-problem-book-simulink",
+    "title": "Problem book: Simulink",
+    "description": "Worked problems for Simulink. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "simulink"
+    ],
+    "skills": [
+      "matlab",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Simulink. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-gazebo",
+    "title": "Lecture notes: Gazebo",
+    "description": "Open lecture notes covering Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=gazebo",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "book-handbook-of-gazebo",
+    "title": "Handbook of Gazebo",
+    "description": "A field handbook for Gazebo: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "gazebo"
+    ],
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Gazebo: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "book-problem-book-gazebo",
+    "title": "Problem book: Gazebo",
+    "description": "Worked problems for Gazebo. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "gazebo"
+    ],
+    "skills": [
+      "simulation-tools",
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Gazebo. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-isaac-sim",
+    "title": "Lecture notes: Isaac Sim",
+    "description": "Open lecture notes covering Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=isaac-sim",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "book-handbook-of-isaac-sim",
+    "title": "Handbook of Isaac Sim",
+    "description": "A field handbook for Isaac Sim: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "isaac-sim"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Isaac Sim: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "book-problem-book-isaac-sim",
+    "title": "Problem book: Isaac Sim",
+    "description": "Worked problems for Isaac Sim. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "isaac-sim"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Isaac Sim. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-mujoco",
+    "title": "Lecture notes: MuJoCo",
+    "description": "Open lecture notes covering MuJoCo. Contact-rich physics for control and RL. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=mujoco",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "mujoco"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering MuJoCo. Contact-rich physics for control and RL. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "book-handbook-of-mujoco",
+    "title": "Handbook of MuJoCo",
+    "description": "A field handbook for MuJoCo: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "mujoco"
+    ],
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for MuJoCo: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "book-problem-book-mujoco",
+    "title": "Problem book: MuJoCo",
+    "description": "Worked problems for MuJoCo. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "mujoco"
+    ],
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for MuJoCo. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-carla",
+    "title": "Lecture notes: CARLA",
+    "description": "Open lecture notes covering CARLA. Urban driving: sensors, traffic, and a closed loop. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=carla",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering CARLA. Urban driving: sensors, traffic, and a closed loop. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "book-handbook-of-carla",
+    "title": "Handbook of CARLA",
+    "description": "A field handbook for CARLA: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "carla"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for CARLA: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "book-problem-book-carla",
+    "title": "Problem book: CARLA",
+    "description": "Worked problems for CARLA. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "carla"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for CARLA. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-airsim",
+    "title": "Lecture notes: AirSim",
+    "description": "Open lecture notes covering AirSim. Aerial and ground vehicles in Unreal scenes. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=airsim",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "airsim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering AirSim. Aerial and ground vehicles in Unreal scenes. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "book-handbook-of-airsim",
+    "title": "Handbook of AirSim",
+    "description": "A field handbook for AirSim: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "airsim"
+    ],
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for AirSim: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "book-problem-book-airsim",
+    "title": "Problem book: AirSim",
+    "description": "Worked problems for AirSim. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "airsim"
+    ],
+    "skills": [
+      "simulation-tools",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for AirSim. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-webots",
+    "title": "Lecture notes: Webots",
+    "description": "Open lecture notes covering Webots. Cross-platform robot scenes with controllers you can step. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=webots",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "webots"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Webots. Cross-platform robot scenes with controllers you can step. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "book-handbook-of-webots",
+    "title": "Handbook of Webots",
+    "description": "A field handbook for Webots: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "webots"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Webots: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "book-problem-book-webots",
+    "title": "Problem book: Webots",
+    "description": "Worked problems for Webots. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "webots"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Webots. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-coppeliasim",
+    "title": "Lecture notes: CoppeliaSim",
+    "description": "Open lecture notes covering CoppeliaSim. Scenes, child scripts, and inverse kinematics. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=coppeliasim",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "coppeliasim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering CoppeliaSim. Scenes, child scripts, and inverse kinematics. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "book-handbook-of-coppeliasim",
+    "title": "Handbook of CoppeliaSim",
+    "description": "A field handbook for CoppeliaSim: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "coppeliasim"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for CoppeliaSim: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "book-problem-book-coppeliasim",
+    "title": "Problem book: CoppeliaSim",
+    "description": "Worked problems for CoppeliaSim. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "coppeliasim"
+    ],
+    "skills": [
+      "simulation-tools",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for CoppeliaSim. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-digital-twins",
+    "title": "Lecture notes: Digital twins",
+    "description": "Open lecture notes covering Digital twins. A live model kept honest by measurements. Use them as a book-length spine when a commercial text is not required.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=digital-twins",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "digital-twins"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Digital twins. A live model kept honest by measurements. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "digital-twins"
+    ]
+  },
+  {
+    "id": "book-handbook-of-digital-twins",
+    "title": "Handbook of Digital twins",
+    "description": "A field handbook for Digital twins: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "digital-twins"
+    ],
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Digital twins: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "digital-twins"
+    ]
+  },
+  {
+    "id": "book-problem-book-digital-twins",
+    "title": "Problem book: Digital twins",
+    "description": "Worked problems for Digital twins. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "digital-twins"
+    ],
+    "skills": [
+      "simulation-tools",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Digital twins. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "digital-twins"
     ]
   }
 ]

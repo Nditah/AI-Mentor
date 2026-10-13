@@ -13,10 +13,14 @@ from sqlalchemy.orm import Session
 
 from app.api.catalog import router as catalog_router
 from app.api.deps import engine_dep, settings_dep, user_dep
+from app.api.learn import admin as learn_admin
+from app.api.learn import content as learn_content
+from app.api.learn import router as learn_router
 from app.core.config import Settings
 from app.core.database import get_db
 from app.domain.access import is_allowed
 from app.models import User
+from app.repositories.sql import SqlRepository
 from app.services import privacy, webhooks
 from app.services.admin_portal import AdminPortal
 from app.services.engine import MAX_UPLOAD_BYTES, MentorEngine
@@ -74,6 +78,22 @@ class AgentIn(BaseModel):
 class RoleIn(BaseModel):
     role: Literal["student", "instructor", "admin"]
     reason: str = Field(default="", max_length=500)
+
+
+class LeadIn(BaseModel):
+    kind: Literal["instructor", "enterprise", "sales", "support", "partnership", "content"]
+    name: str = Field(min_length=1, max_length=120)
+    email: str = Field(min_length=3, max_length=320, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    organisation: str | None = Field(default=None, max_length=200)
+    role: str | None = Field(default=None, max_length=80)
+    seats: int | None = Field(default=None, ge=1, le=1_000_000)
+    country: str | None = Field(default=None, max_length=80)
+    cohort_size: int | None = Field(default=None, ge=1, le=1_000_000)
+    start_month: str | None = Field(default=None, max_length=20)
+    sso: bool | None = None
+    lms: Literal["canvas", "moodle", "other", "none"] | None = None
+    message: str = Field(default="", max_length=4000)
+    website: str = Field(default="", max_length=200)
 
 
 class AssetIn(BaseModel):
@@ -146,6 +166,16 @@ def _staff_only(user: User = Depends(_user)) -> None:
 
 
 admin = APIRouter(prefix="/admin", dependencies=[Depends(_staff_only)])
+content = APIRouter(prefix="/content", dependencies=[Depends(_staff_only)])
+
+
+_APP_ACCESS = (
+    ("learner", "Learner App", "student"),
+    ("instructor", "Instructor App", "instructor"),
+    ("institution", "Institution App", "instructor"),
+    ("studio", "Content Studio", "instructor"),
+    ("admin", "Admin App", "admin"),
+)
 
 
 @router.get("/me")
@@ -156,6 +186,21 @@ def me(user: User = Depends(_user), engine: MentorEngine = Depends(_engine)) -> 
         "level": user.level,
         "streak_days": user.streak_days,
     }
+
+
+@router.get("/me/apps")
+def my_apps(user: User = Depends(_user), settings: Settings = Depends(settings_dep)) -> list[dict]:
+    origins = settings.app_origin_map
+    return [
+        {
+            "code": code,
+            "name": name,
+            "url": origins[code],
+            "available": is_allowed(user.role, minimum),
+        }
+        for code, name, minimum in _APP_ACCESS
+        if code in origins
+    ]
 
 
 @router.patch("/me")
@@ -278,6 +323,36 @@ def leaderboard(engine: MentorEngine = Depends(_engine)) -> list[dict]:
     return engine.leaderboard()
 
 
+@router.post("/leads", status_code=202)
+def create_lead(body: LeadIn, db: Session = Depends(get_db)) -> dict:
+    """Accept a public demo or contact lead. Does not create an account or grant a role."""
+
+    if body.website.strip():
+        return {"status": "accepted"}
+    lead_id = str(uuid.uuid4())
+    SqlRepository(db).audit(
+        None,
+        "lead.created",
+        "lead",
+        lead_id,
+        {
+            "kind": body.kind,
+            "name": body.name,
+            "email": body.email,
+            "organisation": body.organisation,
+            "role": body.role,
+            "seats": body.seats,
+            "country": body.country,
+            "cohort_size": body.cohort_size,
+            "start_month": body.start_month,
+            "sso": body.sso,
+            "lms": body.lms,
+            "message": body.message,
+        },
+    )
+    return {"status": "accepted", "id": lead_id}
+
+
 @router.get("/learning-paths")
 def learning_paths(engine: MentorEngine = Depends(_engine)) -> list[dict]:
     return engine.paths()
@@ -390,6 +465,7 @@ def admin_overview(user: User = Depends(_user), portal: AdminPortal = Depends(_p
 
 
 @admin.get("/assets")
+@content.get("/assets")
 def admin_assets(
     state: str | None = None,
     user: User = Depends(_user),
@@ -399,6 +475,7 @@ def admin_assets(
 
 
 @admin.post("/assets")
+@content.post("/assets")
 def admin_create_asset(
     body: AssetIn, user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
@@ -406,6 +483,7 @@ def admin_create_asset(
 
 
 @admin.post("/assets/generate")
+@content.post("/assets/generate")
 def admin_generate_asset(
     body: GenerateAssetIn, user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
@@ -413,6 +491,7 @@ def admin_generate_asset(
 
 
 @admin.get("/assets/{asset_id}")
+@content.get("/assets/{asset_id}")
 def admin_asset(
     asset_id: uuid.UUID, user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
@@ -420,6 +499,7 @@ def admin_asset(
 
 
 @admin.patch("/assets/{asset_id}")
+@content.patch("/assets/{asset_id}")
 def admin_update_asset(
     asset_id: uuid.UUID,
     body: AssetPatch,
@@ -430,6 +510,7 @@ def admin_update_asset(
 
 
 @admin.post("/assets/{asset_id}/transition")
+@content.post("/assets/{asset_id}/transition")
 def admin_transition(
     asset_id: uuid.UUID,
     body: TransitionIn,
@@ -440,6 +521,7 @@ def admin_transition(
 
 
 @admin.get("/taxonomy")
+@content.get("/taxonomy")
 def admin_taxonomy(
     user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> list[dict]:
@@ -482,7 +564,11 @@ def admin_analytics(user: User = Depends(_user), engine: MentorEngine = Depends(
 
 
 router.include_router(admin)
+router.include_router(content)
 router.include_router(catalog_router)
+router.include_router(learn_router)
+router.include_router(learn_content)
+router.include_router(learn_admin)
 
 
 def _origin(url: str) -> str | None:

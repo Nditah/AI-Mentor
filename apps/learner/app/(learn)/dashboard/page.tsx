@@ -12,13 +12,17 @@ export default function DashboardPage() {
     queryKey: ["dashboard", devUserId],
     queryFn: () => api<Dashboard>("/api/v1/dashboard"),
   });
+  const carryOn = useQuery({
+    queryKey: ["continue", devUserId],
+    queryFn: () => api<{ continue: { href: string; lesson_title: string; title: string } | null }>("/api/v1/learn/continue"),
+  });
 
-  if (query.isLoading) return <p>Loading your studio…</p>;
+  if (query.isLoading) return <p>Loading your dashboard…</p>;
   if (query.error) {
     const message = query.error instanceof ApiError ? query.error.message : "The mentor service is offline.";
     return (
       <section className="max-w-xl rounded-3xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
-        <h1 className="font-display text-3xl">The studio cannot reach the mentor.</h1>
+        <h1 className="font-display text-3xl">The Learner App cannot reach the mentor.</h1>
         <p className="mt-2 text-slate-700 dark:text-slate-300">{message}</p>
         <button className="mt-4 underline" type="button" onClick={() => query.refetch()}>
           Try again
@@ -47,6 +51,17 @@ export default function DashboardPage() {
           <div className="h-full rounded-full bg-[#10B981]" style={{ width: `${width}%` }} />
         </div>
       </section>
+      {carryOn.data?.continue ? (
+        <section className="rounded-3xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-900">
+          <h2 className="text-xl font-semibold">Continue where you left off</h2>
+          <p className="mt-2 text-slate-700 dark:text-slate-300">
+            {carryOn.data.continue.lesson_title} · {carryOn.data.continue.title}
+          </p>
+          <Link className="mt-3 inline-block font-semibold text-[#1d4ed8] underline" href={carryOn.data.continue.href}>
+            Resume
+          </Link>
+        </section>
+      ) : null}
       <section className="grid gap-4 lg:grid-cols-3">
         <ScoreList title="Strengths" items={data.strengths} empty="Nothing is strong yet. Finish a lesson and a quiz." />
         <ScoreList title="Developing" items={data.developing} empty="In-between scores show up here." />

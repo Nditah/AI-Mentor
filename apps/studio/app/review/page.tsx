@@ -9,7 +9,7 @@ type Asset = { id: string; title: string; topic: string; author_name: string };
 export default function ReviewPage() {
   const query = useQuery({
     queryKey: ["review"],
-    queryFn: () => api<Asset[]>("/api/v1/admin/assets?state=review"),
+    queryFn: () => api<Asset[]>("/api/v1/content/assets?state=review"),
   });
   return (
     <div>

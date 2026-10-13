@@ -11,8 +11,8 @@ import "./globals.css";
 const sans = Source_Sans_3({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: { default: "Admin", template: "%s · AI Mentor Admin" },
-  description: "Curate the knowledge library, review drafts, and manage the studio.",
+  title: { default: "Institution", template: "%s · AI Mentor Institution" },
+  description: "Run the organisation: people, licences, compliance, and reports.",
   robots: { index: false, follow: false },
 };
 

@@ -22,6 +22,7 @@ from sqlalchemy import (
     UniqueConstraint,
     Uuid,
     false,
+    true,
     func,
     text,
 )
@@ -95,6 +96,15 @@ class Course(TimestampMixin, Base):
     description: Mapped[str] = mapped_column(Text, default="")
     level: Mapped[str] = mapped_column(String(32), default="beginner")
     published: Mapped[bool] = mapped_column(default=True)
+    path_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("learning_paths.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    academy_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("academies.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    position: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    pass_score: Mapped[int] = mapped_column(Integer, default=70, server_default="70")
+    xp_reward: Mapped[int] = mapped_column(Integer, default=40, server_default="40")
     modules: Mapped[list[Module]] = relationship(
         back_populates="course", cascade="all, delete-orphan"
     )
@@ -107,8 +117,11 @@ class Module(TimestampMixin, Base):
     course_id: Mapped[uuid.UUID] = mapped_column(
         ForeignKey("courses.id", ondelete="CASCADE"), index=True
     )
+    slug: Mapped[str | None] = mapped_column(String(80), unique=True, nullable=True)
     title: Mapped[str] = mapped_column(String(200))
+    summary: Mapped[str] = mapped_column(Text, default="", server_default="")
     position: Mapped[int] = mapped_column(Integer, default=0)
+    pass_score: Mapped[int] = mapped_column(Integer, default=70, server_default="70")
     course: Mapped[Course] = relationship(back_populates="modules")
     lessons: Mapped[list[Lesson]] = relationship(
         back_populates="module", cascade="all, delete-orphan"
@@ -192,9 +205,16 @@ class Lesson(TimestampMixin, Base):
     slug: Mapped[str] = mapped_column(String(80), unique=True)
     title: Mapped[str] = mapped_column(String(200))
     content_md: Mapped[str] = mapped_column(Text, default="")
+    summary: Mapped[str] = mapped_column(Text, default="", server_default="")
+    objectives: Mapped[list] = mapped_column(JSON, default=list, server_default=EMPTY_LIST)
     position: Mapped[int] = mapped_column(Integer, default=0)
     estimated_minutes: Mapped[int] = mapped_column(Integer, default=25)
     module: Mapped[Module] = relationship(back_populates="lessons")
+    pages: Mapped[list[TopicPage]] = relationship(
+        back_populates="lesson",
+        cascade="all, delete-orphan",
+        order_by="TopicPage.position",
+    )
 
 
 class LearningPath(TimestampMixin, Base):
@@ -205,6 +225,12 @@ class LearningPath(TimestampMixin, Base):
     title: Mapped[str] = mapped_column(String(200))
     description: Mapped[str] = mapped_column(Text, default="")
     level: Mapped[str] = mapped_column(String(32), default="beginner")
+    academy_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("academies.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    position: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    xp_reward: Mapped[int] = mapped_column(Integer, default=80, server_default="80")
+    gated: Mapped[bool] = mapped_column(default=False, server_default=false())
     items: Mapped[list[LearningPathItem]] = relationship(
         back_populates="path",
         cascade="all, delete-orphan",
@@ -705,3 +731,225 @@ class AuditEvent(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utcnow, server_default=func.now()
     )
+
+
+class Academy(TimestampMixin, Base):
+    """A product curriculum. Paths inside it are taken in order when `gated` is set."""
+
+    __tablename__ = "academies"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    slug: Mapped[str] = mapped_column(String(80), unique=True)
+    title: Mapped[str] = mapped_column(String(200))
+    summary: Mapped[str] = mapped_column(Text, default="")
+    position: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    published: Mapped[bool] = mapped_column(default=True, server_default=true())
+
+
+class TopicPage(TimestampMixin, Base):
+    """One screen of a lesson. Learners move with Previous and Next, not by scrolling a long article."""
+
+    __tablename__ = "topic_pages"
+    __table_args__ = (
+        UniqueConstraint("lesson_id", "slug", name="uq_topic_pages_lesson_slug"),
+        Index("ix_topic_pages_lesson", "lesson_id", "position"),
+        CheckConstraint(
+            "kind in ('reading', 'knowledge_check', 'complete')",
+            name="ck_topic_pages_kind",
+        ),
+        CheckConstraint("origin in ('seed', 'authored')", name="ck_topic_pages_origin"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    lesson_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("lessons.id", ondelete="CASCADE"), index=True
+    )
+    slug: Mapped[str] = mapped_column(String(80))
+    title: Mapped[str] = mapped_column(String(200))
+    kind: Mapped[str] = mapped_column(String(32), default="reading", server_default="reading")
+    body_md: Mapped[str] = mapped_column(Text, default="")
+    position: Mapped[int] = mapped_column(Integer, default=0)
+    estimated_minutes: Mapped[int] = mapped_column(Integer, default=3, server_default="3")
+    origin: Mapped[str] = mapped_column(String(16), default="seed", server_default="seed")
+    lesson: Mapped[Lesson] = relationship(back_populates="pages")
+
+
+class LessonResource(TimestampMixin, Base):
+    __tablename__ = "lesson_resources"
+    __table_args__ = (
+        Index("ix_lesson_resources_lesson", "lesson_id"),
+        CheckConstraint(
+            "kind in ('video', 'pdf', 'paper', 'link', 'code', 'repo')",
+            name="ck_lesson_resources_kind",
+        ),
+        CheckConstraint(
+            "group_name in ('related', 'further', 'research')",
+            name="ck_lesson_resources_group",
+        ),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    lesson_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("lessons.id", ondelete="CASCADE"))
+    page_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("topic_pages.id", ondelete="CASCADE"), nullable=True
+    )
+    kind: Mapped[str] = mapped_column(String(16), default="link")
+    group_name: Mapped[str] = mapped_column(String(16), default="related", server_default="related")
+    title: Mapped[str] = mapped_column(String(200))
+    url: Mapped[str] = mapped_column(String(500))
+    note: Mapped[str] = mapped_column(Text, default="", server_default="")
+
+
+class KnowledgeCheck(TimestampMixin, Base):
+    __tablename__ = "knowledge_checks"
+    __table_args__ = (UniqueConstraint("page_id", name="uq_knowledge_checks_page"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    page_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("topic_pages.id", ondelete="CASCADE"))
+    title: Mapped[str] = mapped_column(String(200), default="Knowledge check")
+    pass_score: Mapped[int] = mapped_column(Integer, default=70, server_default="70")
+
+
+class KnowledgeCheckQuestion(TimestampMixin, Base):
+    __tablename__ = "knowledge_check_questions"
+    __table_args__ = (
+        Index("ix_knowledge_check_questions_check", "check_id"),
+        CheckConstraint(
+            "kind in ('mcq', 'true_false', 'fill', 'short', 'order')",
+            name="ck_knowledge_check_questions_kind",
+        ),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    check_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("knowledge_checks.id", ondelete="CASCADE")
+    )
+    kind: Mapped[str] = mapped_column(String(16))
+    prompt: Mapped[str] = mapped_column(Text)
+    options: Mapped[list] = mapped_column(JSON, default=list, server_default=EMPTY_LIST)
+    answer_key: Mapped[dict] = mapped_column(JSON, default=dict, server_default=EMPTY_OBJECT)
+    explanation: Mapped[str] = mapped_column(Text, default="")
+    position: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class KnowledgeCheckAttempt(TimestampMixin, Base):
+    __tablename__ = "knowledge_check_attempts"
+    __table_args__ = (Index("ix_knowledge_check_attempts_user", "user_id", "check_id"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    check_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("knowledge_checks.id", ondelete="CASCADE")
+    )
+    score: Mapped[float] = mapped_column(Float, default=0)
+    passed: Mapped[bool] = mapped_column(default=False, server_default=false())
+    answers: Mapped[dict] = mapped_column(JSON, default=dict, server_default=EMPTY_OBJECT)
+
+
+class Assessment(TimestampMixin, Base):
+    """Module, course, or learning-path gate. Exactly one parent is set."""
+
+    __tablename__ = "assessments"
+    __table_args__ = (
+        Index("ix_assessments_module", "module_id"),
+        Index("ix_assessments_course", "course_id"),
+        Index("ix_assessments_path", "path_id"),
+        CheckConstraint(
+            "scope in ('module', 'course', 'path')",
+            name="ck_assessments_scope",
+        ),
+        CheckConstraint(
+            "(CASE WHEN module_id IS NOT NULL THEN 1 ELSE 0 END"
+            " + CASE WHEN course_id IS NOT NULL THEN 1 ELSE 0 END"
+            " + CASE WHEN path_id IS NOT NULL THEN 1 ELSE 0 END) = 1",
+            name="ck_assessments_one_parent",
+        ),
+        CheckConstraint("pass_score >= 0 AND pass_score <= 100", name="ck_assessments_pass"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    scope: Mapped[str] = mapped_column(String(16))
+    module_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("modules.id", ondelete="CASCADE"), nullable=True
+    )
+    course_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("courses.id", ondelete="CASCADE"), nullable=True
+    )
+    path_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("learning_paths.id", ondelete="CASCADE"), nullable=True
+    )
+    title: Mapped[str] = mapped_column(String(200))
+    pass_score: Mapped[int] = mapped_column(Integer, default=70, server_default="70")
+    xp_reward: Mapped[int] = mapped_column(Integer, default=40, server_default="40")
+
+
+class AssessmentQuestion(TimestampMixin, Base):
+    __tablename__ = "assessment_questions"
+    __table_args__ = (
+        Index("ix_assessment_questions_assessment", "assessment_id"),
+        CheckConstraint(
+            "kind in ('mcq', 'true_false', 'fill', 'short', 'order', 'code')",
+            name="ck_assessment_questions_kind",
+        ),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    assessment_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("assessments.id", ondelete="CASCADE")
+    )
+    kind: Mapped[str] = mapped_column(String(16))
+    prompt: Mapped[str] = mapped_column(Text)
+    options: Mapped[list] = mapped_column(JSON, default=list, server_default=EMPTY_LIST)
+    answer_key: Mapped[dict] = mapped_column(JSON, default=dict, server_default=EMPTY_OBJECT)
+    explanation: Mapped[str] = mapped_column(Text, default="")
+    position: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class AssessmentAttempt(TimestampMixin, Base):
+    __tablename__ = "assessment_attempts"
+    __table_args__ = (Index("ix_assessment_attempts_user", "user_id", "assessment_id"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    assessment_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("assessments.id", ondelete="CASCADE")
+    )
+    score: Mapped[float] = mapped_column(Float, default=0)
+    passed: Mapped[bool] = mapped_column(default=False, server_default=false())
+    answers: Mapped[dict] = mapped_column(JSON, default=dict, server_default=EMPTY_OBJECT)
+    xp_awarded: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+
+
+class Bookmark(TimestampMixin, Base):
+    __tablename__ = "bookmarks"
+    __table_args__ = (UniqueConstraint("user_id", "page_id", name="uq_bookmarks_user_page"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    page_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("topic_pages.id", ondelete="CASCADE"))
+
+
+class PageNote(TimestampMixin, Base):
+    __tablename__ = "page_notes"
+    __table_args__ = (UniqueConstraint("user_id", "page_id", name="uq_page_notes_user_page"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    page_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("topic_pages.id", ondelete="CASCADE"))
+    body: Mapped[str] = mapped_column(Text, default="")
+
+
+class PageProgress(TimestampMixin, Base):
+    __tablename__ = "page_progress"
+    __table_args__ = (
+        UniqueConstraint("user_id", "page_id", name="uq_page_progress_user_page"),
+        Index("ix_page_progress_user", "user_id"),
+        CheckConstraint("status in ('seen', 'completed')", name="ck_page_progress_status"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    page_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("topic_pages.id", ondelete="CASCADE"))
+    status: Mapped[str] = mapped_column(String(16), default="seen", server_default="seen")
+    seconds_spent: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

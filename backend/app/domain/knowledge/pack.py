@@ -12,6 +12,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from app.domain.knowledge.asset import AssetRecord, slugify
 from app.domain.knowledge.graph import ConceptEdge, ConceptNode, KnowledgeGraph, from_tuples
+from app.domain.knowledge.pack_academies import ACADEMIES, academy_path_concepts
 from app.domain.knowledge.pack_concepts import (
     CONCEPT_ROWS,
     concept_category,
@@ -24,7 +25,7 @@ from app.domain.knowledge.quality import score_record
 from app.domain.knowledge.taxonomy import CAREER_ROLES, SKILLS, SOURCES, TAXONOMY
 from app.domain.knowledge.vocabulary import DEFAULT_DURATION
 
-PACK_VERSION = "1.0.0"
+PACK_VERSION = "1.1.0"
 PACK_NAME = "AI Mentor Knowledge Pack"
 
 DOC_HOMES = {
@@ -51,6 +52,9 @@ DOC_HOMES = {
         "Equitable Equations",
         "https://www.elsevier.com/researcher/author/tools-and-resources",
     ),
+    "federated-learning": ("Flower", "https://flower.ai/docs/framework/"),
+    "programming": ("learncpp.com", "https://www.learncpp.com"),
+    "modelling-simulation": ("Gazebo", "https://gazebosim.org/docs"),
 }
 
 LECTURE_SERIES: tuple[tuple[str, str, str, str, int, str], ...] = (
@@ -295,6 +299,70 @@ LECTURE_SERIES: tuple[tuple[str, str, str, str, int, str], ...] = (
         "reading-papers",
         12,
         "https://www.youtube.com/@YannicKilcher",
+    ),
+    (
+        "Flower federated learning tutorials",
+        "Flower Labs",
+        "federated-learning",
+        "fedavg",
+        8,
+        "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html",
+    ),
+    (
+        "MATLAB Onramp",
+        "MathWorks",
+        "modelling-simulation",
+        "matlab",
+        6,
+        "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted",
+    ),
+    (
+        "Gazebo Garden tutorials",
+        "Open Robotics",
+        "modelling-simulation",
+        "gazebo",
+        10,
+        "https://gazebosim.org/docs/latest/getstarted/",
+    ),
+    (
+        "NVIDIA Isaac Sim tutorials",
+        "NVIDIA",
+        "modelling-simulation",
+        "isaac-sim",
+        8,
+        "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html",
+    ),
+    (
+        "CARLA quick start",
+        "CARLA team",
+        "modelling-simulation",
+        "carla",
+        6,
+        "https://carla.readthedocs.io/en/latest/start_quickstart/",
+    ),
+    (
+        "OpenCV Python tutorials",
+        "OpenCV.org",
+        "computer-vision",
+        "opencv",
+        12,
+        "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html",
+    ),
+    (
+        "ROS 2 rclcpp tutorials",
+        "Open Robotics",
+        "programming",
+        "ros2-cpp",
+        10,
+        "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html",
+    ),
+    (
+        "learncpp.com",
+        "Alex",
+        "programming",
+        "cpp",
+        20,
+        "https://www.learncpp.com",
     ),
 )
 
@@ -657,6 +725,132 @@ COURSES: tuple[tuple[str, str, str, str, str, str, str], ...] = (
         "rag",
         "intermediate",
         "https://github.com/DataTalksClub/llm-zoomcamp",
+        "free",
+    ),
+    (
+        "Flower federated learning course",
+        "Flower Labs",
+        "federated-learning",
+        "fedavg",
+        "intermediate",
+        "https://flower.ai/blog/2023-05-31-flower-ai-course/",
+        "free",
+    ),
+    (
+        "OpenCV Python tutorials",
+        "OpenCV.org",
+        "computer-vision",
+        "opencv",
+        "beginner",
+        "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html",
+        "free",
+    ),
+    (
+        "Ultralytics YOLO docs",
+        "Ultralytics",
+        "computer-vision",
+        "yolo",
+        "intermediate",
+        "https://docs.ultralytics.com",
+        "free",
+    ),
+    (
+        "Hugging Face tokenizers and embeddings",
+        "Hugging Face",
+        "nlp",
+        "embeddings",
+        "intermediate",
+        "https://huggingface.co/docs/transformers/en/model_doc/bert",
+        "free",
+    ),
+    (
+        "MATLAB Onramp",
+        "MathWorks",
+        "modelling-simulation",
+        "matlab",
+        "beginner",
+        "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted",
+        "free",
+    ),
+    (
+        "Simulink Onramp",
+        "MathWorks",
+        "modelling-simulation",
+        "simulink",
+        "beginner",
+        "https://matlabacademy.mathworks.com/details/simulink-onramp/slbe",
+        "free",
+    ),
+    (
+        "Isaac Sim documentation",
+        "NVIDIA",
+        "modelling-simulation",
+        "isaac-sim",
+        "advanced",
+        "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html",
+        "free",
+    ),
+    (
+        "CARLA documentation",
+        "CARLA team",
+        "modelling-simulation",
+        "carla",
+        "advanced",
+        "https://carla.readthedocs.io",
+        "free",
+    ),
+    (
+        "AirSim documentation",
+        "Microsoft",
+        "modelling-simulation",
+        "airsim",
+        "advanced",
+        "https://microsoft.github.io/AirSim/",
+        "free",
+    ),
+    (
+        "Webots user guide",
+        "Cyberbotics",
+        "modelling-simulation",
+        "webots",
+        "intermediate",
+        "https://cyberbotics.com/doc/guide/index",
+        "free",
+    ),
+    (
+        "CoppeliaSim user manual",
+        "Coppelia Robotics",
+        "modelling-simulation",
+        "coppeliasim",
+        "intermediate",
+        "https://manual.coppeliarobotics.com",
+        "free",
+    ),
+    (
+        "MuJoCo documentation",
+        "Google DeepMind",
+        "modelling-simulation",
+        "mujoco",
+        "advanced",
+        "https://mujoco.readthedocs.io",
+        "free",
+    ),
+    (
+        "learncpp.com",
+        "Alex",
+        "programming",
+        "cpp",
+        "beginner",
+        "https://www.learncpp.com",
+        "free",
+    ),
+    (
+        "ROS 2 C++ writer tutorials",
+        "Open Robotics",
+        "programming",
+        "ros2-cpp",
+        "intermediate",
+        "https://docs.ros.org/en/humble/Tutorials.html",
         "free",
     ),
 )
@@ -1042,6 +1236,111 @@ REPOS: tuple[tuple[str, str, str, str, str], ...] = (
         "orchestration",
         "https://github.com/PrefectHQ/prefect",
     ),
+    (
+        "facebookresearch/detr",
+        "DETR",
+        "computer-vision",
+        "detr",
+        "https://github.com/facebookresearch/detr",
+    ),
+    (
+        "facebookresearch/pytorch3d",
+        "PyTorch3D",
+        "computer-vision",
+        "3d-vision",
+        "https://github.com/facebookresearch/pytorch3d",
+    ),
+    (
+        "PRBonn/lidar-bonnetal",
+        "LiDAR-Bonnetal",
+        "computer-vision",
+        "lidar",
+        "https://github.com/PRBonn/lidar-bonnetal",
+    ),
+    (
+        "adap/flower",
+        "Flower",
+        "federated-learning",
+        "fedavg",
+        "https://github.com/adap/flower",
+    ),
+    (
+        "OpenMined/PySyft",
+        "PySyft",
+        "federated-learning",
+        "differential-privacy",
+        "https://github.com/OpenMined/PySyft",
+    ),
+    (
+        "tensorflow/privacy",
+        "TensorFlow Privacy",
+        "federated-learning",
+        "differential-privacy",
+        "https://github.com/tensorflow/privacy",
+    ),
+    (
+        "google-ai-edge/mediapipe",
+        "MediaPipe",
+        "federated-learning",
+        "edge-ai",
+        "https://github.com/google-ai-edge/mediapipe",
+    ),
+    (
+        "isocpp/CppCoreGuidelines",
+        "C++ Core Guidelines",
+        "programming",
+        "cpp",
+        "https://github.com/isocpp/CppCoreGuidelines",
+    ),
+    (
+        "ros2/rclcpp",
+        "rclcpp",
+        "programming",
+        "ros2-cpp",
+        "https://github.com/ros2/rclcpp",
+    ),
+    (
+        "carla-simulator/carla",
+        "CARLA",
+        "modelling-simulation",
+        "carla",
+        "https://github.com/carla-simulator/carla",
+    ),
+    (
+        "microsoft/AirSim",
+        "AirSim",
+        "modelling-simulation",
+        "airsim",
+        "https://github.com/microsoft/AirSim",
+    ),
+    (
+        "gazebosim/gz-sim",
+        "Gazebo Sim",
+        "modelling-simulation",
+        "gazebo",
+        "https://github.com/gazebosim/gz-sim",
+    ),
+    (
+        "isaac-sim/IsaacSim",
+        "Isaac Sim",
+        "modelling-simulation",
+        "isaac-sim",
+        "https://github.com/isaac-sim/IsaacSim",
+    ),
+    (
+        "cyberbotics/webots",
+        "Webots",
+        "modelling-simulation",
+        "webots",
+        "https://github.com/cyberbotics/webots",
+    ),
+    (
+        "CoppeliaRobotics/coppeliasim-plugin-sim",
+        "CoppeliaSim",
+        "modelling-simulation",
+        "coppeliasim",
+        "https://github.com/CoppeliaRobotics",
+    ),
 )
 
 DATASETS: tuple[tuple[str, str, str, str, str], ...] = (
@@ -1306,6 +1605,41 @@ DATASETS: tuple[tuple[str, str, str, str, str], ...] = (
         "ai-research-methods",
         "reading-papers",
         "https://www.kaggle.com/datasets/Cornell-University/arxiv",
+    ),
+    (
+        "SemanticKITTI",
+        "University of Bonn",
+        "computer-vision",
+        "lidar",
+        "http://semantic-kitti.org",
+    ),
+    (
+        "nuScenes lidar",
+        "Motional",
+        "computer-vision",
+        "lidar",
+        "https://www.nuscenes.org",
+    ),
+    (
+        "LEAF federated datasets",
+        "LEAF",
+        "federated-learning",
+        "fedavg",
+        "https://leaf.cmu.edu",
+    ),
+    (
+        "TensorFlow Federated datasets",
+        "Google",
+        "federated-learning",
+        "fedavg",
+        "https://www.tensorflow.org/federated",
+    ),
+    (
+        "CARLA Leaderboard",
+        "CARLA team",
+        "modelling-simulation",
+        "carla",
+        "https://leaderboard.carla.org",
     ),
 )
 
@@ -1582,6 +1916,27 @@ CERTS: tuple[tuple[str, str, str, str, str], ...] = (
         "artificial-intelligence",
         "search-planning",
         "https://www.edx.org",
+    ),
+    (
+        "MathWorks Certified MATLAB Associate",
+        "MathWorks",
+        "modelling-simulation",
+        "matlab",
+        "https://www.mathworks.com/services/training/certification.html",
+    ),
+    (
+        "NVIDIA-Certified Associate: AI Infrastructure",
+        "NVIDIA",
+        "federated-learning",
+        "edge-ai",
+        "https://www.nvidia.com/en-us/training/certification/",
+    ),
+    (
+        "Linux Foundation Certified IT Associate",
+        "Linux Foundation",
+        "programming",
+        "software-engineering",
+        "https://training.linuxfoundation.org/certification/",
     ),
 )
 
@@ -2098,7 +2453,7 @@ def _extra_certs(concepts: list[ConceptNode]) -> list[AssetRecord]:
         ("Google Cloud skill badge", "Google Cloud", "https://www.cloudskillsboost.google"),
     )
     rows = []
-    for index, node in enumerate(concepts[:70]):
+    for index, node in enumerate(concepts):
         name, provider, url = vendors[index % len(vendors)]
         rows.append(
             _resource(
@@ -2444,6 +2799,28 @@ def _paths(concepts: list[ConceptNode]) -> list[PathDraft]:
                     ],
                 )
             )
+    for academy in ACADEMIES:
+        slugs = academy_path_concepts(academy)
+        drafts.append(
+            PathDraft(
+                id=slugify(academy.title, "learning-path"),
+                title=academy.title,
+                description=academy.summary + " Order follows the knowledge graph.",
+                category=academy.category,
+                difficulty="beginner",
+                concepts=slugs,
+                steps=[
+                    {
+                        "position": index,
+                        "kind": "concept",
+                        "title": slug.replace("-", " ").title(),
+                        "concept_slug": slug,
+                        "estimated_minutes": 45,
+                    }
+                    for index, slug in enumerate(slugs)
+                ],
+            )
+        )
     # Career paths.
     for role in CAREER_ROLES:
         drafts.append(

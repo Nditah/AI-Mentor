@@ -28,6 +28,9 @@ _OPTIONAL = (
     "qdrant_api_key",
     "redis_url",
     "studio_origins",
+    "learner_origins",
+    "institution_origins",
+    "app_origins",
 )
 
 
@@ -48,9 +51,17 @@ class Settings(BaseSettings):
     qdrant_api_key: str | None = Field(default=None, alias="QDRANT_API_KEY")
     redis_url: str | None = Field(default=None, alias="REDIS_URL")
     cors_origins: str = Field(
-        default="http://localhost:3000,http://localhost:3001", alias="CORS_ORIGINS"
+        default=(
+            "http://localhost:3000,http://localhost:3001,"
+            "http://localhost:3002,http://localhost:3003,http://localhost:3004,"
+            "http://localhost:3005"
+        ),
+        alias="CORS_ORIGINS",
     )
     studio_origins: str | None = Field(default=None, alias="STUDIO_ORIGINS")
+    learner_origins: str | None = Field(default=None, alias="LEARNER_ORIGINS")
+    institution_origins: str | None = Field(default=None, alias="INSTITUTION_ORIGINS")
+    app_origins: str | None = Field(default=None, alias="APP_ORIGINS")
     clerk_jwks_url: str | None = Field(default=None, alias="CLERK_JWKS_URL")
     clerk_issuer: str | None = Field(default=None, alias="CLERK_ISSUER")
     clerk_audience: str | None = Field(default=None, alias="CLERK_AUDIENCE")
@@ -157,11 +168,33 @@ class Settings(BaseSettings):
         return _split(self.cors_origins)
 
     @property
-    def billing_return_origins(self) -> list[str]:
-        """Checkout may only return to the studio, never to the admin portal."""
+    def app_origin_map(self) -> dict[str, str]:
+        """Code name to origin: learner, admin, instructor, institution, studio."""
 
-        configured = _split(self.studio_origins)
-        return configured or self.origins[:1]
+        codes = ("learner", "admin", "instructor", "institution", "studio")
+        if self.app_origins:
+            mapping: dict[str, str] = {}
+            for item in _split(self.app_origins):
+                if "=" not in item:
+                    continue
+                code, url = item.split("=", 1)
+                mapping[code.strip()] = url.strip().rstrip("/")
+            if mapping:
+                return mapping
+        return {code: origin for code, origin in zip(codes, self.origins, strict=False)}
+
+    @property
+    def billing_return_origins(self) -> list[str]:
+        """Checkout may only return to the Learner App or Institution App."""
+
+        learner = _split(self.learner_origins) or _split(self.studio_origins)
+        institution = _split(self.institution_origins)
+        configured = [*learner, *institution]
+        if configured:
+            return configured
+        mapping = self.app_origin_map
+        fallback = [mapping[code] for code in ("learner", "institution") if code in mapping]
+        return fallback or self.origins[:1]
 
     @property
     def authorized_parties(self) -> list[str]:

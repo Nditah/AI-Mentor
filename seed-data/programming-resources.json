@@ -1,0 +1,4999 @@
+[
+  {
+    "id": "book-a-tour-of-c",
+    "title": "A Tour of C++",
+    "description": "Stroustrup (2022). A book-length treatment of cpp used as a spine for the corresponding concepts in this catalog.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "Stroustrup",
+    "author": "Stroustrup",
+    "url": "https://www.stroustrup.com/tour3.html",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2022",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Stroustrup (2022). A book-length treatment of cpp used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9780136816485",
+      "year": 2022
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "cpp",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-python-packaging-user-guide",
+    "title": "Python Packaging User Guide",
+    "description": "PyPA (2024). A book-length treatment of python language used as a spine for the corresponding concepts in this catalog.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "PyPA",
+    "author": "PyPA",
+    "url": "https://packaging.python.org",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2024",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 72,
+    "ai_generated_summary": "PyPA (2024). A book-length treatment of python language used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "pypa-packaging",
+      "year": 2024
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "python-language",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "course-learncpp-com",
+    "title": "learncpp.com",
+    "description": "A structured course from Alex covering cpp. Work the assignments, not only the lectures.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "course",
+    "provider": "Alex",
+    "author": "Alex",
+    "url": "https://www.learncpp.com",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 1200,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A structured course from Alex covering cpp. Work the assignments, not only the lectures.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "course-ros-2-c-writer-tutorials",
+    "title": "ROS 2 C++ writer tutorials",
+    "description": "A structured course from Open Robotics covering ros2 cpp. Work the assignments, not only the lectures.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "course",
+    "provider": "Open Robotics",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials.html",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1200,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A structured course from Open Robotics covering ros2 cpp. Work the assignments, not only the lectures.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-c-core-guidelines",
+    "title": "C++ Core Guidelines",
+    "description": "The isocpp/CppCoreGuidelines repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "isocpp",
+    "author": "isocpp",
+    "url": "https://github.com/isocpp/CppCoreGuidelines",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The isocpp/CppCoreGuidelines repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "isocpp/CppCoreGuidelines"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-rclcpp",
+    "title": "rclcpp",
+    "description": "The ros2/rclcpp repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "ros2",
+    "author": "ros2",
+    "url": "https://github.com/ros2/rclcpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The ros2/rclcpp repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "ros2/rclcpp"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "certification-linux-foundation-certified-it-associate",
+    "title": "Linux Foundation Certified IT Associate",
+    "description": "Linux Foundation credential covering software engineering. Use it as a goal, not as a substitute for the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "certification",
+    "provider": "Linux Foundation",
+    "author": "Linux Foundation",
+    "url": "https://training.linuxfoundation.org/certification/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 2400,
+    "cost_type": "paid",
+    "rating": null,
+    "tags": [
+      "certification",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Linux Foundation credential covering software engineering. Use it as a goal, not as a substitute for the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-1",
+    "title": "ROS 2 rclcpp tutorials · lecture 1",
+    "description": "Lecture 1 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-2",
+    "title": "ROS 2 rclcpp tutorials · lecture 2",
+    "description": "Lecture 2 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-3",
+    "title": "ROS 2 rclcpp tutorials · lecture 3",
+    "description": "Lecture 3 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-4",
+    "title": "ROS 2 rclcpp tutorials · lecture 4",
+    "description": "Lecture 4 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-5",
+    "title": "ROS 2 rclcpp tutorials · lecture 5",
+    "description": "Lecture 5 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-6",
+    "title": "ROS 2 rclcpp tutorials · lecture 6",
+    "description": "Lecture 6 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-7",
+    "title": "ROS 2 rclcpp tutorials · lecture 7",
+    "description": "Lecture 7 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-8",
+    "title": "ROS 2 rclcpp tutorials · lecture 8",
+    "description": "Lecture 8 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-9",
+    "title": "ROS 2 rclcpp tutorials · lecture 9",
+    "description": "Lecture 9 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=9",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 9 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 9
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-10",
+    "title": "ROS 2 rclcpp tutorials · lecture 10",
+    "description": "Lecture 10 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=10",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 10 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 10
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-1",
+    "title": "learncpp.com · lecture 1",
+    "description": "Lecture 1 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-2",
+    "title": "learncpp.com · lecture 2",
+    "description": "Lecture 2 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-3",
+    "title": "learncpp.com · lecture 3",
+    "description": "Lecture 3 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-4",
+    "title": "learncpp.com · lecture 4",
+    "description": "Lecture 4 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-5",
+    "title": "learncpp.com · lecture 5",
+    "description": "Lecture 5 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-6",
+    "title": "learncpp.com · lecture 6",
+    "description": "Lecture 6 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-7",
+    "title": "learncpp.com · lecture 7",
+    "description": "Lecture 7 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-8",
+    "title": "learncpp.com · lecture 8",
+    "description": "Lecture 8 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-9",
+    "title": "learncpp.com · lecture 9",
+    "description": "Lecture 9 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=9",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 9 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 9
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-10",
+    "title": "learncpp.com · lecture 10",
+    "description": "Lecture 10 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=10",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 10 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 10
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-11",
+    "title": "learncpp.com · lecture 11",
+    "description": "Lecture 11 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=11",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 11 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 11
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-12",
+    "title": "learncpp.com · lecture 12",
+    "description": "Lecture 12 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=12",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 12 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 12
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-13",
+    "title": "learncpp.com · lecture 13",
+    "description": "Lecture 13 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=13",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 13 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 13
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-14",
+    "title": "learncpp.com · lecture 14",
+    "description": "Lecture 14 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=14",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 14 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 14
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-15",
+    "title": "learncpp.com · lecture 15",
+    "description": "Lecture 15 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=15",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 15 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 15
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-16",
+    "title": "learncpp.com · lecture 16",
+    "description": "Lecture 16 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=16",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 16 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 16
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-17",
+    "title": "learncpp.com · lecture 17",
+    "description": "Lecture 17 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=17",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 17 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 17
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-18",
+    "title": "learncpp.com · lecture 18",
+    "description": "Lecture 18 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=18",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 18 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 18
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-19",
+    "title": "learncpp.com · lecture 19",
+    "description": "Lecture 19 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=19",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 19 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 19
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-20",
+    "title": "learncpp.com · lecture 20",
+    "description": "Lecture 20 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=20",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 20 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 20
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-explainer-video-python",
+    "title": "Explainer video: Python",
+    "description": "A short explainer for Python. Syntax, types, packaging, and tests before a training loop. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=python+language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Python. Syntax, types, packaging, and tests before a training loop. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "video-explainer-video-c",
+    "title": "Explainer video: C++",
+    "description": "A short explainer for C++. Types, memory, and the subset used on robots. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for C++. Types, memory, and the subset used on robots. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-explainer-video-ros-2-c",
+    "title": "Explainer video: ROS 2 C++",
+    "description": "A short explainer for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=ros2+cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-explainer-video-software-engineering",
+    "title": "Explainer video: Software engineering",
+    "description": "A short explainer for Software engineering. Design, tests, reviews, and a change you can revert. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=software+engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Software engineering. Design, tests, reviews, and a change you can revert. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-python",
+    "title": "User guide: Python",
+    "description": "User guide for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "documentation",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=python-language&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "python-language",
+      "programming"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-python",
+    "title": "Worked tutorial: Python",
+    "description": "Worked tutorial for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "tutorial",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=python-language&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "python-language",
+      "programming"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "blog-explainer-python",
+    "title": "Explainer: Python",
+    "description": "Explainer for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "blog",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=python-language&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "python-language",
+      "programming"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "podcast-conversation-python",
+    "title": "Conversation: Python",
+    "description": "Conversation for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "podcast",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=python-language&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "python-language",
+      "programming"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Python. Syntax, types, packaging, and tests before a training loop. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-c",
+    "title": "User guide: C++",
+    "description": "User guide for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "documentation",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=cpp&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "cpp",
+      "programming"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-c",
+    "title": "Worked tutorial: C++",
+    "description": "Worked tutorial for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "tutorial",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=cpp&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "cpp",
+      "programming"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "blog-explainer-c",
+    "title": "Explainer: C++",
+    "description": "Explainer for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "blog",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=cpp&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "cpp",
+      "programming"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "podcast-conversation-c",
+    "title": "Conversation: C++",
+    "description": "Conversation for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "podcast",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=cpp&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "cpp",
+      "programming"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for C++. Types, memory, and the subset used on robots. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ros-2-c",
+    "title": "User guide: ROS 2 C++",
+    "description": "User guide for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "documentation",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=ros2-cpp&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "ros2-cpp",
+      "programming"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ros-2-c",
+    "title": "Worked tutorial: ROS 2 C++",
+    "description": "Worked tutorial for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "tutorial",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=ros2-cpp&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "ros2-cpp",
+      "programming"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "blog-explainer-ros-2-c",
+    "title": "Explainer: ROS 2 C++",
+    "description": "Explainer for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "blog",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=ros2-cpp&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "ros2-cpp",
+      "programming"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ros-2-c",
+    "title": "Conversation: ROS 2 C++",
+    "description": "Conversation for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "podcast",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=ros2-cpp&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "ros2-cpp",
+      "programming"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-software-engineering",
+    "title": "User guide: Software engineering",
+    "description": "User guide for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "documentation",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=software-engineering&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "software-engineering",
+      "programming"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-software-engineering",
+    "title": "Worked tutorial: Software engineering",
+    "description": "Worked tutorial for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "tutorial",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=software-engineering&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "software-engineering",
+      "programming"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "blog-explainer-software-engineering",
+    "title": "Explainer: Software engineering",
+    "description": "Explainer for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "blog",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=software-engineering&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "software-engineering",
+      "programming"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "podcast-conversation-software-engineering",
+    "title": "Conversation: Software engineering",
+    "description": "Conversation for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "podcast",
+    "provider": "learncpp.com",
+    "author": "learncpp.com",
+    "url": "https://www.learncpp.com?topic=software-engineering&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "software-engineering",
+      "programming"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Software engineering. Design, tests, reviews, and a change you can revert. Source of record: learncpp.com.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "coursera-guided-project-python",
+    "title": "Coursera guided project: Python",
+    "description": "A short coursera guided project on Python. Syntax, types, packaging, and tests before a training loop. Complete the exercises before claiming the concept.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "course",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short coursera guided project on Python. Syntax, types, packaging, and tests before a training loop. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "course-edx-short-course-c",
+    "title": "edX short course: C++",
+    "description": "A short edx short course on C++. Types, memory, and the subset used on robots. Complete the exercises before claiming the concept.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "course",
+    "provider": "edX",
+    "author": "edX short course",
+    "url": "https://www.edx.org?q=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short edx short course on C++. Types, memory, and the subset used on robots. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "coursera-guided-project-ros-2-c",
+    "title": "Coursera guided project: ROS 2 C++",
+    "description": "A short coursera guided project on ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Complete the exercises before claiming the concept.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "course",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short coursera guided project on ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "course-kaggle-learn-micro-course-software-engineering",
+    "title": "Kaggle Learn micro-course: Software engineering",
+    "description": "A short kaggle learn micro-course on Software engineering. Design, tests, reviews, and a change you can revert. Complete the exercises before claiming the concept.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "course",
+    "provider": "Kaggle",
+    "author": "Kaggle Learn micro-course",
+    "url": "https://www.kaggle.com/learn?q=software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short kaggle learn micro-course on Software engineering. Design, tests, reviews, and a change you can revert. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-python",
+    "title": "Official examples for Python",
+    "description": "Public examples related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=python-language%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "python-language",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-python",
+    "title": "Teaching notebooks for Python",
+    "description": "Public notebooks related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=python-language%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "python-language",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-python",
+    "title": "Curated awesome list for Python",
+    "description": "Public awesome related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "python-language",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-c",
+    "title": "Official examples for C++",
+    "description": "Public examples related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=cpp%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "cpp",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-c",
+    "title": "Teaching notebooks for C++",
+    "description": "Public notebooks related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=cpp%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "cpp",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-c",
+    "title": "Curated awesome list for C++",
+    "description": "Public awesome related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "cpp",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-ros-2-c",
+    "title": "Official examples for ROS 2 C++",
+    "description": "Public examples related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=ros2-cpp%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "ros2-cpp",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-ros-2-c",
+    "title": "Teaching notebooks for ROS 2 C++",
+    "description": "Public notebooks related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=ros2-cpp%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "ros2-cpp",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-ros-2-c",
+    "title": "Curated awesome list for ROS 2 C++",
+    "description": "Public awesome related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to ROS 2 C++. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "ros2-cpp",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-software-engineering",
+    "title": "Official examples for Software engineering",
+    "description": "Public examples related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=software-engineering%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "software-engineering",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-software-engineering",
+    "title": "Teaching notebooks for Software engineering",
+    "description": "Public notebooks related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=software-engineering%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "software-engineering",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-software-engineering",
+    "title": "Curated awesome list for Software engineering",
+    "description": "Public awesome related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Software engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "software-engineering",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-python-language",
+    "title": "Hugging Face datasets tagged python-language",
+    "description": "Hugging Face datasets whose cards mention Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-python-language",
+    "title": "Kaggle datasets tagged python-language",
+    "description": "Kaggle datasets whose cards mention Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-cpp",
+    "title": "Hugging Face datasets tagged cpp",
+    "description": "Hugging Face datasets whose cards mention C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-cpp",
+    "title": "Kaggle datasets tagged cpp",
+    "description": "Kaggle datasets whose cards mention C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-ros2-cpp",
+    "title": "Hugging Face datasets tagged ros2-cpp",
+    "description": "Hugging Face datasets whose cards mention ROS 2 C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention ROS 2 C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-ros2-cpp",
+    "title": "Kaggle datasets tagged ros2-cpp",
+    "description": "Kaggle datasets whose cards mention ROS 2 C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention ROS 2 C++. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-software-engineering",
+    "title": "Hugging Face datasets tagged software-engineering",
+    "description": "Hugging Face datasets whose cards mention Software engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Software engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-software-engineering",
+    "title": "Kaggle datasets tagged software-engineering",
+    "description": "Kaggle datasets whose cards mention Software engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Software engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-python",
+    "title": "Microsoft Learn applied skill: Python",
+    "description": "A vendor skill badge touching Python. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Python. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "certification-aws-skill-builder-digital-badge-c",
+    "title": "AWS skill builder digital badge: C++",
+    "description": "A vendor skill badge touching C++. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "certification",
+    "provider": "Amazon Web Services",
+    "author": "Amazon Web Services",
+    "url": "https://skillbuilder.aws?skill=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching C++. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "certification-google-cloud-skill-badge-ros-2-c",
+    "title": "Google Cloud skill badge: ROS 2 C++",
+    "description": "A vendor skill badge touching ROS 2 C++. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "certification",
+    "provider": "Google Cloud",
+    "author": "Google Cloud",
+    "url": "https://www.cloudskillsboost.google?skill=ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching ROS 2 C++. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-software-engineering",
+    "title": "Microsoft Learn applied skill: Software engineering",
+    "description": "A vendor skill badge touching Software engineering. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Software engineering. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-python",
+    "title": "Lecture notes: Python",
+    "description": "Open lecture notes covering Python. Syntax, types, packaging, and tests before a training loop. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=python-language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Python. Syntax, types, packaging, and tests before a training loop. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "book-handbook-of-python",
+    "title": "Handbook of Python",
+    "description": "A field handbook for Python: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Python: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "book-problem-book-python",
+    "title": "Problem book: Python",
+    "description": "Worked problems for Python. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Python. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-c",
+    "title": "Lecture notes: C++",
+    "description": "Open lecture notes covering C++. Types, memory, and the subset used on robots. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering C++. Types, memory, and the subset used on robots. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "book-handbook-of-c",
+    "title": "Handbook of C++",
+    "description": "A field handbook for C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "book-problem-book-c",
+    "title": "Problem book: C++",
+    "description": "Worked problems for C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-ros-2-c",
+    "title": "Lecture notes: ROS 2 C++",
+    "description": "Open lecture notes covering ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=ros2-cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "book-handbook-of-ros-2-c",
+    "title": "Handbook of ROS 2 C++",
+    "description": "A field handbook for ROS 2 C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for ROS 2 C++: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "book-problem-book-ros-2-c",
+    "title": "Problem book: ROS 2 C++",
+    "description": "Worked problems for ROS 2 C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for ROS 2 C++. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-software-engineering",
+    "title": "Lecture notes: Software engineering",
+    "description": "Open lecture notes covering Software engineering. Design, tests, reviews, and a change you can revert. Use them as a book-length spine when a commercial text is not required.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=software-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Software engineering. Design, tests, reviews, and a change you can revert. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-handbook-of-software-engineering",
+    "title": "Handbook of Software engineering",
+    "description": "A field handbook for Software engineering: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Software engineering: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "book-problem-book-software-engineering",
+    "title": "Problem book: Software engineering",
+    "description": "Worked problems for Software engineering. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Software engineering. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-python",
+    "title": "A survey of Python",
+    "description": "A survey of Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=python%2Blanguage&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-python",
+    "title": "Open problems in Python",
+    "description": "Open problems in Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=python%2Blanguage&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-python",
+    "title": "Reproducibility notes on Python",
+    "description": "Reproducibility notes on Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=python%2Blanguage&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-python",
+    "title": "A practitioner's reading of Python",
+    "description": "A practitioner's reading of Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=python%2Blanguage&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-c",
+    "title": "A survey of C++",
+    "description": "A survey of C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=cpp&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-c",
+    "title": "Open problems in C++",
+    "description": "Open problems in C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=cpp&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-c",
+    "title": "Reproducibility notes on C++",
+    "description": "Reproducibility notes on C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=cpp&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-c",
+    "title": "A practitioner's reading of C++",
+    "description": "A practitioner's reading of C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=cpp&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-ros-2-c",
+    "title": "A survey of ROS 2 C++",
+    "description": "A survey of ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=ros2%2Bcpp&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-ros-2-c",
+    "title": "Open problems in ROS 2 C++",
+    "description": "Open problems in ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=ros2%2Bcpp&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-ros-2-c",
+    "title": "Reproducibility notes on ROS 2 C++",
+    "description": "Reproducibility notes on ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=ros2%2Bcpp&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-ros-2-c",
+    "title": "A practitioner's reading of ROS 2 C++",
+    "description": "A practitioner's reading of ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=ros2%2Bcpp&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of ROS 2 C++. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-software-engineering",
+    "title": "A survey of Software engineering",
+    "description": "A survey of Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=software%2Bengineering&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-software-engineering",
+    "title": "Open problems in Software engineering",
+    "description": "Open problems in Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=software%2Bengineering&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-software-engineering",
+    "title": "Reproducibility notes on Software engineering",
+    "description": "Reproducibility notes on Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=software%2Bengineering&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-software-engineering",
+    "title": "A practitioner's reading of Software engineering",
+    "description": "A practitioner's reading of Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=software%2Bengineering&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Software engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "learning-path-programming-foundations",
+    "title": "Programming · foundations",
+    "description": "A foundations path through programming. Order follows the knowledge graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "programming"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A foundations path through programming. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language",
+      "cpp",
+      "ros2-cpp",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "learning-path-programming-applied",
+    "title": "Programming · applied",
+    "description": "A applied path through programming. Order follows the knowledge graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "programming"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A applied path through programming. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language",
+      "cpp",
+      "ros2-cpp",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "learning-path-programming-research",
+    "title": "Programming · research",
+    "description": "A research path through programming. Order follows the knowledge graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "programming"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A research path through programming. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language",
+      "cpp",
+      "ros2-cpp",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "learning-path-programming-academy",
+    "title": "Programming Academy",
+    "description": "The languages and craft the rest of the catalog assumes. Order follows the knowledge graph.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 315,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "programming"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "The languages and craft the rest of the catalog assumes. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language",
+      "python-for-ml",
+      "scientific-python",
+      "ros2",
+      "cpp",
+      "ros2-cpp",
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-python-language-implement",
+    "title": "Implement · Python",
+    "description": "A implement exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-python-language-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "coding-challenge-python-language-debug",
+    "title": "Debug · Python",
+    "description": "A debug exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-python-language-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "coding-challenge-python-language-predict",
+    "title": "Predict · Python",
+    "description": "A predict exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Python. Syntax, types, packaging, and tests before a training loop. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-python-language-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "coding-challenge-python-language-project",
+    "title": "Mini-project · Python",
+    "description": "Combine the three drills for Python into one function with tests.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "python-language"
+    ],
+    "skills": [
+      "python",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Python into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-python-language-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "python-language"
+    ]
+  },
+  {
+    "id": "coding-challenge-cpp-implement",
+    "title": "Implement · C++",
+    "description": "A implement exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-cpp-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-cpp-debug",
+    "title": "Debug · C++",
+    "description": "A debug exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-cpp-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-cpp-predict",
+    "title": "Predict · C++",
+    "description": "A predict exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for C++. Types, memory, and the subset used on robots. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-cpp-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-cpp-project",
+    "title": "Mini-project · C++",
+    "description": "Combine the three drills for C++ into one function with tests.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "cpp"
+    ],
+    "skills": [
+      "cpp",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for C++ into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-cpp-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-implement",
+    "title": "Implement · ROS 2 C++",
+    "description": "A implement exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-ros2-cpp-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-debug",
+    "title": "Debug · ROS 2 C++",
+    "description": "A debug exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-ros2-cpp-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-predict",
+    "title": "Predict · ROS 2 C++",
+    "description": "A predict exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-ros2-cpp-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-ros2-cpp-project",
+    "title": "Mini-project · ROS 2 C++",
+    "description": "Combine the three drills for ROS 2 C++ into one function with tests.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "ros2-cpp"
+    ],
+    "skills": [
+      "ros2",
+      "cpp"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for ROS 2 C++ into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-ros2-cpp-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "coding-challenge-software-engineering-implement",
+    "title": "Implement · Software engineering",
+    "description": "A implement exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-software-engineering-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-software-engineering-debug",
+    "title": "Debug · Software engineering",
+    "description": "A debug exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-software-engineering-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-software-engineering-predict",
+    "title": "Predict · Software engineering",
+    "description": "A predict exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Software engineering. Design, tests, reviews, and a change you can revert. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-software-engineering-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-software-engineering-project",
+    "title": "Mini-project · Software engineering",
+    "description": "Combine the three drills for Software engineering into one function with tests.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "software-engineering"
+    ],
+    "skills": [
+      "software-engineering",
+      "git"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Software engineering into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-software-engineering-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "software-engineering"
+    ]
+  }
+]

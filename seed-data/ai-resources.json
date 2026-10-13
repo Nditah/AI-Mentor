@@ -5749,7 +5749,7 @@
     "url": "",
     "language": "en",
     "difficulty": "intermediate",
-    "estimated_duration": 135,
+    "estimated_duration": 180,
     "cost_type": "free",
     "rating": null,
     "tags": [
@@ -5767,9 +5767,10 @@
     "metadata": {},
     "licence": "own-work",
     "concepts": [
-      "cnns",
-      "detection",
-      "vision-transformers"
+      "opencv",
+      "yolo",
+      "segmentation",
+      "3d-vision"
     ]
   },
   {
@@ -5785,7 +5786,7 @@
     "url": "",
     "language": "en",
     "difficulty": "intermediate",
-    "estimated_duration": 135,
+    "estimated_duration": 180,
     "cost_type": "free",
     "rating": null,
     "tags": [
@@ -5803,7 +5804,8 @@
     "metadata": {},
     "licence": "own-work",
     "concepts": [
-      "tokenization",
+      "nlp-fundamentals",
+      "embeddings",
       "transformers",
       "rag"
     ]
@@ -5914,6 +5916,116 @@
       "experimental-design",
       "reproducibility",
       "paper-structure"
+    ]
+  },
+  {
+    "id": "learning-path-career-fl-engineer",
+    "title": "Career path: Federated Learning Engineer",
+    "description": "Trains across devices without pooling the raw data.",
+    "category": "artificial-intelligence",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 135,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "artificial-intelligence"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "Trains across devices without pooling the raw data.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "federated-learning",
+      "fedavg",
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "learning-path-career-simulation-engineer",
+    "title": "Career path: Simulation Engineer",
+    "description": "Keeps a plant honest in software before it meets hardware.",
+    "category": "artificial-intelligence",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "artificial-intelligence"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "Keeps a plant honest in software before it meets hardware.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "matlab",
+      "gazebo",
+      "isaac-sim",
+      "digital-twins"
+    ]
+  },
+  {
+    "id": "learning-path-career-software-engineer",
+    "title": "Career path: Software Engineer",
+    "description": "Ships tested software in Python and C++, including ROS 2.",
+    "category": "artificial-intelligence",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "artificial-intelligence"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "Ships tested software in Python and C++, including ROS 2.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "python-language",
+      "cpp",
+      "ros2-cpp",
+      "software-engineering"
     ]
   },
   {

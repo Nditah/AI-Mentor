@@ -54,7 +54,7 @@ The frontend image is a Next.js standalone build. Local development uses `make w
 - `REQUIRE_STAFF_MFA` is off
 - any of `CORS_ORIGINS`, `STUDIO_ORIGINS`, or `CLERK_AUTHORIZED_PARTIES` is `*` or not `https://`
 
-Set `CORS_ORIGINS` to the studio and admin origins and `STUDIO_ORIGINS` to the studio origin; Stripe return URLs must match it exactly. Set `CLERK_AUTHORIZED_PARTIES` to the same two origins if they differ from `CORS_ORIGINS`. Leave Stripe keys empty and checkout stays a 503. Leave `CONTENT_SELF_APPROVAL` off unless the team is too small for a second reviewer; when on, every self-approval is flagged in the audit log.
+Set `CORS_ORIGINS` to all five app origins and `LEARNER_ORIGINS` (and `INSTITUTION_ORIGINS` when used) for Stripe return URLs. `STUDIO_ORIGINS` is a Learner App alias. Set `CLERK_AUTHORIZED_PARTIES` to the same five origins if they differ from `CORS_ORIGINS`. Leave Stripe keys empty and checkout stays a 503. Leave `CONTENT_SELF_APPROVAL` off unless the team is too small for a second reviewer; when on, every self-approval is flagged in the audit log.
 
 Secrets belong in the host's secret store (Vercel env, Azure Key Vault referenced by Container Apps, AWS secrets). Do not bake them into the image.
 

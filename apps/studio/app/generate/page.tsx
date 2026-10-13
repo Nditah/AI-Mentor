@@ -10,19 +10,20 @@ export default function GeneratePage() {
   const client = useQueryClient();
   const graph = useQuery({
     queryKey: ["graph"],
-    queryFn: () => api<{ nodes: Node[] }>("/api/v1/knowledge-graph"),
+    queryFn: () => api<{ nodes: Node[] }>("/api/v1/catalog/graph"),
   });
   const [slug, setSlug] = useState("q-learning");
   const [created, setCreated] = useState<string | null>(null);
   const generate = useMutation({
     mutationFn: () =>
-      api<{ id: string; title: string }>("/api/v1/admin/assets/generate", {
+      api<{ id: string; title: string }>("/api/v1/content/assets/generate", {
         method: "POST",
         body: JSON.stringify({ concept_slug: slug }),
       }),
     onSuccess: (asset) => {
       setCreated(asset.id);
       client.invalidateQueries({ queryKey: ["assets"] });
+      client.invalidateQueries({ queryKey: ["studio-home"] });
     },
   });
 

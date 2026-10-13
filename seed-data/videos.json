@@ -16074,6 +16074,3046 @@
     ]
   },
   {
+    "id": "video-flower-federated-learning-tutorials-lecture-1",
+    "title": "Flower federated learning tutorials · lecture 1",
+    "description": "Lecture 1 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-2",
+    "title": "Flower federated learning tutorials · lecture 2",
+    "description": "Lecture 2 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-3",
+    "title": "Flower federated learning tutorials · lecture 3",
+    "description": "Lecture 3 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-4",
+    "title": "Flower federated learning tutorials · lecture 4",
+    "description": "Lecture 4 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-5",
+    "title": "Flower federated learning tutorials · lecture 5",
+    "description": "Lecture 5 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-6",
+    "title": "Flower federated learning tutorials · lecture 6",
+    "description": "Lecture 6 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-7",
+    "title": "Flower federated learning tutorials · lecture 7",
+    "description": "Lecture 7 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-flower-federated-learning-tutorials-lecture-8",
+    "title": "Flower federated learning tutorials · lecture 8",
+    "description": "Lecture 8 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "Flower",
+    "author": "Flower Labs",
+    "url": "https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of Flower federated learning tutorials by Flower Labs. Watch with a notebook open; the catalog maps this series onto fedavg.",
+    "metadata": {
+      "series": "Flower federated learning tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-matlab-onramp-lecture-1",
+    "title": "MATLAB Onramp · lecture 1",
+    "description": "Lecture 1 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "MATLAB",
+    "author": "MathWorks",
+    "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "metadata": {
+      "series": "MATLAB Onramp",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-matlab-onramp-lecture-2",
+    "title": "MATLAB Onramp · lecture 2",
+    "description": "Lecture 2 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "MATLAB",
+    "author": "MathWorks",
+    "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "metadata": {
+      "series": "MATLAB Onramp",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-matlab-onramp-lecture-3",
+    "title": "MATLAB Onramp · lecture 3",
+    "description": "Lecture 3 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "MATLAB",
+    "author": "MathWorks",
+    "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "metadata": {
+      "series": "MATLAB Onramp",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-matlab-onramp-lecture-4",
+    "title": "MATLAB Onramp · lecture 4",
+    "description": "Lecture 4 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "MATLAB",
+    "author": "MathWorks",
+    "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "metadata": {
+      "series": "MATLAB Onramp",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-matlab-onramp-lecture-5",
+    "title": "MATLAB Onramp · lecture 5",
+    "description": "Lecture 5 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "MATLAB",
+    "author": "MathWorks",
+    "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "metadata": {
+      "series": "MATLAB Onramp",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-matlab-onramp-lecture-6",
+    "title": "MATLAB Onramp · lecture 6",
+    "description": "Lecture 6 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "MATLAB",
+    "author": "MathWorks",
+    "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of MATLAB Onramp by MathWorks. Watch with a notebook open; the catalog maps this series onto matlab.",
+    "metadata": {
+      "series": "MATLAB Onramp",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-1",
+    "title": "Gazebo Garden tutorials · lecture 1",
+    "description": "Lecture 1 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-2",
+    "title": "Gazebo Garden tutorials · lecture 2",
+    "description": "Lecture 2 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-3",
+    "title": "Gazebo Garden tutorials · lecture 3",
+    "description": "Lecture 3 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-4",
+    "title": "Gazebo Garden tutorials · lecture 4",
+    "description": "Lecture 4 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-5",
+    "title": "Gazebo Garden tutorials · lecture 5",
+    "description": "Lecture 5 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-6",
+    "title": "Gazebo Garden tutorials · lecture 6",
+    "description": "Lecture 6 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-7",
+    "title": "Gazebo Garden tutorials · lecture 7",
+    "description": "Lecture 7 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-8",
+    "title": "Gazebo Garden tutorials · lecture 8",
+    "description": "Lecture 8 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-9",
+    "title": "Gazebo Garden tutorials · lecture 9",
+    "description": "Lecture 9 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=9",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 9 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 9
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-gazebo-garden-tutorials-lecture-10",
+    "title": "Gazebo Garden tutorials · lecture 10",
+    "description": "Lecture 10 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "Gazebo",
+    "author": "Open Robotics",
+    "url": "https://gazebosim.org/docs/latest/getstarted/?lecture=10",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 10 of Gazebo Garden tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto gazebo.",
+    "metadata": {
+      "series": "Gazebo Garden tutorials",
+      "lecture": 10
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-1",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 1",
+    "description": "Lecture 1 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-2",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 2",
+    "description": "Lecture 2 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-3",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 3",
+    "description": "Lecture 3 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-4",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 4",
+    "description": "Lecture 4 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-5",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 5",
+    "description": "Lecture 5 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-6",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 6",
+    "description": "Lecture 6 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-7",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 7",
+    "description": "Lecture 7 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-nvidia-isaac-sim-tutorials-lecture-8",
+    "title": "NVIDIA Isaac Sim tutorials · lecture 8",
+    "description": "Lecture 8 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "NVIDIA",
+    "author": "NVIDIA",
+    "url": "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of NVIDIA Isaac Sim tutorials by NVIDIA. Watch with a notebook open; the catalog maps this series onto isaac sim.",
+    "metadata": {
+      "series": "NVIDIA Isaac Sim tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-carla-quick-start-lecture-1",
+    "title": "CARLA quick start · lecture 1",
+    "description": "Lecture 1 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "CARLA",
+    "author": "CARLA team",
+    "url": "https://carla.readthedocs.io/en/latest/start_quickstart/?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "metadata": {
+      "series": "CARLA quick start",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-carla-quick-start-lecture-2",
+    "title": "CARLA quick start · lecture 2",
+    "description": "Lecture 2 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "CARLA",
+    "author": "CARLA team",
+    "url": "https://carla.readthedocs.io/en/latest/start_quickstart/?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "metadata": {
+      "series": "CARLA quick start",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-carla-quick-start-lecture-3",
+    "title": "CARLA quick start · lecture 3",
+    "description": "Lecture 3 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "CARLA",
+    "author": "CARLA team",
+    "url": "https://carla.readthedocs.io/en/latest/start_quickstart/?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "metadata": {
+      "series": "CARLA quick start",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-carla-quick-start-lecture-4",
+    "title": "CARLA quick start · lecture 4",
+    "description": "Lecture 4 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "CARLA",
+    "author": "CARLA team",
+    "url": "https://carla.readthedocs.io/en/latest/start_quickstart/?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "metadata": {
+      "series": "CARLA quick start",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-carla-quick-start-lecture-5",
+    "title": "CARLA quick start · lecture 5",
+    "description": "Lecture 5 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "CARLA",
+    "author": "CARLA team",
+    "url": "https://carla.readthedocs.io/en/latest/start_quickstart/?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "metadata": {
+      "series": "CARLA quick start",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-carla-quick-start-lecture-6",
+    "title": "CARLA quick start · lecture 6",
+    "description": "Lecture 6 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "CARLA",
+    "author": "CARLA team",
+    "url": "https://carla.readthedocs.io/en/latest/start_quickstart/?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of CARLA quick start by CARLA team. Watch with a notebook open; the catalog maps this series onto carla.",
+    "metadata": {
+      "series": "CARLA quick start",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-1",
+    "title": "OpenCV Python tutorials · lecture 1",
+    "description": "Lecture 1 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-2",
+    "title": "OpenCV Python tutorials · lecture 2",
+    "description": "Lecture 2 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-3",
+    "title": "OpenCV Python tutorials · lecture 3",
+    "description": "Lecture 3 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-4",
+    "title": "OpenCV Python tutorials · lecture 4",
+    "description": "Lecture 4 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-5",
+    "title": "OpenCV Python tutorials · lecture 5",
+    "description": "Lecture 5 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-6",
+    "title": "OpenCV Python tutorials · lecture 6",
+    "description": "Lecture 6 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-7",
+    "title": "OpenCV Python tutorials · lecture 7",
+    "description": "Lecture 7 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-8",
+    "title": "OpenCV Python tutorials · lecture 8",
+    "description": "Lecture 8 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-9",
+    "title": "OpenCV Python tutorials · lecture 9",
+    "description": "Lecture 9 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=9",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 9 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 9
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-10",
+    "title": "OpenCV Python tutorials · lecture 10",
+    "description": "Lecture 10 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=10",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 10 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 10
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-11",
+    "title": "OpenCV Python tutorials · lecture 11",
+    "description": "Lecture 11 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=11",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 11 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 11
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-opencv-python-tutorials-lecture-12",
+    "title": "OpenCV Python tutorials · lecture 12",
+    "description": "Lecture 12 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "OpenCV",
+    "author": "OpenCV.org",
+    "url": "https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html?lecture=12",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 12 of OpenCV Python tutorials by OpenCV.org. Watch with a notebook open; the catalog maps this series onto opencv.",
+    "metadata": {
+      "series": "OpenCV Python tutorials",
+      "lecture": 12
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-1",
+    "title": "ROS 2 rclcpp tutorials · lecture 1",
+    "description": "Lecture 1 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-2",
+    "title": "ROS 2 rclcpp tutorials · lecture 2",
+    "description": "Lecture 2 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-3",
+    "title": "ROS 2 rclcpp tutorials · lecture 3",
+    "description": "Lecture 3 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-4",
+    "title": "ROS 2 rclcpp tutorials · lecture 4",
+    "description": "Lecture 4 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-5",
+    "title": "ROS 2 rclcpp tutorials · lecture 5",
+    "description": "Lecture 5 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-6",
+    "title": "ROS 2 rclcpp tutorials · lecture 6",
+    "description": "Lecture 6 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-7",
+    "title": "ROS 2 rclcpp tutorials · lecture 7",
+    "description": "Lecture 7 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-8",
+    "title": "ROS 2 rclcpp tutorials · lecture 8",
+    "description": "Lecture 8 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-9",
+    "title": "ROS 2 rclcpp tutorials · lecture 9",
+    "description": "Lecture 9 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=9",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 9 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 9
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-ros-2-rclcpp-tutorials-lecture-10",
+    "title": "ROS 2 rclcpp tutorials · lecture 10",
+    "description": "Lecture 10 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "ROS",
+    "author": "Open Robotics",
+    "url": "https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.html?lecture=10",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 10 of ROS 2 rclcpp tutorials by Open Robotics. Watch with a notebook open; the catalog maps this series onto ros2 cpp.",
+    "metadata": {
+      "series": "ROS 2 rclcpp tutorials",
+      "lecture": 10
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-1",
+    "title": "learncpp.com · lecture 1",
+    "description": "Lecture 1 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=1",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 1 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 1
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-2",
+    "title": "learncpp.com · lecture 2",
+    "description": "Lecture 2 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=2",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 2 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 2
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-3",
+    "title": "learncpp.com · lecture 3",
+    "description": "Lecture 3 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=3",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 3 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 3
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-4",
+    "title": "learncpp.com · lecture 4",
+    "description": "Lecture 4 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=4",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 4 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 4
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-5",
+    "title": "learncpp.com · lecture 5",
+    "description": "Lecture 5 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=5",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 5 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 5
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-6",
+    "title": "learncpp.com · lecture 6",
+    "description": "Lecture 6 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=6",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 6 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 6
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-7",
+    "title": "learncpp.com · lecture 7",
+    "description": "Lecture 7 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=7",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 7 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 7
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-8",
+    "title": "learncpp.com · lecture 8",
+    "description": "Lecture 8 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=8",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 8 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 8
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-9",
+    "title": "learncpp.com · lecture 9",
+    "description": "Lecture 9 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=9",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 9 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 9
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-10",
+    "title": "learncpp.com · lecture 10",
+    "description": "Lecture 10 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=10",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 10 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 10
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-11",
+    "title": "learncpp.com · lecture 11",
+    "description": "Lecture 11 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=11",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 11 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 11
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-12",
+    "title": "learncpp.com · lecture 12",
+    "description": "Lecture 12 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=12",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 12 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 12
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-13",
+    "title": "learncpp.com · lecture 13",
+    "description": "Lecture 13 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=13",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 13 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 13
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-14",
+    "title": "learncpp.com · lecture 14",
+    "description": "Lecture 14 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=14",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 14 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 14
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-15",
+    "title": "learncpp.com · lecture 15",
+    "description": "Lecture 15 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=15",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 15 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 15
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-16",
+    "title": "learncpp.com · lecture 16",
+    "description": "Lecture 16 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=16",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 16 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 16
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-17",
+    "title": "learncpp.com · lecture 17",
+    "description": "Lecture 17 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=17",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 17 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 17
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-18",
+    "title": "learncpp.com · lecture 18",
+    "description": "Lecture 18 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=18",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 18 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 18
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-19",
+    "title": "learncpp.com · lecture 19",
+    "description": "Lecture 19 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=19",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 19 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 19
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-learncpp-com-lecture-20",
+    "title": "learncpp.com · lecture 20",
+    "description": "Lecture 20 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "learncpp.com",
+    "author": "Alex",
+    "url": "https://www.learncpp.com?lecture=20",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 55,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "lecture",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Lecture 20 of learncpp.com by Alex. Watch with a notebook open; the catalog maps this series onto cpp.",
+    "metadata": {
+      "series": "learncpp.com",
+      "lecture": 20
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
     "id": "video-explainer-video-ai-fundamentals",
     "title": "Explainer video: AI Fundamentals",
     "description": "A short explainer for AI Fundamentals. Agents, data, and the difference between a rule and a learned policy. Pause and write the definition in your own words.",
@@ -16281,6 +19321,41 @@
     "licence": "cc-by",
     "concepts": [
       "ai-history"
+    ]
+  },
+  {
+    "id": "video-explainer-video-python",
+    "title": "Explainer video: Python",
+    "description": "A short explainer for Python. Syntax, types, packaging, and tests before a training loop. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "python-language",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=python+language",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "python-language"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Python. Syntax, types, packaging, and tests before a training loop. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "python-language"
     ]
   },
   {
@@ -19859,7 +22934,7 @@
     "description": "A short explainer for 3D vision. Depth, NeRF, and Gaussian splatting. Pause and write the definition in your own words.",
     "category": "computer-vision",
     "subcategory": "",
-    "topic": "multiview",
+    "topic": "3d-vision",
     "resource_type": "video",
     "provider": "AI Mentor",
     "author": "AI Mentor",
@@ -20656,6 +23731,916 @@
     "licence": "cc-by",
     "concepts": [
       "grant-writing"
+    ]
+  },
+  {
+    "id": "video-explainer-video-opencv",
+    "title": "Explainer video: OpenCV",
+    "description": "A short explainer for OpenCV. Cameras, filters, contours, and a first calibrated image. Pause and write the definition in your own words.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "opencv",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=opencv",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "opencv"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for OpenCV. Cameras, filters, contours, and a first calibrated image. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "opencv"
+    ]
+  },
+  {
+    "id": "video-explainer-video-yolo",
+    "title": "Explainer video: YOLO",
+    "description": "A short explainer for YOLO. Single-shot boxes with a real-time budget. Pause and write the definition in your own words.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "yolo",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=yolo",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "yolo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for YOLO. Single-shot boxes with a real-time budget. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "yolo"
+    ]
+  },
+  {
+    "id": "video-explainer-video-detr",
+    "title": "Explainer video: DETR",
+    "description": "A short explainer for DETR. Detection as set prediction, without anchors. Pause and write the definition in your own words.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "detr",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=detr",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "detr"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for DETR. Detection as set prediction, without anchors. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "detr"
+    ]
+  },
+  {
+    "id": "video-explainer-video-image-segmentation",
+    "title": "Explainer video: Image segmentation",
+    "description": "A short explainer for Image segmentation. Pixels to classes, instances, and panoptic maps. Pause and write the definition in your own words.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "segmentation",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=segmentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "segmentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Image segmentation. Pixels to classes, instances, and panoptic maps. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "segmentation"
+    ]
+  },
+  {
+    "id": "video-explainer-video-stereo-vision",
+    "title": "Explainer video: Stereo vision",
+    "description": "A short explainer for Stereo vision. Two views, disparity, and a depth map you can check. Pause and write the definition in your own words.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "stereo-vision",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=stereo+vision",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "stereo-vision"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Stereo vision. Two views, disparity, and a depth map you can check. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "stereo-vision"
+    ]
+  },
+  {
+    "id": "video-explainer-video-lidar",
+    "title": "Explainer video: LiDAR",
+    "description": "A short explainer for LiDAR. Range returns to objects, lanes, and maps. Pause and write the definition in your own words.",
+    "category": "computer-vision",
+    "subcategory": "",
+    "topic": "lidar",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=lidar",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "lidar"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for LiDAR. Range returns to objects, lanes, and maps. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "lidar"
+    ]
+  },
+  {
+    "id": "video-explainer-video-nlp-fundamentals",
+    "title": "Explainer video: NLP fundamentals",
+    "description": "A short explainer for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Pause and write the definition in your own words.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "nlp-survey",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=nlp+fundamentals",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "nlp-fundamentals"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for NLP fundamentals. What language tasks are, before you fine-tune a transformer. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nlp-fundamentals"
+    ]
+  },
+  {
+    "id": "video-explainer-video-embeddings",
+    "title": "Explainer video: Embeddings",
+    "description": "A short explainer for Embeddings. Vectors that put similar text near similar text. Pause and write the definition in your own words.",
+    "category": "nlp",
+    "subcategory": "",
+    "topic": "embeddings",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=embeddings",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "embeddings"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Embeddings. Vectors that put similar text near similar text. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "embeddings"
+    ]
+  },
+  {
+    "id": "video-explainer-video-federated-learning",
+    "title": "Explainer video: Federated learning",
+    "description": "A short explainer for Federated learning. Train across clients without sending the raw rows. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fl-intro",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=federated+learning",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "federated-learning"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Federated learning. Train across clients without sending the raw rows. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "federated-learning"
+    ]
+  },
+  {
+    "id": "video-explainer-video-fedavg",
+    "title": "Explainer video: FedAvg",
+    "description": "A short explainer for FedAvg. Average client updates on a server, then broadcast the new weights. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedavg",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=fedavg",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "fedavg"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for FedAvg. Average client updates on a server, then broadcast the new weights. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedavg"
+    ]
+  },
+  {
+    "id": "video-explainer-video-fedprox",
+    "title": "Explainer video: FedProx",
+    "description": "A short explainer for FedProx. A proximal term so heterogeneous clients do not drift apart. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "fedprox",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=fedprox",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "fedprox"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for FedProx. A proximal term so heterogeneous clients do not drift apart. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "fedprox"
+    ]
+  },
+  {
+    "id": "video-explainer-video-differential-privacy",
+    "title": "Explainer video: Differential privacy",
+    "description": "A short explainer for Differential privacy. A privacy budget on what a trained model can reveal about one row. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "differential-privacy",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=differential+privacy",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "differential-privacy"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Differential privacy. A privacy budget on what a trained model can reveal about one row. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "differential-privacy"
+    ]
+  },
+  {
+    "id": "video-explainer-video-edge-ai",
+    "title": "Explainer video: Edge AI",
+    "description": "A short explainer for Edge AI. Inference and on-device training next to the sensor. Pause and write the definition in your own words.",
+    "category": "federated-learning",
+    "subcategory": "",
+    "topic": "edge-ai",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=edge+ai",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "edge-ai"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Edge AI. Inference and on-device training next to the sensor. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "edge-ai"
+    ]
+  },
+  {
+    "id": "video-explainer-video-c",
+    "title": "Explainer video: C++",
+    "description": "A short explainer for C++. Types, memory, and the subset used on robots. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "cpp",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for C++. Types, memory, and the subset used on robots. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "cpp"
+    ]
+  },
+  {
+    "id": "video-explainer-video-ros-2-c",
+    "title": "Explainer video: ROS 2 C++",
+    "description": "A short explainer for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "ros2-cpp",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=ros2+cpp",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "ros2-cpp"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for ROS 2 C++. rclcpp nodes, executors, parameters, and lifecycle. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2-cpp"
+    ]
+  },
+  {
+    "id": "video-explainer-video-software-engineering",
+    "title": "Explainer video: Software engineering",
+    "description": "A short explainer for Software engineering. Design, tests, reviews, and a change you can revert. Pause and write the definition in your own words.",
+    "category": "programming",
+    "subcategory": "",
+    "topic": "software-engineering",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=software+engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "software-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Software engineering. Design, tests, reviews, and a change you can revert. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "software-engineering"
+    ]
+  },
+  {
+    "id": "video-explainer-video-matlab",
+    "title": "Explainer video: MATLAB",
+    "description": "A short explainer for MATLAB. Arrays, plots, and a numerical experiment you can re-run. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "matlab",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=matlab",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "matlab"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for MATLAB. Arrays, plots, and a numerical experiment you can re-run. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "matlab"
+    ]
+  },
+  {
+    "id": "video-explainer-video-simulink",
+    "title": "Explainer video: Simulink",
+    "description": "A short explainer for Simulink. Block diagrams of continuous and discrete plants. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "simulink",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=simulink",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "simulink"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Simulink. Block diagrams of continuous and discrete plants. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "simulink"
+    ]
+  },
+  {
+    "id": "video-explainer-video-gazebo",
+    "title": "Explainer video: Gazebo",
+    "description": "A short explainer for Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "gazebo",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=gazebo",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "gazebo"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Gazebo. Rigid-body robots, sensors, and a ROS 2 bring-up in simulation. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "gazebo"
+    ]
+  },
+  {
+    "id": "video-explainer-video-isaac-sim",
+    "title": "Explainer video: Isaac Sim",
+    "description": "A short explainer for Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "isaac-sim",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=isaac+sim",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "isaac-sim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Isaac Sim. GPU-native scenes, synthetic data, and domain randomisation. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "isaac-sim"
+    ]
+  },
+  {
+    "id": "video-explainer-video-mujoco",
+    "title": "Explainer video: MuJoCo",
+    "description": "A short explainer for MuJoCo. Contact-rich physics for control and RL. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "mujoco",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=mujoco",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "mujoco"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for MuJoCo. Contact-rich physics for control and RL. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "mujoco"
+    ]
+  },
+  {
+    "id": "video-explainer-video-carla",
+    "title": "Explainer video: CARLA",
+    "description": "A short explainer for CARLA. Urban driving: sensors, traffic, and a closed loop. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "carla",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=carla",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "carla"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for CARLA. Urban driving: sensors, traffic, and a closed loop. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "carla"
+    ]
+  },
+  {
+    "id": "video-explainer-video-airsim",
+    "title": "Explainer video: AirSim",
+    "description": "A short explainer for AirSim. Aerial and ground vehicles in Unreal scenes. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "airsim",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=airsim",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "airsim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for AirSim. Aerial and ground vehicles in Unreal scenes. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "airsim"
+    ]
+  },
+  {
+    "id": "video-explainer-video-webots",
+    "title": "Explainer video: Webots",
+    "description": "A short explainer for Webots. Cross-platform robot scenes with controllers you can step. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "webots",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=webots",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "webots"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Webots. Cross-platform robot scenes with controllers you can step. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "webots"
+    ]
+  },
+  {
+    "id": "video-explainer-video-coppeliasim",
+    "title": "Explainer video: CoppeliaSim",
+    "description": "A short explainer for CoppeliaSim. Scenes, child scripts, and inverse kinematics. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "coppeliasim",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=coppeliasim",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "coppeliasim"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for CoppeliaSim. Scenes, child scripts, and inverse kinematics. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "coppeliasim"
+    ]
+  },
+  {
+    "id": "video-explainer-video-digital-twins",
+    "title": "Explainer video: Digital twins",
+    "description": "A short explainer for Digital twins. A live model kept honest by measurements. Pause and write the definition in your own words.",
+    "category": "modelling-simulation",
+    "subcategory": "",
+    "topic": "digital-twins",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=digital+twins",
+    "language": "en",
+    "difficulty": "expert",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "digital-twins"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Digital twins. A live model kept honest by measurements. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "digital-twins"
     ]
   }
 ]

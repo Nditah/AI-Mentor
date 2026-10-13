@@ -72,7 +72,7 @@ Figures marked **(hypothesis)** are planning assumptions to validate with beta a
 
 AI Mentor v1 is a personal AI tutor for AI and its neighbouring fields. v2 keeps that tutor at the centre and builds four more applications around it on one shared platform: an Instructor App for teaching cohorts, an Institution App for running organisations, an Admin App for governing the platform, and Content Studio for producing the curriculum.
 
-The build today is the v1 learner slice: a Next.js learner frontend in `frontend/`, a staff portal in `admin/`, and a FastAPI modular monolith with three ranked roles (`student < instructor < admin`). None of the tenancy, classroom, assessment, or licensing capability in this document exists yet. R1 ships the v1 learner MVP as a closed beta and lays the foundations that are expensive to add later. R2 is the public consumer launch with Content Studio v1. R3 opens the Instructor and Institution Apps to pilot institutions.
+The five Next.js apps live under `apps/` on one FastAPI modular monolith with three ranked roles (`student < instructor < admin`). None of the tenancy, classroom, assessment, or licensing capability in this document exists yet; Instructor and Institution screens that need an organisation show empty queues. R1 ships the v1 learner MVP as a closed beta and lays the foundations that are expensive to add later. R2 is the public consumer launch with Content Studio builders. R3 opens Instructor and Institution Apps to pilot institutions with real tenants.
 
 ## Problems added in v2
 
@@ -651,6 +651,8 @@ v1 learner KPIs, engagement, retention, and learning outcome metrics ([PRD.md](.
 - Cross-tenant data access incidents: zero.
 
 ## Monetisation v2
+
+The full commercial model, including credits, instructor plans, corporate packages, and white label, is in [Pricing-Commercialisation.md](../Pricing-Commercialisation.md). This section remains the short form. Seat prices there match the table below, with one addition: an education enterprise seat at £72, between Campus and the employer price.
 
 ### Consumer tiers
 
