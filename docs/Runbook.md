@@ -86,16 +86,19 @@ A healthy `/health` response:
 ### 0.3 Service inventory
 
 | Component | Hosting | Role | State held | Owner |
-| --- | --- | --- | --- | --- |
-| Studio (Next.js 15) | Vercel | Learner and admin UI. `NEXT_PUBLIC_API_URL` is baked in at build time | None | Frontend lead |
-| API (FastAPI, Python 3.12, Uvicorn) | Azure Container Apps, image from GHCR | All business logic, tutor, grading, lab, ingestion, webhooks | None (stateless) except in-process rate-limit counters | Backend lead |
-| Code lab runner | Child `python -I` process inside the API container, 3 s timeout | Executes allowlisted learner Python | None | Backend lead + Security |
+| --- | --- | --- | --- | --- | --- |
+| Studio (Next.js 16) | Vercel | Learner UI. `NEXT_PUBLIC_API_URL` is baked in at build time | None | Frontend lead |
+| Admin portal (Next.js 16) | Vercel, own hostname | Staff UI: library, users, audit. `noindex` | None | Frontend lead |
+| API (FastAPI, Python 3.12, Uvicorn) | Azure Container Apps, image from GHCR | All business logic, tutor, grading, lab, ingestion, webhooks | None (stateless) | Backend lead |
+| Code lab runner | Child `python -I` process inside the API container, 3 s timeout. **Off in production** (HZ-12) | Executes allowlisted learner Python | None | Backend lead + Security |
+| Migrate job | Container Apps Job, same image, `python -m app.cli migrate` | Alembic migrations and catalog seed before each rollout | None | Backend lead |
+| Redis | Azure Cache for Redis | Shared rate-limit counters | None (counters only; safe to flush) | Backend lead |
 | PostgreSQL 16 | Azure Database for PostgreSQL Flexible Server | System of record: users, progress, XP, conversations, quizzes, documents, chunks | **All durable data** | Backend lead |
-| Qdrant v1.13 | Managed or self-hosted | Vector store (configured; see hazard HZ-6) | Currently no application data | Backend lead |
+| Qdrant v1.13 | Managed or self-hosted | Vector store: `learner_docs_v1` (uploads) and `knowledge_v1` (published library) | Derived; rebuildable from PostgreSQL chunks | Backend lead |
 | Clerk | SaaS | Identity, JWT (RS256 via JWKS), user webhooks | Identities | Backend lead |
 | Stripe | SaaS | Checkout, subscriptions, webhooks | Billing | Backend lead + Finance |
 | OpenAI / Anthropic / Gemini | SaaS | Completions; OpenAI also embeddings | None | AI lead |
-| Langfuse | SaaS | LLM traces (best-effort; see HZ-8) | Traces | AI lead |
+| Langfuse | SaaS | LLM traces (best-effort; no user id) | Traces | AI lead |
 | GHCR | GitHub | Image registry, tags `v*` | Images | Backend lead |
 | GitHub Actions | GitHub | `ci` on push/PR, `publish` on tag | — | Backend lead |
 
@@ -103,8 +106,10 @@ A healthy `/health` response:
 
 ```text
 Browser -> Vercel (studio) -> HTTPS -> Container Apps ingress (Envoy) -> Uvicorn -> FastAPI
-  -> RateLimitMiddleware (per process, keyed by client host)
-  -> current_user(): Clerk JWT verified via JWKS -> upsert_user() in PostgreSQL
+  -> RequestContextMiddleware (X-Request-Id) -> SecurityHeadersMiddleware
+  -> RateLimitMiddleware (Redis, per client address from trusted X-Forwarded-For)
+  -> current_user(): Clerk JWT verified via JWKS (iss, exp, azp, aud) -> sync_identity() writes only on first sight or change
+  -> staff MFA and suspension checks -> per-user rate limits (Redis)
   -> MentorEngine -> domain policies -> ProviderRouter (OpenAI -> Anthropic -> Gemini -> curriculum fallback)
   -> PostgreSQL (SQLAlchemy pool, pre-ping)
 ```
@@ -115,22 +120,22 @@ Routes are synchronous `def` functions. FastAPI runs them in a thread pool (AnyI
 
 These are properties of the current build that cause or worsen incidents. Each has a troubleshooting guide and a tracked fix.
 
-| ID | Hazard | Effect in production | Guide | Permanent fix |
+| ID | Hazard | Effect in production | Guide | Permanent fix | Status |
 | --- | --- | --- | --- | --- |
-| HZ-1 | Model SDK clients are created without an explicit timeout (SDK default is minutes, with automatic retries) | A slow or hung provider holds threads for minutes; the thread pool fills; **every** route, including `/health`, stalls | TG-03 | **[CODE CHANGE]** set `timeout≈20s`, `max_retries≤1` on OpenAI/Anthropic/Gemini clients |
-| HZ-2 | Rate limiter keys on `request.client.host`; Uvicorn trusts `X-Forwarded-For` only from `127.0.0.1` by default | Behind Container Apps ingress, many users may share one key; legitimate users get `429` | TG-02 | Set `FORWARDED_ALLOW_IPS` (env, read by Uvicorn) and move to a shared limiter |
-| HZ-3 | Rate limiter is per process | Effective limit = configured limit × workers × replicas | TG-02 | Shared limiter (Redis or edge) |
-| HZ-4 | Container start runs `alembic upgrade head`, then the lifespan seeds the catalog — on **every** replica and worker | Concurrent migrations or seed upserts at scale-out or deploy can fail and crash-loop replicas | TG-07 | Run migrations as a one-off Container Apps Job before shifting traffic |
-| HZ-5 | Research analysis re-embeds every chunk of the document at query time | With an OpenAI key, one embeddings API call per chunk per question; large documents take minutes and cost money | TG-08 | **[CODE CHANGE]** persist vectors (Qdrant) and query them |
-| HZ-6 | No code path writes to or reads from Qdrant yet; `embeddings.qdrant_point_id` is recorded but no point is stored | Qdrant outages have no learner impact today; Qdrant backups currently protect nothing | §3.4 | Implement Qdrant writes (SRS RAG-011) |
-| HZ-7 | `/health` checks only PostgreSQL | A green health check does not mean tutor, auth, or billing work | §9 | Add `/ready` with dependency checks |
-| HZ-8 | Langfuse tracing calls `client.trace(...)`, which is not present in current Langfuse SDK major versions; the code silently returns | Do not rely on Langfuse for incident evidence until verified | §5.3 | **[CODE CHANGE]** migrate to current SDK API |
-| HZ-9 | OpenTelemetry exports spans to the console, not OTLP | Spans appear as log lines (noisy, not queryable as traces) | §5.3 | Configure an OTLP exporter |
-| HZ-10 | Clerk JWKS client is created without a timeout; JWKS fetch errors are not converted to 401 | Clerk/JWKS outage after the key cache expires → slow `500`s on every authenticated request | TG-05 | **[CODE CHANGE]** timeout, catch `PyJWKClientError`, longer cache |
-| HZ-11 | Every authenticated request calls `upsert_user()` | One write per request; adds DB load and lock contention under burst | §10.4 | Upsert only on first sight or claim change |
-| HZ-12 | Learner code runs in a child interpreter inside the API container, not an isolated sandbox | A policy bypass would execute inside the API container's trust boundary | TG-17 | gVisor/microVM runner (Roadmap item 3) |
-| HZ-13 | Ingestion is synchronous in the request | Large uploads hold a thread and a DB transaction for the whole parse + embed | TG-08 | Job queue (Roadmap item 4) |
-| HZ-14 | Clerk `user.deleted` is not handled | Deleted Clerk users keep local records; erasure requests are manual | §11.9 | Handle `user.deleted` |
+| HZ-1 | Model SDK clients are created without an explicit timeout (SDK default is minutes, with automatic retries) | A slow or hung provider holds threads for minutes; the thread pool fills; **every** route, including `/health`, stalls | TG-03 | **[CODE CHANGE]** set `timeout≈20s`, `max_retries≤1` on OpenAI/Anthropic/Gemini clients | **Fixed.** Every provider client has `LLM_TIMEOUT_SECONDS` (20) and `LLM_MAX_RETRIES` (1). |
+| HZ-2 | Rate limiter keys on `request.client.host`; Uvicorn trusts `X-Forwarded-For` only from `127.0.0.1` by default | Behind Container Apps ingress, many users may share one key; legitimate users get `429` | TG-02 | Set `FORWARDED_ALLOW_IPS` (env, read by Uvicorn) and move to a shared limiter | **Fixed.** The image passes `--proxy-headers --forwarded-allow-ips "$FORWARDED_ALLOW_IPS"`; set it to the ingress range. Signed-in limits key on the user, not the address. |
+| HZ-3 | Rate limiter is per process | Effective limit = configured limit × workers × replicas | TG-02 | Shared limiter (Redis or edge) | **Fixed.** Counters live in Redis (`REDIS_URL`). Without Redis the limiter falls back to per-process and logs a warning; production requires Redis. |
+| HZ-4 | Container start runs `alembic upgrade head`, then the lifespan seeds the catalog — on **every** replica and worker | Concurrent migrations or seed upserts at scale-out or deploy can fail and crash-loop replicas | TG-07 | Run migrations as a one-off Container Apps Job before shifting traffic | **Fixed.** The image only serves. `python -m app.cli migrate` runs as a one-off job; the web process never migrates or seeds. |
+| HZ-5 | Research analysis re-embeds every chunk of the document at query time | With an OpenAI key, one embeddings API call per chunk per question; large documents take minutes and cost money | TG-08 | **[CODE CHANGE]** persist vectors (Qdrant) and query them | **Fixed.** Chunks are embedded once at upload; a question costs one embedding call and one filtered search. |
+| HZ-6 | No code path writes to or reads from Qdrant yet; `embeddings.qdrant_point_id` is recorded but no point is stored | Qdrant outages have no learner impact today; Qdrant backups currently protect nothing | §3.4 | Implement Qdrant writes (SRS RAG-011) | **Fixed.** Learner documents are indexed in `learner_docs_v1` and published library assets in `knowledge_v1`. Qdrant backups now protect real data (rebuildable from PostgreSQL). |
+| HZ-7 | `/health` checks only PostgreSQL | A green health check does not mean tutor, auth, or billing work | §9 | Add `/ready` with dependency checks | **Fixed.** `/ready` checks PostgreSQL, Qdrant, and Redis; `/health` is liveness only. |
+| HZ-8 | Langfuse tracing calls `client.trace(...)`, which is not present in current Langfuse SDK major versions; the code silently returns | Do not rely on Langfuse for incident evidence until verified | §5.3 | **[CODE CHANGE]** migrate to current SDK API | **Fixed.** Langfuse 4 `start_observation(as_type="generation")`; tracing stays best-effort. |
+| HZ-9 | OpenTelemetry exports spans to the console, not OTLP | Spans appear as log lines (noisy, not queryable as traces) | §5.3 | Configure an OTLP exporter | **Fixed.** OTLP/HTTP exporter to `OTEL_EXPORTER_OTLP_ENDPOINT`; health probes excluded. |
+| HZ-10 | Clerk JWKS client is created without a timeout; JWKS fetch errors are not converted to 401 | Clerk/JWKS outage after the key cache expires → slow `500`s on every authenticated request | TG-05 | **[CODE CHANGE]** timeout, catch `PyJWKClientError`, longer cache | **Fixed.** JWKS client has a 5 s timeout and a one-hour key cache; an unreachable JWKS is `503`, a bad token `401`. |
+| HZ-11 | Every authenticated request calls `upsert_user()` | One write per request; adds DB load and lock contention under burst | §10.4 | Upsert only on first sight or claim change | **Fixed.** `sync_identity` writes only on first sight or when email or name changed. |
+| HZ-12 | Learner code runs in a child interpreter inside the API container, not an isolated sandbox | A policy bypass would execute inside the API container's trust boundary | TG-17 | gVisor/microVM runner (Roadmap item 3) | **Open.** Mitigated: the lab is off by default in production and the config refuses to enable it. |
+| HZ-13 | Ingestion is synchronous in the request | Large uploads hold a thread and a DB transaction for the whole parse + embed | TG-08 | Job queue (Roadmap item 4) | **Open.** Ingestion still runs in the request (Security-Compliance SEC-13). |
+| HZ-14 | Clerk `user.deleted` is not handled | Deleted Clerk users keep local records; erasure requests are manual | §11.9 | Handle `user.deleted` | **Fixed.** `user.deleted` erases the learner (vectors, Stripe, rows) and is audited. |
 
 ---
 
@@ -407,7 +412,7 @@ Download snapshots to the backup storage account and keep 7 daily copies. Postgr
 
 ### 3.6 Identity reconciliation export (Clerk)
 
-Weekly job: page through the Clerk Backend API `GET /v1/users` and store `id, primary email, created_at, public_metadata.role` as JSON in the backup storage account (35-day retention). Used only to reconcile local `users.clerk_id` after a database restore and to detect orphaned accounts.
+Weekly job: page through the Clerk Backend API `GET /v1/users` and store `id, primary email, created_at` as JSON in the backup storage account (35-day retention). Used only to reconcile local `users.clerk_id` after a database restore and to detect orphaned accounts.
 
 ### 3.7 Backup schedule summary
 
@@ -557,7 +562,7 @@ curl -sS -X PUT -H "api-key: $QDRANT_API_KEY" -H 'Content-Type: application/json
 curl -sS -H "api-key: $QDRANT_API_KEY" "$QDRANT_URL/collections/<name>" | jq '.result.points_count'
 ```
 
-**Rebuild from PostgreSQL** (always possible): every `document_chunks` row has its text; `embeddings` records the model used. Re-embed all chunks with the configured model and upsert with `id = embeddings.qdrant_point_id` and payload `{document_id, user_id(owner), chunk_id, ordinal}`. Run in batches of 100 chunks and throttle to the embedding provider's rate limit. Estimated cost and duration must be computed before starting:
+**Rebuild from PostgreSQL** (always possible): every `document_chunks` row has its text; `embeddings` records the model used. Re-embed all chunks with the configured model and upsert with `id = embeddings.point_id` (equal to the chunk id). Payloads: `learner_docs_v1` gets `{owner_id, document_id}`; `knowledge_v1` gets `{asset_id, status, language}` for published assets only. Run in batches of 96 chunks and throttle to the embedding provider's rate limit. Estimated cost and duration must be computed before starting:
 
 ```sql
 SELECT count(*) AS chunks, sum(length(text)) / 4 AS approx_tokens FROM document_chunks;
@@ -596,6 +601,8 @@ GROUP BY u.id, u.xp HAVING u.xp <> coalesce(sum(e.amount),0) LIMIT 20;
 
 -- Catalog present (seed also re-upserts on API start)
 SELECT count(*) FROM learning_paths; SELECT count(*) FROM lessons; SELECT count(*) FROM concepts;
+SELECT count(*) FROM knowledge_assets WHERE state = 'published';
+SELECT resource_type, count(*) FROM knowledge_assets GROUP BY resource_type;
 ```
 
 Pass criteria: Alembic version equals the deployed image's head; counts plausible (no table unexpectedly empty); latest timestamps match the restore target; ≥ 1 admin; XP mismatches explained.
@@ -606,7 +613,7 @@ Data written between the restore point and the freeze is not in the restored dat
 
 | Data | Reconciliation |
 | --- | --- |
-| New users | Re-created automatically on their next request (JWT → `upsert_user`). Optionally replay Clerk `user.created` webhooks from the Clerk dashboard for the window. |
+| New users | Re-created automatically on their next request (JWT → `sync_identity`, as students; restore staff roles from the audit log). Optionally replay Clerk `user.created` webhooks from the Clerk dashboard for the window. |
 | Subscriptions | Replay Stripe events for the window: Stripe Dashboard → Developers → Events → filter by time → Resend to endpoint, or `stripe events resend <evt_id>`. Then verify with §8.4 subscription query. |
 | XP, progress, quizzes, messages | Lost for the window. If the old server still holds them (bad change was limited), copy rows created after `RESTORE_TIME` from the old server using §4.3, excluding the damaged rows. Otherwise inform affected learners. |
 | Research uploads | Lost for the window; learners re-upload. Comms sends a notice to users with `research_documents.created_at` in the window on the old server. |
@@ -1163,7 +1170,7 @@ Impact is usually low: users are also upserted on their first authenticated requ
 
 **Likely causes:** `CLERK_WEBHOOK_SECRET` missing (`503`) or wrong (`400 Invalid Clerk signature`); endpoint URL wrong.
 
-**Fix:** correct the secret (§11.8); replay failed messages from Clerk Dashboard → Webhooks → endpoint → message attempts → Resend. Note: `user.deleted` is not handled (HZ-14); deletions follow §11.9.
+**Fix:** correct the secret (§11.8); replay failed messages from Clerk Dashboard → Webhooks → endpoint → message attempts → Resend. `user.deleted` erases the learner; replaying it is safe because each `svix-id` is applied once.
 
 ### TG-12 — Model spend spike
 
@@ -1825,15 +1832,20 @@ az containerapp update -n "$APP" -g "$RG" --revision-suffix "rot$(date -u +%m%d%
 
 ### 11.9 Learner data requests during operations
 
-Until account deletion and export are implemented in the product (SRS FR-ACC-007/008; HZ-14), Support escalates verified requests to the Backend lead, who runs a reviewed script in a transaction: delete the user row (cascades to conversations, messages, quizzes, results, submissions, documents, chunks, embeddings, plans, flashcards, reviews, mastery, progress, achievements, XP events), delete the user in Clerk, and anonymise Stripe customer metadata. Record completion date without personal data. Deadline: 30 days from verified request.
+Learners export their data with `GET /api/v1/me/export` and erase their account with `DELETE /api/v1/me` (SRS FR-ACC-007/008). Deleting the user in the Clerk dashboard has the same effect through the `user.deleted` webhook. Erasure removes the learner's Qdrant points, anonymises the Stripe customer, deletes the Clerk user, then deletes the user row, which cascades to every learner-owned table. Staff-authored library content and audit rows remain with the author cleared. It writes a `privacy.erasure` audit row keyed by a hash of the subject, not by name or email.
+
+When a verified request arrives through Support instead, delete the user in the Clerk dashboard and confirm the `privacy.erasure` audit row appears in the admin portal. If erasure returns 503, a provider was unreachable and nothing was deleted locally; retry after the provider recovers. Erasure does not reach backups: deleted data ages out with the 35-day backup retention, and after any database restore run `python -m app.cli reapply-erasures` as a job: it erases every restored learner whose subject hash has a `privacy.erasure` audit row. Deadline: 30 days from verified request.
+
+Still manual: a scheduled job that verifies erasure completed (AC-065). Until it exists, check the audit log weekly for requests without a matching `privacy.erasure` row.
 
 ### 11.10 After any recovery
 
-1. Smoke test passes (§9.6).
-2. Alerts quiet for 30 minutes.
-3. Backups resume on the (possibly new) server; take an on-demand backup immediately after any cutover.
-4. Update the infrastructure record (server names, revision names, DNS) in the ops repository.
-5. Close the incident; schedule the postmortem.
+1. If PostgreSQL was restored, run `python -m app.cli reapply-erasures` before reopening traffic (§11.9).
+2. Smoke test passes (§9.6).
+3. Alerts quiet for 30 minutes.
+4. Backups resume on the (possibly new) server; take an on-demand backup immediately after any cutover.
+5. Update the infrastructure record (server names, revision names, DNS) in the ops repository.
+6. Close the incident; schedule the postmortem.
 
 ---
 

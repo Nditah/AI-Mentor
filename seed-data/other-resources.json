@@ -1,0 +1,4894 @@
+[
+  {
+    "id": "documentation-user-guide-warehouses-and-lakes",
+    "title": "User guide: Warehouses and lakes",
+    "description": "User guide for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "documentation",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=warehouses&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "warehouses",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "warehouses"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-warehouses-and-lakes",
+    "title": "Worked tutorial: Warehouses and lakes",
+    "description": "Worked tutorial for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "tutorial",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=warehouses&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "warehouses",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "warehouses"
+    ]
+  },
+  {
+    "id": "blog-explainer-warehouses-and-lakes",
+    "title": "Explainer: Warehouses and lakes",
+    "description": "Explainer for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "blog",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=warehouses&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "warehouses",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "warehouses"
+    ]
+  },
+  {
+    "id": "podcast-conversation-warehouses-and-lakes",
+    "title": "Conversation: Warehouses and lakes",
+    "description": "Conversation for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "podcast",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=warehouses&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "warehouses",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Warehouses and lakes. Batch storage of analytic data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "warehouses"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-streaming-systems",
+    "title": "User guide: Streaming systems",
+    "description": "User guide for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "streaming",
+    "resource_type": "documentation",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=streaming&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "streaming",
+      "data-engineering"
+    ],
+    "skills": [
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "streaming"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-streaming-systems",
+    "title": "Worked tutorial: Streaming systems",
+    "description": "Worked tutorial for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "streaming",
+    "resource_type": "tutorial",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=streaming&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "streaming",
+      "data-engineering"
+    ],
+    "skills": [
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "streaming"
+    ]
+  },
+  {
+    "id": "blog-explainer-streaming-systems",
+    "title": "Explainer: Streaming systems",
+    "description": "Explainer for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "streaming",
+    "resource_type": "blog",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=streaming&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "streaming",
+      "data-engineering"
+    ],
+    "skills": [
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "streaming"
+    ]
+  },
+  {
+    "id": "podcast-conversation-streaming-systems",
+    "title": "Conversation: Streaming systems",
+    "description": "Conversation for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "streaming",
+    "resource_type": "podcast",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=streaming&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "streaming",
+      "data-engineering"
+    ],
+    "skills": [
+      "spark"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Streaming systems. Event time, watermarks, and exactly-once myths. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "streaming"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-pipeline-orchestration",
+    "title": "User guide: Pipeline orchestration",
+    "description": "User guide for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "documentation",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=orchestration&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "orchestration",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "orchestration"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-pipeline-orchestration",
+    "title": "Worked tutorial: Pipeline orchestration",
+    "description": "Worked tutorial for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "tutorial",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=orchestration&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "orchestration",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "orchestration"
+    ]
+  },
+  {
+    "id": "blog-explainer-pipeline-orchestration",
+    "title": "Explainer: Pipeline orchestration",
+    "description": "Explainer for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "blog",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=orchestration&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "orchestration",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "orchestration"
+    ]
+  },
+  {
+    "id": "podcast-conversation-pipeline-orchestration",
+    "title": "Conversation: Pipeline orchestration",
+    "description": "Conversation for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "podcast",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=orchestration&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "orchestration",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Pipeline orchestration. Airflow, Dagster, and dbt as contracts. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "orchestration"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ros-2",
+    "title": "User guide: ROS 2",
+    "description": "User guide for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros2&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "ros2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ros-2",
+    "title": "Worked tutorial: ROS 2",
+    "description": "Worked tutorial for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros2&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "ros2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2"
+    ]
+  },
+  {
+    "id": "blog-explainer-ros-2",
+    "title": "Explainer: ROS 2",
+    "description": "Explainer for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros2&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "ros2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ros-2",
+    "title": "Conversation: ROS 2",
+    "description": "Conversation for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros2&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "ros2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ROS 2. Nodes, topics, services, and actions. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros2"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ros-2-nodes-and-topics",
+    "title": "User guide: ROS 2 nodes and topics",
+    "description": "User guide for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-nodes&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "ros-nodes",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-nodes"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ros-2-nodes-and-topics",
+    "title": "Worked tutorial: ROS 2 nodes and topics",
+    "description": "Worked tutorial for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-nodes&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "ros-nodes",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-nodes"
+    ]
+  },
+  {
+    "id": "blog-explainer-ros-2-nodes-and-topics",
+    "title": "Explainer: ROS 2 nodes and topics",
+    "description": "Explainer for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-nodes&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "ros-nodes",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-nodes"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ros-2-nodes-and-topics",
+    "title": "Conversation: ROS 2 nodes and topics",
+    "description": "Conversation for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-nodes&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "ros-nodes",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ROS 2 nodes and topics. Publishers, subscribers, and QoS. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-nodes"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ros-2-launch",
+    "title": "User guide: ROS 2 launch",
+    "description": "User guide for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-launch&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "ros-launch",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-launch"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ros-2-launch",
+    "title": "Worked tutorial: ROS 2 launch",
+    "description": "Worked tutorial for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-launch&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "ros-launch",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-launch"
+    ]
+  },
+  {
+    "id": "blog-explainer-ros-2-launch",
+    "title": "Explainer: ROS 2 launch",
+    "description": "Explainer for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-launch&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "ros-launch",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-launch"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ros-2-launch",
+    "title": "Conversation: ROS 2 launch",
+    "description": "Conversation for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=ros-launch&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "ros-launch",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ROS 2 launch. Bring-up of a robot system. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ros-launch"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-nav2",
+    "title": "User guide: Nav2",
+    "description": "User guide for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "nav2",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=nav2&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "nav2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "slam"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nav2"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-nav2",
+    "title": "Worked tutorial: Nav2",
+    "description": "Worked tutorial for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "nav2",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=nav2&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "nav2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "slam"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nav2"
+    ]
+  },
+  {
+    "id": "blog-explainer-nav2",
+    "title": "Explainer: Nav2",
+    "description": "Explainer for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "nav2",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=nav2&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "nav2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "slam"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nav2"
+    ]
+  },
+  {
+    "id": "podcast-conversation-nav2",
+    "title": "Conversation: Nav2",
+    "description": "Conversation for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "nav2",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=nav2&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "nav2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "slam"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Nav2. The ROS 2 navigation stack. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "nav2"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-experiment-tracking",
+    "title": "User guide: Experiment tracking",
+    "description": "User guide for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=experiment-tracking&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "experiment-tracking",
+      "mlops"
+    ],
+    "skills": [
+      "git",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experiment-tracking"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-experiment-tracking",
+    "title": "Worked tutorial: Experiment tracking",
+    "description": "Worked tutorial for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=experiment-tracking&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "experiment-tracking",
+      "mlops"
+    ],
+    "skills": [
+      "git",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experiment-tracking"
+    ]
+  },
+  {
+    "id": "blog-explainer-experiment-tracking",
+    "title": "Explainer: Experiment tracking",
+    "description": "Explainer for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=experiment-tracking&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "experiment-tracking",
+      "mlops"
+    ],
+    "skills": [
+      "git",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experiment-tracking"
+    ]
+  },
+  {
+    "id": "podcast-conversation-experiment-tracking",
+    "title": "Conversation: Experiment tracking",
+    "description": "Conversation for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=experiment-tracking&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "experiment-tracking",
+      "mlops"
+    ],
+    "skills": [
+      "git",
+      "python"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Experiment tracking. Runs, artefacts, and lineage. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experiment-tracking"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-model-serving",
+    "title": "User guide: Model serving",
+    "description": "User guide for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=serving&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "serving",
+      "mlops"
+    ],
+    "skills": [
+      "model-serving",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "serving"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-model-serving",
+    "title": "Worked tutorial: Model serving",
+    "description": "Worked tutorial for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=serving&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "serving",
+      "mlops"
+    ],
+    "skills": [
+      "model-serving",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "serving"
+    ]
+  },
+  {
+    "id": "blog-explainer-model-serving",
+    "title": "Explainer: Model serving",
+    "description": "Explainer for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=serving&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "serving",
+      "mlops"
+    ],
+    "skills": [
+      "model-serving",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "serving"
+    ]
+  },
+  {
+    "id": "podcast-conversation-model-serving",
+    "title": "Conversation: Model serving",
+    "description": "Conversation for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=serving&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "serving",
+      "mlops"
+    ],
+    "skills": [
+      "model-serving",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Model serving. Batch, online, and streaming inference. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "serving"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ml-monitoring",
+    "title": "User guide: ML monitoring",
+    "description": "User guide for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "monitoring",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=monitoring&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "monitoring",
+      "mlops"
+    ],
+    "skills": [
+      "observability"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "monitoring"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ml-monitoring",
+    "title": "Worked tutorial: ML monitoring",
+    "description": "Worked tutorial for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "monitoring",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=monitoring&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "monitoring",
+      "mlops"
+    ],
+    "skills": [
+      "observability"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "monitoring"
+    ]
+  },
+  {
+    "id": "blog-explainer-ml-monitoring",
+    "title": "Explainer: ML monitoring",
+    "description": "Explainer for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "monitoring",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=monitoring&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "monitoring",
+      "mlops"
+    ],
+    "skills": [
+      "observability"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "monitoring"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ml-monitoring",
+    "title": "Conversation: ML monitoring",
+    "description": "Conversation for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "monitoring",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=monitoring&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "monitoring",
+      "mlops"
+    ],
+    "skills": [
+      "observability"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ML monitoring. Drift, quality, and incident response. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "monitoring"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-feature-stores",
+    "title": "User guide: Feature stores",
+    "description": "User guide for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=feature-stores&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "feature-stores",
+      "mlops"
+    ],
+    "skills": [
+      "feature-stores"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-stores"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-feature-stores",
+    "title": "Worked tutorial: Feature stores",
+    "description": "Worked tutorial for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=feature-stores&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "feature-stores",
+      "mlops"
+    ],
+    "skills": [
+      "feature-stores"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-stores"
+    ]
+  },
+  {
+    "id": "blog-explainer-feature-stores",
+    "title": "Explainer: Feature stores",
+    "description": "Explainer for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=feature-stores&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "feature-stores",
+      "mlops"
+    ],
+    "skills": [
+      "feature-stores"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-stores"
+    ]
+  },
+  {
+    "id": "podcast-conversation-feature-stores",
+    "title": "Conversation: Feature stores",
+    "description": "Conversation for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=feature-stores&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "feature-stores",
+      "mlops"
+    ],
+    "skills": [
+      "feature-stores"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Feature stores. Training-time features served online. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-stores"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ai-research-methods",
+    "title": "User guide: AI research methods",
+    "description": "User guide for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=research-methods&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "research-methods",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design",
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "research-methods"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ai-research-methods",
+    "title": "Worked tutorial: AI research methods",
+    "description": "Worked tutorial for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=research-methods&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "research-methods",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design",
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "research-methods"
+    ]
+  },
+  {
+    "id": "blog-explainer-ai-research-methods",
+    "title": "Explainer: AI research methods",
+    "description": "Explainer for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=research-methods&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "research-methods",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design",
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "research-methods"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ai-research-methods",
+    "title": "Conversation: AI research methods",
+    "description": "Conversation for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=research-methods&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "research-methods",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design",
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for AI research methods. Baselines, ablations, and seeds. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "research-methods"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-experimental-design",
+    "title": "User guide: Experimental design",
+    "description": "User guide for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=experimental-design&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "experimental-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimental-design"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-experimental-design",
+    "title": "Worked tutorial: Experimental design",
+    "description": "Worked tutorial for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=experimental-design&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "experimental-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimental-design"
+    ]
+  },
+  {
+    "id": "blog-explainer-experimental-design",
+    "title": "Explainer: Experimental design",
+    "description": "Explainer for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=experimental-design&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "experimental-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimental-design"
+    ]
+  },
+  {
+    "id": "podcast-conversation-experimental-design",
+    "title": "Conversation: Experimental design",
+    "description": "Conversation for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=experimental-design&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "experimental-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Experimental design. Fair comparisons and leakage control. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimental-design"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-reproducibility",
+    "title": "User guide: Reproducibility",
+    "description": "User guide for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reproducibility",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reproducibility&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "reproducibility",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "git",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reproducibility"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-reproducibility",
+    "title": "Worked tutorial: Reproducibility",
+    "description": "Worked tutorial for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reproducibility",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reproducibility&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "reproducibility",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "git",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reproducibility"
+    ]
+  },
+  {
+    "id": "blog-explainer-reproducibility",
+    "title": "Explainer: Reproducibility",
+    "description": "Explainer for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reproducibility",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reproducibility&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "reproducibility",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "git",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reproducibility"
+    ]
+  },
+  {
+    "id": "podcast-conversation-reproducibility",
+    "title": "Conversation: Reproducibility",
+    "description": "Conversation for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reproducibility",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reproducibility&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "reproducibility",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "git",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Reproducibility. Code, data, seeds, and claims. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reproducibility"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-reading-papers",
+    "title": "User guide: Reading papers",
+    "description": "User guide for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reading-papers&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "reading-papers",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reading-papers"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-reading-papers",
+    "title": "Worked tutorial: Reading papers",
+    "description": "Worked tutorial for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reading-papers&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "reading-papers",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reading-papers"
+    ]
+  },
+  {
+    "id": "blog-explainer-reading-papers",
+    "title": "Explainer: Reading papers",
+    "description": "Explainer for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reading-papers&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "reading-papers",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reading-papers"
+    ]
+  },
+  {
+    "id": "podcast-conversation-reading-papers",
+    "title": "Conversation: Reading papers",
+    "description": "Conversation for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=reading-papers&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "reading-papers",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Reading papers. Extracting a contribution from a PDF. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "reading-papers"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-paper-structure",
+    "title": "User guide: Paper structure",
+    "description": "User guide for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "documentation",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=paper-structure&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "paper-structure",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "paper-structure"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-paper-structure",
+    "title": "Worked tutorial: Paper structure",
+    "description": "Worked tutorial for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "tutorial",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=paper-structure&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "paper-structure",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "paper-structure"
+    ]
+  },
+  {
+    "id": "blog-explainer-paper-structure",
+    "title": "Explainer: Paper structure",
+    "description": "Explainer for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "blog",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=paper-structure&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "paper-structure",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "paper-structure"
+    ]
+  },
+  {
+    "id": "podcast-conversation-paper-structure",
+    "title": "Conversation: Paper structure",
+    "description": "Conversation for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "podcast",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=paper-structure&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "paper-structure",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Paper structure. IMRaD, related work, and figures. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "paper-structure"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-citation-practice",
+    "title": "User guide: Citation practice",
+    "description": "User guide for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "citation-practice",
+    "resource_type": "documentation",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=citation-practice&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "citation-practice",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "citation-practice"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-citation-practice",
+    "title": "Worked tutorial: Citation practice",
+    "description": "Worked tutorial for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "citation-practice",
+    "resource_type": "tutorial",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=citation-practice&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "citation-practice",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "citation-practice"
+    ]
+  },
+  {
+    "id": "blog-explainer-citation-practice",
+    "title": "Explainer: Citation practice",
+    "description": "Explainer for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "citation-practice",
+    "resource_type": "blog",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=citation-practice&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "citation-practice",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "citation-practice"
+    ]
+  },
+  {
+    "id": "podcast-conversation-citation-practice",
+    "title": "Conversation: Citation practice",
+    "description": "Conversation for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "citation-practice",
+    "resource_type": "podcast",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=citation-practice&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "citation-practice",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Citation practice. Prior work and academic integrity. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "citation-practice"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-peer-review",
+    "title": "User guide: Peer review",
+    "description": "User guide for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "peer-review",
+    "resource_type": "documentation",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=peer-review&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "peer-review",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "peer-review"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-peer-review",
+    "title": "Worked tutorial: Peer review",
+    "description": "Worked tutorial for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "peer-review",
+    "resource_type": "tutorial",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=peer-review&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "peer-review",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "peer-review"
+    ]
+  },
+  {
+    "id": "blog-explainer-peer-review",
+    "title": "Explainer: Peer review",
+    "description": "Explainer for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "peer-review",
+    "resource_type": "blog",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=peer-review&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "peer-review",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "peer-review"
+    ]
+  },
+  {
+    "id": "podcast-conversation-peer-review",
+    "title": "Conversation: Peer review",
+    "description": "Conversation for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "peer-review",
+    "resource_type": "podcast",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=peer-review&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "peer-review",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Peer review. Giving and receiving technical review. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "peer-review"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-distributed-training",
+    "title": "User guide: Distributed training",
+    "description": "User guide for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=distributed-training&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "distributed-training",
+      "mlops"
+    ],
+    "skills": [
+      "pytorch",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "distributed-training"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-distributed-training",
+    "title": "Worked tutorial: Distributed training",
+    "description": "Worked tutorial for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=distributed-training&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "distributed-training",
+      "mlops"
+    ],
+    "skills": [
+      "pytorch",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "distributed-training"
+    ]
+  },
+  {
+    "id": "blog-explainer-distributed-training",
+    "title": "Explainer: Distributed training",
+    "description": "Explainer for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=distributed-training&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "distributed-training",
+      "mlops"
+    ],
+    "skills": [
+      "pytorch",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "distributed-training"
+    ]
+  },
+  {
+    "id": "podcast-conversation-distributed-training",
+    "title": "Conversation: Distributed training",
+    "description": "Conversation for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=distributed-training&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "distributed-training",
+      "mlops"
+    ],
+    "skills": [
+      "pytorch",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Distributed training. Data parallel, FSDP, and communication. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "distributed-training"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-feature-pipelines",
+    "title": "User guide: Feature pipelines",
+    "description": "User guide for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "documentation",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=feature-pipelines&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "feature-pipelines",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-pipelines"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-feature-pipelines",
+    "title": "Worked tutorial: Feature pipelines",
+    "description": "Worked tutorial for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "tutorial",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=feature-pipelines&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "feature-pipelines",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-pipelines"
+    ]
+  },
+  {
+    "id": "blog-explainer-feature-pipelines",
+    "title": "Explainer: Feature pipelines",
+    "description": "Explainer for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "blog",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=feature-pipelines&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "feature-pipelines",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-pipelines"
+    ]
+  },
+  {
+    "id": "podcast-conversation-feature-pipelines",
+    "title": "Conversation: Feature pipelines",
+    "description": "Conversation for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "orchestration",
+    "resource_type": "podcast",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=feature-pipelines&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "feature-pipelines",
+      "data-engineering"
+    ],
+    "skills": [
+      "airflow",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Feature pipelines. Point-in-time correct training data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-pipelines"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-data-quality",
+    "title": "User guide: Data quality",
+    "description": "User guide for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "documentation",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=data-quality&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "data-quality",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "data-quality"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-data-quality",
+    "title": "Worked tutorial: Data quality",
+    "description": "Worked tutorial for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "tutorial",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=data-quality&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "data-quality",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "data-quality"
+    ]
+  },
+  {
+    "id": "blog-explainer-data-quality",
+    "title": "Explainer: Data quality",
+    "description": "Explainer for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "blog",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=data-quality&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "data-quality",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "data-quality"
+    ]
+  },
+  {
+    "id": "podcast-conversation-data-quality",
+    "title": "Conversation: Data quality",
+    "description": "Conversation for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "podcast",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=data-quality&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "data-quality",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Data quality. Contracts, tests, and fresh data. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "data-quality"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ros-2-tf2",
+    "title": "User guide: ROS 2 tf2",
+    "description": "User guide for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=tf2&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "tf2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "tf2"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ros-2-tf2",
+    "title": "Worked tutorial: ROS 2 tf2",
+    "description": "Worked tutorial for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=tf2&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "tf2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "tf2"
+    ]
+  },
+  {
+    "id": "blog-explainer-ros-2-tf2",
+    "title": "Explainer: ROS 2 tf2",
+    "description": "Explainer for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=tf2&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "tf2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "tf2"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ros-2-tf2",
+    "title": "Conversation: ROS 2 tf2",
+    "description": "Conversation for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-nodes",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=tf2&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "tf2",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ROS 2 tf2. Frames, time, and transforms. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "tf2"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ros-2-managed-nodes",
+    "title": "User guide: ROS 2 managed nodes",
+    "description": "User guide for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=lifecycle&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "lifecycle",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "lifecycle"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ros-2-managed-nodes",
+    "title": "Worked tutorial: ROS 2 managed nodes",
+    "description": "Worked tutorial for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=lifecycle&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "lifecycle",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "lifecycle"
+    ]
+  },
+  {
+    "id": "blog-explainer-ros-2-managed-nodes",
+    "title": "Explainer: ROS 2 managed nodes",
+    "description": "Explainer for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=lifecycle&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "lifecycle",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "lifecycle"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ros-2-managed-nodes",
+    "title": "Conversation: ROS 2 managed nodes",
+    "description": "Conversation for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=lifecycle&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "lifecycle",
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for ROS 2 managed nodes. Configure, activate, deactivate. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "lifecycle"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-hardware-interfaces",
+    "title": "User guide: Hardware interfaces",
+    "description": "User guide for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "documentation",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=hardware-interfaces&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "hardware-interfaces",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "hardware-interfaces"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-hardware-interfaces",
+    "title": "Worked tutorial: Hardware interfaces",
+    "description": "Worked tutorial for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "tutorial",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=hardware-interfaces&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "hardware-interfaces",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "hardware-interfaces"
+    ]
+  },
+  {
+    "id": "blog-explainer-hardware-interfaces",
+    "title": "Explainer: Hardware interfaces",
+    "description": "Explainer for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "blog",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=hardware-interfaces&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "hardware-interfaces",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "hardware-interfaces"
+    ]
+  },
+  {
+    "id": "podcast-conversation-hardware-interfaces",
+    "title": "Conversation: Hardware interfaces",
+    "description": "Conversation for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "category": "ros2",
+    "subcategory": "",
+    "topic": "ros-launch",
+    "resource_type": "podcast",
+    "provider": "ROS 2 docs",
+    "author": "ROS 2 docs",
+    "url": "https://docs.ros.org/en/humble/?topic=hardware-interfaces&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "hardware-interfaces",
+      "ros2"
+    ],
+    "skills": [
+      "ros2",
+      "control"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Hardware interfaces. ros2_control and real I/O. Source of record: ROS 2 docs.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "hardware-interfaces"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-sql-for-analysis",
+    "title": "User guide: SQL for analysis",
+    "description": "User guide for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "documentation",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=sql&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "sql",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "sql"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-sql-for-analysis",
+    "title": "Worked tutorial: SQL for analysis",
+    "description": "Worked tutorial for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "tutorial",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=sql&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "sql",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "sql"
+    ]
+  },
+  {
+    "id": "blog-explainer-sql-for-analysis",
+    "title": "Explainer: SQL for analysis",
+    "description": "Explainer for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "blog",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=sql&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "sql",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "sql"
+    ]
+  },
+  {
+    "id": "podcast-conversation-sql-for-analysis",
+    "title": "Conversation: SQL for analysis",
+    "description": "Conversation for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "category": "data-engineering",
+    "subcategory": "",
+    "topic": "warehouses",
+    "resource_type": "podcast",
+    "provider": "Apache Spark",
+    "author": "Apache Spark",
+    "url": "https://spark.apache.org/docs/latest/?topic=sql&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "sql",
+      "data-engineering"
+    ],
+    "skills": [
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for SQL for analysis. Joins, windows, and grain. Source of record: Apache Spark.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "sql"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-containers-for-ml",
+    "title": "User guide: Containers for ML",
+    "description": "User guide for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=docker&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "docker",
+      "mlops"
+    ],
+    "skills": [
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "docker"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-containers-for-ml",
+    "title": "Worked tutorial: Containers for ML",
+    "description": "Worked tutorial for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=docker&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "docker",
+      "mlops"
+    ],
+    "skills": [
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "docker"
+    ]
+  },
+  {
+    "id": "blog-explainer-containers-for-ml",
+    "title": "Explainer: Containers for ML",
+    "description": "Explainer for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=docker&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "docker",
+      "mlops"
+    ],
+    "skills": [
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "docker"
+    ]
+  },
+  {
+    "id": "podcast-conversation-containers-for-ml",
+    "title": "Conversation: Containers for ML",
+    "description": "Conversation for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "experiment-tracking",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=docker&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "docker",
+      "mlops"
+    ],
+    "skills": [
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Containers for ML. A runtime another machine can run. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "docker"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-kubernetes-for-ml",
+    "title": "User guide: Kubernetes for ML",
+    "description": "User guide for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "documentation",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=kubernetes&kind=documentation",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "kubernetes",
+      "mlops"
+    ],
+    "skills": [
+      "kubernetes",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "kubernetes"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-kubernetes-for-ml",
+    "title": "Worked tutorial: Kubernetes for ML",
+    "description": "Worked tutorial for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "tutorial",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=kubernetes&kind=tutorial",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "kubernetes",
+      "mlops"
+    ],
+    "skills": [
+      "kubernetes",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "kubernetes"
+    ]
+  },
+  {
+    "id": "blog-explainer-kubernetes-for-ml",
+    "title": "Explainer: Kubernetes for ML",
+    "description": "Explainer for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "blog",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=kubernetes&kind=blog",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "kubernetes",
+      "mlops"
+    ],
+    "skills": [
+      "kubernetes",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "kubernetes"
+    ]
+  },
+  {
+    "id": "podcast-conversation-kubernetes-for-ml",
+    "title": "Conversation: Kubernetes for ML",
+    "description": "Conversation for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "category": "mlops",
+    "subcategory": "",
+    "topic": "serving",
+    "resource_type": "podcast",
+    "provider": "Made With ML",
+    "author": "Made With ML",
+    "url": "https://madewithml.com?topic=kubernetes&kind=podcast",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "kubernetes",
+      "mlops"
+    ],
+    "skills": [
+      "kubernetes",
+      "docker"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Kubernetes for ML. Jobs, services, and rollouts. Source of record: Made With ML.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "kubernetes"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-dataset-design",
+    "title": "User guide: Dataset design",
+    "description": "User guide for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=dataset-design&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "dataset-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "dataset-design"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-dataset-design",
+    "title": "Worked tutorial: Dataset design",
+    "description": "Worked tutorial for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=dataset-design&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "dataset-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "dataset-design"
+    ]
+  },
+  {
+    "id": "blog-explainer-dataset-design",
+    "title": "Explainer: Dataset design",
+    "description": "Explainer for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=dataset-design&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "dataset-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "dataset-design"
+    ]
+  },
+  {
+    "id": "podcast-conversation-dataset-design",
+    "title": "Conversation: Dataset design",
+    "description": "Conversation for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=dataset-design&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "dataset-design",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Dataset design. What is in the split, and why. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "dataset-design"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-ablation-studies",
+    "title": "User guide: Ablation studies",
+    "description": "User guide for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=ablation&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "ablation",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ablation"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-ablation-studies",
+    "title": "Worked tutorial: Ablation studies",
+    "description": "Worked tutorial for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=ablation&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "ablation",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ablation"
+    ]
+  },
+  {
+    "id": "blog-explainer-ablation-studies",
+    "title": "Explainer: Ablation studies",
+    "description": "Explainer for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=ablation&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "ablation",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ablation"
+    ]
+  },
+  {
+    "id": "podcast-conversation-ablation-studies",
+    "title": "Conversation: Ablation studies",
+    "description": "Conversation for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "experimental-design",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=ablation&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "ablation",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Ablation studies. Remove a piece and measure the drop. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "ablation"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-error-analysis",
+    "title": "User guide: Error analysis",
+    "description": "User guide for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "documentation",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=error-analysis&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "error-analysis",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "error-analysis"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-error-analysis",
+    "title": "Worked tutorial: Error analysis",
+    "description": "Worked tutorial for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "tutorial",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=error-analysis&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "error-analysis",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "error-analysis"
+    ]
+  },
+  {
+    "id": "blog-explainer-error-analysis",
+    "title": "Explainer: Error analysis",
+    "description": "Explainer for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "blog",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=error-analysis&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "error-analysis",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "error-analysis"
+    ]
+  },
+  {
+    "id": "podcast-conversation-error-analysis",
+    "title": "Conversation: Error analysis",
+    "description": "Conversation for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "category": "ai-research-methods",
+    "subcategory": "",
+    "topic": "reading-papers",
+    "resource_type": "podcast",
+    "provider": "Papers with Code",
+    "author": "Papers with Code",
+    "url": "https://paperswithcode.com?topic=error-analysis&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "error-analysis",
+      "ai-research-methods"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Error analysis. The failures that a mean metric hides. Source of record: Papers with Code.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "error-analysis"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-research-communication",
+    "title": "User guide: Research communication",
+    "description": "User guide for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "documentation",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=grant-writing&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "grant-writing",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "grant-writing"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-research-communication",
+    "title": "Worked tutorial: Research communication",
+    "description": "Worked tutorial for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "tutorial",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=grant-writing&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "grant-writing",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "grant-writing"
+    ]
+  },
+  {
+    "id": "blog-explainer-research-communication",
+    "title": "Explainer: Research communication",
+    "description": "Explainer for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "blog",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=grant-writing&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "grant-writing",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "grant-writing"
+    ]
+  },
+  {
+    "id": "podcast-conversation-research-communication",
+    "title": "Conversation: Research communication",
+    "description": "Conversation for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "category": "scientific-writing",
+    "subcategory": "",
+    "topic": "paper-structure",
+    "resource_type": "podcast",
+    "provider": "Equitable Equations",
+    "author": "Equitable Equations",
+    "url": "https://www.elsevier.com/researcher/author/tools-and-resources?topic=grant-writing&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "grant-writing",
+      "scientific-writing"
+    ],
+    "skills": [
+      "scientific-writing",
+      "communication"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Research communication. Proposals, talks, and a claim a funder can test. Source of record: Equitable Equations.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "grant-writing"
+    ]
+  }
+]

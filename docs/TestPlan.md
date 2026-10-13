@@ -1,5 +1,7 @@
 # AI Mentor — Software Test Plan (STP)
 
+> **v2.0 amendment (13 October 2026).** This plan covers release R1, the Learner App MVP. Tenant isolation, scoped permissions, SSO, assessment, and Content Studio release tests are follow-up F-01 in [platform/00-gap-analysis.md](platform/00-gap-analysis.md#9-follow-up-work-not-in-this-update).
+
 | Field | Value |
 | --- | --- |
 | Document | Software Test Plan |
@@ -134,7 +136,7 @@ pytest -m unit --cov=app/domain --cov-branch --cov-fail-under=95
 ### 1.4 Environments
 
 | Env | Purpose | Data | External services | Who |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | `local` | Developer loop | Seed catalog, factories | Fakes. `DEV_AUTH=true`. SQLite allowed for unit only. | Engineers |
 | `ci` | PR gates | Factories + fixture corpus | Postgres 16, Qdrant 1.13, Redis (service containers). LLM, Clerk, and Stripe fakes. Local JWKS. | CI |
 | `preview` | Per-PR E2E | Seeded per run | Clerk development instance, Stripe test mode, fake LLM by default | CI, reviewers |
@@ -310,7 +312,7 @@ The SRS is the normative source for expected results. Where `SystemArchitecture.
 | C-05 | Citation labels (RAG-030) | `[S1]..[S6]` for tutor, `[1]..[n]` for research | SAD uses `[1]..[n]` for both | UT-RAG-020…024 |
 | C-06 | Collection names (RAG-011) | `knowledge_v1`, `learner_docs_v1`, `items_v1`, `knowledge_preview_v1` | SAD uses `kb_curated`, `user_docs` | IT-RAG-010…012 |
 | C-07 | Rate limits (SEC-035) | 60/min general, 20/min AI, uploads 10/hour, shared store | SAD 12.3 uses tiered classes | SEC-T-035…037 |
-| C-08 | Sandbox runtime (SEC-051) | gVisor `runsc` or Firecracker | SAD ADR-07 uses ACA dynamic sessions (Hyper-V) | SEC-T-060…079 run against whichever is deployed. Needs a formal waiver if Hyper-V is accepted. |
+| C-08 | Sandbox runtime (SEC-051) | gVisor `runsc` or Firecracker | SAD ADR-07 used ACA dynamic sessions (Hyper-V) | **Resolved 2026-10-13:** ADR 0028 adopts a gVisor pool (Firecracker fallback), so SEC-051 holds and no waiver is needed. SEC-T-060…079 run against it. |
 | C-09 | Hosting and queue (CON-002, CON-009) | Vercel + App Service, PostgreSQL-backed queue | SAD uses Container Apps + Service Bus | IT-REL-001…003 (behaviour only) |
 | C-10 | Reviewer role | Instructors review, no separate role (5.1) | SAD 9.4 adds `reviewer` | IT-ADM-001 |
 | C-11 | Quiz XP rounding (GAM-002) | `round(40 × ratio)`, but half-way rounding is unspecified | Python `round` is half-to-even: ratio 0.3125 gives 12, half-up gives 13 | UT-GAM-002. Product decision needed. Test pins half-up as proposed. |
@@ -319,23 +321,23 @@ The SRS is the normative source for expected results. Where `SystemArchitecture.
 
 Static review of the code against the SRS. Each is pre-logged with the test that will catch it.
 
-| Defect | Severity | Finding | Requirement | Catching test |
+| Defect | Severity | Finding | Requirement | Catching test | Status |
 | --- | --- | --- | --- | --- |
-| DEF-001 | S2 | `POST /quiz/{id}/grade` can be called repeatedly for the same quiz. Each call stores a result and grants XP. | FR-QZ-007, GAM-002, NFR-REL-005 | IT-QZ-008 |
-| DEF-002 | S2 | Research analysis grants 20 XP with no daily limit (`engine.analyze`). The SRS says 10 XP, max 3/day. | GAM-002 | IT-GAM-004 |
-| DEF-003 | S2 | XP day and streak use the server's `date.today()`, not the learner's timezone | GAM-003, GAM-021 | IT-GAM-010 |
-| DEF-004 | S1 | JWT validation does not check `azp`. Skew leeway is 0. | SEC-002 | SEC-T-003 |
-| DEF-005 | S2 | Rate limiter is in-process and keyed by client IP. It does not hold across instances. Behind a proxy all users share one bucket. | SEC-035 | SEC-T-036, SEC-T-037 |
-| DEF-006 | S2 | `xp_events` has no source ID or unique key, so idempotency depends on caller logic | GAM-001, NFR-REL-005 | IT-GAM-001 |
-| DEF-007 | S2 | `POST /lab/review` runs the same code path as `/lab/run`. No `/lab/submit` exists. | FR-LAB-004, FR-LAB-005 | IT-LAB-004, IT-LAB-006 |
-| DEF-008 | S2 | No SSE endpoint. `/chat` returns the whole reply. | FR-TUT-001, IF-API-004 | IT-TUT-001 |
-| DEF-009 | S2 | Learner document vectors are not written to Qdrant. They are re-embedded per request with the hash embedder. | RAG-011, RAG-012, NFR-PERF-003 | IT-RAG-011, PERF-003 |
-| DEF-010 | S3 | Errors are `{"detail": ...}`, not RFC 9457 problem+json | IF-API-002 | IT-API-001 |
-| DEF-011 | S2 | Security headers lack CSP. `Referrer-Policy` is `no-referrer` instead of `strict-origin-when-cross-origin`. | SEC-032 | SEC-T-031 |
-| DEF-012 | S2 | Quiz generation ignores mastery (default `intermediate`) and always returns ≤ 5 items. `count` and `types` are unsupported. | FR-QZ-003, FR-QZ-004 | IT-QZ-001, IT-QZ-003 |
-| DEF-013 | S2 | Upload limit is a fixed 10 MB. No tier limit, magic-byte check, or malware scan. | FR-RES-001, SEC-060 | IT-RES-002, SEC-T-050 |
-| DEF-014 | S2 | Leaderboard is all-time XP over `users` with no scope, period, metric, opt-out, or exclusion of instructor and admin roles | LB-001…LB-009 | IT-LB-001…IT-LB-009 |
-| DEF-015 | S3 | Integration tests run on SQLite. Postgres-specific behaviour is untested. | NFR-MNT-002, DATA-002 | IT-DATA-002 |
+| DEF-001 | S2 | `POST /quiz/{id}/grade` can be called repeatedly for the same quiz. Each call stores a result and grants XP. | FR-QZ-007, GAM-002, NFR-REL-005 | IT-QZ-008 | **Fixed.** `quiz_results.quiz_id` is unique; a second grade is `409`. |
+| DEF-002 | S2 | Research analysis grants 20 XP with no daily limit (`engine.analyze`). The SRS says 10 XP, max 3/day. | GAM-002 | IT-GAM-004 | **Fixed.** 10 XP, once per document, 3 a day. |
+| DEF-003 | S2 | XP day and streak use the server's `date.today()`, not the learner's timezone | GAM-003, GAM-021 | IT-GAM-010 | **Fixed.** XP day and streak use `users.timezone`. |
+| DEF-004 | S1 | JWT validation does not check `azp`. Skew leeway is 0. | SEC-002 | SEC-T-003 | **Fixed.** `azp` is required and checked; leeway is `JWT_LEEWAY_SECONDS` (default 5). |
+| DEF-005 | S2 | Rate limiter is in-process and keyed by client IP. It does not hold across instances. Behind a proxy all users share one bucket. | SEC-035 | SEC-T-036, SEC-T-037 | **Fixed.** Redis counters, keyed per user after auth and per address before it. |
+| DEF-006 | S2 | `xp_events` has no source ID or unique key, so idempotency depends on caller logic | GAM-001, NFR-REL-005 | IT-GAM-001 | **Fixed.** `(user_id, source_type, source_id)` is unique. |
+| DEF-007 | S2 | `POST /lab/review` runs the same code path as `/lab/run`. No `/lab/submit` exists. | FR-LAB-004, FR-LAB-005 | IT-LAB-004, IT-LAB-006 | **Open.** |
+| DEF-008 | S2 | No SSE endpoint. `/chat` returns the whole reply. | FR-TUT-001, IF-API-004 | IT-TUT-001 | **Open.** |
+| DEF-009 | S2 | Learner document vectors are not written to Qdrant. They are re-embedded per request with the hash embedder. | RAG-011, RAG-012, NFR-PERF-003 | IT-RAG-011, PERF-003 | **Fixed.** Vectors are written to Qdrant at upload and searched with an owner filter. |
+| DEF-010 | S3 | Errors are `{"detail": ...}`, not RFC 9457 problem+json | IF-API-002 | IT-API-001 | **Fixed.** RFC 9457 problem details with `trace_id`. |
+| DEF-011 | S2 | Security headers lack CSP. `Referrer-Policy` is `no-referrer` instead of `strict-origin-when-cross-origin`. | SEC-032 | SEC-T-031 | **Fixed.** Nonce-based CSP on both apps; the frontends send `strict-origin-when-cross-origin`. The API sends `no-referrer`, which is stricter. |
+| DEF-012 | S2 | Quiz generation ignores mastery (default `intermediate`) and always returns ≤ 5 items. `count` and `types` are unsupported. | FR-QZ-003, FR-QZ-004 | IT-QZ-001, IT-QZ-003 | **Open.** |
+| DEF-013 | S2 | Upload limit is a fixed 10 MB. No tier limit, magic-byte check, or malware scan. | FR-RES-001, SEC-060 | IT-RES-002, SEC-T-050 | **Partly fixed.** Magic bytes are checked. Tier limits and malware scanning are open. |
+| DEF-014 | S2 | Leaderboard is all-time XP over `users` with no scope, period, metric, opt-out, or exclusion of instructor and admin roles | LB-001…LB-009 | IT-LB-001…IT-LB-009 | **Partly fixed.** Opt-out, staff exclusion, and pseudonyms are in. Scope, period, and metric are open. |
+| DEF-015 | S3 | Integration tests run on SQLite. Postgres-specific behaviour is untested. | NFR-MNT-002, DATA-002 | IT-DATA-002 | **Fixed.** CI runs the suite against migrated PostgreSQL 16 (`make test-pg` locally). |
 
 ---
 

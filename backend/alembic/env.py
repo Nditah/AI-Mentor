@@ -20,12 +20,21 @@ config.set_main_option(
     "sqlalchemy.url", os.environ.get("ALEMBIC_DATABASE_URL", get_settings().database_url)
 )
 
+# PostgreSQL-only indexes that a revision creates with raw SQL. The models cannot declare
+# them portably, so autogenerate must not propose dropping them.
+DATABASE_ONLY_INDEXES = frozenset({"ix_knowledge_assets_fts"})
+
+
+def include_object(obj, name, type_, reflected, compare_to) -> bool:  # type: ignore[no-untyped-def]
+    return not (type_ == "index" and reflected and name in DATABASE_ONLY_INDEXES)
+
 
 def run_migrations_offline() -> None:
     context.configure(
         url=config.get_main_option("sqlalchemy.url"),
         target_metadata=target_metadata,
         literal_binds=True,
+        include_object=include_object,
     )
     with context.begin_transaction():
         context.run_migrations()
@@ -38,7 +47,11 @@ def run_migrations_online() -> None:
         poolclass=pool.NullPool,
     )
     with connectable.connect() as connection:
-        context.configure(connection=connection, target_metadata=target_metadata)
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            include_object=include_object,
+        )
         with context.begin_transaction():
             context.run_migrations()
 

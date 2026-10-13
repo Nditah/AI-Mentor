@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import hashlib
 import io
+import logging
 import uuid
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.agents import CareerAgent, CodingAgent, PlannerAgent, QuizAgent, ResearchAgent, TutorAgent
@@ -16,17 +19,15 @@ from app.domain.career import match_roles
 from app.domain.catalog import QUESTIONS, get_concept
 from app.domain.chunking import chunk_text
 from app.domain.code_review import review_notes
-from app.domain.embeddings import cosine
 from app.domain.gamification import (
-    CODE_XP,
-    LESSON_XP,
-    REVIEW_XP,
     BadgeContext,
-    award_amount,
     evaluate_badges,
+    grant_for,
+    learner_day,
     level_progress,
     next_streak,
     quiz_xp,
+    requested_xp,
 )
 from app.domain.grading import grade_coding, grade_mcq, grade_research, grade_short
 from app.domain.graph import mermaid, recommend
@@ -40,7 +41,6 @@ from app.models import (
     CodeSubmission,
     Conversation,
     DocumentChunk,
-    Embedding,
     Flashcard,
     Question,
     Quiz,
@@ -50,12 +50,24 @@ from app.models import (
     StudyPlan,
     StudyPlanItem,
     User,
-    XpEvent,
 )
 from app.repositories.sql import SqlRepository
 from app.services.errors import ClientError
-from app.services.llm import ProviderRouter, embed_text
+from app.services.llm import ProviderRouter
+from app.services.retrieval import (
+    IndexUnavailable,
+    index_document,
+    library_citations,
+    search_document,
+)
 from app.services.sandbox_runner import run_student_code
+
+log = logging.getLogger(__name__)
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+LAB_OFF = (
+    "The code lab is switched off until learner code runs in an isolated runner "
+    "with no secrets and no network."
+)
 
 
 class MentorEngine:
@@ -87,18 +99,16 @@ class MentorEngine:
         plan = build_turn(screened, history, mode, sticky)
         reply = self.tutor.reply(plan, [(item.role, item.content) for item in history], screened)
         if mode == "direct":
-            from app.services.admin_portal import library_citations
-
-            cites = library_citations(self.repo, screened)
+            cites = library_citations(self.settings, self.session, self.repo, screened)
             if cites:
-                lines = "\n".join(f"- {item['title']} {item['citation']}" for item in cites)
-                reply = f"{reply}\n\nSources\n{lines}"
+                lines = "\n".join(f"- {item['citation']} {item['title']}" for item in cites)
+                reply = f"{reply}\n\nFurther reading from the library\n{lines}"
         now = datetime.now(UTC)
         self.repo.add_message(conversation, "user", screened, plan.concept_slug, now)
         saved = self.repo.add_message(
             conversation, "assistant", reply, plan.concept_slug, now + timedelta(milliseconds=1)
         )
-        self.grant(user, 0, "practice")
+        self.touch(user)
         return {
             "conversation_id": conversation.id,
             "mode": plan.mode,
@@ -114,14 +124,16 @@ class MentorEngine:
         concept = get_concept(concept_slug)
         if concept is None:
             raise ClientError("Unknown concept.", 404)
-        matched = [
+        lab = self.settings.resolved_lab_enabled
+        available = [
             item
             for item in QUESTIONS
-            if item.concept == concept_slug and item.difficulty == difficulty
+            if item.concept == concept_slug and (lab or item.kind != "coding")
         ]
+        matched = [item for item in available if item.difficulty == difficulty]
         note = None
         if not matched:
-            matched = [item for item in QUESTIONS if item.concept == concept_slug]
+            matched = available
             note = (
                 "No items were authored at that difficulty, so this quiz uses the available items."
             )
@@ -175,6 +187,8 @@ class MentorEngine:
         quiz = self.repo.quiz_for_user(quiz_id, user.id)
         if quiz is None:
             raise ClientError("Quiz not found.", 404)
+        if self.repo.quiz_result(quiz.id) is not None:
+            raise ClientError("This quiz was already submitted. Generate a new one to retry.", 409)
         by_id = self.repo.question_map(quiz)
         graded = []
         score = 0.0
@@ -205,9 +219,14 @@ class MentorEngine:
             answers={"items": graded},
         )
         self.session.add(result)
+        try:
+            with self.session.begin_nested():
+                self.session.flush()
+        except IntegrityError as exc:
+            raise ClientError("This quiz was already submitted.", 409) from exc
         self.recompute(user, quiz.concept_slug)
         ratio = score / result.max_score if result.max_score else 0
-        self.grant(user, quiz_xp(ratio), "quiz")
+        self.grant(user, "quiz", str(quiz.id), quiz_xp(ratio))
         return {
             "quiz_id": quiz.id,
             "score": score,
@@ -221,7 +240,7 @@ class MentorEngine:
             raise ClientError("Lesson not found.", 404)
         created = self.repo.complete_lesson(user.id, lesson)
         if created:
-            self.grant(user, LESSON_XP, "lesson")
+            self.grant(user, "lesson", str(lesson.id))
         self.recompute(user, slug)
         return {
             "slug": slug,
@@ -232,7 +251,8 @@ class MentorEngine:
 
     def create_plan(self, user: User, goal: str) -> dict:
         screened = self._screen(goal, max_length=2000)
-        items = build_study_plan(screened, self.repo.mastery_map(user.id), date.today())
+        today = learner_day(datetime.now(UTC), user.timezone)
+        items = build_study_plan(screened, self.repo.mastery_map(user.id), today)
         plan = StudyPlan(user_id=user.id, title=screened[:80], goal=screened)
         self.session.add(plan)
         self.session.flush()
@@ -280,43 +300,39 @@ class MentorEngine:
 
     def ingest(self, user: User, filename: str, data: bytes) -> dict:
         text = parse_upload(filename, data)
-        chunks = chunk_text(text)
+        pieces = chunk_text(text)
         document = ResearchDocument(
             user_id=user.id,
             title=Path(filename).name,
             filename=Path(filename).name,
             media_type=_media_type(filename),
-            status="ready",
+            status="processing",
         )
         self.session.add(document)
         self.session.flush()
-        stored = []
-        for ordinal, piece in enumerate(chunks):
-            label = f"[{ordinal + 1}]"
-            chunk = DocumentChunk(
+        chunks = [
+            DocumentChunk(
                 document_id=document.id,
                 ordinal=ordinal,
                 text=piece,
                 token_count=max(1, len(piece) // 4),
-                citation_label=label,
+                citation_label=f"[{ordinal + 1}]",
             )
-            self.session.add(chunk)
-            self.session.flush()
-            vector, provider, model = embed_text(self.settings, piece)
-            self.session.add(
-                Embedding(
-                    chunk_id=chunk.id,
-                    provider=provider,
-                    model=model,
-                    dimensions=len(vector),
-                    qdrant_point_id=str(chunk.id),
-                )
-            )
-            stored.append(chunk)
+            for ordinal, piece in enumerate(pieces)
+        ]
+        self.session.add_all(chunks)
+        self.session.flush()
+        indexed = True
+        try:
+            index_document(self.settings, self.session, user.id, chunks)
+        except IndexUnavailable:
+            log.warning("document %s stored without vectors", document.id, exc_info=True)
+            indexed = False
+        document.status = "ready" if indexed else "unindexed"
         return {
             "id": document.id,
             "title": document.title,
-            "chunks": len(stored),
+            "chunks": len(chunks),
             "status": document.status,
         }
 
@@ -328,13 +344,16 @@ class MentorEngine:
         chunks = sorted(document.chunks, key=lambda item: item.ordinal)
         if not chunks:
             raise ClientError("That document has no extractable text.")
-        query_vector, _provider, _model = embed_text(self.settings, screened)
-        scored = [
-            (cosine(query_vector, embed_text(self.settings, chunk.text)[0]), chunk)
-            for chunk in chunks
-        ]
-        scored.sort(key=lambda item: item[0], reverse=True)
-        ranked = [chunk for _score, chunk in scored[:4]]
+        retrieval_note = None
+        try:
+            ranked = search_document(
+                self.settings, self.session, self.repo, user.id, document.id, screened
+            )
+        except IndexUnavailable:
+            ranked = []
+            retrieval_note = "Search was unavailable, so these are the opening passages."
+        if not ranked:
+            ranked = chunks[:4]
         excerpts = [(chunk.citation_label, chunk.text[:1200]) for chunk in ranked]
         model_fields = self.research_agent.critique(excerpts)
         extractive = "\n\n".join(f"{label} {text[:400]}" for label, text in excerpts)
@@ -342,13 +361,15 @@ class MentorEngine:
         summary = model_fields["summary"] or extractive
         mode = "model" if model_fields["summary"] else "extractive"
         document.summary = summary[:4000]
-        self.grant(user, 20, "analysis")
+        self.grant(user, "analysis", str(document.id))
         limitation = None
         if mode == "extractive":
             limitation = (
                 "This pass is extractive. Critique, gaps, and future work are withheld "
                 "until a model can tie them to a citation, so nothing is invented."
             )
+        if retrieval_note:
+            limitation = f"{retrieval_note} {limitation or ''}".strip()
         return {
             "document_id": document.id,
             "mode": mode,
@@ -362,6 +383,8 @@ class MentorEngine:
         }
 
     def run_code(self, user: User, code: str, project_slug: str | None) -> dict:
+        if not self.settings.resolved_lab_enabled:
+            raise ClientError(LAB_OFF, 503)
         project = self.repo.project_by_slug(project_slug) if project_slug else None
         if project_slug and project is None:
             raise ClientError("Project not found.", 404)
@@ -382,10 +405,12 @@ class MentorEngine:
         )
         self.session.add(submission)
         self.session.flush()
-        if outcome["status"] == "ok":
-            self.grant(user, CODE_XP, "code")
-            if project is not None and project.concept_slug:
+        if outcome["status"] == "ok" and project is not None:
+            self.grant(user, "project", str(project.id))
+            if project.concept_slug:
                 self.recompute(user, project.concept_slug)
+        else:
+            self.touch(user)
         return {
             "id": submission.id,
             "status": outcome["status"],
@@ -458,19 +483,19 @@ class MentorEngine:
         card.interval_days = updated.interval_days
         card.repetitions = updated.repetitions
         card.next_review_at = datetime.now(UTC) + timedelta(days=updated.interval_days)
-        self.session.add(
-            Review(
-                flashcard_id=card.id,
-                user_id=user.id,
-                rating=rating,
-                ease_factor=updated.ease_factor,
-                interval_days=updated.interval_days,
-                repetitions=updated.repetitions,
-            )
+        review = Review(
+            flashcard_id=card.id,
+            user_id=user.id,
+            rating=rating,
+            ease_factor=updated.ease_factor,
+            interval_days=updated.interval_days,
+            repetitions=updated.repetitions,
         )
+        self.session.add(review)
+        self.session.flush()
         if card.concept_slug:
             self.recompute(user, card.concept_slug)
-        self.grant(user, REVIEW_XP, "review")
+        self.grant(user, "review", str(review.id))
         return {
             "id": card.id,
             "interval_days": card.interval_days,
@@ -639,35 +664,70 @@ class MentorEngine:
         return {"nodes": nodes, "mermaid": mermaid(domain)}
 
     def leaderboard(self) -> list[dict]:
+        """Pseudonymous: a chosen handle or a stable alias, never a name or email (SRS §5.1)."""
+
         return [
             {
-                "display_name": user.display_name,
+                "rank": rank,
+                "display_name": user.handle or pseudonym(user.id),
                 "xp": user.xp,
                 "level": user.level,
                 "streak_days": user.streak_days,
             }
-            for user in self.repo.leaderboard()
+            for rank, user in enumerate(self.repo.leaderboard(), start=1)
         ]
 
+    def profile(self, user: User) -> dict:
+        return {
+            "id": user.id,
+            "email": user.email,
+            "display_name": user.display_name,
+            "role": user.role,
+            "handle": user.handle,
+            "locale": user.locale,
+            "timezone": user.timezone,
+            "country_code": user.country_code,
+            "leaderboard_opt_out": user.leaderboard_opt_out,
+            "subscription_status": user.subscription_status,
+        }
+
+    def update_profile(self, user: User, changes: dict) -> dict:
+        from app.domain.gamification import valid_timezone
+
+        if "timezone" in changes and not valid_timezone(changes["timezone"]):
+            raise ClientError("Use an IANA time zone such as Africa/Lagos.", 422)
+        handle = changes.get("handle")
+        if handle and self.repo.handle_taken(handle, user.id):
+            raise ClientError("That handle is taken.", 409)
+        for key, value in changes.items():
+            setattr(user, key, value)
+        return self.profile(user)
+
     def set_role(self, actor: User, user_id: uuid.UUID, role: str, reason: str = "") -> dict:
-        from app.domain.access import ROLES, is_allowed
+        from app.domain.access import ROLES, is_allowed, role_change_issue
 
         if not is_allowed(actor.role, "admin"):
             raise ClientError("Admin role required.", 403)
-        if role not in ROLES:
-            raise ClientError("Unknown role.")
         target = self.repo.user_by_id(user_id)
         if target is None:
             raise ClientError("User not found.", 404)
-        if target.role == "admin" and role != "admin" and self.repo.admin_count() <= 1:
-            raise ClientError("The studio needs at least one admin.")
+        issue = role_change_issue(
+            actor_id=actor.id,
+            target_id=target.id,
+            current=target.role,
+            requested=role,
+            admin_count=self.repo.admin_count(),
+        )
+        if issue:
+            raise ClientError(issue, 422 if role not in ROLES else 409)
+        previous = target.role
         target.role = role
         self.repo.audit(
             actor.id,
             "user.role",
             "user",
             str(target.id),
-            {"role": role, "reason": reason[:500]},
+            {"from": previous, "to": role, "reason": reason[:500]},
         )
         return {"id": target.id, "role": target.role}
 
@@ -720,18 +780,44 @@ class MentorEngine:
         )
         self.repo.upsert_mastery(user.id, concept_slug, score_evidence(evidence))
 
-    def grant(self, user: User, amount: int, reason: str) -> None:
-        today = date.today()
+    def touch(self, user: User) -> date:
+        """Record activity for the streak without awarding XP (GAM-004)."""
+
+        today = learner_day(datetime.now(UTC), user.timezone)
         user.streak_days = next_streak(user.streak_days, user.last_active_on, today)
         user.last_active_on = today
-        if amount > 0:
-            granted = award_amount(amount, self.repo.xp_today(user.id, today))
-            if granted:
-                user.xp += granted
-                user.level = level_progress(user.xp)[0]
-                self.session.add(XpEvent(user_id=user.id, amount=granted, reason=reason))
-                self.session.flush()
+        return today
+
+    def grant(
+        self, user: User, source_type: str, source_id: str, computed: int | None = None
+    ) -> int:
+        """Award XP once per source on the learner's local day (GAM-001..003)."""
+
+        today = self.touch(user)
+        if self.repo.xp_event_exists(user.id, source_type, source_id):
+            return 0
+        requested = requested_xp(source_type, computed)
+        granted = grant_for(
+            source_type,
+            requested,
+            earned_today=self.repo.xp_on(user.id, today),
+            awards_today=self.repo.xp_awards_on(user.id, source_type, today),
+        )
+        recorded = self.repo.add_xp_event(
+            user_id=user.id,
+            source_type=source_type,
+            source_id=source_id,
+            requested=requested,
+            granted=granted,
+            local_date=today,
+        )
+        if not recorded:
+            return 0
+        if granted:
+            user.xp += granted
+            user.level = level_progress(user.xp)[0]
         self._sync_badges(user)
+        return granted
 
     def _sync_badges(self, user: User) -> None:
         earned = evaluate_badges(
@@ -778,6 +864,8 @@ class MentorEngine:
                 correct,
             )
         if question.kind == "coding":
+            if not self.settings.resolved_lab_enabled:
+                raise ClientError(LAB_OFF, 503)
             outcome = run_student_code(response)
             if outcome["status"] != "ok":
                 return 0.0, outcome["stderr"] or "The code did not run.", False
@@ -799,8 +887,12 @@ class MentorEngine:
         return result.text
 
 
+def pseudonym(user_id: uuid.UUID) -> str:
+    return f"Learner-{hashlib.sha256(user_id.bytes).hexdigest()[:6]}"
+
+
 def parse_upload(filename: str, data: bytes) -> str:
-    if len(data) > 10 * 1024 * 1024:
+    if len(data) > MAX_UPLOAD_BYTES:
         raise ClientError("Files must be 10 MB or smaller.", 413)
     name = Path(filename or "upload.txt").name.lower()
     if name.endswith(".pdf"):

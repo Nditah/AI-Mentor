@@ -33,7 +33,13 @@ def lesson_markdown(concept: Concept) -> str:
     return f"# {concept.name}\n\n{concept.explanation}\n\n## Exercise\n\n{concept.exercise}\n"
 
 
-def seed_catalog(session: Session) -> None:
+def seed_catalog(session: Session, *, demo_accounts: bool = False) -> None:
+    """Idempotent catalog seed. Demo accounts exist only for development and tests."""
+
+    from app.seed_pack import seed_reference
+
+    seed_reference(session)
+
     concepts: dict[str, ConceptRow] = {}
     for concept in CONCEPTS:
         row = session.scalar(select(ConceptRow).where(ConceptRow.slug == concept.slug))
@@ -44,18 +50,20 @@ def seed_catalog(session: Session) -> None:
         row.domain = concept.domain
         row.difficulty = concept.difficulty
         row.summary = concept.scaffold
+        row.aliases = list(concept.aliases)
+        row.origin = "catalog"
         concepts[concept.slug] = row
     session.flush()
 
     for concept in CONCEPTS:
-        source = concepts[concept.slug]
+        target = concepts[concept.slug]
         for prerequisite in concept.prerequisites:
-            target = concepts[prerequisite]
+            source = concepts[prerequisite]
             exists = session.scalar(
                 select(ConceptRelation).where(
                     ConceptRelation.source_id == source.id,
                     ConceptRelation.target_id == target.id,
-                    ConceptRelation.relation_type == "prerequisite",
+                    ConceptRelation.relation_type == "prerequisite_of",
                 )
             )
             if exists is None:
@@ -63,7 +71,7 @@ def seed_catalog(session: Session) -> None:
                     ConceptRelation(
                         source_id=source.id,
                         target_id=target.id,
-                        relation_type="prerequisite",
+                        relation_type="prerequisite_of",
                     )
                 )
     session.flush()
@@ -142,6 +150,9 @@ def seed_catalog(session: Session) -> None:
         row.starter_code = project.starter
         row.concept_slug = project.concept
 
+    if not demo_accounts:
+        session.flush()
+        return
     for clerk_id, email, name, role in _DEMOS:
         if session.scalar(select(User).where(User.clerk_id == clerk_id)) is None:
             session.add(User(clerk_id=clerk_id, email=email, display_name=name, role=role))
@@ -149,10 +160,11 @@ def seed_catalog(session: Session) -> None:
 
 
 def main() -> None:
+    from app.core.config import get_settings
     from app.core.database import session_scope
 
     with session_scope() as session:
-        seed_catalog(session)
+        seed_catalog(session, demo_accounts=not get_settings().production)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # Roadmap
 
-This repository is the first running slice. The fuller vision is in [Requirements.md](Requirements.md).
+This repository is the first running slice. This page lists the next engineering steps for that slice. The product roadmap for the five-application ecosystem, releases R1 to R5, is [platform/15-roadmap.md](platform/15-roadmap.md). Items 1, 3, and 6 below are R1 gates there, alongside the R1 foundations (tenancy, scoped roles, and the split of the admin portal into the Admin App and Content Studio).
 
 ## In this build
 
@@ -17,7 +17,7 @@ This repository is the first running slice. The fuller vision is in [Requirement
 
 1. Clerk middleware on the studio and removal of the dev switcher from public builds.
 2. A real OTLP exporter, and a shared rate limiter once more than one API replica runs.
-3. Replace the child-interpreter lab with a gVisor or microVM runner before any untrusted code beyond the allowlist is accepted.
+3. Replace the child-interpreter lab with the gVisor runner pool ([ADR 0028](adr/0028-sandbox-runner-pool.md), Firecracker fallback) before the lab is enabled in production.
 4. A job queue for ingestion. OCR of scanned PDFs only after that queue exists.
 5. FSRS, implemented against the published algorithm and tested beside SM-2, not a partial port.
 6. A content workflow for instructors: draft, review, publish. The catalog file remains the seed, not the long-term CMS.

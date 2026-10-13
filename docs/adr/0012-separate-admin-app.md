@@ -1,6 +1,6 @@
 # ADR 0012 — Separate admin app, one design system
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 - Amends: [ADR 0001](0001-nextjs-studio.md) (the studio no longer hosts admin screens)
 
@@ -90,3 +90,7 @@ Until the apps share packages, the Tailwind tokens and primitives are copied. Co
 - Stripe return URLs are validated against `CORS_ORIGINS`. Once the admin origin is in that list, checkout would accept an admin return URL. Validate return URLs against a studio-only list.
 - If the portal later serves institution instructors with their own branding (B2B), it can take its own theme on top of the shared preset rather than a different library.
 - Vercel Firewall IP allow-listing for `admin.<domain>` is optional. Turn it on if staff work from fixed networks.
+
+## Amendment — 2026-10-13
+
+The apps moved to Next.js 16.4 to clear SEC-16. Next 16 renames `middleware.ts` to `proxy.ts`; both apps' Clerk protection and per-request CSP nonce now live there. Request APIs (`headers()`, route `params`) were already awaited, so no page changed.

@@ -1,0 +1,1944 @@
+[
+  {
+    "slug": "ai-fundamentals",
+    "name": "AI Fundamentals",
+    "category": "artificial-intelligence",
+    "topic": "intelligent-agents",
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "skills": [
+      "communication"
+    ],
+    "summary": "Agents, data, and the difference between a rule and a learned policy."
+  },
+  {
+    "slug": "intelligent-agents",
+    "name": "Intelligent agents",
+    "category": "artificial-intelligence",
+    "topic": "intelligent-agents",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "communication"
+    ],
+    "summary": "PEAS descriptors, rationality, and environment types."
+  },
+  {
+    "slug": "search-planning",
+    "name": "Search and planning",
+    "category": "artificial-intelligence",
+    "topic": "search-planning",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "intelligent-agents"
+    ],
+    "skills": [
+      "python"
+    ],
+    "summary": "Uninformed, informed, and adversarial search."
+  },
+  {
+    "slug": "knowledge-representation",
+    "name": "Knowledge representation",
+    "category": "artificial-intelligence",
+    "topic": "knowledge-representation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "communication"
+    ],
+    "summary": "Logic, ontologies, and representing uncertainty."
+  },
+  {
+    "slug": "ai-ethics",
+    "name": "AI ethics",
+    "category": "artificial-intelligence",
+    "topic": "ai-ethics",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "communication"
+    ],
+    "summary": "Fairness, safety, dual use, and accountability."
+  },
+  {
+    "slug": "ai-history",
+    "name": "History of AI",
+    "category": "artificial-intelligence",
+    "topic": "ai-history",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "summary": "Symbolic, statistical, and foundation-model eras."
+  },
+  {
+    "slug": "python-for-ml",
+    "name": "Python for machine learning",
+    "category": "machine-learning",
+    "topic": "linear-models",
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "skills": [
+      "python",
+      "numpy",
+      "git"
+    ],
+    "summary": "Functions, arrays, and tests before a training loop."
+  },
+  {
+    "slug": "probability",
+    "name": "Probability",
+    "category": "statistics",
+    "topic": "probability",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "probability"
+    ],
+    "summary": "Random variables, expectation, and common families."
+  },
+  {
+    "slug": "linear-algebra",
+    "name": "Linear algebra",
+    "category": "mathematics",
+    "topic": "linear-algebra",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "linear-algebra"
+    ],
+    "summary": "Vectors, matrices, eigenvalues, and projections."
+  },
+  {
+    "slug": "calculus",
+    "name": "Calculus for learning",
+    "category": "mathematics",
+    "topic": "calculus",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "skills": [
+      "calculus"
+    ],
+    "summary": "Gradients, Jacobians, and Taylor expansions of a loss."
+  },
+  {
+    "slug": "optimisation-math",
+    "name": "Mathematical optimisation",
+    "category": "mathematics",
+    "topic": "optimisation-math",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "calculus"
+    ],
+    "skills": [
+      "optimisation"
+    ],
+    "summary": "Convexity, Lagrange multipliers, and first-order methods."
+  },
+  {
+    "slug": "estimation",
+    "name": "Statistical estimation",
+    "category": "statistics",
+    "topic": "estimation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "probability"
+    ],
+    "skills": [
+      "statistics"
+    ],
+    "summary": "MLE, MAP, and the bootstrap."
+  },
+  {
+    "slug": "hypothesis-testing",
+    "name": "Hypothesis testing",
+    "category": "statistics",
+    "topic": "hypothesis-testing",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "estimation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "summary": "p-values, power, and multiple testing."
+  },
+  {
+    "slug": "eda",
+    "name": "Exploratory data analysis",
+    "category": "data-science",
+    "topic": "eda",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "python-for-ml",
+      "probability"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "summary": "Distributions, missingness, and plots that change a question."
+  },
+  {
+    "slug": "feature-engineering",
+    "name": "Feature engineering",
+    "category": "data-science",
+    "topic": "feature-engineering",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "summary": "Transforms that make a linear model honest."
+  },
+  {
+    "slug": "experimentation",
+    "name": "Experimentation",
+    "category": "data-science",
+    "topic": "experimentation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "hypothesis-testing"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "summary": "A/B tests and a sketch of causal identification."
+  },
+  {
+    "slug": "supervised-learning",
+    "name": "Supervised learning",
+    "category": "machine-learning",
+    "topic": "linear-models",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "probability",
+      "linear-algebra",
+      "python-for-ml"
+    ],
+    "skills": [
+      "scikit-learn",
+      "statistics"
+    ],
+    "summary": "Fit a labelled target and say what the loss means."
+  },
+  {
+    "slug": "linear-models",
+    "name": "Linear models",
+    "category": "machine-learning",
+    "topic": "linear-models",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "scikit-learn",
+      "linear-algebra"
+    ],
+    "summary": "Least squares, logistic regression, and regularisation."
+  },
+  {
+    "slug": "tree-ensembles",
+    "name": "Trees and ensembles",
+    "category": "machine-learning",
+    "topic": "tree-ensembles",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "scikit-learn"
+    ],
+    "summary": "Decision trees, random forests, and boosting."
+  },
+  {
+    "slug": "kernel-methods",
+    "name": "Kernel methods",
+    "category": "machine-learning",
+    "topic": "kernel-methods",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "linear-models"
+    ],
+    "skills": [
+      "scikit-learn",
+      "linear-algebra"
+    ],
+    "summary": "SVMs and the kernel trick."
+  },
+  {
+    "slug": "clustering",
+    "name": "Clustering",
+    "category": "machine-learning",
+    "topic": "clustering",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "linear-algebra",
+      "probability"
+    ],
+    "skills": [
+      "scikit-learn"
+    ],
+    "summary": "k-means, GMM, and when a cluster is a story."
+  },
+  {
+    "slug": "dimensionality-reduction",
+    "name": "Dimensionality reduction",
+    "category": "machine-learning",
+    "topic": "dimensionality-reduction",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "skills": [
+      "scikit-learn",
+      "linear-algebra"
+    ],
+    "summary": "PCA, t-SNE, UMAP, and what they preserve."
+  },
+  {
+    "slug": "model-selection",
+    "name": "Model selection",
+    "category": "machine-learning",
+    "topic": "model-selection",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "scikit-learn",
+      "statistics"
+    ],
+    "summary": "Cross-validation, calibration, and leakage."
+  },
+  {
+    "slug": "warehouses",
+    "name": "Warehouses and lakes",
+    "category": "data-engineering",
+    "topic": "warehouses",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "eda"
+    ],
+    "skills": [
+      "sql",
+      "spark"
+    ],
+    "summary": "Batch storage of analytic data."
+  },
+  {
+    "slug": "streaming",
+    "name": "Streaming systems",
+    "category": "data-engineering",
+    "topic": "streaming",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "warehouses"
+    ],
+    "skills": [
+      "spark"
+    ],
+    "summary": "Event time, watermarks, and exactly-once myths."
+  },
+  {
+    "slug": "orchestration",
+    "name": "Pipeline orchestration",
+    "category": "data-engineering",
+    "topic": "orchestration",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "warehouses"
+    ],
+    "skills": [
+      "airflow",
+      "python"
+    ],
+    "summary": "Airflow, Dagster, and dbt as contracts."
+  },
+  {
+    "slug": "neural-networks",
+    "name": "Neural networks",
+    "category": "deep-learning",
+    "topic": "neural-networks",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning",
+      "calculus"
+    ],
+    "skills": [
+      "pytorch",
+      "optimisation"
+    ],
+    "summary": "MLPs, activations, and a loss surface."
+  },
+  {
+    "slug": "backpropagation",
+    "name": "Backpropagation",
+    "category": "deep-learning",
+    "topic": "backpropagation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "neural-networks"
+    ],
+    "skills": [
+      "pytorch",
+      "calculus"
+    ],
+    "summary": "Reverse-mode autodiff."
+  },
+  {
+    "slug": "optimisation",
+    "name": "Deep learning optimisation",
+    "category": "deep-learning",
+    "topic": "optimisation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "backpropagation"
+    ],
+    "skills": [
+      "pytorch",
+      "optimisation"
+    ],
+    "summary": "SGD, Adam, batch norm, and regularisation."
+  },
+  {
+    "slug": "cnns",
+    "name": "Convolutional networks",
+    "category": "deep-learning",
+    "topic": "cnns",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "neural-networks"
+    ],
+    "skills": [
+      "pytorch",
+      "cnn-design"
+    ],
+    "summary": "Conv, pooling, and residual connections."
+  },
+  {
+    "slug": "rnns",
+    "name": "Recurrent networks",
+    "category": "deep-learning",
+    "topic": "rnns",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "neural-networks"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "RNN, LSTM, GRU, and why they stall."
+  },
+  {
+    "slug": "transformers",
+    "name": "Transformers",
+    "category": "deep-learning",
+    "topic": "transformers",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "neural-networks",
+      "rnns"
+    ],
+    "skills": [
+      "pytorch",
+      "transformers"
+    ],
+    "summary": "Attention, encoder-decoder, and scaling."
+  },
+  {
+    "slug": "agent-environment",
+    "name": "Agent and environment",
+    "category": "reinforcement-learning",
+    "topic": "mdp",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "mdp-reasoning"
+    ],
+    "summary": "Actions, observations, and reward from interaction."
+  },
+  {
+    "slug": "mdp",
+    "name": "Markov decision processes",
+    "category": "reinforcement-learning",
+    "topic": "mdp",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "agent-environment",
+      "probability"
+    ],
+    "skills": [
+      "mdp-reasoning",
+      "probability"
+    ],
+    "summary": "States, actions, rewards, and discounting."
+  },
+  {
+    "slug": "bellman",
+    "name": "Bellman equations",
+    "category": "reinforcement-learning",
+    "topic": "bellman-equation",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "mdp"
+    ],
+    "skills": [
+      "bellman",
+      "mdp-reasoning"
+    ],
+    "summary": "Expectation and optimality operators."
+  },
+  {
+    "slug": "dynamic-programming",
+    "name": "Dynamic programming",
+    "category": "reinforcement-learning",
+    "topic": "dynamic-programming-rl",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "bellman"
+    ],
+    "skills": [
+      "bellman"
+    ],
+    "summary": "Policy iteration and value iteration."
+  },
+  {
+    "slug": "monte-carlo",
+    "name": "Monte Carlo methods",
+    "category": "reinforcement-learning",
+    "topic": "q-learning",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "bellman"
+    ],
+    "skills": [
+      "td-learning"
+    ],
+    "summary": "Learning values from complete returns."
+  },
+  {
+    "slug": "temporal-difference",
+    "name": "Temporal-difference learning",
+    "category": "reinforcement-learning",
+    "topic": "q-learning",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "monte-carlo"
+    ],
+    "skills": [
+      "td-learning"
+    ],
+    "summary": "Bootstrapped value updates."
+  },
+  {
+    "slug": "q-learning",
+    "name": "Q-learning",
+    "category": "reinforcement-learning",
+    "topic": "q-learning",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "temporal-difference"
+    ],
+    "skills": [
+      "td-learning",
+      "mdp-reasoning"
+    ],
+    "summary": "Off-policy TD control."
+  },
+  {
+    "slug": "dqn",
+    "name": "Deep Q-networks",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "q-learning",
+      "neural-networks"
+    ],
+    "skills": [
+      "deep-rl",
+      "pytorch"
+    ],
+    "summary": "Function approximation and replay."
+  },
+  {
+    "slug": "policy-gradient",
+    "name": "Policy gradients",
+    "category": "reinforcement-learning",
+    "topic": "policy-gradients",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "mdp",
+      "calculus"
+    ],
+    "skills": [
+      "policy-optimisation"
+    ],
+    "summary": "REINFORCE and actor-critic."
+  },
+  {
+    "slug": "ppo",
+    "name": "Proximal policy optimisation",
+    "category": "reinforcement-learning",
+    "topic": "policy-gradients",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "policy-gradient"
+    ],
+    "skills": [
+      "policy-optimisation",
+      "deep-rl"
+    ],
+    "summary": "Clipped surrogate objectives."
+  },
+  {
+    "slug": "sac",
+    "name": "Soft actor-critic",
+    "category": "reinforcement-learning",
+    "topic": "policy-gradients",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "policy-gradient",
+      "q-learning"
+    ],
+    "skills": [
+      "policy-optimisation",
+      "deep-rl"
+    ],
+    "summary": "Maximum-entropy off-policy control."
+  },
+  {
+    "slug": "multi-agent",
+    "name": "Multi-agent RL",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "ppo"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Non-stationarity when several policies learn."
+  },
+  {
+    "slug": "gans",
+    "name": "Generative adversarial networks",
+    "category": "generative-ai",
+    "topic": "gans",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "neural-networks"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "Adversarial training of a generator."
+  },
+  {
+    "slug": "vaes",
+    "name": "Variational autoencoders",
+    "category": "generative-ai",
+    "topic": "vaes",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "neural-networks",
+      "probability"
+    ],
+    "skills": [
+      "pytorch",
+      "probability"
+    ],
+    "summary": "ELBO and latent variable models."
+  },
+  {
+    "slug": "diffusion-models",
+    "name": "Diffusion models",
+    "category": "generative-ai",
+    "topic": "diffusion-models",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "neural-networks",
+      "probability"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "Score matching and denoising."
+  },
+  {
+    "slug": "prompting",
+    "name": "Prompting",
+    "category": "generative-ai",
+    "topic": "prompting",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "prompt-engineering"
+    ],
+    "summary": "Instruction following and in-context learning."
+  },
+  {
+    "slug": "alignment",
+    "name": "Alignment",
+    "category": "generative-ai",
+    "topic": "alignment",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "prompting",
+      "policy-gradient"
+    ],
+    "skills": [
+      "evals",
+      "experimental-design"
+    ],
+    "summary": "RLHF, constitutional AI, and evals that bite."
+  },
+  {
+    "slug": "robotics",
+    "name": "Robotics",
+    "category": "robotics",
+    "topic": "kinematics",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "skills": [
+      "kinematics"
+    ],
+    "summary": "Sensing, planning, and acting in the physical world."
+  },
+  {
+    "slug": "kinematics",
+    "name": "Kinematics",
+    "category": "robotics",
+    "topic": "kinematics",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "robotics",
+      "linear-algebra"
+    ],
+    "skills": [
+      "kinematics"
+    ],
+    "summary": "Forward and inverse kinematics."
+  },
+  {
+    "slug": "control-theory",
+    "name": "Feedback control",
+    "category": "robotics",
+    "topic": "control-theory",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "calculus",
+      "robotics"
+    ],
+    "skills": [
+      "control"
+    ],
+    "summary": "PID, LQR, and trajectory tracking."
+  },
+  {
+    "slug": "slam",
+    "name": "SLAM",
+    "category": "robotics",
+    "topic": "slam",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "probability",
+      "linear-algebra",
+      "robotics"
+    ],
+    "skills": [
+      "slam"
+    ],
+    "summary": "Simultaneous localisation and mapping."
+  },
+  {
+    "slug": "motion-planning",
+    "name": "Motion planning",
+    "category": "robotics",
+    "topic": "motion-planning",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "kinematics"
+    ],
+    "skills": [
+      "kinematics"
+    ],
+    "summary": "Sampling and optimisation-based planners."
+  },
+  {
+    "slug": "perception-robotics",
+    "name": "Robot perception",
+    "category": "robotics",
+    "topic": "perception-robotics",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "robotics",
+      "cnns"
+    ],
+    "skills": [
+      "opencv"
+    ],
+    "summary": "Sensors to state estimates."
+  },
+  {
+    "slug": "ros2",
+    "name": "ROS 2",
+    "category": "ros2",
+    "topic": "ros-nodes",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "python-for-ml"
+    ],
+    "skills": [
+      "ros2",
+      "python"
+    ],
+    "summary": "Nodes, topics, services, and actions."
+  },
+  {
+    "slug": "ros-nodes",
+    "name": "ROS 2 nodes and topics",
+    "category": "ros2",
+    "topic": "ros-nodes",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ros2"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "summary": "Publishers, subscribers, and QoS."
+  },
+  {
+    "slug": "ros-launch",
+    "name": "ROS 2 launch",
+    "category": "ros2",
+    "topic": "ros-launch",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "ros-nodes"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "summary": "Bring-up of a robot system."
+  },
+  {
+    "slug": "nav2",
+    "name": "Nav2",
+    "category": "ros2",
+    "topic": "nav2",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "ros-launch",
+      "motion-planning"
+    ],
+    "skills": [
+      "ros2",
+      "slam"
+    ],
+    "summary": "The ROS 2 navigation stack."
+  },
+  {
+    "slug": "navigation",
+    "name": "Robot navigation",
+    "category": "robotics",
+    "topic": "motion-planning",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "slam",
+      "control-theory"
+    ],
+    "skills": [
+      "slam",
+      "control"
+    ],
+    "summary": "From a map to a trajectory a controller can track."
+  },
+  {
+    "slug": "rl-robotics",
+    "name": "RL for robotics",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "ppo",
+      "robotics"
+    ],
+    "skills": [
+      "deep-rl",
+      "control"
+    ],
+    "summary": "Sim-to-real and safety constraints."
+  },
+  {
+    "slug": "computer-vision",
+    "name": "Computer vision",
+    "category": "computer-vision",
+    "topic": "image-formation",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "linear-algebra"
+    ],
+    "skills": [
+      "opencv"
+    ],
+    "summary": "Images to structure."
+  },
+  {
+    "slug": "image-formation",
+    "name": "Image formation",
+    "category": "computer-vision",
+    "topic": "image-formation",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "computer-vision"
+    ],
+    "skills": [
+      "opencv"
+    ],
+    "summary": "Cameras, colour, and filtering."
+  },
+  {
+    "slug": "multiview",
+    "name": "Multiple-view geometry",
+    "category": "computer-vision",
+    "topic": "multiview",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "image-formation",
+      "linear-algebra"
+    ],
+    "skills": [
+      "opencv",
+      "linear-algebra"
+    ],
+    "summary": "Stereo, homography, and structure from motion."
+  },
+  {
+    "slug": "detection",
+    "name": "Detection and segmentation",
+    "category": "computer-vision",
+    "topic": "detection",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "cnns",
+      "computer-vision"
+    ],
+    "skills": [
+      "detection",
+      "cnn-design"
+    ],
+    "summary": "Boxes, masks, and tracking."
+  },
+  {
+    "slug": "vision-transformers",
+    "name": "Vision transformers",
+    "category": "computer-vision",
+    "topic": "vision-transformers",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "transformers",
+      "cnns"
+    ],
+    "skills": [
+      "transformers",
+      "pytorch"
+    ],
+    "summary": "ViT, CLIP, and multimodal encoders."
+  },
+  {
+    "slug": "tokenization",
+    "name": "Tokenization",
+    "category": "nlp",
+    "topic": "tokenization",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "python-for-ml"
+    ],
+    "skills": [
+      "huggingface",
+      "language-modeling"
+    ],
+    "summary": "Words, subwords, and BPE."
+  },
+  {
+    "slug": "language-models",
+    "name": "Language models",
+    "category": "nlp",
+    "topic": "language-models",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "probability",
+      "tokenization"
+    ],
+    "skills": [
+      "language-modeling"
+    ],
+    "summary": "n-grams to neural LMs."
+  },
+  {
+    "slug": "representation-nlp",
+    "name": "Linguistic representations",
+    "category": "nlp",
+    "topic": "representation-nlp",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "language-models"
+    ],
+    "skills": [
+      "huggingface"
+    ],
+    "summary": "Word2Vec, BERT, and sentence embeddings."
+  },
+  {
+    "slug": "sequence-labeling",
+    "name": "Sequence labelling",
+    "category": "nlp",
+    "topic": "sequence-labeling",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "representation-nlp"
+    ],
+    "skills": [
+      "huggingface"
+    ],
+    "summary": "NER, parsing, and tagging."
+  },
+  {
+    "slug": "generation",
+    "name": "Text generation",
+    "category": "nlp",
+    "topic": "generation",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "language-models",
+      "transformers"
+    ],
+    "skills": [
+      "language-modeling",
+      "evals"
+    ],
+    "summary": "Decoding, evaluation, and hallucination."
+  },
+  {
+    "slug": "llm-engineering",
+    "name": "LLM engineering",
+    "category": "llm-engineering",
+    "topic": "rag",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "transformers",
+      "prompting"
+    ],
+    "skills": [
+      "prompt-engineering",
+      "evals"
+    ],
+    "summary": "Products on foundation models."
+  },
+  {
+    "slug": "rag",
+    "name": "Retrieval-augmented generation",
+    "category": "llm-engineering",
+    "topic": "rag",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "llm-engineering",
+      "representation-nlp"
+    ],
+    "skills": [
+      "rag-systems",
+      "retrieval"
+    ],
+    "summary": "Ground answers in a corpus."
+  },
+  {
+    "slug": "agents",
+    "name": "LLM agents",
+    "category": "llm-engineering",
+    "topic": "agents",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "rag"
+    ],
+    "skills": [
+      "prompt-engineering"
+    ],
+    "summary": "Planning, tools, and memory."
+  },
+  {
+    "slug": "evals",
+    "name": "LLM evals",
+    "category": "llm-engineering",
+    "topic": "evals",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "llm-engineering"
+    ],
+    "skills": [
+      "evals",
+      "experimental-design"
+    ],
+    "summary": "Task suites, judges, and regression gates."
+  },
+  {
+    "slug": "serving-llms",
+    "name": "Serving LLMs",
+    "category": "llm-engineering",
+    "topic": "serving-llms",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "llm-engineering"
+    ],
+    "skills": [
+      "model-serving",
+      "docker"
+    ],
+    "summary": "Quantisation, batching, and latency."
+  },
+  {
+    "slug": "experiment-tracking",
+    "name": "Experiment tracking",
+    "category": "mlops",
+    "topic": "experiment-tracking",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "git",
+      "python"
+    ],
+    "summary": "Runs, artefacts, and lineage."
+  },
+  {
+    "slug": "serving",
+    "name": "Model serving",
+    "category": "mlops",
+    "topic": "serving",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "experiment-tracking"
+    ],
+    "skills": [
+      "model-serving",
+      "docker"
+    ],
+    "summary": "Batch, online, and streaming inference."
+  },
+  {
+    "slug": "monitoring",
+    "name": "ML monitoring",
+    "category": "mlops",
+    "topic": "monitoring",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "serving"
+    ],
+    "skills": [
+      "observability"
+    ],
+    "summary": "Drift, quality, and incident response."
+  },
+  {
+    "slug": "feature-stores",
+    "name": "Feature stores",
+    "category": "mlops",
+    "topic": "serving",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "feature-engineering",
+      "serving"
+    ],
+    "skills": [
+      "feature-stores"
+    ],
+    "summary": "Training-time features served online."
+  },
+  {
+    "slug": "research-methods",
+    "name": "AI research methods",
+    "category": "ai-research-methods",
+    "topic": "experimental-design",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "experimental-design",
+      "paper-reading"
+    ],
+    "summary": "Baselines, ablations, and seeds."
+  },
+  {
+    "slug": "experimental-design",
+    "name": "Experimental design",
+    "category": "ai-research-methods",
+    "topic": "experimental-design",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "research-methods",
+      "hypothesis-testing"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "summary": "Fair comparisons and leakage control."
+  },
+  {
+    "slug": "reproducibility",
+    "name": "Reproducibility",
+    "category": "ai-research-methods",
+    "topic": "reproducibility",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "research-methods"
+    ],
+    "skills": [
+      "git",
+      "experimental-design"
+    ],
+    "summary": "Code, data, seeds, and claims."
+  },
+  {
+    "slug": "reading-papers",
+    "name": "Reading papers",
+    "category": "ai-research-methods",
+    "topic": "reading-papers",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "ai-fundamentals"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "summary": "Extracting a contribution from a PDF."
+  },
+  {
+    "slug": "paper-structure",
+    "name": "Paper structure",
+    "category": "scientific-writing",
+    "topic": "paper-structure",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "reading-papers"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "summary": "IMRaD, related work, and figures."
+  },
+  {
+    "slug": "citation-practice",
+    "name": "Citation practice",
+    "category": "scientific-writing",
+    "topic": "citation-practice",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "paper-structure"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "summary": "Prior work and academic integrity."
+  },
+  {
+    "slug": "peer-review",
+    "name": "Peer review",
+    "category": "scientific-writing",
+    "topic": "peer-review",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "paper-structure",
+      "research-methods"
+    ],
+    "skills": [
+      "scientific-writing"
+    ],
+    "summary": "Giving and receiving technical review."
+  },
+  {
+    "slug": "information-theory",
+    "name": "Information theory",
+    "category": "mathematics",
+    "topic": "optimisation-math",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "probability"
+    ],
+    "skills": [
+      "probability"
+    ],
+    "summary": "Entropy, KL, and why cross-entropy is a loss."
+  },
+  {
+    "slug": "bayesian-inference",
+    "name": "Bayesian inference",
+    "category": "statistics",
+    "topic": "estimation",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "estimation"
+    ],
+    "skills": [
+      "statistics",
+      "probability"
+    ],
+    "summary": "Priors, posteriors, and predictive checks."
+  },
+  {
+    "slug": "causal-inference",
+    "name": "Causal inference",
+    "category": "statistics",
+    "topic": "hypothesis-testing",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "summary": "DAGs, identification, and unconfoundedness."
+  },
+  {
+    "slug": "graph-ml",
+    "name": "Graph machine learning",
+    "category": "machine-learning",
+    "topic": "kernel-methods",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "neural-networks"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "Message passing on relational data."
+  },
+  {
+    "slug": "self-supervised",
+    "name": "Self-supervised learning",
+    "category": "deep-learning",
+    "topic": "transformers",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "cnns",
+      "transformers"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "Pretext tasks and contrastive learning."
+  },
+  {
+    "slug": "few-shot",
+    "name": "Few-shot learning",
+    "category": "deep-learning",
+    "topic": "transformers",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "transformers"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "Adapt with few labelled examples."
+  },
+  {
+    "slug": "meta-learning",
+    "name": "Meta-learning",
+    "category": "deep-learning",
+    "topic": "optimisation",
+    "difficulty": "expert",
+    "prerequisites": [
+      "optimisation",
+      "few-shot"
+    ],
+    "skills": [
+      "pytorch",
+      "optimisation"
+    ],
+    "summary": "Learning to learn."
+  },
+  {
+    "slug": "offline-rl",
+    "name": "Offline reinforcement learning",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "dqn",
+      "q-learning"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Learning from a fixed dataset of decisions."
+  },
+  {
+    "slug": "imitation-learning",
+    "name": "Imitation learning",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "mdp",
+      "supervised-learning"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Policies from demonstrations."
+  },
+  {
+    "slug": "model-based-rl",
+    "name": "Model-based RL",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "mdp",
+      "neural-networks"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Learn the transition, then plan."
+  },
+  {
+    "slug": "safety-rl",
+    "name": "Safe RL",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "ppo",
+      "ai-ethics"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Constraints, shielding, and conservative updates."
+  },
+  {
+    "slug": "multimodal",
+    "name": "Multimodal models",
+    "category": "generative-ai",
+    "topic": "prompting",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "vision-transformers",
+      "transformers"
+    ],
+    "skills": [
+      "transformers"
+    ],
+    "summary": "Shared spaces for image and text."
+  },
+  {
+    "slug": "lora",
+    "name": "Parameter-efficient fine-tuning",
+    "category": "llm-engineering",
+    "topic": "serving-llms",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "transformers"
+    ],
+    "skills": [
+      "huggingface",
+      "pytorch"
+    ],
+    "summary": "LoRA, adapters, and prompt tuning."
+  },
+  {
+    "slug": "token-engineering",
+    "name": "Context engineering",
+    "category": "llm-engineering",
+    "topic": "rag",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "rag"
+    ],
+    "skills": [
+      "rag-systems",
+      "prompt-engineering"
+    ],
+    "summary": "What goes in the window, and in what order."
+  },
+  {
+    "slug": "guardrails",
+    "name": "Guardrails",
+    "category": "llm-engineering",
+    "topic": "evals",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "evals",
+      "ai-ethics"
+    ],
+    "skills": [
+      "evals"
+    ],
+    "summary": "Policies around a stochastic generator."
+  },
+  {
+    "slug": "distributed-training",
+    "name": "Distributed training",
+    "category": "mlops",
+    "topic": "experiment-tracking",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "optimisation"
+    ],
+    "skills": [
+      "pytorch",
+      "docker"
+    ],
+    "summary": "Data parallel, FSDP, and communication."
+  },
+  {
+    "slug": "feature-pipelines",
+    "name": "Feature pipelines",
+    "category": "data-engineering",
+    "topic": "orchestration",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "feature-engineering",
+      "orchestration"
+    ],
+    "skills": [
+      "airflow",
+      "pandas"
+    ],
+    "summary": "Point-in-time correct training data."
+  },
+  {
+    "slug": "data-quality",
+    "name": "Data quality",
+    "category": "data-engineering",
+    "topic": "warehouses",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "eda"
+    ],
+    "skills": [
+      "sql",
+      "pandas"
+    ],
+    "summary": "Contracts, tests, and fresh data."
+  },
+  {
+    "slug": "time-series",
+    "name": "Time series",
+    "category": "data-science",
+    "topic": "feature-engineering",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning",
+      "probability"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "summary": "Forecasting without leaking the future."
+  },
+  {
+    "slug": "recommenders",
+    "name": "Recommender systems",
+    "category": "machine-learning",
+    "topic": "linear-models",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "supervised-learning"
+    ],
+    "skills": [
+      "python",
+      "statistics"
+    ],
+    "summary": "Collaborative filtering and ranking metrics."
+  },
+  {
+    "slug": "speech",
+    "name": "Speech processing",
+    "category": "nlp",
+    "topic": "language-models",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "rnns",
+      "cnns"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "ASR, TTS, and spectrograms."
+  },
+  {
+    "slug": "3d-vision",
+    "name": "3D vision",
+    "category": "computer-vision",
+    "topic": "multiview",
+    "difficulty": "expert",
+    "prerequisites": [
+      "multiview",
+      "cnns"
+    ],
+    "skills": [
+      "opencv",
+      "pytorch"
+    ],
+    "summary": "Depth, NeRF, and Gaussian splatting."
+  },
+  {
+    "slug": "control-ml",
+    "name": "Learning-based control",
+    "category": "robotics",
+    "topic": "control-theory",
+    "difficulty": "expert",
+    "prerequisites": [
+      "control-theory",
+      "ppo"
+    ],
+    "skills": [
+      "control",
+      "deep-rl"
+    ],
+    "summary": "Policies that respect a plant."
+  },
+  {
+    "slug": "simulation",
+    "name": "Robot simulation",
+    "category": "robotics",
+    "topic": "kinematics",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "robotics"
+    ],
+    "skills": [
+      "python",
+      "ros2"
+    ],
+    "summary": "Gazebo, Isaac, and domain randomisation."
+  },
+  {
+    "slug": "tf2",
+    "name": "ROS 2 tf2",
+    "category": "ros2",
+    "topic": "ros-nodes",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "ros-nodes",
+      "kinematics"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "summary": "Frames, time, and transforms."
+  },
+  {
+    "slug": "lifecycle",
+    "name": "ROS 2 managed nodes",
+    "category": "ros2",
+    "topic": "ros-launch",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "ros-launch"
+    ],
+    "skills": [
+      "ros2"
+    ],
+    "summary": "Configure, activate, deactivate."
+  },
+  {
+    "slug": "hardware-interfaces",
+    "name": "Hardware interfaces",
+    "category": "ros2",
+    "topic": "ros-launch",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "lifecycle"
+    ],
+    "skills": [
+      "ros2",
+      "control"
+    ],
+    "summary": "ros2_control and real I/O."
+  },
+  {
+    "slug": "scientific-python",
+    "name": "Scientific Python",
+    "category": "data-science",
+    "topic": "eda",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "python-for-ml"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "summary": "NumPy, SciPy, and matplotlib as a lab bench."
+  },
+  {
+    "slug": "sql",
+    "name": "SQL for analysis",
+    "category": "data-engineering",
+    "topic": "warehouses",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "eda"
+    ],
+    "skills": [
+      "sql"
+    ],
+    "summary": "Joins, windows, and grain."
+  },
+  {
+    "slug": "docker",
+    "name": "Containers for ML",
+    "category": "mlops",
+    "topic": "experiment-tracking",
+    "difficulty": "beginner",
+    "prerequisites": [
+      "python-for-ml"
+    ],
+    "skills": [
+      "docker"
+    ],
+    "summary": "A runtime another machine can run."
+  },
+  {
+    "slug": "kubernetes",
+    "name": "Kubernetes for ML",
+    "category": "mlops",
+    "topic": "serving",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "docker",
+      "serving"
+    ],
+    "skills": [
+      "kubernetes",
+      "docker"
+    ],
+    "summary": "Jobs, services, and rollouts."
+  },
+  {
+    "slug": "gpu-computing",
+    "name": "GPU computing",
+    "category": "deep-learning",
+    "topic": "optimisation",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "neural-networks"
+    ],
+    "skills": [
+      "pytorch"
+    ],
+    "summary": "Kernels, occupancy, and mixed precision."
+  },
+  {
+    "slug": "numerical-stability",
+    "name": "Numerical stability",
+    "category": "mathematics",
+    "topic": "optimisation-math",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "linear-algebra",
+      "optimisation-math"
+    ],
+    "skills": [
+      "linear-algebra"
+    ],
+    "summary": "Conditioning, overflow, and log-sum-exp."
+  },
+  {
+    "slug": "measure-theory-lite",
+    "name": "Measure-theoretic probability",
+    "category": "mathematics",
+    "topic": "calculus",
+    "difficulty": "expert",
+    "prerequisites": [
+      "probability",
+      "calculus"
+    ],
+    "skills": [
+      "probability"
+    ],
+    "summary": "Enough measure to read a theory paper."
+  },
+  {
+    "slug": "bandits",
+    "name": "Multi-armed bandits",
+    "category": "reinforcement-learning",
+    "topic": "mdp",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "probability"
+    ],
+    "skills": [
+      "statistics",
+      "mdp-reasoning"
+    ],
+    "summary": "Exploration without a full MDP."
+  },
+  {
+    "slug": "irl",
+    "name": "Inverse reinforcement learning",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "imitation-learning"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Recover a reward from demonstrations."
+  },
+  {
+    "slug": "world-models",
+    "name": "World models",
+    "category": "reinforcement-learning",
+    "topic": "deep-rl",
+    "difficulty": "expert",
+    "prerequisites": [
+      "model-based-rl",
+      "vaes"
+    ],
+    "skills": [
+      "deep-rl"
+    ],
+    "summary": "Learn a compact dynamics, then dream."
+  },
+  {
+    "slug": "constitutional-ai",
+    "name": "Constitutional AI",
+    "category": "generative-ai",
+    "topic": "alignment",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "alignment"
+    ],
+    "skills": [
+      "evals"
+    ],
+    "summary": "Critique and revise against written principles."
+  },
+  {
+    "slug": "tool-use",
+    "name": "Tool use",
+    "category": "llm-engineering",
+    "topic": "agents",
+    "difficulty": "advanced",
+    "prerequisites": [
+      "agents"
+    ],
+    "skills": [
+      "prompt-engineering"
+    ],
+    "summary": "Function calling that is allowed to fail."
+  },
+  {
+    "slug": "prompt-injection",
+    "name": "Prompt injection",
+    "category": "llm-engineering",
+    "topic": "evals",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "guardrails"
+    ],
+    "skills": [
+      "evals",
+      "ai-ethics"
+    ],
+    "summary": "Untrusted text that tries to become instructions."
+  },
+  {
+    "slug": "dataset-design",
+    "name": "Dataset design",
+    "category": "ai-research-methods",
+    "topic": "experimental-design",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "eda",
+      "research-methods"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "summary": "What is in the split, and why."
+  },
+  {
+    "slug": "ablation",
+    "name": "Ablation studies",
+    "category": "ai-research-methods",
+    "topic": "experimental-design",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "experimental-design"
+    ],
+    "skills": [
+      "experimental-design"
+    ],
+    "summary": "Remove a piece and measure the drop."
+  },
+  {
+    "slug": "error-analysis",
+    "name": "Error analysis",
+    "category": "ai-research-methods",
+    "topic": "reading-papers",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "model-selection"
+    ],
+    "skills": [
+      "paper-reading"
+    ],
+    "summary": "The failures that a mean metric hides."
+  },
+  {
+    "slug": "grant-writing",
+    "name": "Research communication",
+    "category": "scientific-writing",
+    "topic": "paper-structure",
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "paper-structure"
+    ],
+    "skills": [
+      "scientific-writing",
+      "communication"
+    ],
+    "summary": "Proposals, talks, and a claim a funder can test."
+  }
+]

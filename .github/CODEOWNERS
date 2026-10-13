@@ -1,0 +1,17 @@
+# Every change needs an owner review. Paths below are security-sensitive
+# (Security-Compliance §10); keep a second owner on them once the team grows.
+*                                   @Nditah
+
+/backend/app/core/                  @Nditah
+/backend/app/api/                   @Nditah
+/backend/app/domain/access.py       @Nditah
+/backend/app/domain/sandbox.py      @Nditah
+/backend/app/services/sandbox_runner.py @Nditah
+/backend/app/services/harness_source.py @Nditah
+/backend/app/services/privacy.py    @Nditah
+/backend/app/services/webhooks.py   @Nditah
+/backend/alembic/                   @Nditah
+/frontend/middleware.ts             @Nditah
+/admin/middleware.ts                @Nditah
+/.github/                           @Nditah
+/infrastructure/                    @Nditah

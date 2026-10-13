@@ -1,6 +1,6 @@
 # ADR 0009 — Knowledge repository design
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 
 ## Context
@@ -59,3 +59,14 @@ Quiz templates cannot yet cover every concept at every difficulty. The generator
 - Add an instructor workflow that writes a draft lesson, reviews it, and then exports into the catalog or replaces the seed for that slug.
 - Version published lessons so a learner who started on revision A can finish it.
 - Keep answer keys out of any future CMS payload that the browser can read.
+
+## Amendment — 2026-10-13 hardening
+
+The "no instructor CMS" statement above is superseded. The admin portal now has a curated library alongside the catalog:
+
+- `knowledge_assets` move through `draft → review → approved → published → archived`, with every edit and transition snapshotted in `asset_versions` and audited.
+- Only an admin publishes. Approval follows the four-eyes rule (AZ-5): the author may not approve or publish their own asset unless `CONTENT_SELF_APPROVAL` is on, and then the audit row is flagged `self_approved`.
+- Each asset carries a licence from a fixed list (`own-work`, `cc-by`, `cc-by-sa`, `cc-by-nc`, `public-domain`, `proprietary-licensed`, `fair-use-excerpt`); anything else is rejected.
+- Publishing indexes the asset into `knowledge_v1` for the tutor (ADR 0007). If the index is unavailable, publishing fails and the asset stays approved.
+- Author references are `ON DELETE SET NULL`, so erasing a staff member keeps their published work.
+- The catalog module is still the source for concepts, prerequisites, quiz keys, and socratic openers. Library assets do not enter the prerequisite graph. ADR 0019 describes the later Content Studio that unifies the two.

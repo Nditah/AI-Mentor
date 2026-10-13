@@ -1,0 +1,1148 @@
+[
+  {
+    "source": "ai-fundamentals",
+    "target": "intelligent-agents",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "intelligent-agents",
+    "target": "search-planning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "knowledge-representation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "ai-ethics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "ai-history",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "probability",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "linear-algebra",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "calculus",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "calculus",
+    "target": "optimisation-math",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "estimation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "estimation",
+    "target": "hypothesis-testing",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "eda",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "eda",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "eda",
+    "target": "feature-engineering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "hypothesis-testing",
+    "target": "experimentation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "supervised-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "supervised-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "supervised-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "linear-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "tree-ensembles",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-models",
+    "target": "kernel-methods",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "clustering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "clustering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "dimensionality-reduction",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "model-selection",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "eda",
+    "target": "warehouses",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "warehouses",
+    "target": "streaming",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "warehouses",
+    "target": "orchestration",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "neural-networks",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "calculus",
+    "target": "neural-networks",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "backpropagation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "backpropagation",
+    "target": "optimisation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "cnns",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "rnns",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "transformers",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "rnns",
+    "target": "transformers",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "agent-environment",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "agent-environment",
+    "target": "mdp",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "mdp",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "mdp",
+    "target": "bellman",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "bellman",
+    "target": "dynamic-programming",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "bellman",
+    "target": "monte-carlo",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "monte-carlo",
+    "target": "temporal-difference",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "temporal-difference",
+    "target": "q-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "q-learning",
+    "target": "dqn",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "dqn",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "mdp",
+    "target": "policy-gradient",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "calculus",
+    "target": "policy-gradient",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "policy-gradient",
+    "target": "ppo",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "policy-gradient",
+    "target": "sac",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "q-learning",
+    "target": "sac",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ppo",
+    "target": "multi-agent",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "gans",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "vaes",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "vaes",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "diffusion-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "diffusion-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "prompting",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "prompting",
+    "target": "alignment",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "policy-gradient",
+    "target": "alignment",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "robotics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "robotics",
+    "target": "kinematics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "kinematics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "calculus",
+    "target": "control-theory",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "robotics",
+    "target": "control-theory",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "slam",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "slam",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "robotics",
+    "target": "slam",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "kinematics",
+    "target": "motion-planning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "robotics",
+    "target": "perception-robotics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "perception-robotics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "ros2",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ros2",
+    "target": "ros-nodes",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ros-nodes",
+    "target": "ros-launch",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ros-launch",
+    "target": "nav2",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "motion-planning",
+    "target": "nav2",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "slam",
+    "target": "navigation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "control-theory",
+    "target": "navigation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ppo",
+    "target": "rl-robotics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "robotics",
+    "target": "rl-robotics",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "computer-vision",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "computer-vision",
+    "target": "image-formation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "image-formation",
+    "target": "multiview",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "multiview",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "detection",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "computer-vision",
+    "target": "detection",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "vision-transformers",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "vision-transformers",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "tokenization",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "language-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "tokenization",
+    "target": "language-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "language-models",
+    "target": "representation-nlp",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "representation-nlp",
+    "target": "sequence-labeling",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "language-models",
+    "target": "generation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "generation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "llm-engineering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "prompting",
+    "target": "llm-engineering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "llm-engineering",
+    "target": "rag",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "representation-nlp",
+    "target": "rag",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "rag",
+    "target": "agents",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "llm-engineering",
+    "target": "evals",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "llm-engineering",
+    "target": "serving-llms",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "experiment-tracking",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "experiment-tracking",
+    "target": "serving",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "serving",
+    "target": "monitoring",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "feature-engineering",
+    "target": "feature-stores",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "serving",
+    "target": "feature-stores",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "research-methods",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "research-methods",
+    "target": "experimental-design",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "hypothesis-testing",
+    "target": "experimental-design",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "research-methods",
+    "target": "reproducibility",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-fundamentals",
+    "target": "reading-papers",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "reading-papers",
+    "target": "paper-structure",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "paper-structure",
+    "target": "citation-practice",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "paper-structure",
+    "target": "peer-review",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "research-methods",
+    "target": "peer-review",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "information-theory",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "estimation",
+    "target": "bayesian-inference",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "experimentation",
+    "target": "causal-inference",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "graph-ml",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "self-supervised",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "self-supervised",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "few-shot",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "optimisation",
+    "target": "meta-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "few-shot",
+    "target": "meta-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "dqn",
+    "target": "offline-rl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "q-learning",
+    "target": "offline-rl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "mdp",
+    "target": "imitation-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "imitation-learning",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "mdp",
+    "target": "model-based-rl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "model-based-rl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ppo",
+    "target": "safety-rl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-ethics",
+    "target": "safety-rl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "vision-transformers",
+    "target": "multimodal",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "multimodal",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "transformers",
+    "target": "lora",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "rag",
+    "target": "token-engineering",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "evals",
+    "target": "guardrails",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ai-ethics",
+    "target": "guardrails",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "optimisation",
+    "target": "distributed-training",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "feature-engineering",
+    "target": "feature-pipelines",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "orchestration",
+    "target": "feature-pipelines",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "eda",
+    "target": "data-quality",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "time-series",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "time-series",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "supervised-learning",
+    "target": "recommenders",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "rnns",
+    "target": "speech",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "speech",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "multiview",
+    "target": "3d-vision",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "cnns",
+    "target": "3d-vision",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "control-theory",
+    "target": "control-ml",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ppo",
+    "target": "control-ml",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "robotics",
+    "target": "simulation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ros-nodes",
+    "target": "tf2",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "kinematics",
+    "target": "tf2",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "ros-launch",
+    "target": "lifecycle",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "lifecycle",
+    "target": "hardware-interfaces",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "scientific-python",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "eda",
+    "target": "sql",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "python-for-ml",
+    "target": "docker",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "docker",
+    "target": "kubernetes",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "serving",
+    "target": "kubernetes",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "neural-networks",
+    "target": "gpu-computing",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "linear-algebra",
+    "target": "numerical-stability",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "optimisation-math",
+    "target": "numerical-stability",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "measure-theory-lite",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "calculus",
+    "target": "measure-theory-lite",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "probability",
+    "target": "bandits",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "imitation-learning",
+    "target": "irl",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "model-based-rl",
+    "target": "world-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "vaes",
+    "target": "world-models",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "alignment",
+    "target": "constitutional-ai",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "agents",
+    "target": "tool-use",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "guardrails",
+    "target": "prompt-injection",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "eda",
+    "target": "dataset-design",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "research-methods",
+    "target": "dataset-design",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "experimental-design",
+    "target": "ablation",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "model-selection",
+    "target": "error-analysis",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "paper-structure",
+    "target": "grant-writing",
+    "relation_type": "prerequisite_of",
+    "weight": 1.0
+  },
+  {
+    "source": "bellman",
+    "target": "q-learning",
+    "relation_type": "builds_on",
+    "weight": 0.6
+  },
+  {
+    "source": "q-learning",
+    "target": "dqn",
+    "relation_type": "builds_on",
+    "weight": 0.8
+  },
+  {
+    "source": "dqn",
+    "target": "ppo",
+    "relation_type": "related_to",
+    "weight": 0.5
+  },
+  {
+    "source": "ppo",
+    "target": "sac",
+    "relation_type": "contrasts_with",
+    "weight": 0.7
+  },
+  {
+    "source": "dqn",
+    "target": "policy-gradient",
+    "relation_type": "contrasts_with",
+    "weight": 0.6
+  },
+  {
+    "source": "cnns",
+    "target": "detection",
+    "relation_type": "applies_to",
+    "weight": 0.9
+  },
+  {
+    "source": "transformers",
+    "target": "rag",
+    "relation_type": "applies_to",
+    "weight": 0.8
+  },
+  {
+    "source": "mdp",
+    "target": "robotics",
+    "relation_type": "applies_to",
+    "weight": 0.5
+  },
+  {
+    "source": "neural-networks",
+    "target": "dqn",
+    "relation_type": "part_of",
+    "weight": 0.4
+  },
+  {
+    "source": "probability",
+    "target": "mdp",
+    "relation_type": "builds_on",
+    "weight": 0.7
+  },
+  {
+    "source": "linear-algebra",
+    "target": "cnns",
+    "relation_type": "builds_on",
+    "weight": 0.6
+  },
+  {
+    "source": "python-for-ml",
+    "target": "ros2",
+    "relation_type": "related_to",
+    "weight": 0.4
+  }
+]

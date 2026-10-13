@@ -1,5 +1,7 @@
 # AI Mentor — Software Requirements Specification (SRS)
 
+> **v2.0 amendment (13 October 2026).** Every requirement ID in this document remains valid. Sections 2 (product overview), 4 (scope), 5 (roles and permissions), and 21 (future considerations) are superseded by [platform/03-srs.md](platform/03-srs.md), which adds tenancy, identity, authorisation, Instructor App, Institution App, Content Studio, and assessment requirements. Release labels MVP, R2, and R3 map to R1–R5 in [platform/README.md](platform/README.md#releases).
+
 | Field | Value |
 | --- | --- |
 | Document ID | AIM-SRS-001 |
@@ -149,7 +151,7 @@ AI Mentor is a new, standalone web platform with a separate admin portal. It is 
                                                |
                                    +-----------v-----------+
                                    |  FastAPI API          |
-                                   |  (Azure App Service)  |
+                                   | (Azure Container Apps)|
                                    |  auth, rate limit,    |
                                    |  guardrails, routing  |
                                    +-----------+-----------+
@@ -199,8 +201,8 @@ AI Mentor is a new, standalone web platform with a separate admin portal. It is 
 
 ### 2.4 Operating environment
 
-- Frontend: two Next.js 15 App Router applications with one stack (TypeScript, Tailwind CSS, shadcn/ui-pattern primitives, TanStack Query), each deployed as its own Vercel project: the learner studio (`frontend/`) and the admin portal (`admin/`, served at `admin.<domain>`). See ADR 0012.
-- API: FastAPI on Python 3.12, Pydantic v2, deployed on Azure App Service (Linux containers).
+- Frontend: two Next.js 16 App Router applications with one stack (TypeScript, Tailwind CSS, shadcn/ui-pattern primitives, TanStack Query), each deployed as its own Vercel project: the learner studio (`frontend/`) and the admin portal (`admin/`, served at `admin.<domain>`). See ADR 0012.
+- API: FastAPI on Python 3.12, Pydantic v2, deployed as one container image on Azure Container Apps (ADR 0006).
 - Database: Azure Database for PostgreSQL Flexible Server (PostgreSQL 16), SQLAlchemy 2, Alembic.
 - Vectors: Qdrant (managed or self-hosted on Azure), HTTP/gRPC.
 - Object storage: Azure Blob Storage for uploaded originals.
@@ -741,8 +743,8 @@ All latency targets are measured server-side at the API boundary unless stated, 
 
 ## 9. System Constraints
 
-- **CON-001** `[M | MVP | I]` Technology stack is fixed for MVP: Next.js 15 + TypeScript frontend; FastAPI + Python 3.12 backend; PostgreSQL + SQLAlchemy 2 + Alembic; Qdrant; Clerk; Stripe; OpenAI/Anthropic/Gemini; OpenTelemetry + Langfuse.
-- **CON-002** `[M | MVP | I]` Hosting: Vercel (frontend), Azure App Service and Azure Database for PostgreSQL (backend). Primary region: Azure West Europe; data residency for EU/UK users in EU (CMP-007).
+- **CON-001** `[M | MVP | I]` Technology stack is fixed for MVP: Next.js 16 + TypeScript frontend; FastAPI + Python 3.12 backend; PostgreSQL + SQLAlchemy 2 + Alembic; Qdrant; Clerk; Stripe; OpenAI/Anthropic/Gemini; OpenTelemetry + Langfuse.
+- **CON-002** `[M | MVP | I]` Hosting: Vercel (frontend), Azure Container Apps and Azure Database for PostgreSQL (backend), per ADR 0006. Primary region: Azure West Europe, recovery region North Europe; data residency for EU/UK users in the EU (CMP-007). Decided 2026-10-13; ADR 0006 is amended accordingly.
 - **CON-003** `[M | MVP | I]` Delivery window: 8–12 weeks with a small team (assumed 2 backend, 2 frontend, 1 AI engineer, 1 designer, 1 QA, 0.5 PM, content team of 2–3 SMEs).
 - **CON-004** `[M | MVP | I]` The curriculum graph in `backend/app/domain/catalog.py` is the seed source of truth. From MVP, the admin-managed graph in PostgreSQL becomes authoritative; the seed only inserts missing launch rows and never overwrites admin edits or learner progress.
 - **CON-005** `[M | MVP | I]` HTTP handlers shall not contain teaching logic; domain modules shall be framework-independent and unit-testable.
@@ -765,7 +767,7 @@ Target assurance level: OWASP ASVS 4.0.3 Level 2 for all components; OWASP LLM T
 - **SEC-002** `[M | MVP | T]` JWT validation shall check signature (RS256 from JWKS), `iss`, `exp`, `nbf`, and `azp` against allowed origins. Clock skew tolerance ≤ 60 s.
 - **SEC-003** `[M | MVP | T]` Admin and Instructor accounts shall require MFA (Clerk TOTP or passkey); the API rejects admin routes for sessions without a second factor claim.
 - **SEC-004** `[M | MVP | T]` Session lifetime: 7 days of inactivity for learners, 12 hours for admin sessions.
-- **SEC-005** `[M | MVP | I]` Role is read from the local database (source of truth), not trusted from client claims; Clerk `public_metadata.role` is only an initial input on webhook upsert.
+- **SEC-005** `[M | MVP | I]` Role is read from the local database (source of truth) and never taken from token claims or Clerk metadata, including on webhook upsert. New identities are students; the first admin is granted by an audited CLI command, and later changes by an admin in the portal.
 
 ### 10.2 Authorization and data isolation (SEC-AZ)
 
@@ -779,11 +781,11 @@ Target assurance level: OWASP ASVS 4.0.3 Level 2 for all components; OWASP LLM T
 
 - **SEC-030** `[M | MVP | T]` All request bodies shall be validated with Pydantic schemas with explicit length limits (chat 8,000 chars; code 20,000; plan goal 2,000; analysis question 2,000; answers 20,000).
 - **SEC-031** `[M | MVP | T]` Rendered Markdown from the LLM or from content shall be sanitised (no raw HTML, no `javascript:` URLs; Mermaid in strict security mode; KaTeX with `trust: false`).
-- **SEC-032** `[M | MVP | T]` Security headers on all responses: CSP (no `unsafe-inline` scripts; nonces), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` minimal, frame-ancestors `none` (admin) / `self` (app).
+- **SEC-032** `[M | MVP | T]` Security headers on all responses: CSP (no `unsafe-inline` scripts; nonces), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin` (or stricter; the API sends `no-referrer`), `Permissions-Policy` minimal, frame-ancestors `none` (admin and app; neither is meant to be embedded).
 - **SEC-033** `[M | MVP | T]` CORS shall allow only configured origins; credentials allowed only for those origins.
 - **SEC-034** `[M | MVP | T]` Admin access to learner conversations is limited to items in the moderation queue (flagged by the learner or guardrails), is audit-logged, and shows only 3 turns of context.
 - **SEC-035** `[M | MVP | T]` Rate limits per user (and per IP for unauthenticated routes): general 60 requests/min, AI routes 20 requests/min, uploads 10/hour, auth-adjacent webhooks exempt but signature-checked. Limits are enforced in a shared store so they hold across instances.
-- **SEC-036** `[M | MVP | T]` Billing return URLs must start with an allowed origin (open-redirect protection).
+- **SEC-036** `[M | MVP | T]` Billing return URLs must match an allowed origin exactly: same scheme, host, and port, with no user-info (open-redirect protection). A prefix match is not sufficient, because `https://app.example.com.attacker.net` starts with `https://app.example.com`.
 - **SEC-037** `[M | MVP | T]` Webhooks (Clerk, Stripe) shall verify signatures and reject events older than 5 minutes; processing is idempotent by event id.
 
 ### 10.4 AI and LLM security (SEC-LLM) — mapped to OWASP LLM Top 10
@@ -1451,7 +1453,7 @@ MVP is releasable when: all `M`/`MVP` requirements are verified; AC-001 to AC-07
 | DEP-02 | Stripe account, products and prices (Pro, Research; USD/EUR/GBP/NGN), customer portal | Business/Finance | Week 6 |
 | DEP-03 | LLM provider enterprise agreements with zero retention / no training | Business/Legal | Week 3 |
 | DEP-04 | Qdrant production cluster (managed or self-hosted in Azure VNet) | Engineering | Week 3 |
-| DEP-05 | Azure subscription: App Service, PostgreSQL Flexible Server, Blob, Key Vault, VNet, container runtime for sandbox | Engineering | Week 1 |
+| DEP-05 | Azure subscription: Container Apps, PostgreSQL Flexible Server, Blob, Key Vault, VNet, container runtime for sandbox | Engineering | Week 1 |
 | DEP-06 | Transactional email provider selection (for example Postmark, Resend, or SendGrid), domain authentication | Engineering | Week 7 |
 | DEP-07 | Malware scanning service | Engineering/Security | Week 5 |
 | DEP-08 | Authored curriculum, item bank, reserve challenges, translations | Content | Weeks 2–11 |
@@ -1601,25 +1603,25 @@ The requested section list places multilingual concerns across functional and no
 
 ## Appendix C — Gap analysis against the current codebase
 
-The current backend implements a solid domain core. The following must change to meet this SRS (non-exhaustive, highest priority first).
+The current backend implements a solid domain core. The following must change to meet this SRS (non-exhaustive, highest priority first). Rows marked **Built** were closed in the 13 October 2026 remediation pass; what remains of them is listed as **Open**.
 
 | Area | Current state | Required by | Change |
 | --- | --- | --- | --- |
 | Tutor streaming | `POST /chat` returns one JSON body | FR-TUT-001, IF-API-004, NFR-PERF-001 | Add SSE endpoint and streaming provider calls |
-| Curated knowledge repository | Only learner-owned `research_documents`; no admin assets, versions, workflow, taxonomy entities | Section 14 | New entities (16.1), admin APIs, ingestion worker, `knowledge_v1` collection |
-| Leaderboard | `GET /leaderboard` is unauthenticated, global all-time by `users.xp`, exposes `display_name` | LB-001..013 | Scopes, periods, metrics, percentile, opt-out, handle-only display, guest top-10 only |
-| User profile | No country, region, timezone, language, handle, birth year | FR-ACC-005, LB, I18N, CMP-010 | Migration + profile API |
+| Curated knowledge repository | **Built:** `knowledge_assets`, `asset_versions`, `asset_chunks`, the draft→review→approved→published→archived workflow with four-eyes approval, licence check, audit, and indexing into `knowledge_v1` on publish (removed on unpublish). **Open:** ingestion worker, taxonomy entities, URL ingestion | Section 14 | Worker, taxonomy tables, SSRF-safe fetcher |
+| Leaderboard | **Built:** learners only (staff, suspended, opted-out excluded), handle or pseudonym display, guest top 10. **Open:** scopes, periods, metrics, percentile | LB-001..013 | Scopes, periods, metrics, percentile |
+| User profile | **Built:** `handle`, `locale` (en/fr/es), IANA `timezone`, `country_code`, `leaderboard_opt_out`, `suspended`; `PATCH /me`. **Open:** region, birth year, separate UI and tutor languages | FR-ACC-005, LB, I18N, CMP-010 | Remaining fields |
 | Onboarding | Not present | FR-ONB | New flow and entities |
 | Multilingual | No language fields on content or users | Section 22 | Variants, catalogues, prompt language control |
 | Sandbox | Subprocess with `python -I`, 3 s timeout on the API host ("not a microVM") | SEC-051..056 | Isolated container runtime, resource limits, no network, separate pool |
 | Lab review | `/lab/review` calls the same `run_code` as `/lab/run` | FR-LAB-005 | Separate AI review; add `/lab/submit` with hidden tests |
-| Ingestion | Synchronous in request; embedding per chunk inline | RAG-001, NFR-PERF-012/013 | Background worker, stage tracking, retries |
+| Ingestion | Synchronous in request; chunks embedded once per upload in one batched call (no re-embedding per question) | RAG-001, NFR-PERF-012/013 | Background worker, stage tracking, retries |
 | Daily challenges | Not present as entities | Section 15.4 | Generation job, entities, APIs |
 | Ranks, titles, AP, expanded badges | Level and 7 badges only | GAM-011..025 | Extend gamification domain |
-| XP idempotency and per-event caps | Daily cap exists; per-source idempotency not enforced in schema | GAM-002, NFR-REL-005 | Source id + unique constraint |
-| Admin MFA, audit log, config | Not present | SEC-003, SEC-073, FR-ADM-003 | Add |
+| XP idempotency and per-event caps | **Built:** `xp_events(source_type, source_id)` unique per user; GAM-002 table and per-day limits; 400 XP cap on the learner's local day; requested and granted amounts recorded; quiz submitted once | GAM-002, NFR-REL-005 | — |
+| Admin MFA, audit log, config | **Built:** staff MFA (`fva`), audit rows for role, content, and erasure actions; read-only configuration view. **Open:** audit IP and trace id, append-only enforcement, editable configuration | SEC-003, SEC-073, FR-ADM-003 | Remaining audit fields; config storage |
 | Entitlements | `subscription_status` stored; no metering | FR-BIL-004 | Metering + enforcement |
-| Rate limiting | In-process per-minute limits | SEC-035 | Shared store across instances |
+| Rate limiting | **Built:** per user (60/20 per minute, 10 uploads per hour) plus per address, in Redis; `Retry-After` and `RateLimit-*` | SEC-035 | — |
 
 ## Appendix D — Traceability matrix
 

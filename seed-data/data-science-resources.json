@@ -1,0 +1,4941 @@
+[
+  {
+    "id": "book-feature-engineering-for-machine-learning",
+    "title": "Feature Engineering for Machine Learning",
+    "description": "Zheng, Casari (2018). A book-length treatment of feature engineering used as a spine for the corresponding concepts in this catalog.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "Zheng",
+    "author": "Zheng, Casari",
+    "url": "https://www.oreilly.com",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2018",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Zheng, Casari (2018). A book-length treatment of feature engineering used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781491953242",
+      "year": 2018
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "book-python-for-data-analysis",
+    "title": "Python for Data Analysis",
+    "description": "McKinney (2022). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "McKinney",
+    "author": "McKinney",
+    "url": "https://wesmckinney.com/book/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2022",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "McKinney (2022). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781098104030",
+      "year": 2022
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "eda",
+      "pandas"
+    ]
+  },
+  {
+    "id": "book-practical-statistics-for-data-scientists",
+    "title": "Practical Statistics for Data Scientists",
+    "description": "Bruce, Bruce, Gedeck (2020). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "Bruce",
+    "author": "Bruce, Bruce, Gedeck",
+    "url": "https://www.oreilly.com",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Bruce, Bruce, Gedeck (2020). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781492072942",
+      "year": 2020
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "eda",
+      "hypothesis-testing"
+    ]
+  },
+  {
+    "id": "book-storytelling-with-data",
+    "title": "Storytelling with Data",
+    "description": "Knaflic (2015). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "Knaflic",
+    "author": "Knaflic",
+    "url": "https://www.storytellingwithdata.com",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2015",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Knaflic (2015). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9781119002253",
+      "year": 2015
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "eda",
+      "communication"
+    ]
+  },
+  {
+    "id": "book-the-visual-display-of-quantitative-information",
+    "title": "The Visual Display of Quantitative Information",
+    "description": "Tufte (2001). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "Tufte",
+    "author": "Tufte",
+    "url": "https://www.edwardtufte.com",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 1800,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "book",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2001",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 69,
+    "ai_generated_summary": "Tufte (2001). A book-length treatment of eda used as a spine for the corresponding concepts in this catalog.",
+    "metadata": {
+      "isbn": "9780961392147",
+      "year": 2001
+    },
+    "licence": "fair-use-excerpt",
+    "concepts": [
+      "eda",
+      "communication"
+    ]
+  },
+  {
+    "id": "repository-datasets",
+    "title": "Datasets",
+    "description": "The huggingface/datasets repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "dataset-design",
+    "resource_type": "repository",
+    "provider": "huggingface",
+    "author": "huggingface",
+    "url": "https://github.com/huggingface/datasets",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "dataset-design"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The huggingface/datasets repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "huggingface/datasets"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "dataset-design"
+    ]
+  },
+  {
+    "id": "repository-streamlit",
+    "title": "Streamlit",
+    "description": "The streamlit/streamlit repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "streamlit",
+    "author": "streamlit",
+    "url": "https://github.com/streamlit/streamlit",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The streamlit/streamlit repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "streamlit/streamlit"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "repository-polars",
+    "title": "Polars",
+    "description": "The pola-rs/polars repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "pola-rs",
+    "author": "pola-rs",
+    "url": "https://github.com/pola-rs/polars",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The pola-rs/polars repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "pola-rs/polars"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "repository-pandas",
+    "title": "pandas",
+    "description": "The pandas-dev/pandas repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "pandas-dev",
+    "author": "pandas-dev",
+    "url": "https://github.com/pandas-dev/pandas",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The pandas-dev/pandas repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "pandas-dev/pandas"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "repository-matplotlib",
+    "title": "Matplotlib",
+    "description": "The matplotlib/matplotlib repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "matplotlib",
+    "author": "matplotlib",
+    "url": "https://github.com/matplotlib/matplotlib",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 120,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The matplotlib/matplotlib repository. Read the README, run the tests, and pin a commit before you cite the code in a lesson.",
+    "metadata": {
+      "github": "matplotlib/matplotlib"
+    },
+    "licence": "proprietary-licensed",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "dataset-titanic",
+    "title": "Titanic",
+    "description": "The Titanic dataset from Kaggle. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/c/titanic",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The Titanic dataset from Kaggle. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "dataset-chicago-crime",
+    "title": "Chicago Crime",
+    "description": "The Chicago Crime dataset from City of Chicago. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "dataset",
+    "provider": "City of Chicago",
+    "author": "City of Chicago",
+    "url": "https://data.cityofchicago.org",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "The Chicago Crime dataset from City of Chicago. Read the data card, licence, and split before you train. Rows are never embedded.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "certification-microsoft-azure-data-scientist-associate",
+    "title": "Microsoft Azure Data Scientist Associate",
+    "description": "Microsoft credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/certifications/azure-data-scientist/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 2400,
+    "cost_type": "paid",
+    "rating": null,
+    "tags": [
+      "certification",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Microsoft credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "certification-snowflake-snowpro-advanced-data-scientist",
+    "title": "Snowflake SnowPro Advanced: Data Scientist",
+    "description": "Snowflake credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "certification",
+    "provider": "Snowflake",
+    "author": "Snowflake",
+    "url": "https://learn.snowflake.com/en/certifications/",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 2400,
+    "cost_type": "paid",
+    "rating": null,
+    "tags": [
+      "certification",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Snowflake credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "certification-ibm-data-science-professional-certificate",
+    "title": "IBM Data Science Professional Certificate",
+    "description": "IBM credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "certification",
+    "provider": "IBM",
+    "author": "IBM",
+    "url": "https://www.coursera.org/professional-certificates/ibm-data-science",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 2400,
+    "cost_type": "paid",
+    "rating": null,
+    "tags": [
+      "certification",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "IBM credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "certification-coursera-google-data-analytics-professional-certificate",
+    "title": "Coursera Google Data Analytics Professional Certificate",
+    "description": "Google credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "certification",
+    "provider": "Google",
+    "author": "Google",
+    "url": "https://www.coursera.org/professional-certificates/google-data-analytics",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 2400,
+    "cost_type": "paid",
+    "rating": null,
+    "tags": [
+      "certification",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Google credential covering eda. Use it as a goal, not as a substitute for the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "video-explainer-video-exploratory-data-analysis",
+    "title": "Explainer video: Exploratory data analysis",
+    "description": "A short explainer for Exploratory data analysis. Distributions, missingness, and plots that change a question. Pause and write the definition in your own words.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Exploratory data analysis. Distributions, missingness, and plots that change a question. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "video-explainer-video-feature-engineering",
+    "title": "Explainer video: Feature engineering",
+    "description": "A short explainer for Feature engineering. Transforms that make a linear model honest. Pause and write the definition in your own words.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=feature+engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Feature engineering. Transforms that make a linear model honest. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "video-explainer-video-experimentation",
+    "title": "Explainer video: Experimentation",
+    "description": "A short explainer for Experimentation. A/B tests and a sketch of causal identification. Pause and write the definition in your own words.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Experimentation. A/B tests and a sketch of causal identification. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "video-explainer-video-time-series",
+    "title": "Explainer video: Time series",
+    "description": "A short explainer for Time series. Forecasting without leaking the future. Pause and write the definition in your own words.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=time+series",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Time series. Forecasting without leaking the future. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "video-explainer-video-scientific-python",
+    "title": "Explainer video: Scientific Python",
+    "description": "A short explainer for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Pause and write the definition in your own words.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "video",
+    "provider": "AI Mentor",
+    "author": "AI Mentor",
+    "url": "https://www.youtube.com/results?search_query=scientific+python",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 18,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "video",
+      "explainer",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short explainer for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Pause and write the definition in your own words.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-exploratory-data-analysis",
+    "title": "User guide: Exploratory data analysis",
+    "description": "User guide for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "documentation",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=eda&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "eda",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-exploratory-data-analysis",
+    "title": "Worked tutorial: Exploratory data analysis",
+    "description": "Worked tutorial for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "tutorial",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=eda&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "eda",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "blog-explainer-exploratory-data-analysis",
+    "title": "Explainer: Exploratory data analysis",
+    "description": "Explainer for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "blog",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=eda&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "eda",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "podcast-conversation-exploratory-data-analysis",
+    "title": "Conversation: Exploratory data analysis",
+    "description": "Conversation for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "podcast",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=eda&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "eda",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Exploratory data analysis. Distributions, missingness, and plots that change a question. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-feature-engineering",
+    "title": "User guide: Feature engineering",
+    "description": "User guide for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "documentation",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=feature-engineering&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "feature-engineering",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-feature-engineering",
+    "title": "Worked tutorial: Feature engineering",
+    "description": "Worked tutorial for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "tutorial",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=feature-engineering&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "feature-engineering",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "blog-explainer-feature-engineering",
+    "title": "Explainer: Feature engineering",
+    "description": "Explainer for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "blog",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=feature-engineering&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "feature-engineering",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "podcast-conversation-feature-engineering",
+    "title": "Conversation: Feature engineering",
+    "description": "Conversation for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "podcast",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=feature-engineering&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "feature-engineering",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Feature engineering. Transforms that make a linear model honest. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-experimentation",
+    "title": "User guide: Experimentation",
+    "description": "User guide for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "documentation",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=experimentation&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "experimentation",
+      "data-science"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-experimentation",
+    "title": "Worked tutorial: Experimentation",
+    "description": "Worked tutorial for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "tutorial",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=experimentation&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "experimentation",
+      "data-science"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "blog-explainer-experimentation",
+    "title": "Explainer: Experimentation",
+    "description": "Explainer for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "blog",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=experimentation&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "experimentation",
+      "data-science"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "podcast-conversation-experimentation",
+    "title": "Conversation: Experimentation",
+    "description": "Conversation for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "podcast",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=experimentation&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "experimentation",
+      "data-science"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Experimentation. A/B tests and a sketch of causal identification. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-time-series",
+    "title": "User guide: Time series",
+    "description": "User guide for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "documentation",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=time-series&kind=documentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "time-series",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-time-series",
+    "title": "Worked tutorial: Time series",
+    "description": "Worked tutorial for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "tutorial",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=time-series&kind=tutorial",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "time-series",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "blog-explainer-time-series",
+    "title": "Explainer: Time series",
+    "description": "Explainer for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "blog",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=time-series&kind=blog",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "time-series",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "podcast-conversation-time-series",
+    "title": "Conversation: Time series",
+    "description": "Conversation for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "podcast",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=time-series&kind=podcast",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "time-series",
+      "data-science"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Time series. Forecasting without leaking the future. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "documentation-user-guide-scientific-python",
+    "title": "User guide: Scientific Python",
+    "description": "User guide for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "documentation",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=scientific-python&kind=documentation",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "documentation",
+      "scientific-python",
+      "data-science"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Read the official page, then restate one API in your own words."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "User guide for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "tutorial-worked-tutorial-scientific-python",
+    "title": "Worked tutorial: Scientific Python",
+    "description": "Worked tutorial for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "tutorial",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=scientific-python&kind=tutorial",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "tutorial",
+      "scientific-python",
+      "data-science"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Follow the worked example, then change one assumption."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Worked tutorial for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "blog-explainer-scientific-python",
+    "title": "Explainer: Scientific Python",
+    "description": "Explainer for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "blog",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=scientific-python&kind=blog",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "blog",
+      "scientific-python",
+      "data-science"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "A short written tour of the idea with one figure."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Explainer for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "podcast-conversation-scientific-python",
+    "title": "Conversation: Scientific Python",
+    "description": "Conversation for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "podcast",
+    "provider": "pandas",
+    "author": "pandas",
+    "url": "https://pandas.pydata.org/docs/?topic=scientific-python&kind=podcast",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 50,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "podcast",
+      "scientific-python",
+      "data-science"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [
+      "Listen once, then write three questions you still have."
+    ],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 79,
+    "ai_generated_summary": "Conversation for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Source of record: pandas.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "course-edx-short-course-exploratory-data-analysis",
+    "title": "edX short course: Exploratory data analysis",
+    "description": "A short edx short course on Exploratory data analysis. Distributions, missingness, and plots that change a question. Complete the exercises before claiming the concept.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "course",
+    "provider": "edX",
+    "author": "edX short course",
+    "url": "https://www.edx.org?q=eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short edx short course on Exploratory data analysis. Distributions, missingness, and plots that change a question. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "coursera-guided-project-feature-engineering",
+    "title": "Coursera guided project: Feature engineering",
+    "description": "A short coursera guided project on Feature engineering. Transforms that make a linear model honest. Complete the exercises before claiming the concept.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "course",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=feature-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short coursera guided project on Feature engineering. Transforms that make a linear model honest. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "course-kaggle-learn-micro-course-experimentation",
+    "title": "Kaggle Learn micro-course: Experimentation",
+    "description": "A short kaggle learn micro-course on Experimentation. A/B tests and a sketch of causal identification. Complete the exercises before claiming the concept.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "course",
+    "provider": "Kaggle",
+    "author": "Kaggle Learn micro-course",
+    "url": "https://www.kaggle.com/learn?q=experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short kaggle learn micro-course on Experimentation. A/B tests and a sketch of causal identification. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "course-edx-short-course-time-series",
+    "title": "edX short course: Time series",
+    "description": "A short edx short course on Time series. Forecasting without leaking the future. Complete the exercises before claiming the concept.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "course",
+    "provider": "edX",
+    "author": "edX short course",
+    "url": "https://www.edx.org?q=time-series",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short edx short course on Time series. Forecasting without leaking the future. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "coursera-guided-project-scientific-python",
+    "title": "Coursera guided project: Scientific Python",
+    "description": "A short coursera guided project on Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Complete the exercises before claiming the concept.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "course",
+    "provider": "Coursera",
+    "author": "Coursera guided project",
+    "url": "https://www.coursera.org?q=scientific-python",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 180,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "course",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A short coursera guided project on Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Complete the exercises before claiming the concept.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-exploratory-data-analysis",
+    "title": "Official examples for Exploratory data analysis",
+    "description": "Public examples related to Exploratory data analysis. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=eda%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Exploratory data analysis. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "eda",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-exploratory-data-analysis",
+    "title": "Teaching notebooks for Exploratory data analysis",
+    "description": "Public notebooks related to Exploratory data analysis. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=eda%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Exploratory data analysis. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "eda",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-exploratory-data-analysis",
+    "title": "Curated awesome list for Exploratory data analysis",
+    "description": "Public awesome related to Exploratory data analysis. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Exploratory data analysis. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "eda",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-feature-engineering",
+    "title": "Official examples for Feature engineering",
+    "description": "Public examples related to Feature engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=feature-engineering%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Feature engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "feature-engineering",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-feature-engineering",
+    "title": "Teaching notebooks for Feature engineering",
+    "description": "Public notebooks related to Feature engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=feature-engineering%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Feature engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "feature-engineering",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-feature-engineering",
+    "title": "Curated awesome list for Feature engineering",
+    "description": "Public awesome related to Feature engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/feature-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Feature engineering. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "feature-engineering",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-experimentation",
+    "title": "Official examples for Experimentation",
+    "description": "Public examples related to Experimentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=experimentation%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Experimentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "experimentation",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-experimentation",
+    "title": "Teaching notebooks for Experimentation",
+    "description": "Public notebooks related to Experimentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=experimentation%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Experimentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "experimentation",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-experimentation",
+    "title": "Curated awesome list for Experimentation",
+    "description": "Public awesome related to Experimentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Experimentation. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "experimentation",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-time-series",
+    "title": "Official examples for Time series",
+    "description": "Public examples related to Time series. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=time-series%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Time series. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "time-series",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-time-series",
+    "title": "Teaching notebooks for Time series",
+    "description": "Public notebooks related to Time series. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=time-series%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Time series. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "time-series",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-time-series",
+    "title": "Curated awesome list for Time series",
+    "description": "Public awesome related to Time series. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/time-series",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Time series. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "time-series",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "repository-official-examples-for-scientific-python",
+    "title": "Official examples for Scientific Python",
+    "description": "Public examples related to Scientific Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=scientific-python%2Bexamples&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "examples",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public examples related to Scientific Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "scientific-python",
+      "kind": "examples"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "repository-teaching-notebooks-for-scientific-python",
+    "title": "Teaching notebooks for Scientific Python",
+    "description": "Public notebooks related to Scientific Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/search?q=scientific-python%2Bnotebooks&type=repositories",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "notebooks",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public notebooks related to Scientific Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "scientific-python",
+      "kind": "notebooks"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "repository-curated-awesome-list-for-scientific-python",
+    "title": "Curated awesome list for Scientific Python",
+    "description": "Public awesome related to Scientific Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "repository",
+    "provider": "GitHub",
+    "author": "community",
+    "url": "https://github.com/topics/scientific-python",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "github",
+      "awesome",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Public awesome related to Scientific Python. Pin a commit and read the licence before you assign the repo in a lab.",
+    "metadata": {
+      "topic": "scientific-python",
+      "kind": "awesome"
+    },
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-eda",
+    "title": "Hugging Face datasets tagged eda",
+    "description": "Hugging Face datasets whose cards mention Exploratory data analysis. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Exploratory data analysis. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-eda",
+    "title": "Kaggle datasets tagged eda",
+    "description": "Kaggle datasets whose cards mention Exploratory data analysis. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Exploratory data analysis. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-feature-engineering",
+    "title": "Hugging Face datasets tagged feature-engineering",
+    "description": "Hugging Face datasets whose cards mention Feature engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=feature-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Feature engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-feature-engineering",
+    "title": "Kaggle datasets tagged feature-engineering",
+    "description": "Kaggle datasets whose cards mention Feature engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=feature-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Feature engineering. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-experimentation",
+    "title": "Hugging Face datasets tagged experimentation",
+    "description": "Hugging Face datasets whose cards mention Experimentation. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Experimentation. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-experimentation",
+    "title": "Kaggle datasets tagged experimentation",
+    "description": "Kaggle datasets whose cards mention Experimentation. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Experimentation. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-time-series",
+    "title": "Hugging Face datasets tagged time-series",
+    "description": "Hugging Face datasets whose cards mention Time series. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=time-series",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Time series. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-time-series",
+    "title": "Kaggle datasets tagged time-series",
+    "description": "Kaggle datasets whose cards mention Time series. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=time-series",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Time series. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "dataset-hugging-face-datasets-tagged-scientific-python",
+    "title": "Hugging Face datasets tagged scientific-python",
+    "description": "Hugging Face datasets whose cards mention Scientific Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "dataset",
+    "provider": "Hugging Face",
+    "author": "Hugging Face",
+    "url": "https://huggingface.co/datasets?search=scientific-python",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "huggingface",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Hugging Face datasets whose cards mention Scientific Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "dataset-kaggle-datasets-tagged-scientific-python",
+    "title": "Kaggle datasets tagged scientific-python",
+    "description": "Kaggle datasets whose cards mention Scientific Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "dataset",
+    "provider": "Kaggle",
+    "author": "Kaggle",
+    "url": "https://www.kaggle.com/search?q=scientific-python",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 60,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "dataset",
+      "kaggle",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "Kaggle datasets whose cards mention Scientific Python. Always read the licence and PII notes; this catalog entry is a pointer, not a dump.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "certification-aws-skill-builder-digital-badge-exploratory-data-analysis",
+    "title": "AWS skill builder digital badge: Exploratory data analysis",
+    "description": "A vendor skill badge touching Exploratory data analysis. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "certification",
+    "provider": "Amazon Web Services",
+    "author": "Amazon Web Services",
+    "url": "https://skillbuilder.aws?skill=eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Exploratory data analysis. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "certification-google-cloud-skill-badge-feature-engineering",
+    "title": "Google Cloud skill badge: Feature engineering",
+    "description": "A vendor skill badge touching Feature engineering. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "certification",
+    "provider": "Google Cloud",
+    "author": "Google Cloud",
+    "url": "https://www.cloudskillsboost.google?skill=feature-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Feature engineering. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "certification-microsoft-learn-applied-skill-experimentation",
+    "title": "Microsoft Learn applied skill: Experimentation",
+    "description": "A vendor skill badge touching Experimentation. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "certification",
+    "provider": "Microsoft",
+    "author": "Microsoft",
+    "url": "https://learn.microsoft.com/credentials/applied-skills/?skill=experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 480,
+    "cost_type": "freemium",
+    "rating": null,
+    "tags": [
+      "certification",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 73,
+    "ai_generated_summary": "A vendor skill badge touching Experimentation. Treat it as evidence of a lab, not as mastery of the concept graph.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-exploratory-data-analysis",
+    "title": "Lecture notes: Exploratory data analysis",
+    "description": "Open lecture notes covering Exploratory data analysis. Distributions, missingness, and plots that change a question. Use them as a book-length spine when a commercial text is not required.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=eda",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Exploratory data analysis. Distributions, missingness, and plots that change a question. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "book-handbook-of-exploratory-data-analysis",
+    "title": "Handbook of Exploratory data analysis",
+    "description": "A field handbook for Exploratory data analysis: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Exploratory data analysis: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "book-problem-book-exploratory-data-analysis",
+    "title": "Problem book: Exploratory data analysis",
+    "description": "Worked problems for Exploratory data analysis. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Exploratory data analysis. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-feature-engineering",
+    "title": "Lecture notes: Feature engineering",
+    "description": "Open lecture notes covering Feature engineering. Transforms that make a linear model honest. Use them as a book-length spine when a commercial text is not required.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=feature-engineering",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Feature engineering. Transforms that make a linear model honest. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "book-handbook-of-feature-engineering",
+    "title": "Handbook of Feature engineering",
+    "description": "A field handbook for Feature engineering: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Feature engineering: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "book-problem-book-feature-engineering",
+    "title": "Problem book: Feature engineering",
+    "description": "Worked problems for Feature engineering. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Feature engineering. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-experimentation",
+    "title": "Lecture notes: Experimentation",
+    "description": "Open lecture notes covering Experimentation. A/B tests and a sketch of causal identification. Use them as a book-length spine when a commercial text is not required.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=experimentation",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Experimentation. A/B tests and a sketch of causal identification. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "book-handbook-of-experimentation",
+    "title": "Handbook of Experimentation",
+    "description": "A field handbook for Experimentation: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Experimentation: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "book-problem-book-experimentation",
+    "title": "Problem book: Experimentation",
+    "description": "Worked problems for Experimentation. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Experimentation. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-time-series",
+    "title": "Lecture notes: Time series",
+    "description": "Open lecture notes covering Time series. Forecasting without leaking the future. Use them as a book-length spine when a commercial text is not required.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=time-series",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Time series. Forecasting without leaking the future. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "book-handbook-of-time-series",
+    "title": "Handbook of Time series",
+    "description": "A field handbook for Time series: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Time series: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "book-problem-book-time-series",
+    "title": "Problem book: Time series",
+    "description": "Worked problems for Time series. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Time series. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "book-lecture-notes-scientific-python",
+    "title": "Lecture notes: Scientific Python",
+    "description": "Open lecture notes covering Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Use them as a book-length spine when a commercial text is not required.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "Open courseware",
+    "author": "University faculty",
+    "url": "https://ocw.mit.edu/search/?q=scientific-python",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 900,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "lecture-notes",
+      "book",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2020",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open lecture notes covering Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Use them as a book-length spine when a commercial text is not required.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "book-handbook-of-scientific-python",
+    "title": "Handbook of Scientific Python",
+    "description": "A field handbook for Scientific Python: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 720,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "handbook",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "A field handbook for Scientific Python: definitions, typical mistakes, and the two or three results a practitioner actually uses.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "book-problem-book-scientific-python",
+    "title": "Problem book: Scientific Python",
+    "description": "Worked problems for Scientific Python. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "book",
+    "provider": "AI Mentor",
+    "author": "AI Mentor content organisation",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 600,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "problems",
+      "book",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 65,
+    "ai_generated_summary": "Worked problems for Scientific Python. Each exercise has a short solution sketch and a pointer back to the concept graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-exploratory-data-analysis",
+    "title": "A survey of Exploratory data analysis",
+    "description": "A survey of Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=eda&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-exploratory-data-analysis",
+    "title": "Open problems in Exploratory data analysis",
+    "description": "Open problems in Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=eda&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-exploratory-data-analysis",
+    "title": "Reproducibility notes on Exploratory data analysis",
+    "description": "Reproducibility notes on Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=eda&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-exploratory-data-analysis",
+    "title": "A practitioner's reading of Exploratory data analysis",
+    "description": "A practitioner's reading of Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=eda&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "eda"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Exploratory data analysis. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-feature-engineering",
+    "title": "A survey of Feature engineering",
+    "description": "A survey of Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=feature%2Bengineering&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-feature-engineering",
+    "title": "Open problems in Feature engineering",
+    "description": "Open problems in Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=feature%2Bengineering&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-feature-engineering",
+    "title": "Reproducibility notes on Feature engineering",
+    "description": "Reproducibility notes on Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=feature%2Bengineering&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-feature-engineering",
+    "title": "A practitioner's reading of Feature engineering",
+    "description": "A practitioner's reading of Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=feature%2Bengineering&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "feature-engineering"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Feature engineering. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-experimentation",
+    "title": "A survey of Experimentation",
+    "description": "A survey of Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=experimentation&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-experimentation",
+    "title": "Open problems in Experimentation",
+    "description": "Open problems in Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=experimentation&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-experimentation",
+    "title": "Reproducibility notes on Experimentation",
+    "description": "Reproducibility notes on Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=experimentation&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-experimentation",
+    "title": "A practitioner's reading of Experimentation",
+    "description": "A practitioner's reading of Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "experimentation",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=experimentation&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "experimentation"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Experimentation. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-time-series",
+    "title": "A survey of Time series",
+    "description": "A survey of Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=time%2Bseries&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-time-series",
+    "title": "Open problems in Time series",
+    "description": "Open problems in Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=time%2Bseries&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-time-series",
+    "title": "Reproducibility notes on Time series",
+    "description": "Reproducibility notes on Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=time%2Bseries&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-time-series",
+    "title": "A practitioner's reading of Time series",
+    "description": "A practitioner's reading of Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "feature-engineering",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=time%2Bseries&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "time-series"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Time series. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "paper-a-survey-of-scientific-python",
+    "title": "A survey of Scientific Python",
+    "description": "A survey of Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=scientific%2Bpython&searchtype=all&angle=a-survey-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A survey of Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "paper-open-problems-in-scientific-python",
+    "title": "Open problems in Scientific Python",
+    "description": "Open problems in Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=scientific%2Bpython&searchtype=all&angle=open-problems-in",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Open problems in Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "paper-reproducibility-notes-on-scientific-python",
+    "title": "Reproducibility notes on Scientific Python",
+    "description": "Reproducibility notes on Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=scientific%2Bpython&searchtype=all&angle=reproducibility-notes-on",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "Reproducibility notes on Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "paper-a-practitioner-s-reading-of-scientific-python",
+    "title": "A practitioner's reading of Scientific Python",
+    "description": "A practitioner's reading of Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "eda",
+    "resource_type": "paper",
+    "provider": "arXiv",
+    "author": "community",
+    "url": "https://arxiv.org/search/?query=scientific%2Bpython&searchtype=all&angle=a-practitioners-reading-of",
+    "language": "en",
+    "difficulty": "advanced",
+    "estimated_duration": 90,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "survey",
+      "arxiv",
+      "scientific-python"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": "2023",
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 71,
+    "ai_generated_summary": "A practitioner's reading of Scientific Python. Start at the arXiv search, then keep the papers whose claims you can restate without looking.",
+    "metadata": {},
+    "licence": "cc-by",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "learning-path-data-science-foundations",
+    "title": "Data Science · foundations",
+    "description": "A foundations path through data science. Order follows the knowledge graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "data-science"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A foundations path through data science. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "eda",
+      "feature-engineering",
+      "experimentation",
+      "time-series",
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "learning-path-data-science-applied",
+    "title": "Data Science · applied",
+    "description": "A applied path through data science. Order follows the knowledge graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "data-science"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A applied path through data science. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "eda",
+      "feature-engineering",
+      "experimentation",
+      "time-series",
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "learning-path-data-science-research",
+    "title": "Data Science · research",
+    "description": "A research path through data science. Order follows the knowledge graph.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "learning_path",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 225,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "path",
+      "data-science"
+    ],
+    "skills": [],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "curated",
+    "quality_score": 55,
+    "ai_generated_summary": "A research path through data science. Order follows the knowledge graph.",
+    "metadata": {},
+    "licence": "own-work",
+    "concepts": [
+      "eda",
+      "feature-engineering",
+      "experimentation",
+      "time-series",
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "coding-challenge-eda-implement",
+    "title": "Implement · Exploratory data analysis",
+    "description": "A implement exercise for Exploratory data analysis. Distributions, missingness, and plots that change a question. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Exploratory data analysis. Distributions, missingness, and plots that change a question. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-eda-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "coding-challenge-eda-debug",
+    "title": "Debug · Exploratory data analysis",
+    "description": "A debug exercise for Exploratory data analysis. Distributions, missingness, and plots that change a question. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Exploratory data analysis. Distributions, missingness, and plots that change a question. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-eda-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "coding-challenge-eda-predict",
+    "title": "Predict · Exploratory data analysis",
+    "description": "A predict exercise for Exploratory data analysis. Distributions, missingness, and plots that change a question. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Exploratory data analysis. Distributions, missingness, and plots that change a question. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-eda-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "coding-challenge-eda-project",
+    "title": "Mini-project · Exploratory data analysis",
+    "description": "Combine the three drills for Exploratory data analysis into one function with tests.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "eda"
+    ],
+    "skills": [
+      "pandas",
+      "sql"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Exploratory data analysis into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-eda-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "eda"
+    ]
+  },
+  {
+    "id": "coding-challenge-feature-engineering-implement",
+    "title": "Implement · Feature engineering",
+    "description": "A implement exercise for Feature engineering. Transforms that make a linear model honest. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Feature engineering. Transforms that make a linear model honest. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-feature-engineering-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-feature-engineering-debug",
+    "title": "Debug · Feature engineering",
+    "description": "A debug exercise for Feature engineering. Transforms that make a linear model honest. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Feature engineering. Transforms that make a linear model honest. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-feature-engineering-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-feature-engineering-predict",
+    "title": "Predict · Feature engineering",
+    "description": "A predict exercise for Feature engineering. Transforms that make a linear model honest. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Feature engineering. Transforms that make a linear model honest. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-feature-engineering-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-feature-engineering-project",
+    "title": "Mini-project · Feature engineering",
+    "description": "Combine the three drills for Feature engineering into one function with tests.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "feature-engineering"
+    ],
+    "skills": [
+      "pandas",
+      "scikit-learn"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Feature engineering into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-feature-engineering-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "feature-engineering"
+    ]
+  },
+  {
+    "id": "coding-challenge-experimentation-implement",
+    "title": "Implement · Experimentation",
+    "description": "A implement exercise for Experimentation. A/B tests and a sketch of causal identification. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Experimentation. A/B tests and a sketch of causal identification. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-experimentation-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "coding-challenge-experimentation-debug",
+    "title": "Debug · Experimentation",
+    "description": "A debug exercise for Experimentation. A/B tests and a sketch of causal identification. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Experimentation. A/B tests and a sketch of causal identification. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-experimentation-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "coding-challenge-experimentation-predict",
+    "title": "Predict · Experimentation",
+    "description": "A predict exercise for Experimentation. A/B tests and a sketch of causal identification. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Experimentation. A/B tests and a sketch of causal identification. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-experimentation-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "coding-challenge-experimentation-project",
+    "title": "Mini-project · Experimentation",
+    "description": "Combine the three drills for Experimentation into one function with tests.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "experimentation"
+    ],
+    "skills": [
+      "statistics",
+      "experimental-design"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Experimentation into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-experimentation-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "experimentation"
+    ]
+  },
+  {
+    "id": "coding-challenge-time-series-implement",
+    "title": "Implement · Time series",
+    "description": "A implement exercise for Time series. Forecasting without leaking the future. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Time series. Forecasting without leaking the future. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-time-series-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "coding-challenge-time-series-debug",
+    "title": "Debug · Time series",
+    "description": "A debug exercise for Time series. Forecasting without leaking the future. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Time series. Forecasting without leaking the future. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-time-series-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "coding-challenge-time-series-predict",
+    "title": "Predict · Time series",
+    "description": "A predict exercise for Time series. Forecasting without leaking the future. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Time series. Forecasting without leaking the future. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-time-series-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "coding-challenge-time-series-project",
+    "title": "Mini-project · Time series",
+    "description": "Combine the three drills for Time series into one function with tests.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "intermediate",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "time-series"
+    ],
+    "skills": [
+      "pandas",
+      "statistics"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Time series into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-time-series-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "time-series"
+    ]
+  },
+  {
+    "id": "coding-challenge-scientific-python-implement",
+    "title": "Implement · Scientific Python",
+    "description": "A implement exercise for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 20,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A implement exercise for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-scientific-python-implement",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "coding-challenge-scientific-python-debug",
+    "title": "Debug · Scientific Python",
+    "description": "A debug exercise for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 30,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "debug",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A debug exercise for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-scientific-python-debug",
+      "variant": "debug"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "coding-challenge-scientific-python-predict",
+    "title": "Predict · Scientific Python",
+    "description": "A predict exercise for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Hidden tests stay on the server.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 40,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "predict",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "A predict exercise for Scientific Python. NumPy, SciPy, and matplotlib as a lab bench. Hidden tests stay on the server.",
+    "metadata": {
+      "challenge_id": "coding-challenge-scientific-python-predict",
+      "variant": "predict"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "scientific-python"
+    ]
+  },
+  {
+    "id": "coding-challenge-scientific-python-project",
+    "title": "Mini-project · Scientific Python",
+    "description": "Combine the three drills for Scientific Python into one function with tests.",
+    "category": "data-science",
+    "subcategory": "",
+    "topic": "",
+    "resource_type": "coding_challenge",
+    "provider": "",
+    "author": "",
+    "url": "",
+    "language": "en",
+    "difficulty": "beginner",
+    "estimated_duration": 45,
+    "cost_type": "free",
+    "rating": null,
+    "tags": [
+      "challenge",
+      "implement",
+      "scientific-python"
+    ],
+    "skills": [
+      "numpy",
+      "pandas"
+    ],
+    "prerequisites": [],
+    "learning_outcomes": [],
+    "publication_date": null,
+    "thumbnail": "",
+    "source_type": "authored",
+    "quality_score": 55,
+    "ai_generated_summary": "Combine the three drills for Scientific Python into one function with tests.",
+    "metadata": {
+      "challenge_id": "coding-challenge-scientific-python-project",
+      "variant": "implement"
+    },
+    "licence": "own-work",
+    "concepts": [
+      "scientific-python"
+    ]
+  }
+]

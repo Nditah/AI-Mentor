@@ -2,7 +2,7 @@ openapi: 3.1.0
 jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
 info:
   title: AI Mentor API
-  version: 0.1.0
+  version: 0.2.0
   summary: Socratic tutoring, practice, and grounded paper reading.
   description: |
     HTTP contract for the AI Mentor API. All application routes are under `/api/v1`.
@@ -25,6 +25,12 @@ info:
     Signup, login, password reset, and Google sign-in stay in Clerk. This API learns
     about accounts from the JWT and from `POST /api/v1/webhooks/clerk`.
 
+    The token must verify against the Clerk JWKS and carry the configured issuer, an
+    unexpired `exp`, `nbf`/`iat`, and an `azp` listed in `CLERK_AUTHORIZED_PARTIES`
+    (plus `aud` when `CLERK_AUDIENCE` is set). Roles are never read from the token;
+    the role of record is the database. Staff calls in production also need a verified
+    second factor (`fva`), otherwise 403. Suspended accounts get 403.
+
     In `development` and `test` only, `X-Dev-User-Id` may replace the bearer token.
     The header matches `^[A-Za-z0-9_-]{1,64}$` and never raises a role. Production
     refuses dev auth (`401 Sign in required`). If both credentials are present, the
@@ -32,23 +38,27 @@ info:
 
     ## Rate limits
 
-    Limits are per client IP, sliding 60-second window, process-local. They are
-    disabled when `APP_ENV=test`, and they do not apply to `OPTIONS` or to
-    `/health`, `/docs`, `/redoc`, `/openapi.json`.
+    Fixed windows, counted in Redis so every replica shares them (SEC-035). Signed-in
+    calls are counted per user after authentication; every call is also counted per
+    client address before authentication. Limits are off when `APP_ENV=test`, and do not
+    apply to `OPTIONS`, `/health`, `/ready`, or `/api/v1/webhooks/*`.
 
-    | Tier | Default | Setting | Paths |
-    | --- | --- | --- | --- |
-    | `standard` | 60 requests | `RATE_LIMIT_PER_MINUTE` | Everything else |
-    | `ai` | 20 requests | `AI_RATE_LIMIT_PER_MINUTE` | Prefixes `/api/v1/chat`, `/quiz`, `/research`, `/lab`, `/study-plan`, `/agents`, `/career`, `/flashcards`, plus contract routes tagged as `ai` |
+    | Tier | Default | Setting | Key | Paths |
+    | --- | --- | --- | --- | --- |
+    | `anonymous` | 120 a minute | `ANONYMOUS_RATE_LIMIT_PER_MINUTE` | client address | Every request |
+    | `standard` | 60 a minute | `RATE_LIMIT_PER_MINUTE` | user | Every authenticated request |
+    | `ai` | 20 a minute | `AI_RATE_LIMIT_PER_MINUTE` | user | `/api/v1/chat`, `/quiz`, `/research`, `/lab`, `/study-plan`, `/agents`, `/career`, `/flashcards`, plus contract routes tagged `ai` |
+    | `upload` | 10 an hour | `UPLOAD_RATE_LIMIT_PER_HOUR` | user | `POST /api/v1/research/documents` |
 
-    A rejected call is `429` with `{ "detail": "Too many requests. Try again in a minute." }`.
-    The server does not send `Retry-After` today.
+    A rejected call is `429` problem details with `Retry-After`, `RateLimit-Limit`,
+    `RateLimit-Remaining`, and `RateLimit-Reset`.
 
     ## Errors
 
-    Domain failures use `{ "detail": "<sentence>" }`. Request-body and path-parameter
-    schema failures use FastAPI's `422` validation body. Unexpected failures are `500`
-    and are not given a stable schema.
+    Every error is RFC 9457 `application/problem+json` (`Problem`) carrying a
+    `trace_id`. Schema failures are `422` with `errors[]` (`ValidationProblem`).
+    Unexpected failures are `500` with a generic detail; the trace id finds the log.
+    Every response carries `X-Request-Id`.
 
     ## Roles
 
@@ -106,47 +116,76 @@ tags:
     description: Stripe Checkout. Prices are configured on the server.
 
 x-rate-limits:
+  anonymous:
+    requests: 120
+    windowSeconds: 60
+    key: client-address
+    setting: ANONYMOUS_RATE_LIMIT_PER_MINUTE
   standard:
     requests: 60
     windowSeconds: 60
-    key: client-ip
+    key: user
     setting: RATE_LIMIT_PER_MINUTE
   ai:
     requests: 20
     windowSeconds: 60
-    key: client-ip
+    key: user
     setting: AI_RATE_LIMIT_PER_MINUTE
+  upload:
+    requests: 10
+    windowSeconds: 3600
+    key: user
+    setting: UPLOAD_RATE_LIMIT_PER_HOUR
   exempt:
     - /health
-    - /docs
-    - /redoc
-    - /openapi.json
+    - /ready
+    - /api/v1/webhooks/stripe
+    - /api/v1/webhooks/clerk
 
 paths:
   /health:
     get:
       tags: [Health]
       operationId: getHealth
-      summary: Liveness and dependency probe
-      description: Runs `SELECT 1`. Reports whether vectors and the language model are external.
+      summary: Liveness probe
+      description: The process is serving. Touches no dependency and reveals no configuration.
       x-implementation: live
       x-required-role: public
       x-rate-limit-tier: exempt
       security: []
       responses:
         "200":
-          description: Process is up and the database accepted a query.
+          description: Process is up.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Health"
               example:
                 status: ok
-                env: development
-                vector_store: local-hash
-                llm: curriculum
-        "500":
-          $ref: "#/components/responses/Unexpected"
+
+  /ready:
+    get:
+      tags: [Health]
+      operationId: getReady
+      summary: Readiness probe
+      description: |
+        Runs `SELECT 1`, and pings Qdrant and Redis when they are configured. Use it as
+        the load balancer's readiness check.
+      x-implementation: live
+      x-required-role: public
+      x-rate-limit-tier: exempt
+      security: []
+      responses:
+        "200":
+          description: Every configured dependency answered.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+              example:
+                status: ok
+        "503":
+          $ref: "#/components/responses/ServiceUnavailable"
 
   /api/v1/me:
     get:
@@ -154,8 +193,8 @@ paths:
       operationId: getMe
       summary: Current account
       description: |
-        Upserts the user from the Clerk token (or the dev header) and returns the
-        account row. New dev users are always `student`.
+        Returns the account row for the verified token (or the dev header). A first
+        sight creates a `student`; later calls refresh only email and name.
       x-implementation: live
       x-required-role: student
       x-rate-limit-tier: standard
@@ -166,6 +205,84 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Me"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    patch:
+      tags: [Users]
+      operationId: updateMe
+      summary: Update account settings
+      description: |
+        Partial update of handle, locale, time zone, country, and leaderboard opt-out.
+        The handle is unique ignoring case (`409` if taken). The time zone must be an
+        IANA name (`422` otherwise); it decides the learner's day for streaks and XP caps.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountUpdate"
+      responses:
+        "200":
+          description: Account settings after the update.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    delete:
+      tags: [Users]
+      operationId: deleteMe
+      summary: Erase my account
+      description: |
+        FR-ACC-008. Removes the learner's vectors from Qdrant, anonymises the Stripe
+        customer, deletes the Clerk user, then deletes every learner-owned row. Staff
+        content and audit rows they authored remain with the author cleared. Records a
+        `privacy.erasure` audit row keyed by a hash of the subject. If a provider cannot
+        be reached the call is `503` and nothing is deleted locally; retry.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "204":
+          description: Account erased.
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "503":
+          $ref: "#/components/responses/ServiceUnavailable"
+
+  /api/v1/me/export:
+    get:
+      tags: [Users]
+      operationId: exportMe
+      summary: Export my data
+      description: |
+        FR-ACC-007. Everything the platform holds about the learner as one JSON document:
+        profile, conversations with messages, quiz results, documents, code submissions,
+        flashcards, study plans, concept mastery, and the XP ledger.
+      x-implementation: live
+      x-required-role: student
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: Export document.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountExport"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "429":
@@ -528,7 +645,11 @@ paths:
         - Every `question_id` must belong to that quiz (`400`
           `That question is not part of this quiz.`). Duplicate ids are ignored.
         - Question kinds are `mcq`, `short`, `coding`, and research (anything else).
-          Coding answers are executed in the restricted sandbox.
+          Coding answers are executed in the restricted sandbox; while the lab is off
+          that is `503`.
+        - A quiz is graded once (FR-QZ-007). A second submission is `409`; generate a
+          new quiz to retry. XP is keyed to the quiz, so a retry never pays twice.
+        - Ten graded quizzes a day earn XP; later ones are graded with 0 XP.
       x-implementation: live
       x-required-role: student
       x-rate-limit-tier: ai
@@ -553,10 +674,14 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
         "422":
           $ref: "#/components/responses/ValidationFailed"
         "429":
           $ref: "#/components/responses/TooManyRequests"
+        "503":
+          $ref: "#/components/responses/ServiceUnavailable"
 
   /api/v1/challenges/today:
     get:
@@ -621,9 +746,9 @@ paths:
         "409":
           description: Today's challenge was already completed.
           content:
-            application/json:
+            application/problem+json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
               example:
                 detail: Today's challenge is already complete.
         "422":
@@ -666,8 +791,10 @@ paths:
       operationId: getLeaderboard
       summary: Global top 10
       description: |
-        Public. The ten highest XP totals, ties broken by display name ascending.
-        No caller rank and no country filter. Email addresses are not included.
+        Public. The ten highest XP totals among students who have not opted out and are
+        not suspended; ties go to the earlier account. Each learner appears under their
+        handle or a stable pseudonym (`Learner-` and six hex characters), never their
+        name or email (SRS GAM-005). No caller rank and no country filter.
       x-implementation: live
       x-required-role: public
       x-rate-limit-tier: standard
@@ -725,9 +852,9 @@ paths:
         "409":
           description: Country scope was requested and the profile has no country.
           content:
-            application/json:
+            application/problem+json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
               example:
                 detail: Set a country on your profile to see that board.
         "422":
@@ -972,9 +1099,14 @@ paths:
         - PDF bytes must start with `%PDF`. DOCX bytes must be a zip (`PK`).
         - Text and Markdown must be UTF-8.
         - Empty extracts, including scanned PDFs, are `400`.
+        - Ten uploads an hour per user.
+
+        All chunks are embedded in one call and indexed in `learner_docs_v1` under the
+        owner and document id. If the index is unavailable the document is still stored,
+        with status `unindexed`, and analysis reads its opening passages instead.
       x-implementation: live
       x-required-role: student
-      x-rate-limit-tier: ai
+      x-rate-limit-tier: upload
       requestBody:
         required: true
         content:
@@ -1004,8 +1136,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
               example:
+                type: about:blank
+                title: Content Too Large
+                status: 413
                 detail: Files must be 10 MB or smaller.
         "422":
           $ref: "#/components/responses/ValidationFailed"
@@ -1101,8 +1236,8 @@ paths:
         Learner-facing library. Only `published` assets. `q` matches title, description,
         and tags. Filters combine with AND.
 
-        Not routed yet.
-      x-implementation: contract
+        Faceted Resource Catalog search over published KnowledgeAsset rows.
+      x-implementation: live
       x-required-role: student
       x-rate-limit-tier: standard
       parameters:
@@ -1152,9 +1287,7 @@ paths:
       summary: Read a published resource
       description: |
         404 when the id is unknown or not `published`.
-
-        Not routed yet.
-      x-implementation: contract
+      x-implementation: live
       x-required-role: student
       x-rate-limit-tier: standard
       parameters:
@@ -1183,7 +1316,9 @@ paths:
       description: |
         Includes every publication state. Requires `instructor` or `admin`.
 
-        Not routed yet.
+        Not routed yet. The live curation surface is `/api/v1/admin/assets`; this
+        contract adds search, pagination, version listing, and restore. Fold these into
+        `/admin/assets` when they are built rather than keeping two surfaces.
       x-implementation: contract
       x-required-role: instructor
       x-rate-limit-tier: standard
@@ -1259,9 +1394,9 @@ paths:
         "413":
           description: File is larger than 25 MiB.
           content:
-            application/json:
+            application/problem+json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
         "422":
           $ref: "#/components/responses/ValidationFailed"
         "429":
@@ -1330,9 +1465,9 @@ paths:
         "409":
           description: The asset is not in `draft` or `archived`.
           content:
-            application/json:
+            application/problem+json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
               example:
                 detail: Only a draft or archived asset can be edited.
         "422":
@@ -1466,9 +1601,9 @@ paths:
         "409":
           description: That status change is not allowed from the current state.
           content:
-            application/json:
+            application/problem+json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
         "422":
           $ref: "#/components/responses/ValidationFailed"
         "429":
@@ -1503,7 +1638,10 @@ paths:
       summary: Run restricted Python
       description: |
         Executes `code` in the sandbox and stores the submission. A `status` of `ok`
-        grants 25 XP, subject to the daily cap.
+        on a project grants 25 XP once per project, subject to the daily cap.
+
+        The lab is off by default in production (`503`) until runs move to an isolated
+        runner (Security-Compliance SEC-01).
 
         Rules:
         - `code` length 1–20000.
@@ -1534,6 +1672,8 @@ paths:
           $ref: "#/components/responses/ValidationFailed"
         "429":
           $ref: "#/components/responses/TooManyRequests"
+        "503":
+          $ref: "#/components/responses/ServiceUnavailable"
 
   /api/v1/lab/review:
     post:
@@ -1721,13 +1861,7 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
         "403":
-          description: Caller is not an admin.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-              example:
-                detail: Admin role required.
+          $ref: "#/components/responses/Forbidden"
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
@@ -1737,12 +1871,13 @@ paths:
       operationId: setUserRole
       summary: Change a user's role
       description: |
-        Admin only.
+        Admin only. Every change writes a `user.role` audit row with the previous role,
+        the new role, and the reason.
 
         Rules:
-        - `role` is `student`, `instructor`, or `admin`.
+        - `role` is `student`, `instructor`, or `admin`; anything else is `422`.
         - Unknown user returns 404 (`User not found.`).
-        - Demoting the last admin returns 400 (`The studio needs at least one admin.`).
+        - Changing your own role, or demoting the last admin, returns 409.
       x-implementation: live
       x-required-role: admin
       x-rate-limit-tier: standard
@@ -1759,6 +1894,10 @@ paths:
               properties:
                 role:
                   $ref: "#/components/schemas/Role"
+                reason:
+                  type: string
+                  maxLength: 500
+                  default: ""
       responses:
         "200":
           description: Updated id and role.
@@ -1781,8 +1920,371 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
         "422":
           $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/overview:
+    get:
+      tags: [Admin]
+      operationId: getAdminOverview
+      summary: Staff overview
+      description: |
+        Instructor or admin. Account and activity counts plus the library by state.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminOverview"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/assets:
+    get:
+      tags: [Knowledge Repository, Admin]
+      operationId: listAdminAssets
+      summary: List curated assets
+      description: |
+        Instructor or admin. Instructors do not see other people's drafts.
+        Optional `state` filters by workflow state.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - name: state
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/PublicationStatus"
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdminAsset"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    post:
+      tags: [Knowledge Repository, Admin]
+      operationId: createAdminAsset
+      summary: Create a draft
+      description: |
+        Instructor or admin. Creates a `draft` owned by the caller with version 1 and an
+        audit row. The licence must be one of the `AssetLicence` values (`400` otherwise).
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminAssetCreate"
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminAsset"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/assets/generate:
+    post:
+      tags: [Knowledge Repository, Admin]
+      operationId: generateAdminAsset
+      summary: Draft from a catalog concept
+      description: |
+        Instructor or admin. Creates a draft from the catalog scaffold for a concept. It is
+        not model-written and still goes through review.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminAssetGenerate"
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminAsset"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/assets/{asset_id}:
+    get:
+      tags: [Knowledge Repository, Admin]
+      operationId: getAdminAsset
+      summary: Asset with body and version history
+      description: |
+        Instructor or admin. Another instructor's draft is `403`.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminAssetDetail"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+    patch:
+      tags: [Knowledge Repository, Admin]
+      operationId: updateAdminAsset
+      summary: Edit a draft or an asset in review
+      description: |
+        The owner, or an admin. Only `draft` and `review` assets are editable; move a
+        published asset back to draft first (`400`). Each edit snapshots a version.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminAssetUpdate"
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminAsset"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/assets/{asset_id}/transition:
+    post:
+      tags: [Knowledge Repository, Admin]
+      operationId: transitionAdminAsset
+      summary: Move an asset through the workflow
+      description: |
+        Workflow: `draft → review → approved → published → archived`, and back to `draft`.
+        Only an admin publishes. An approver must not be the author (four-eyes, AZ-5) unless
+        `CONTENT_SELF_APPROVAL` is on, in which case `self_approved` is true and the audit
+        row says so. A refused move is `403`.
+
+        Publishing chunks the body and indexes it in `knowledge_v1`; if the index is
+        unavailable the call is `503` and the asset stays where it was. Leaving `published`
+        removes its passages from the index, and returning to `draft` bumps the version.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      parameters:
+        - $ref: "#/components/parameters/AssetId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminAssetTransition"
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminAssetTransitioned"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/ValidationFailed"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+        "503":
+          $ref: "#/components/responses/ServiceUnavailable"
+
+  /api/v1/admin/taxonomy:
+    get:
+      tags: [Knowledge Repository, Admin]
+      operationId: getAdminTaxonomy
+      summary: Concept taxonomy
+      description: |
+        Instructor or admin. The catalog concepts with domain, difficulty, and prerequisites.
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxonomyConcept"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/configuration:
+    get:
+      tags: [Admin]
+      operationId: getAdminConfiguration
+      summary: Platform rules (read-only)
+      description: |
+        Admin. The XP rules and limits compiled into the server (SRS GAM-002). Read-only:
+        changing them is a code change.
+      x-implementation: live
+      x-required-role: admin
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminConfiguration"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/providers:
+    get:
+      tags: [Admin]
+      operationId: getAdminProviders
+      summary: Provider status
+      description: |
+        Admin. Which providers are configured. Keys are never returned.
+      x-implementation: live
+      x-required-role: admin
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminProviders"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/audit:
+    get:
+      tags: [Admin]
+      operationId: getAdminAudit
+      summary: Audit log
+      description: |
+        Admin. The most recent audit events, newest first. Erased actors show as `System`.
+      x-implementation: live
+      x-required-role: admin
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AuditEntry"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+
+  /api/v1/admin/moderation:
+    get:
+      tags: [Admin]
+      operationId: getAdminModeration
+      summary: Moderation queue
+      description: |
+        Instructor or admin. Always empty today: flagged replies and grading disputes are
+        not collected yet (SRS FR-ADM-005).
+      x-implementation: live
+      x-required-role: instructor
+      x-rate-limit-tier: standard
+      responses:
+        "200":
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModerationQueue"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
@@ -1814,13 +2316,7 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
         "403":
-          description: Caller is below instructor.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-              example:
-                detail: Instructor role required.
+          $ref: "#/components/responses/Forbidden"
         "429":
           $ref: "#/components/responses/TooManyRequests"
 
@@ -1859,8 +2355,11 @@ paths:
       description: |
         Rules:
         - `tier` is `pro` or `research`. The price id comes from server settings.
-        - `success_url` and `cancel_url` must start with one of `CORS_ORIGINS`
+        - `success_url` and `cancel_url` must match an entry of `STUDIO_ORIGINS`
+          (default: the first CORS origin) exactly in scheme, host, and port
           (`400` `Return URL must stay on this application.`).
+        - The checkout reuses the learner's Stripe customer and records the tier in
+          metadata; the account changes only when the signed webhook arrives.
         - Missing Stripe configuration returns 503.
       x-implementation: live
       x-required-role: student
@@ -1895,9 +2394,9 @@ paths:
         "503":
           description: Stripe secret or the selected price is unset.
           content:
-            application/json:
+            application/problem+json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/Problem"
               examples:
                 unconfigured:
                   value:
@@ -1914,9 +2413,15 @@ paths:
       description: |
         No bearer token. Requires header `Stripe-Signature`. Verified with
         `STRIPE_WEBHOOK_SECRET`. Handled types: `checkout.session.completed`,
-        `customer.subscription.updated`, `customer.subscription.deleted`.
-        Other types are acknowledged and ignored. A missing secret returns 503.
-        A bad signature returns 400 (`Invalid Stripe signature.`).
+        `customer.subscription.created`, `customer.subscription.updated`,
+        `customer.subscription.deleted`. Other types are acknowledged as `ignored`.
+
+        Each event id is applied once (`duplicate`). An event older than the last one
+        applied to the account is `stale` and changes nothing. Checkout sets `active`
+        only when payment is `paid` or `no_payment_required`, else `incomplete`. The
+        tier comes from checkout metadata or the subscription's price id; deletion
+        returns the account to `free`. A missing secret returns 503. A bad signature
+        returns 400 (`Invalid Stripe signature.`).
       x-implementation: live
       x-required-role: public
       x-rate-limit-tier: standard
@@ -1947,13 +2452,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
         "503":
-          description: Stripe webhook secret is unset.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-              example:
-                detail: Stripe webhooks are not configured.
+          $ref: "#/components/responses/ServiceUnavailable"
 
   /api/v1/webhooks/clerk:
     post:
@@ -1964,11 +2463,12 @@ paths:
         No bearer token. Requires Svix headers `svix-id`, `svix-timestamp`, and
         `svix-signature`, verified with `CLERK_WEBHOOK_SECRET`.
 
-        Handled types: `user.created`, `user.updated`. The account is upserted from
-        `data.id`, the first email address, the name, and `public_metadata.role`
-        when that role is `student`, `instructor`, or `admin`. Other event types are
-        acknowledged and ignored. A bad signature returns 400
-        (`Invalid Clerk signature.`). A missing secret returns 503.
+        Handled types: `user.created` and `user.updated` create a `student` or refresh
+        email (the primary address) and name. The role is never read from the event.
+        `user.deleted` erases the learner as `DELETE /api/v1/me` does, without calling
+        Clerk back. Each `svix-id` is applied once. Other types are acknowledged as
+        `ignored`. A bad signature returns 400 (`Invalid Clerk signature.`). A missing
+        secret returns 503.
       x-implementation: live
       x-required-role: public
       x-rate-limit-tier: standard
@@ -2009,13 +2509,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
         "503":
-          description: Clerk webhook secret is unset.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-              example:
-                detail: Clerk webhooks are not configured.
+          $ref: "#/components/responses/ServiceUnavailable"
 
 components:
   securitySchemes:
@@ -2024,9 +2518,9 @@ components:
       scheme: bearer
       bearerFormat: JWT
       description: |
-        Clerk session JWT, algorithm RS256. `sub` is required. Email and name are
-        read from `email` and `name` when present. Role is read from
-        `metadata.role` or `public_metadata.role`.
+        Clerk session JWT, algorithm RS256. `sub`, `exp`, `iat`, `iss`, and `azp` are
+        required. Email and name are read from `email` and `name` when present. The role
+        is never read from the token.
     devAuth:
       type: apiKey
       in: header
@@ -2036,6 +2530,12 @@ components:
         Pattern `^[A-Za-z0-9_-]{1,64}$`. Production returns 401.
 
   parameters:
+    AssetId:
+      name: asset_id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/Uuid"
     ConversationId:
       name: conversation_id
       in: path
@@ -2108,84 +2608,163 @@ components:
     BadRequest:
       description: The request was understood and rejected by a domain rule.
       content:
-        application/json:
+        application/problem+json:
           schema:
-            $ref: "#/components/schemas/Error"
+            $ref: "#/components/schemas/Problem"
           example:
+            type: about:blank
+            title: Bad Request
+            status: 400
             detail: That message can't be used. Ask the learning question in plain text.
+            instance: /api/v1/chat
+            trace_id: 4bf92f3577b34da6a3ce929d0e0e4736
     Unauthorized:
       description: |
-        Missing or invalid credentials. Details include `Sign in required`,
-        `Invalid session`, `Clerk is not configured`, and
-        `Send X-Dev-User-Id or sign in with Clerk`.
-      content:
-        application/json:
+        Missing or invalid credentials. Sent with `WWW-Authenticate: Bearer`. Details
+        include `Sign in required` and `Invalid session`.
+      headers:
+        WWW-Authenticate:
           schema:
-            $ref: "#/components/schemas/Error"
+            type: string
+            const: Bearer
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
           example:
+            type: about:blank
+            title: Unauthorized
+            status: 401
             detail: Sign in required
     Forbidden:
-      description: The caller is signed in and below the required role.
+      description: |
+        The caller is signed in and not allowed: below the required role, suspended,
+        staff without a second factor, or a workflow rule such as four-eyes approval.
       content:
-        application/json:
+        application/problem+json:
           schema:
-            $ref: "#/components/schemas/Error"
+            $ref: "#/components/schemas/Problem"
           example:
+            type: about:blank
+            title: Forbidden
+            status: 403
             detail: Admin role required.
     NotFound:
       description: The resource does not exist or is not visible to the caller.
       content:
-        application/json:
+        application/problem+json:
           schema:
-            $ref: "#/components/schemas/Error"
+            $ref: "#/components/schemas/Problem"
           example:
+            type: about:blank
+            title: Not Found
+            status: 404
             detail: Conversation not found.
-    ValidationFailed:
-      description: |
-        Body, query, or path failed schema validation before the handler ran.
-        FastAPI emits this shape. Domain rules use 400 instead.
+    Conflict:
+      description: The request conflicts with current state, such as a quiz already submitted or a handle taken.
       content:
-        application/json:
+        application/problem+json:
           schema:
-            $ref: "#/components/schemas/ValidationError"
-    TooManyRequests:
-      description: Sliding-window limit for this client IP. Wait about a minute.
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/Error"
+            $ref: "#/components/schemas/Problem"
           example:
-            detail: Too many requests. Try again in a minute.
+            type: about:blank
+            title: Conflict
+            status: 409
+            detail: This quiz was already submitted. Generate a new one to retry.
+    ValidationFailed:
+      description: Body, query, or path failed schema validation before the handler ran.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ValidationProblem"
+    TooManyRequests:
+      description: A rate limit was reached. Wait for `Retry-After` seconds.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+        RateLimit-Limit:
+          schema:
+            type: integer
+        RateLimit-Remaining:
+          schema:
+            type: integer
+        RateLimit-Reset:
+          schema:
+            type: integer
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+          example:
+            type: urn:ai-mentor:problem:rate-limited
+            title: Too Many Requests
+            status: 429
+            detail: Too many requests. Try again shortly.
+    ServiceUnavailable:
+      description: |
+        A dependency is down or a feature is switched off (the code lab in production,
+        Stripe or webhooks not configured, the search index unreachable). Retry later.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+          example:
+            type: about:blank
+            title: Service Unavailable
+            status: 503
+            detail: The code lab is not available yet.
     Unexpected:
-      description: Unhandled server error. The body is not a stable contract.
+      description: Unhandled server error. The detail is generic; quote the `trace_id` when reporting it.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
 
   schemas:
-    Error:
+    Problem:
       type: object
-      additionalProperties: false
-      required: [detail]
+      description: RFC 9457 problem details.
+      required: [type, title, status, detail, instance, trace_id]
       properties:
+        type:
+          type: string
+          description: "`about:blank`, or `urn:ai-mentor:problem:{kind}` for validation, rate-limited, and not-ready."
+          examples: [about:blank, "urn:ai-mentor:problem:rate-limited"]
+        title:
+          type: string
+        status:
+          type: integer
+          minimum: 400
+          maximum: 599
         detail:
           type: string
+        instance:
+          type: string
+          description: Request path.
+        trace_id:
+          type: string
+          description: OpenTelemetry trace id when tracing is on, otherwise the request id.
 
-    ValidationError:
-      type: object
-      required: [detail]
-      properties:
-        detail:
-          type: array
-          items:
-            type: object
-            required: [loc, msg, type]
-            properties:
-              loc:
-                type: array
-                items:
-                  type: [string, integer]
-              msg:
-                type: string
-              type:
-                type: string
+    ValidationProblem:
+      allOf:
+        - $ref: "#/components/schemas/Problem"
+        - type: object
+          required: [errors]
+          properties:
+            type:
+              const: "urn:ai-mentor:problem:validation"
+            errors:
+              type: array
+              items:
+                type: object
+                required: [path, message]
+                properties:
+                  path:
+                    type: string
+                    examples: [body.message]
+                  message:
+                    type: string
 
     Uuid:
       type: string
@@ -2231,46 +2810,131 @@ components:
     Health:
       type: object
       additionalProperties: false
-      required: [status, env, vector_store, llm]
+      required: [status]
       properties:
         status:
           type: string
           const: ok
-        env:
-          type: string
-          examples: [development, test, production]
-        vector_store:
-          type: string
-          enum: [qdrant, local-hash]
-        llm:
-          type: string
-          enum: [external, curriculum]
 
-    Me:
+    Account:
       type: object
       additionalProperties: false
-      required: [id, display_name, role, xp, level, streak_days, subscription_status]
+      required: [id, email, display_name, role, handle, locale, timezone, country_code, leaderboard_opt_out, subscription_status]
       properties:
         id:
           $ref: "#/components/schemas/Uuid"
+        email:
+          type: string
         display_name:
           type: string
           maxLength: 120
         role:
           $ref: "#/components/schemas/Role"
-        xp:
-          type: integer
-          minimum: 0
-        level:
-          type: integer
-          minimum: 1
-        streak_days:
-          type: integer
-          minimum: 0
+        handle:
+          type: [string, "null"]
+          pattern: "^[A-Za-z0-9_]{3,24}$"
+        locale:
+          $ref: "#/components/schemas/Language"
+        timezone:
+          type: string
+          description: IANA time zone; decides the learner's day.
+          examples: [Africa/Lagos, Europe/London]
+        country_code:
+          type: [string, "null"]
+          pattern: "^[A-Z]{2}$"
+        leaderboard_opt_out:
+          type: boolean
         subscription_status:
           type: string
-          description: "`free` until Stripe sets a subscription status such as `active` or `canceled`."
-          examples: [free, active, canceled]
+          description: "`free` until Stripe sets a status such as `active`, `incomplete`, or `canceled`."
+          examples: [free, active, incomplete, canceled]
+
+    Me:
+      allOf:
+        - $ref: "#/components/schemas/Account"
+        - type: object
+          required: [xp, level, streak_days]
+          properties:
+            xp:
+              type: integer
+              minimum: 0
+            level:
+              type: integer
+              minimum: 1
+            streak_days:
+              type: integer
+              minimum: 0
+
+    AccountUpdate:
+      type: object
+      additionalProperties: false
+      properties:
+        handle:
+          type: string
+          pattern: "^[A-Za-z0-9_]{3,24}$"
+        locale:
+          $ref: "#/components/schemas/Language"
+        timezone:
+          type: string
+          minLength: 1
+          maxLength: 64
+        country_code:
+          type: string
+          pattern: "^[A-Z]{2}$"
+        leaderboard_opt_out:
+          type: boolean
+
+    AccountExport:
+      type: object
+      description: Every learner-owned record. Arrays may be empty.
+      required: [exported_at, profile, conversations, quiz_results, documents, code_submissions, flashcards, study_plans, mastery, xp_events]
+      properties:
+        exported_at:
+          type: string
+          format: date-time
+        profile:
+          type: object
+          additionalProperties: true
+        conversations:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        quiz_results:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        documents:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        code_submissions:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        flashcards:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        study_plans:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        mastery:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        xp_events:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
 
     Profile:
       type: object
@@ -2857,10 +3521,14 @@ components:
     LeaderboardEntry:
       type: object
       additionalProperties: false
-      required: [display_name, xp, level, streak_days]
+      required: [rank, display_name, xp, level, streak_days]
       properties:
+        rank:
+          type: integer
+          minimum: 1
         display_name:
           type: string
+          description: Handle, or a pseudonym such as `Learner-3fa91c`.
         xp:
           type: integer
           minimum: 0
@@ -3236,7 +3904,7 @@ components:
           minimum: 1
         status:
           type: string
-          examples: [ready]
+          enum: [ready, unindexed]
 
     AnalyzeRequest:
       type: object
@@ -3855,11 +4523,326 @@ components:
     WebhookAck:
       type: object
       additionalProperties: false
-      required: [received]
+      required: [received, outcome]
       properties:
         received:
           type: boolean
           const: true
+        outcome:
+          type: string
+          enum: [applied, duplicate, stale, ignored, unmatched]
+
+    AssetKind:
+      type: string
+      enum: [lesson, notes, paper, quiz, guide, code, link, dataset]
+
+    AssetLicence:
+      type: string
+      enum: [own-work, cc-by, cc-by-sa, cc-by-nc, public-domain, proprietary-licensed, fair-use-excerpt]
+
+    AdminAsset:
+      type: object
+      required: [id, slug, title, description, topic, difficulty, author_name, source, language, kind, state, version, estimated_minutes, tags, licence, owner_id]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        slug:
+          $ref: "#/components/schemas/Slug"
+        title:
+          type: string
+        description:
+          type: string
+        topic:
+          type: string
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        author_name:
+          type: string
+        source:
+          type: string
+        language:
+          type: string
+        kind:
+          $ref: "#/components/schemas/AssetKind"
+        state:
+          $ref: "#/components/schemas/PublicationStatus"
+        version:
+          type: integer
+          minimum: 1
+        estimated_minutes:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        licence:
+          $ref: "#/components/schemas/AssetLicence"
+        owner_id:
+          oneOf:
+            - $ref: "#/components/schemas/Uuid"
+            - type: "null"
+
+    AdminAssetDetail:
+      allOf:
+        - $ref: "#/components/schemas/AdminAsset"
+        - type: object
+          required: [body_md, objectives, chunks, versions]
+          properties:
+            body_md:
+              type: string
+            objectives:
+              type: array
+              items:
+                type: string
+            chunks:
+              type: integer
+              description: Indexed passages; non-zero only while published.
+            versions:
+              type: array
+              items:
+                type: object
+                required: [version, state, title, change_note, created_at]
+                properties:
+                  version:
+                    type: integer
+                  state:
+                    $ref: "#/components/schemas/PublicationStatus"
+                  title:
+                    type: string
+                  change_note:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+
+    AdminAssetTransitioned:
+      allOf:
+        - $ref: "#/components/schemas/AdminAsset"
+        - type: object
+          required: [self_approved, chunks]
+          properties:
+            self_approved:
+              type: boolean
+              description: True when the author approved or published their own work under `CONTENT_SELF_APPROVAL`.
+            chunks:
+              type: integer
+
+    AdminAssetCreate:
+      type: object
+      additionalProperties: false
+      required: [title, description]
+      properties:
+        title:
+          type: string
+          minLength: 3
+          maxLength: 200
+        description:
+          type: string
+          minLength: 20
+          maxLength: 2000
+        topic:
+          type: string
+          maxLength: 80
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        author_name:
+          type: string
+          maxLength: 200
+        source:
+          type: string
+          maxLength: 300
+        language:
+          type: string
+          maxLength: 16
+          default: en
+        kind:
+          $ref: "#/components/schemas/AssetKind"
+        objectives:
+          type: array
+          maxItems: 10
+          items:
+            type: string
+        estimated_minutes:
+          type: integer
+          minimum: 1
+          maximum: 600
+          default: 20
+        tags:
+          type: array
+          maxItems: 20
+          items:
+            type: string
+        licence:
+          $ref: "#/components/schemas/AssetLicence"
+        body_md:
+          type: string
+          maxLength: 100000
+
+    AdminAssetUpdate:
+      type: object
+      additionalProperties: false
+      properties:
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+          maxLength: 2000
+        topic:
+          type: string
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        kind:
+          $ref: "#/components/schemas/AssetKind"
+        objectives:
+          type: array
+          items:
+            type: string
+        estimated_minutes:
+          type: integer
+          minimum: 1
+          maximum: 600
+        tags:
+          type: array
+          items:
+            type: string
+        licence:
+          $ref: "#/components/schemas/AssetLicence"
+        body_md:
+          type: string
+          maxLength: 100000
+
+    AdminAssetGenerate:
+      type: object
+      additionalProperties: false
+      required: [concept_slug]
+      properties:
+        concept_slug:
+          $ref: "#/components/schemas/ConceptSlug"
+
+    AdminAssetTransition:
+      type: object
+      additionalProperties: false
+      required: [state]
+      properties:
+        state:
+          $ref: "#/components/schemas/PublicationStatus"
+        note:
+          type: string
+          maxLength: 500
+
+    AdminOverview:
+      type: object
+      required: [users, students, conversations, quizzes_taken, documents, assets_by_state, review_queue, published, note]
+      properties:
+        users:
+          type: integer
+        students:
+          type: integer
+        conversations:
+          type: integer
+        quizzes_taken:
+          type: integer
+        documents:
+          type: integer
+        assets_by_state:
+          type: object
+          additionalProperties:
+            type: integer
+        review_queue:
+          type: integer
+        published:
+          type: integer
+        note:
+          type: string
+
+    TaxonomyConcept:
+      type: object
+      required: [slug, name, domain, difficulty, prerequisites]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        domain:
+          type: string
+        difficulty:
+          $ref: "#/components/schemas/Difficulty"
+        prerequisites:
+          type: array
+          items:
+            type: string
+
+    AdminConfiguration:
+      type: object
+      required: [editable, note, values]
+      properties:
+        editable:
+          type: boolean
+          const: false
+        note:
+          type: string
+        values:
+          type: array
+          items:
+            type: object
+            required: [key, value, allowed]
+            properties:
+              key:
+                type: string
+              value:
+                type: [integer, string]
+              allowed:
+                type: string
+
+    AdminProviders:
+      type: object
+      required: [openai, anthropic, gemini, qdrant, note]
+      properties:
+        openai:
+          type: boolean
+        anthropic:
+          type: boolean
+        gemini:
+          type: boolean
+        qdrant:
+          type: boolean
+        note:
+          type: string
+
+    AuditEntry:
+      type: object
+      required: [id, action, entity_type, entity_id, actor, detail, created_at]
+      properties:
+        id:
+          $ref: "#/components/schemas/Uuid"
+        action:
+          type: string
+          examples: [asset.transition, user.role, privacy.erasure]
+        entity_type:
+          type: string
+        entity_id:
+          type: string
+        actor:
+          type: string
+          description: Display name, or `System` when there is no actor or it was erased.
+        detail:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+
+    ModerationQueue:
+      type: object
+      required: [items, note]
+      properties:
+        items:
+          type: array
+          maxItems: 0
+          items: {}
+        note:
+          type: string
 
 security:
   - bearerAuth: []

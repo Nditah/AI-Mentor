@@ -1,6 +1,6 @@
 # ADR 0006 — Azure Container Apps for the API
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 
 ## Context
@@ -13,7 +13,7 @@ Choose a production host without building three backends.
 
 ## Decision
 
-Vercel hosts the studio. Azure Container Apps in UK South hosts the API image. The image is built from `backend/Dockerfile` and pushed to GHCR by `.github/workflows/publish.yml` on a `v*` tag or a manual run. CI on every push lints, tests, typechecks, and builds. CI does not deploy.
+Vercel hosts the studio. Azure Container Apps in UK South hosts the API image (amended: West Europe, see below). The image is built from `backend/Dockerfile` and pushed to GHCR by `.github/workflows/publish.yml` on a `v*` tag or a manual run. CI on every push lints, tests, typechecks, and builds. CI does not deploy.
 
 Azure Database for PostgreSQL Flexible Server is private. Key Vault holds secrets and the Container App reads them with a managed identity. Front Door is the public API edge once the replica count can exceed one. Qdrant Cloud sits in the same region. North Europe is the cold recovery region.
 
@@ -54,3 +54,13 @@ OpenTelemetry currently exports to the console when an endpoint is set. Availabi
 - Add the GitHub Environment OIDC deploy described in `docs/Infrastructure.md`.
 - Replace `ConsoleSpanExporter` with an OTLP exporter to Azure Monitor before the availability objective is treated as measured.
 - Revisit the four-replica cap when the code runner leaves the API process.
+
+## Amendment — 2026-10-13 hardening
+
+- Migrations no longer run in the container command. The image only serves; `python -m app.cli migrate` runs as the `caj-mentor-migrate` Container Apps Job before each rollout, so replica count no longer constrains migrations.
+- Rate limits are shared across replicas through Redis (`REDIS_URL`, required in production). Front Door's WAF rate rule is an outer layer only.
+- Uvicorn trusts `X-Forwarded-For` only from `FORWARDED_ALLOW_IPS`, which must be set to the ingress range.
+- `/health` is liveness only; `/ready` checks PostgreSQL, Qdrant, and Redis and is the readiness probe.
+- OpenTelemetry exports over OTLP/HTTP when `OTEL_EXPORTER_OTLP_ENDPOINT` is set.
+- The lab is off in production until the isolated runner exists, so it no longer runs on API replicas there.
+- **Region.** The primary region is **West Europe**, not UK South, so that EU and UK learner data stays in the EU (SRS CON-002, CMP-007). North Europe remains the recovery region. Decided by the product owner on 2026-10-13. Qdrant Cloud, Redis, Key Vault, and Blob storage sit in the same region as the API.

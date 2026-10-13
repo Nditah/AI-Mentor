@@ -1,6 +1,6 @@
 # ADR 0007 — RAG architecture
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 
 ## Context
@@ -58,3 +58,14 @@ Top-four excerpts can miss a claim that sits in chunk five. The citation label s
 - Add a queue and OCR only after the API replica is no longer the parser.
 - Re-embed when the embedding model changes. See ADR 0004.
 - Show the learner which excerpt was dropped because it lacked a citation, so “withheld” is inspectable.
+
+## Amendment — 2026-10-13 hardening
+
+This replaces the parts of the decision above that no longer hold.
+
+- Chunk labels are `#1`, `#2`, …; library citations in tutor replies are `[S1]`…`[S6]`.
+- At ingestion, all chunks are embedded in one batched call and upserted to `learner_docs_v1` with the owner and document id. If indexing fails the document is stored with status `unindexed`.
+- Analysis embeds the question once and searches with the owner-and-document filter; results are re-checked against the document in Postgres. If the index is unavailable, analysis uses the document's opening passages and says so.
+- The curated library is retrievable: a published asset is chunked and indexed in `knowledge_v1`, filtered to `status = published`, and removed from the index when archived or returned to draft. Direct-mode tutor replies list up to six passages scoring at least 0.30, at most three per asset.
+- Uploads are limited to 10 an hour per learner.
+- Ingestion is still synchronous in the request (Security-Compliance SEC-13). That remains the main open item.

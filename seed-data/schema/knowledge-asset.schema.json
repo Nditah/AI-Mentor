@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KnowledgeAsset",
+  "type": "object",
+  "required": [
+    "title",
+    "description",
+    "category",
+    "resource_type"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20
+    },
+    "category": {
+      "type": "string"
+    },
+    "subcategory": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "resource_type": {
+      "type": "string",
+      "enum": [
+        "book",
+        "course",
+        "paper",
+        "video",
+        "repository",
+        "dataset",
+        "tutorial",
+        "blog",
+        "certification",
+        "documentation",
+        "podcast",
+        "learning_path",
+        "coding_challenge"
+      ]
+    },
+    "provider": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "expert",
+        "phd"
+      ]
+    },
+    "estimated_duration": {
+      "type": "integer"
+    },
+    "cost_type": {
+      "type": "string",
+      "enum": [
+        "free",
+        "freemium",
+        "free_audit",
+        "paid",
+        "subscription"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "learning_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

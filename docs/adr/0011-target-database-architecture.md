@@ -1,6 +1,6 @@
 # ADR 0011 — Target database architecture
 
-- Status: Proposed (amends ADR 0003; extends ADR 0004)
+- Status: Accepted 2026-10-13 (amends ADR 0003; extends ADR 0004)
 - Date: 2026-10-13
 
 ## Context
@@ -63,3 +63,12 @@ Database-enforced rules (workflow, RLS, audit) mean some errors surface as SQL e
 - Read replica for analytics jobs and dashboards at around 10,000 daily learners; CDC to a warehouse at around 25,000.
 - Redis sorted sets for live leaderboard ranks once leaderboard reads show up in PostgreSQL CPU.
 - Per-learner encryption keys if crypto-shredding of backups (Security-Compliance.md §11.5) is kept as a requirement.
+
+## Acceptance — 2026-10-13
+
+Accepted by the product owner. Migration follows [migration-strategy.md](../database/migration-strategy.md).
+
+Phase 0 status: revision 0001 lists every table explicitly; `create_all` runs only on SQLite in development and test; CI runs the suite on PostgreSQL 16, runs `alembic check`, verifies `backend/db/schema` with `verify.sh`, and lints post-baseline migrations with squawk; every authenticated request sets the transaction-local `app.current_user_id`, `app.user_role`, `app.request_id`, and `app.client_ip` that the audit triggers and RLS policies read. Remaining phase 0 work is on the platform: the `mentor_owner`, `mentor_app`, `mentor_worker`, and `mentor_readonly` roles (the API must stop connecting as the owner, which bypasses RLS), the Flexible Server extension allow-list, and PgBouncer.
+
+The target's 30-day cancellable deletion window (`pending_deletion`) replaces today's immediate erasure when the `identity` schema and the worker land. Immediate erasure already meets FR-ACC-008.
+

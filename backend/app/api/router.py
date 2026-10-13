@@ -2,22 +2,25 @@
 
 from __future__ import annotations
 
+import json
 import uuid
 from typing import Literal
+from urllib.parse import urlsplit
 
-from fastapi import APIRouter, Depends, File, HTTPException, Request, UploadFile
+from fastapi import APIRouter, Depends, File, HTTPException, Request, Response, UploadFile
 from pydantic import BaseModel, Field
-from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.api.catalog import router as catalog_router
 from app.api.deps import engine_dep, settings_dep, user_dep
 from app.core.config import Settings
 from app.core.database import get_db
-from app.domain.access import normalize_role
+from app.domain.access import is_allowed
 from app.models import User
-from app.repositories.sql import SqlRepository
+from app.services import privacy, webhooks
 from app.services.admin_portal import AdminPortal
-from app.services.engine import MentorEngine
+from app.services.engine import MAX_UPLOAD_BYTES, MentorEngine
+from app.services.errors import ClientError
 
 router = APIRouter(prefix="/api/v1")
 
@@ -94,12 +97,13 @@ class AssetPatch(BaseModel):
     description: str | None = Field(default=None, max_length=2000)
     topic: str | None = None
     difficulty: Literal["beginner", "intermediate", "advanced", "expert", "phd"] | None = None
-    kind: (
-        Literal["lesson", "notes", "paper", "quiz", "guide", "code", "link", "dataset"] | None
-    ) = None
+    kind: Literal["lesson", "notes", "paper", "quiz", "guide", "code", "link", "dataset"] | None = (
+        None
+    )
     objectives: list[str] | None = None
     estimated_minutes: int | None = Field(default=None, ge=1, le=600)
     tags: list[str] | None = None
+    licence: str | None = Field(default=None, max_length=40)
     body_md: str | None = Field(default=None, max_length=100000)
 
 
@@ -110,6 +114,14 @@ class TransitionIn(BaseModel):
 
 class GenerateAssetIn(BaseModel):
     concept_slug: str = Field(min_length=1, max_length=80)
+
+
+class ProfileIn(BaseModel):
+    handle: str | None = Field(default=None, pattern=r"^[A-Za-z0-9_]{3,24}$")
+    locale: Literal["en", "fr", "es"] | None = None
+    timezone: str | None = Field(default=None, min_length=1, max_length=64)
+    country_code: str | None = Field(default=None, pattern=r"^[A-Z]{2}$")
+    leaderboard_opt_out: bool | None = None
 
 
 class CheckoutIn(BaseModel):
@@ -126,17 +138,46 @@ def _engine(engine: MentorEngine = Depends(engine_dep)) -> MentorEngine:
     return engine
 
 
+def _staff_only(user: User = Depends(_user)) -> None:
+    """Every admin route needs at least the instructor role; services check finer rules."""
+
+    if not is_allowed(user.role, "instructor"):
+        raise ClientError("Staff role required.", 403)
+
+
+admin = APIRouter(prefix="/admin", dependencies=[Depends(_staff_only)])
+
+
 @router.get("/me")
-def me(user: User = Depends(_user)) -> dict:
+def me(user: User = Depends(_user), engine: MentorEngine = Depends(_engine)) -> dict:
     return {
-        "id": user.id,
-        "display_name": user.display_name,
-        "role": user.role,
+        **engine.profile(user),
         "xp": user.xp,
         "level": user.level,
         "streak_days": user.streak_days,
-        "subscription_status": user.subscription_status,
     }
+
+
+@router.patch("/me")
+def update_me(
+    body: ProfileIn, user: User = Depends(_user), engine: MentorEngine = Depends(_engine)
+) -> dict:
+    return engine.update_profile(user, body.model_dump(exclude_unset=True))
+
+
+@router.get("/me/export")
+def export_me(user: User = Depends(_user), db: Session = Depends(get_db)) -> dict:
+    return privacy.export(db, user)
+
+
+@router.delete("/me", status_code=204)
+def delete_me(
+    user: User = Depends(_user),
+    db: Session = Depends(get_db),
+    settings: Settings = Depends(settings_dep),
+) -> Response:
+    privacy.erase(db, settings, user, initiated_by="self", delete_identity=True)
+    return Response(status_code=204)
 
 
 @router.post("/chat")
@@ -265,7 +306,7 @@ def upload_document(
     user: User = Depends(_user),
     engine: MentorEngine = Depends(_engine),
 ) -> dict:
-    raw = file.file.read(10 * 1024 * 1024 + 1)
+    raw = file.file.read(MAX_UPLOAD_BYTES + 1)
     return engine.ingest(user, file.filename or "upload.txt", raw)
 
 
@@ -322,12 +363,12 @@ def career(user: User = Depends(_user), engine: MentorEngine = Depends(_engine))
     return engine.career(user)
 
 
-@router.get("/admin/users")
+@admin.get("/users")
 def admin_users(user: User = Depends(_user), engine: MentorEngine = Depends(_engine)) -> list[dict]:
     return engine.users(user)
 
 
-@router.patch("/admin/users/{user_id}")
+@admin.patch("/users/{user_id}")
 def admin_role(
     user_id: uuid.UUID,
     body: RoleIn,
@@ -337,16 +378,18 @@ def admin_role(
     return engine.set_role(user, user_id, body.role, body.reason)
 
 
-def _portal(db: Session = Depends(get_db)) -> AdminPortal:
-    return AdminPortal(db)
+def _portal(
+    db: Session = Depends(get_db), settings: Settings = Depends(settings_dep)
+) -> AdminPortal:
+    return AdminPortal(db, settings)
 
 
-@router.get("/admin/overview")
+@admin.get("/overview")
 def admin_overview(user: User = Depends(_user), portal: AdminPortal = Depends(_portal)) -> dict:
     return portal.overview(user)
 
 
-@router.get("/admin/assets")
+@admin.get("/assets")
 def admin_assets(
     state: str | None = None,
     user: User = Depends(_user),
@@ -355,28 +398,28 @@ def admin_assets(
     return portal.list_assets(user, state)
 
 
-@router.post("/admin/assets")
+@admin.post("/assets")
 def admin_create_asset(
     body: AssetIn, user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
     return portal.create_asset(user, body.model_dump())
 
 
-@router.post("/admin/assets/generate")
+@admin.post("/assets/generate")
 def admin_generate_asset(
     body: GenerateAssetIn, user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
     return portal.generate_draft(user, body.concept_slug)
 
 
-@router.get("/admin/assets/{asset_id}")
+@admin.get("/assets/{asset_id}")
 def admin_asset(
     asset_id: uuid.UUID, user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
     return portal.get_asset(user, asset_id)
 
 
-@router.patch("/admin/assets/{asset_id}")
+@admin.patch("/assets/{asset_id}")
 def admin_update_asset(
     asset_id: uuid.UUID,
     body: AssetPatch,
@@ -386,7 +429,7 @@ def admin_update_asset(
     return portal.update_asset(user, asset_id, body.model_dump(exclude_unset=True))
 
 
-@router.post("/admin/assets/{asset_id}/transition")
+@admin.post("/assets/{asset_id}/transition")
 def admin_transition(
     asset_id: uuid.UUID,
     body: TransitionIn,
@@ -396,21 +439,21 @@ def admin_transition(
     return portal.transition(user, asset_id, body.state, body.note)
 
 
-@router.get("/admin/taxonomy")
+@admin.get("/taxonomy")
 def admin_taxonomy(
     user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> list[dict]:
     return portal.taxonomy(user)
 
 
-@router.get("/admin/configuration")
+@admin.get("/configuration")
 def admin_configuration(
     user: User = Depends(_user), portal: AdminPortal = Depends(_portal)
 ) -> dict:
     return portal.configuration(user)
 
 
-@router.get("/admin/providers")
+@admin.get("/providers")
 def admin_providers(
     user: User = Depends(_user),
     portal: AdminPortal = Depends(_portal),
@@ -419,12 +462,12 @@ def admin_providers(
     return portal.providers(user, settings)
 
 
-@router.get("/admin/audit")
+@admin.get("/audit")
 def admin_audit(user: User = Depends(_user), portal: AdminPortal = Depends(_portal)) -> list[dict]:
     return portal.audit_log(user)
 
 
-@router.get("/admin/moderation")
+@admin.get("/moderation")
 def admin_moderation(user: User = Depends(_user), portal: AdminPortal = Depends(_portal)) -> dict:
     portal.overview(user)
     return {
@@ -433,13 +476,32 @@ def admin_moderation(user: User = Depends(_user), portal: AdminPortal = Depends(
     }
 
 
-@router.get("/admin/analytics")
+@admin.get("/analytics")
 def admin_analytics(user: User = Depends(_user), engine: MentorEngine = Depends(_engine)) -> dict:
     return engine.analytics(user)
 
 
+router.include_router(admin)
+router.include_router(catalog_router)
+
+
+def _origin(url: str) -> str | None:
+    try:
+        parts = urlsplit(url)
+        port = parts.port
+    except ValueError:
+        return None
+    if parts.scheme not in {"http", "https"} or not parts.hostname or parts.username:
+        return None
+    host = parts.hostname.lower()
+    return f"{parts.scheme}://{host}" + (f":{port}" if port else "")
+
+
 def _return_url(url: str, settings: Settings) -> None:
-    if not any(url.startswith(origin) for origin in settings.origins):
+    """Exact scheme, host, and port match against the studio origins (no prefix tricks)."""
+
+    allowed = {_origin(item) for item in settings.billing_return_origins}
+    if _origin(url) is None or _origin(url) not in allowed:
         raise HTTPException(status_code=400, detail="Return URL must stay on this application.")
 
 
@@ -458,15 +520,17 @@ def checkout(
         raise HTTPException(status_code=503, detail="That price is not configured.")
     import stripe
 
-    stripe.api_key = settings.stripe_secret_key
     session = stripe.checkout.Session.create(
+        api_key=settings.stripe_secret_key,
         mode="subscription",
-        customer_email=user.email,
+        customer=user.stripe_customer_id or None,
+        customer_email=None if user.stripe_customer_id else user.email,
         client_reference_id=user.clerk_id,
         line_items=[{"price": price, "quantity": 1}],
         success_url=body.success_url,
         cancel_url=body.cancel_url,
-        metadata={"clerk_id": user.clerk_id},
+        metadata={"clerk_id": user.clerk_id, "tier": body.tier},
+        subscription_data={"metadata": {"clerk_id": user.clerk_id, "tier": body.tier}},
     )
     return {"url": session.url}
 
@@ -484,30 +548,12 @@ async def stripe_webhook(
 
     try:
         event = stripe.Webhook.construct_event(
-            payload, request.headers.get("stripe-signature"), settings.stripe_webhook_secret
+            payload, request.headers.get("stripe-signature", ""), settings.stripe_webhook_secret
         )
     except Exception as exc:
         raise HTTPException(status_code=400, detail="Invalid Stripe signature.") from exc
-    data = event["data"]["object"]
-    kind = event["type"]
-    if kind in {
-        "checkout.session.completed",
-        "customer.subscription.updated",
-        "customer.subscription.deleted",
-    }:
-        clerk_id = (data.get("metadata") or {}).get("clerk_id") or data.get("client_reference_id")
-        customer = data.get("customer")
-        repository = SqlRepository(db)
-        account = repository.user_by_clerk_id(clerk_id) if clerk_id else None
-        if account is None and customer:
-            account = db.scalar(select(User).where(User.stripe_customer_id == customer))
-        if account is not None:
-            if customer:
-                account.stripe_customer_id = str(customer)
-            account.subscription_status = (
-                "canceled" if kind.endswith("deleted") else str(data.get("status") or "active")
-            )
-    return {"received": True}
+    outcome = webhooks.apply_stripe(db, settings, event.to_dict())
+    return {"received": True, "outcome": outcome}
 
 
 @router.post("/webhooks/clerk")
@@ -521,30 +567,20 @@ async def clerk_webhook(
     payload = await request.body()
     from svix.webhooks import Webhook
 
+    event_id = request.headers.get("svix-id", "")
     try:
-        event = Webhook(settings.clerk_webhook_secret).verify(
+        Webhook(settings.clerk_webhook_secret).verify(
             payload,
             {
-                "svix-id": request.headers.get("svix-id", ""),
+                "svix-id": event_id,
                 "svix-timestamp": request.headers.get("svix-timestamp", ""),
                 "svix-signature": request.headers.get("svix-signature", ""),
             },
         )
     except Exception as exc:
         raise HTTPException(status_code=400, detail="Invalid Clerk signature.") from exc
-    data = event.get("data") or {}
-    if event.get("type") in {"user.created", "user.updated"} and data.get("id"):
-        emails = data.get("email_addresses") or []
-        email = emails[0].get("email_address") if emails else f"{data['id']}@users.clerk"
-        name = (
-            " ".join(part for part in (data.get("first_name"), data.get("last_name")) if part)
-            or "Learner"
-        )
-        raw_role = (data.get("public_metadata") or {}).get("role")
-        SqlRepository(db).upsert_user(
-            clerk_id=data["id"],
-            email=email,
-            display_name=name,
-            role=normalize_role(raw_role) if raw_role else None,
-        )
-    return {"received": True}
+    event = json.loads(payload)
+    if not isinstance(event, dict):
+        raise HTTPException(status_code=400, detail="Clerk event must be a JSON object.")
+    outcome = webhooks.apply_clerk(db, settings, event_id, event)
+    return {"received": True, "outcome": outcome}

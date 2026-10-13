@@ -185,9 +185,9 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
 | `description` | Who may call it, what is persisted, and the domain rules. |
 | `x-implementation` | `live` only when a handler exists. Otherwise `contract`. |
 | `x-required-role` | `public`, `student`, `instructor`, or `admin`. |
-| `x-rate-limit-tier` | `exempt`, `standard` (60/min), or `ai` (20/min). |
+| `x-rate-limit-tier` | `exempt`, `standard` (60/min), `ai` (20/min), or `upload` (10/hour). |
 | Parameters and body | JSON Schema bounds: `minLength`, `maxLength`, `enum`, `format`. |
-| Responses | Every status the handler returns, with the `{ "detail": "..." }` schema for errors. |
+| Responses | Every status the handler returns. Errors use the shared `application/problem+json` responses (`Problem`, `ValidationProblem`). |
 | Security | `security: []` on public routes and webhooks. Inherited Clerk bearer otherwise. |
 
 Validation that Pydantic rejects is `422`. A rule the handler decides is `400` with a finished sentence in `detail`. Use `404` when the row is missing or belongs to someone else, so existence of another user's row is not leaked.
@@ -417,7 +417,7 @@ Keep these sections, in this order, when you edit the architecture doc:
 
 ### Diagrams
 
-Use Mermaid fences (` ```mermaid `). One diagram, one path. Name participants with the words used in the layer table (`Studio`, `API`, `Engine`, `Policy`). Do not draw a service that is not a process.
+Use Mermaid fences (` ```mermaid `). One diagram, one path. Name participants with the words used in the layer table (`Learner App`, `API`, `Engine`, `Policy`). Do not draw a service that is not a process. "Studio" in architecture diagrams means Content Studio only.
 
 Update the diagram in the same change as the dependency it shows. A new agent class does not need a new box. A new datastore does.
 
@@ -429,6 +429,16 @@ Record a decision in `Architecture.md` when it changes where code lives or how a
 
 Add a dated note at the bottom of `Architecture.md` only for a decision that is easy to undo and costly to misunderstand. Include the date, the choice, and the constraint that made it. Do not keep a second decision log.
 
+### Platform documents
+
+Target-state documents for the five-application ecosystem live in [platform/](platform/README.md). They follow three extra rules:
+
+1. Names come from [platform/README.md](platform/README.md): applications, roles, scopes, permissions, content states, modules, events, schemas, API roots, and release labels. Change a name there first, then in the documents that use it, in the same pull request.
+2. Every platform document opens with a metadata table and a **Change record** table with the columns Area, What changed, Why, Impacted systems, and Implementation implications.
+3. Every platform document has a **Relationship to v1 documents** section saying which v1 sections it retains, amends, or supersedes. The superseded v1 document carries a one-paragraph amendment notice under its title.
+
+`Architecture.md`, `API.md`, `Database.md`, and `Security.md` keep describing the running code. Do not copy target-state text into them.
+
 ### Layer rules worth repeating
 
 | Layer | May import | May not import |
@@ -436,7 +446,7 @@ Add a dated note at the bottom of `Architecture.md` only for a decision that is 
 | `app/domain` | The standard library and other domain modules | FastAPI, SQLAlchemy, HTTP clients, `app.services` |
 | `app/api` | Pydantic, domain types, the engine | SQL text, prompt strings |
 | `app/services` | Domain, repositories, providers | React or studio code |
-| `frontend` | The API over HTTP | Python modules, the database |
+| Learner App (`frontend` today) | The API over HTTP | Python modules, the database. It must not render Instructor, Institution, Admin, or Content Studio routes |
 
 When a change breaks one of these rows, update the table in the same pull request.
 

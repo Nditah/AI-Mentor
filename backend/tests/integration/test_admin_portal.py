@@ -68,3 +68,55 @@ def test_library_workflow_and_student_block(client, student):
     overview = client.get("/api/v1/admin/overview", headers={"X-Dev-User-Id": "demo-instructor"})
     assert overview.status_code == 200
     assert overview.json()["published"] >= 1
+
+
+def test_published_assets_are_cited_and_archived_ones_are_not(client):
+    admin = {"X-Dev-User-Id": "demo-admin"}
+    author = {"X-Dev-User-Id": "demo-instructor"}
+    body = "Temporal difference targets bootstrap from the estimated value of the next state."
+    asset = client.post(
+        "/api/v1/admin/assets",
+        headers=author,
+        json={
+            "title": "Temporal difference targets",
+            "description": "How temporal difference learning bootstraps its value targets.",
+            "kind": "notes",
+            "difficulty": "intermediate",
+            "estimated_minutes": 15,
+            "body_md": body,
+        },
+    ).json()
+    for state, who in (("review", author), ("approved", admin), ("published", admin)):
+        moved = client.post(
+            f"/api/v1/admin/assets/{asset['id']}/transition", headers=who, json={"state": state}
+        )
+        assert moved.status_code == 200, moved.json()
+
+    learner = {"X-Dev-User-Id": "reader-td"}
+    question = "How do temporal difference targets bootstrap from the next state value?"
+    cited = client.post(
+        "/api/v1/chat", headers=learner, json={"message": question, "mode": "direct"}
+    ).json()
+    assert "[S1] Temporal difference targets" in cited["reply"]["content"]
+
+    archived = client.post(
+        f"/api/v1/admin/assets/{asset['id']}/transition", headers=admin, json={"state": "archived"}
+    )
+    assert archived.status_code == 200
+    after = client.post(
+        "/api/v1/chat", headers=learner, json={"message": question, "mode": "direct"}
+    ).json()
+    assert "Temporal difference targets" not in after["reply"]["content"]
+
+
+def test_unknown_licence_cannot_be_saved(client):
+    response = client.post(
+        "/api/v1/admin/assets",
+        headers={"X-Dev-User-Id": "demo-instructor"},
+        json={
+            "title": "Scraped notes",
+            "description": "Notes copied from somewhere without a clear licence.",
+            "licence": "unknown",
+        },
+    )
+    assert response.status_code == 400

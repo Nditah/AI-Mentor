@@ -2,24 +2,109 @@ name: ci
 
 on:
   push:
+    branches: [main]
   pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   backend:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install
-        run: python -m pip install -e "./backend[dev]"
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
       - name: Lint
-        run: ruff check app tests
-        working-directory: backend
-      - name: Test
+        run: ruff check app tests alembic
+      - name: Format
+        run: ruff format --check app tests alembic
+      - name: Test (SQLite, domain coverage gate)
         run: pytest
+
+  backend-postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: mentor
+          POSTGRES_PASSWORD: mentor
+          POSTGRES_DB: mentor
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U mentor -d mentor"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      ALEMBIC_DATABASE_URL: postgresql+psycopg://mentor:mentor@localhost:5432/mentor
+      TEST_DATABASE_URL: postgresql+psycopg://mentor:mentor@localhost:5432/mentor
+    defaults:
+      run:
         working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+      - name: Migrate, then check models and migrations agree
+        run: alembic upgrade head && alembic check
+      - name: Downgrade and upgrade again
+        run: alembic downgrade base && alembic upgrade head
+      - name: Lint migrations after the frozen baseline for locking operations
+        run: |
+          alembic upgrade 20261013_0001:head --sql > "$RUNNER_TEMP/new-migrations.sql"
+          npx --yes squawk-cli@2 "$RUNNER_TEMP/new-migrations.sql"
+      - name: Test against the migrated schema
+        run: pytest --no-cov
+
+  db-target-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply the ADR 0011 target schema and run its smoke tests
+        run: bash backend/db/verify.sh 16
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Secret scan
+        run: >-
+          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.24.3
+          detect --source /repo --redact --no-banner
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install backend
+        run: python -m pip install --upgrade pip && python -m pip install ./backend bandit pip-audit
+      - name: Python dependency audit
+        run: pip-audit --skip-editable
+      - name: Static analysis
+        run: bandit -q -r backend/app -ll
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      # Next 15 bundles a PostCSS with a high advisory that only Next 16 fixes; the
+      # gate is "critical" until that upgrade lands (see docs/Security-Compliance.md §0).
+      - name: npm audit (studio)
+        run: npm audit --omit=dev --audit-level=high
+        working-directory: frontend
+      - name: npm audit (admin)
+        run: npm audit --omit=dev --audit-level=high
+        working-directory: admin
 
   frontend:
     runs-on: ubuntu-latest
@@ -39,6 +124,8 @@ jobs:
         env:
           NEXT_PUBLIC_API_URL: http://localhost:8000
           NEXT_PUBLIC_DEV_AUTH: "true"
+      - name: A production build with dev auth must fail
+        run: "! DEPLOY_ENV=production NEXT_PUBLIC_DEV_AUTH=true npx next build"
 
   admin:
     runs-on: ubuntu-latest
@@ -59,3 +146,5 @@ jobs:
           NEXT_PUBLIC_API_URL: http://localhost:8000
           NEXT_PUBLIC_STUDIO_URL: http://localhost:3000
           NEXT_PUBLIC_DEV_AUTH: "true"
+      - name: A production build with dev auth must fail
+        run: "! DEPLOY_ENV=production NEXT_PUBLIC_DEV_AUTH=true npx next build"

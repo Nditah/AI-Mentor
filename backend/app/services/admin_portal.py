@@ -7,39 +7,24 @@ import uuid
 
 from sqlalchemy.orm import Session
 
+from app.core.config import Settings
 from app.domain.access import is_allowed
 from app.domain.catalog import CONCEPTS, get_concept
 from app.domain.chunking import chunk_text
-from app.domain.embeddings import cosine, hash_embed
-from app.domain.gamification import (
-    CODE_XP,
-    DAILY_XP_CAP,
-    LESSON_XP,
-    REVIEW_XP,
-    XP_PER_LEVEL,
-)
+from app.domain.gamification import DAILY_XP_CAP, XP_PER_LEVEL, XP_RULES
 from app.domain.publishing import transition_issue, validate_asset
 from app.models import KnowledgeAsset, User
 from app.repositories.sql import SqlRepository
 from app.services.errors import ClientError
+from app.services.retrieval import IndexUnavailable, index_asset, unindex_asset
 
 _SLUG = re.compile(r"[^a-z0-9]+")
 
 
-def library_citations(repo: SqlRepository, question: str, limit: int = 2) -> list[dict]:
-    scored = []
-    query = hash_embed(question)
-    for label, text, title in repo.published_chunks():
-        score = cosine(query, hash_embed(text))
-        if score >= 0.2:
-            scored.append((score, {"citation": label, "title": title, "excerpt": text[:280]}))
-    scored.sort(key=lambda item: item[0], reverse=True)
-    return [item for _score, item in scored[:limit]]
-
-
 class AdminPortal:
-    def __init__(self, session: Session) -> None:
+    def __init__(self, session: Session, settings: Settings) -> None:
         self.session = session
+        self.settings = settings
         self.repo = SqlRepository(session)
 
     def _staff(self, user: User) -> None:
@@ -165,6 +150,7 @@ class AdminPortal:
             "difficulty": fields.get("difficulty", asset.difficulty),
             "estimated_minutes": fields.get("estimated_minutes", asset.estimated_minutes),
             "tags": fields.get("tags", list(asset.tags or [])),
+            "licence": fields.get("licence", asset.licence),
         }
         self._check(merged)
         asset.title = merged["title"].strip()
@@ -173,6 +159,7 @@ class AdminPortal:
         asset.difficulty = merged["difficulty"]
         asset.estimated_minutes = merged["estimated_minutes"]
         asset.tags = merged["tags"]
+        asset.licence = merged["licence"]
         if "topic" in fields:
             asset.topic = fields["topic"]
         if "body_md" in fields:
@@ -193,17 +180,29 @@ class AdminPortal:
             is_owner=asset.owner_id == user.id,
             current=asset.state,
             target=target,
+            self_approval_allowed=self.settings.content_self_approval,
         )
         if message:
             raise ClientError(message, 403)
-        if target == "draft" and asset.state == "published":
-            asset.version += 1
+        leaving_library = asset.state == "published" and target != "published"
+        if leaving_library:
+            unindex_asset(self.settings, self.session, self.repo, asset.id)
             self.repo.replace_chunks(asset, [])
+            if target == "draft":
+                asset.version += 1
         asset.state = target
         chunk_count = len(asset.chunks)
         if target == "published":
             pieces = chunk_text(asset.body_md or asset.description) or [asset.description]
-            self.repo.replace_chunks(asset, pieces)
+            chunks = self.repo.replace_chunks(asset, pieces)
+            try:
+                index_asset(self.settings, self.session, asset, chunks)
+            except IndexUnavailable as exc:
+                raise ClientError(
+                    "The search index is unavailable, so this resource was not published. "
+                    "Try again shortly.",
+                    503,
+                ) from exc
             chunk_count = len(pieces)
         self.repo.snapshot(asset, user.id, note or target)
         self.repo.audit(
@@ -250,15 +249,24 @@ class AdminPortal:
         return {
             "editable": False,
             "note": (
-                "These values are compiled into the mentor. "
+                "These values are compiled into the mentor (SRS GAM-002). "
                 "Saving them here would not change XP, so the form stays read-only."
             ),
             "values": [
                 {"key": "Daily XP cap", "value": DAILY_XP_CAP, "allowed": "100–2000"},
-                {"key": "Lesson completed", "value": LESSON_XP, "allowed": "0–200"},
-                {"key": "Flashcard review", "value": REVIEW_XP, "allowed": "0–50"},
-                {"key": "Passing code", "value": CODE_XP, "allowed": "0–100"},
                 {"key": "XP per level", "value": XP_PER_LEVEL, "allowed": "Fixed"},
+                *[
+                    {
+                        "key": f"XP: {source}",
+                        "value": "10 + round(40 × score)" if rule.amount is None else rule.amount,
+                        "allowed": (
+                            "No daily limit"
+                            if rule.daily_limit is None
+                            else f"Max {rule.daily_limit} per day"
+                        ),
+                    }
+                    for source, rule in XP_RULES.items()
+                ],
             ],
         }
 
@@ -268,7 +276,7 @@ class AdminPortal:
             "openai": bool(getattr(settings, "openai_api_key", None)),
             "anthropic": bool(getattr(settings, "anthropic_api_key", None)),
             "gemini": bool(getattr(settings, "gemini_api_key", None)),
-            "qdrant": str(getattr(settings, "qdrant_url", "")).startswith("http"),
+            "qdrant": bool(getattr(settings, "qdrant_enabled", False)),
             "note": "API keys are never shown. They live in the secret store.",
         }
 
@@ -309,6 +317,7 @@ class AdminPortal:
             difficulty=fields["difficulty"],
             estimated_minutes=int(fields["estimated_minutes"]),
             tags=list(fields.get("tags") or []),
+            licence=fields.get("licence") or "own-work",
         )
         if message:
             raise ClientError(message)

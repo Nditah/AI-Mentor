@@ -23,3 +23,6 @@ dist/
 *.log
 .idea/
 .vscode/
+
+# TypeScript incremental build state
+*.tsbuildinfo

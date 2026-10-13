@@ -1,5 +1,7 @@
 # AI Mentor MVP: Use Cases and User Stories
 
+> **v2.0 amendment (13 October 2026).** UC-01 to UC-38 and Epics 1–16 remain valid and now belong to the Learner App, Content Studio, and Admin App. Sections 2 (actors) and 3 (permissions by role) are superseded. New use cases for all five applications are in [platform/04-use-cases.md](platform/04-use-cases.md); new stories are in [platform/05-user-stories.md](platform/05-user-stories.md).
+
 This document turns the MVP scope in [README.md](../README.md), the product vision in [Requirements.md](Requirements.md), and the knowledge portal in [Admin.md](Admin.md) into use cases and user stories that can be estimated, built, and tested.
 
 Where the backend already encodes a rule (in `backend/app/domain`), the acceptance criteria use the shipped values. Where the specs are silent, the document says so and records a proposed value in [Open questions](#11-open-questions-and-assumptions).
@@ -65,7 +67,7 @@ These appear in the specs but are deferred. Stories for them are not written her
 | --- | --- | --- | --- |
 | Student | Human | `student` | Any learner: university student, professional, career switcher, enthusiast, or researcher. The default role for every new account. |
 | Instructor | Human | `instructor` | A subject expert who authors and reviews content. Has every Student capability. |
-| Content Manager | Human | `content_manager` (proposed) | Owns the knowledge library: ingestion, taxonomy, concept graph, curriculum, approval, and publishing. Has every Instructor capability. |
+| Content Manager | Human | `admin` (decided 2026-10-13: no separate role in v1) | Owns the knowledge library: ingestion, taxonomy, concept graph, curriculum, approval, and publishing. In v1 this is an Administrator; approval follows the four-eyes rule between admins, with the `CONTENT_SELF_APPROVAL` exception for very small teams. The platform's `content_reviewer` and `content_publisher` roles replace it later (platform RBAC matrix). |
 | Administrator | Human | `admin` | Owns users, roles, platform configuration, analytics, and safety. Has every capability. |
 
 ### System and external actors
@@ -115,28 +117,28 @@ Acceptance criteria refer to these rules by number. Values marked **shipped** ar
 
 | ID | Rule | Status |
 | --- | --- | --- |
-| BR-01 | Roles rank `student` < `instructor` < `content_manager` < `admin`. An unknown or missing role is treated as `student`. | Shipped (without `content_manager`) |
-| BR-02 | XP per activity: lesson completed 40; quiz `10 + round(40 × score)` where score is 0–1; coding submission passed 25; flashcard reviewed 5. | Shipped |
+| BR-01 | Roles rank `student` < `instructor` < `admin`. An unknown or missing role is treated as `student`. Content Manager duties belong to `admin` in v1. | Shipped |
+| BR-02 | XP per activity (SRS GAM-002): lesson completed 40, once per lesson; quiz `10 + round(40 × score)` where score is 0–1, half rounding up, once per quiz and 10 quizzes a day; coding project passed 25, once per project; flashcard reviewed 5, 20 a day; research analysis 10, once per document and 3 a day. Each award is keyed by its source, so a retry never pays twice. | Shipped |
 | BR-03 | Daily XP cap is 400. An award is `min(requested, 400 − earned today)`. XP above the cap is lost, not banked. | Shipped |
 | BR-04 | Level is `1 + floor(XP / 250)`. Progress within the level is `XP mod 250`. | Shipped |
-| BR-05 | Streak: activity on the same day keeps the streak (minimum 1); activity on the next calendar day adds 1; any gap resets it to 1. The day is the learner's local day. | Shipped (timezone proposed) |
+| BR-05 | Streak: activity on the same day keeps the streak (minimum 1); activity on the next calendar day adds 1; any gap resets it to 1. The day is the learner's local day. | Shipped (learner time zone in `users.timezone`) |
 | BR-06 | Badges: `first_steps` (1 lesson), `streak_3` (3-day streak), `week_streak` (7-day streak), `perfect_quiz` (100% quiz), `mastery` (any concept ≥ 80), `reviewer` (1 paper analysed), `shipped_code` (1 passing submission). Each badge is awarded once. | Shipped |
 | BR-07 | Concept mastery 0–100 weights quiz average 45%, lesson completion 25%, project pass rate 20%, flashcard recall 10%, renormalised over the evidence that exists. Lessons count only once the learner has some activity on the concept. Projects count only after an attempt. | Shipped |
 | BR-08 | Mastery bands: 75–100 strength; 60–74 developing; 1–59 gap; 0 unstarted. | Shipped |
 | BR-09 | Socratic stages by tutor turn: turn 1 asks an opening question only; turn 2 reflects the idea and asks a check; turn 3 gives a scaffold and a check; turn 4 onward gives the explanation and an exercise. If the learner asks for the answer before turn 4, the tutor gives the scaffold, one question, and tells them Direct mode exists. | Shipped |
 | BR-10 | Direct mode explains the concept using the curated account plus one short example and the exercise. It must not invent a different definition. | Shipped |
 | BR-11 | Learner text sent to a model is at most 8,000 characters, contains no control characters, and is not empty. Text that is only a prompt-injection phrase is rejected. Retrieved and uploaded text is fenced as untrusted. | Shipped |
-| BR-12 | Rate limits: 60 requests per minute general traffic, 20 per minute AI traffic, per user. | Shipped (configurable) |
-| BR-13 | Coding lab source is at most 20,000 characters. Allowed imports: `math`, `random`, `statistics`, `itertools`, `functools`, `collections`, `dataclasses`, `typing`. Banned calls include `exec`, `eval`, `open`, `compile`, `__import__`, `input`, `getattr`, `setattr`, `globals`, `locals`. | Shipped |
+| BR-12 | Rate limits: 60 requests per minute general traffic, 20 per minute AI traffic, and 10 uploads an hour, per user; 120 requests per minute per address before sign-in. Shared across instances. | Shipped (configurable) |
+| BR-13 | Coding lab source is at most 20,000 characters. Allowed imports: `math`, `random`, `statistics`, `itertools`, `functools`, `collections`, `collections.abc`, `dataclasses`, `typing`. Banned calls include `exec`, `eval`, `open`, `compile`, `__import__`, `input`, `getattr`, `setattr`, `globals`, `locals`, plus dunder and private attribute access. Runs time out after 3 seconds. | Shipped as a policy filter. The isolated runner in UC step 3 is not built, so the lab is off in production (Security-Compliance SEC-01) |
 | BR-14 | Coding submissions pass when normalised stdout matches the expected output. The tutor's review never marks code as passing on its own. | Shipped |
 | BR-15 | Flashcards use SM-2. Recall quality is 0–5. Quality below 3 resets repetitions and interval without changing ease. Successful intervals are 1 day, then 6 days, then `ceil(interval × ease)`. | Shipped |
 | BR-16 | A study plan expands the goal with its prerequisites in topological order, skips concepts with mastery ≥ 75, schedules one concept per day, and holds at most 14 items. | Shipped |
 | BR-17 | Documents are chunked at 800 characters with 120 characters of overlap before embedding. | Shipped |
 | BR-18 | A research critique that does not cite any supplied source is discarded. | Shipped |
-| BR-19 | Content states: Draft → Review → Approved → Published → Archived. Only Published content is shown to students or retrieved by the tutor. | Specified |
+| BR-19 | Content states: Draft → Review → Approved → Published → Archived. Only Published content is shown to students or retrieved by the tutor. | Shipped for the curated library (admin portal); the student resource browser is specified |
 | BR-20 | Tutor first byte under 1.5 seconds at the 95th percentile. | Specified (percentile proposed) |
 | BR-21 | Supported languages: English (default), French, Spanish. Progress is stored once per learner, independent of language. | Specified |
-| BR-22 | Leaderboards show the top 10 globally and the top 10 in the learner's country, plus the learner's own position and percentile. | Specified |
+| BR-22 | Leaderboards show the top 10 globally and the top 10 in the learner's country, plus the learner's own position and percentile. | Partly shipped: global top 10 with handles or pseudonyms and opt-out; country board and own position are specified |
 | BR-23 | A daily challenge awards the XP of its activity plus a 50 XP completion bonus, subject to the daily cap. Challenges rotate at 00:00 UTC. | Proposed |
 | BR-24 | Development authentication is refused when `APP_ENV=production`. | Shipped |
 
@@ -1380,7 +1382,7 @@ So that **learners cannot reach staff tools and staff cannot exceed their remit*
 **Priority:** Must · **Dependencies:** US-006 · **Use case:** UC-02, UC-35
 
 Acceptance criteria:
-- Given a route requires `content_manager`, when a `student` or `instructor` calls it, then it returns 403.
+- Given a route requires `admin` (including Content Manager duties such as publishing), when a `student` or `instructor` calls it, then it returns 403.
 - Given a higher role, when it calls a route for a lower role, then access is allowed (BR-01).
 - Given a learner requests another learner's conversation, document, or progress by ID, when the API handles it, then it returns 404.
 - Given an unknown role value is stored, when the user signs in, then they are treated as `student`.
@@ -3279,11 +3281,11 @@ The order follows the dependency chains above and fits a 10-week plan for a smal
 
 These need a decision from product or engineering before the related stories are estimated.
 
-1. **Content Manager role.** The code defines `student`, `instructor`, and `admin`. This document assumes a new `content_manager` role ranked between instructor and admin. The alternative is to give Instructors publish rights, which removes the separation of duties in US-123.
+1. **Content Manager role.** *Decided 2026-10-13:* no separate role in v1. Administrators approve and publish; nobody approves their own work (four-eyes, AZ-5) unless `CONTENT_SELF_APPROVAL` is on, in which case the self-approval is flagged in the audit log. Instructors author and submit but do not publish, so the separation of duties in US-123 holds.
 2. **Curriculum source of truth.** README says `backend/app/domain/catalog.py` is the source of truth and is refreshed on restart. Admin.md wants paths built in the portal (US-116). The MVP needs one owner. Proposal: keep `catalog.py` for the four launch paths, and let the portal own new paths and all library assets.
 3. **Daily challenge reward.** The specs say challenges award XP and badges but give no amount. BR-23 proposes a 50 XP bonus and rotation at 00:00 UTC.
-4. **Sandbox limits.** US-059 proposes 5 seconds and 256 MB per run. Confirm against the subprocess runner.
-5. **Streak timezone.** `next_streak` compares calendar dates. US-076 assumes the learner's local day, which requires storing a timezone.
+4. **Sandbox limits.** US-059 proposes 5 seconds and 256 MB per run. The runner today enforces 3 seconds. The runtime is decided (ADR 0028, gVisor pool); the limits are set when the pool is built.
+5. **Streak timezone.** *Resolved:* `users.timezone` stores the learner's IANA zone, and streaks and XP caps use the learner's local day.
 6. **Plan limits.** Free, Pro, and Research limits on tutor messages, paper uploads, and analyses are not specified. US-101 and US-105 need numbers.
 7. **Upload limits.** US-093 assumes 20 MB per learner paper and US-106 assumes 50 MB per library file.
 8. **Supported library formats in the MVP.** Admin.md lists video, audio, datasets, and repositories. This document limits MVP ingestion to PDF, DOCX, PPTX, TXT, Markdown, HTML, and URLs.

@@ -1,5 +1,7 @@
 # Product Requirements & Vision
 
+> **v2.0 note (13 October 2026).** This is the original product brief, kept unchanged as history. The current vision and requirements are in [platform/01-product-vision.md](platform/01-product-vision.md) and [platform/02-prd.md](platform/02-prd.md).
+
 Below is a product vision that captures the full scope, philosophy, and differentiators of the platform.  
 
 AI Mentor: Product Vision & Learning Philosophy

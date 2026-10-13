@@ -1,11 +1,13 @@
 # AI Mentor — UI/UX Design Specification
 
+> **v2.0 amendment (13 October 2026).** Sections 1–7 (philosophy, colour, typography, tokens, components, responsive layout, accessibility) apply to all five applications. Sections 8–17 describe the Learner App and the v1 admin portal, and are extended by [platform/11-ux-specification.md](platform/11-ux-specification.md), [platform/12-information-architecture.md](platform/12-information-architecture.md), and [platform/14-content-studio-specification.md](platform/14-content-studio-specification.md). "Studio" in this document means the learner app; in v2 it means Content Studio only.
+
 | | |
 | --- | --- |
 | Status | Draft for MVP build |
 | Owners | Product Design, Frontend |
 | Sources | [SRS.md](SRS.md), [PRD.md](PRD.md), [UseCases.md](UseCases.md), [Admin.md](Admin.md), [Requirements.md](Requirements.md), the shipped `frontend/` |
-| Stack | Next.js 15 App Router, Tailwind CSS 3, shadcn/ui, Radix primitives, Framer Motion, lucide-react, KaTeX, Mermaid |
+| Stack | Next.js 16 App Router, Tailwind CSS 3, shadcn/ui, Radix primitives, Framer Motion, lucide-react, KaTeX, Mermaid |
 
 This document defines how AI Mentor looks, behaves, and reads, from design tokens to full screens. It is written for designers building the Figma library and for engineers building the components. Where the SRS fixes a behaviour (for example leaderboard fields or workflow transitions), this spec designs that behaviour and cites the requirement ID. It does not redefine it.
 

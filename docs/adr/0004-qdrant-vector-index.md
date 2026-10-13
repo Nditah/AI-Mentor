@@ -1,6 +1,6 @@
 # ADR 0004 — Qdrant as the vector index
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 
 ## Context
@@ -52,3 +52,14 @@ Hash dimension is 64. Provider dimensions differ. The `embeddings.dimensions` co
 - Reindex as an explicit job when `EMBEDDING_MODEL` changes. Refuse queries that would compare two model names.
 - Move to more than one Qdrant node only after the collection no longer fits in one node’s memory.
 - Keep the hash path for tests after that reindex exists.
+
+## Amendment — 2026-10-13 hardening
+
+This replaces the parts of the decision above that no longer hold.
+
+- There are two collections: `learner_docs_v1` (payload `owner_id`, `document_id`) and `knowledge_v1` (published library assets, payload `asset_id`, `status`, `language`). Both use cosine distance with HNSW `m=16`, `ef_construct=128`, and keyword payload indexes on every filter field. A dimension mismatch with an existing collection is an error, not a silent mix.
+- The point id equals the chunk id. `embeddings` records `collection`, provider, model, dimensions, and `point_id` (unique), linked to exactly one document chunk or asset chunk with `ON DELETE CASCADE`.
+- Chunks are embedded once at ingestion or publication, in batches of 96, and searched with a filter. Nothing is re-embedded per question.
+- Without Qdrant (development and tests only), a local store keeps the hash vector and payload on the `embeddings` row. This is the only place a vector is stored in Postgres.
+- With Qdrant configured, an OpenAI key is required for embeddings; production also requires `https://` and `QDRANT_API_KEY`.
+- Erasure removes a learner's points before their rows (FR-ACC-008). Archiving or unpublishing an asset removes its points.

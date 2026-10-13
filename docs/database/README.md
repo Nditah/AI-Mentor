@@ -1,5 +1,7 @@
 # AI Mentor database architecture
 
+> **v2.0 amendment (13 October 2026).** This design remains the base schema. [platform/07-database-design.md](../platform/07-database-design.md) extends it from 12 to 26 schemas with tenancy (`tenant_id` and RLS on `app.tenant_id`), scoped authorisation, classroom, assessment, commerce, and content releases. Workflow state `review` is renamed `in_review`.
+
 This is the target PostgreSQL design for AI Mentor. It replaces the MVP schema in `backend/app/models/entities.py` (25 tables in `public`) with 97 tables in 12 domain schemas, built to scale to millions of learners and to feed analytics directly.
 
 | Document | Contents |
@@ -8,7 +10,7 @@ This is the target PostgreSQL design for AI Mentor. It replaces the MVP schema i
 | [erd.md](erd.md) | Mermaid ER diagrams per domain |
 | [migration-strategy.md](migration-strategy.md) | How to get from the current schema to this one without downtime |
 | [data-retention.md](data-retention.md) | How long each kind of data is kept and how deletion is enforced |
-| [ADR 0011](../adr/0011-target-database-architecture.md) | The decision record (proposed), including where it amends ADR 0003 |
+| [ADR 0011](../adr/0011-target-database-architecture.md) | The decision record (accepted 2026-10-13), including where it amends ADR 0003 |
 | [`backend/db/schema/`](../../backend/db/schema) | SQL DDL, applied in file order |
 | [`backend/db/tests/smoke.sql`](../../backend/db/tests/smoke.sql) | Executable checks of triggers, workflow, RLS, retention, and erasure |
 

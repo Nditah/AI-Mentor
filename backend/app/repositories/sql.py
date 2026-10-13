@@ -6,6 +6,7 @@ import uuid
 from datetime import UTC, date, datetime
 
 from sqlalchemy import func, select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, selectinload
 
 from app.models import (
@@ -16,6 +17,8 @@ from app.models import (
     CodeSubmission,
     ConceptMastery,
     Conversation,
+    DocumentChunk,
+    Embedding,
     Flashcard,
     KnowledgeAsset,
     LearningPath,
@@ -31,6 +34,7 @@ from app.models import (
     StudyPlan,
     User,
     UserAchievement,
+    WebhookEvent,
     XpEvent,
 )
 
@@ -51,26 +55,43 @@ class SqlRepository:
     def user_by_id(self, user_id: uuid.UUID) -> User | None:
         return self.session.get(User, user_id)
 
-    def upsert_user(
-        self, *, clerk_id: str, email: str, display_name: str, role: str | None
-    ) -> User:
+    def sync_identity(self, *, clerk_id: str, email: str | None, display_name: str | None) -> User:
+        """Create or refresh a user from a verified identity. Never assigns a role.
+
+        Roles change only through the audited admin action or the bootstrap CLI
+        (Security-Compliance SEC-02). Only fields that changed are written, so a
+        token refresh does not dirty the row on every request.
+        """
+
         user = self.user_by_clerk_id(clerk_id)
         if user is None:
             user = User(
                 clerk_id=clerk_id,
-                email=email,
-                display_name=display_name,
-                role=role or "student",
+                email=email or f"{clerk_id}@users.invalid",
+                display_name=display_name or "Learner",
+                role="student",
             )
             self.session.add(user)
-            self.session.flush()
+            try:
+                with self.session.begin_nested():
+                    self.session.flush()
+            except IntegrityError:
+                found = self.user_by_clerk_id(clerk_id)
+                if found is None:
+                    raise
+                return found
             return user
-        user.email = email
-        if display_name:
+        if email and user.email != email:
+            user.email = email
+        if display_name and user.display_name != display_name:
             user.display_name = display_name
-        if role:
-            user.role = role
         return user
+
+    def handle_taken(self, handle: str, user_id: uuid.UUID) -> bool:
+        found = self.session.scalar(
+            select(User.id).where(func.lower(User.handle) == handle.lower(), User.id != user_id)
+        )
+        return found is not None
 
     def list_users(self) -> list[User]:
         return list(self.session.scalars(select(User).order_by(User.created_at)).all())
@@ -230,21 +251,140 @@ class SqlRepository:
         ).all()
         return set(rows)
 
-    def xp_today(self, user_id: uuid.UUID, today: date) -> int:
-        start = datetime.combine(today, datetime.min.time(), tzinfo=UTC)
+    def xp_on(self, user_id: uuid.UUID, local_date: date) -> int:
         total = self.session.scalar(
             select(func.coalesce(func.sum(XpEvent.amount), 0)).where(
-                XpEvent.user_id == user_id, XpEvent.created_at >= start
+                XpEvent.user_id == user_id, XpEvent.local_date == local_date
             )
         )
         return int(total or 0)
 
+    def xp_awards_on(self, user_id: uuid.UUID, source_type: str, local_date: date) -> int:
+        return int(
+            self.session.scalar(
+                select(func.count())
+                .select_from(XpEvent)
+                .where(
+                    XpEvent.user_id == user_id,
+                    XpEvent.source_type == source_type,
+                    XpEvent.local_date == local_date,
+                )
+            )
+            or 0
+        )
+
+    def xp_event_exists(self, user_id: uuid.UUID, source_type: str, source_id: str) -> bool:
+        found = self.session.scalar(
+            select(XpEvent.id).where(
+                XpEvent.user_id == user_id,
+                XpEvent.source_type == source_type,
+                XpEvent.source_id == source_id,
+            )
+        )
+        return found is not None
+
+    def add_xp_event(
+        self,
+        *,
+        user_id: uuid.UUID,
+        source_type: str,
+        source_id: str,
+        requested: int,
+        granted: int,
+        local_date: date,
+    ) -> bool:
+        """Insert one ledger row. False when this source was already recorded."""
+
+        try:
+            with self.session.begin_nested():
+                self.session.add(
+                    XpEvent(
+                        user_id=user_id,
+                        source_type=source_type,
+                        source_id=source_id,
+                        requested_amount=requested,
+                        amount=granted,
+                        local_date=local_date,
+                    )
+                )
+                self.session.flush()
+        except IntegrityError:
+            return False
+        return True
+
     def leaderboard(self, limit: int = 10) -> list[User]:
+        """Learners only: staff, suspended accounts and anyone who opted out are left off."""
+
         return list(
             self.session.scalars(
-                select(User).order_by(User.xp.desc(), User.display_name).limit(limit)
+                select(User)
+                .where(
+                    User.role == "student",
+                    User.suspended.is_(False),
+                    User.leaderboard_opt_out.is_(False),
+                )
+                .order_by(User.xp.desc(), User.created_at)
+                .limit(limit)
             ).all()
         )
+
+    def record_webhook(self, provider: str, event_id: str, event_type: str) -> bool:
+        """Remember a provider event. False means it was already applied."""
+
+        try:
+            with self.session.begin_nested():
+                self.session.add(
+                    WebhookEvent(provider=provider, event_id=event_id, event_type=event_type)
+                )
+                self.session.flush()
+        except IntegrityError:
+            return False
+        return True
+
+    def learner_point_ids(self, user_id: uuid.UUID) -> list[str]:
+        rows = self.session.scalars(
+            select(Embedding.point_id)
+            .join(DocumentChunk, DocumentChunk.id == Embedding.document_chunk_id)
+            .join(ResearchDocument, ResearchDocument.id == DocumentChunk.document_id)
+            .where(ResearchDocument.user_id == user_id)
+        ).all()
+        return list(rows)
+
+    def erase_user(self, user: User) -> None:
+        """Delete the account row. Learner data cascades; staff-authored rows keep a null author."""
+
+        self.session.delete(user)
+        self.session.flush()
+
+    def document_chunks(self, ids: list[str]) -> list[DocumentChunk]:
+        if not ids:
+            return []
+        keys = [uuid.UUID(value) for value in ids]
+        return list(
+            self.session.scalars(select(DocumentChunk).where(DocumentChunk.id.in_(keys))).all()
+        )
+
+    def asset_chunks(self, ids: list[str]) -> list[tuple[AssetChunk, KnowledgeAsset]]:
+        if not ids:
+            return []
+        keys = [uuid.UUID(value) for value in ids]
+        rows = self.session.execute(
+            select(AssetChunk, KnowledgeAsset)
+            .join(KnowledgeAsset, KnowledgeAsset.id == AssetChunk.asset_id)
+            .where(AssetChunk.id.in_(keys), KnowledgeAsset.state == "published")
+        ).all()
+        return [(chunk, asset) for chunk, asset in rows]
+
+    def asset_point_ids(self, asset_id: uuid.UUID) -> list[str]:
+        rows = self.session.scalars(
+            select(Embedding.point_id)
+            .join(AssetChunk, AssetChunk.id == Embedding.asset_chunk_id)
+            .where(AssetChunk.asset_id == asset_id)
+        ).all()
+        return list(rows)
+
+    def quiz_result(self, quiz_id: uuid.UUID) -> QuizResult | None:
+        return self.session.scalar(select(QuizResult).where(QuizResult.quiz_id == quiz_id))
 
     def study_plans(self, user_id: uuid.UUID) -> list[StudyPlan]:
         return list(
@@ -382,19 +522,19 @@ class SqlRepository:
         found = self.session.scalar(select(KnowledgeAsset.id).where(KnowledgeAsset.slug == slug))
         return found is not None
 
-    def replace_chunks(self, asset: KnowledgeAsset, pieces: list[str]) -> None:
+    def replace_chunks(self, asset: KnowledgeAsset, pieces: list[str]) -> list[AssetChunk]:
         for chunk in list(asset.chunks):
-            self.session.delete(chunk)
+            asset.chunks.remove(chunk)
         self.session.flush()
-        for ordinal, piece in enumerate(pieces):
-            self.session.add(
-                AssetChunk(
-                    asset_id=asset.id,
-                    ordinal=ordinal,
-                    text=piece,
-                    citation_label=f"[{ordinal + 1}]",
-                )
+        created = [
+            AssetChunk(
+                asset_id=asset.id, ordinal=ordinal, text=piece, citation_label=f"#{ordinal + 1}"
             )
+            for ordinal, piece in enumerate(pieces)
+        ]
+        self.session.add_all(created)
+        self.session.flush()
+        return created
 
     def snapshot(self, asset: KnowledgeAsset, editor_id: uuid.UUID, note: str) -> None:
         self.session.add(
@@ -438,13 +578,7 @@ class SqlRepository:
 
     def audit_events(self, limit: int = 100) -> list[AuditEvent]:
         return list(
-            self.session.scalars(select(AuditEvent).order_by(AuditEvent.created_at.desc()).limit(limit)).all()
+            self.session.scalars(
+                select(AuditEvent).order_by(AuditEvent.created_at.desc()).limit(limit)
+            ).all()
         )
-
-    def published_chunks(self) -> list[tuple[str, str, str]]:
-        rows = self.session.execute(
-            select(AssetChunk.citation_label, AssetChunk.text, KnowledgeAsset.title)
-            .join(KnowledgeAsset, KnowledgeAsset.id == AssetChunk.asset_id)
-            .where(KnowledgeAsset.state == "published")
-        ).all()
-        return [(label, text, title) for label, text, title in rows]

@@ -1,10 +1,10 @@
-def test_health_reports_curriculum_mode(client) -> None:
+def test_health_reveals_no_configuration(client) -> None:
     response = client.get("/health")
     assert response.status_code == 200
-    body = response.json()
-    assert body["status"] == "ok"
-    assert body["llm"] == "curriculum"
-    assert body["vector_store"] == "local-hash"
+    assert response.json() == {"status": "ok"}
+    ready = client.get("/ready")
+    assert ready.status_code == 200
+    assert ready.json() == {"status": "ready"}
 
 
 def test_socratic_opener_and_dashboard(student) -> None:
@@ -97,8 +97,7 @@ def test_lab_runs_gridworld_and_rejects_os(student) -> None:
         json={
             "project_slug": "tabular-q-learning",
             "code": (
-                "env = GridWorld()\nenv.reset()\n"
-                "state, reward, done = env.step(1)\nprint(state)\n"
+                "env = GridWorld()\nenv.reset()\nstate, reward, done = env.step(1)\nprint(state)\n"
             ),
         },
     )

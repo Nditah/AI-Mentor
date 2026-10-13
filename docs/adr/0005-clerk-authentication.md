@@ -1,6 +1,6 @@
 # ADR 0005 — Clerk for authentication
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 
 ## Context
@@ -56,3 +56,17 @@ Public routes stay public: health, the path list, the knowledge graph, lab proje
 - Implement the user-deleted webhook as a defined retention action, with a decision on whether progress is erased or detached.
 - Add staff SSO through Clerk enterprise or a separate Entra tenant if operators need it. Learner login stays on Clerk.
 - Protect studio routes with `clerkMiddleware` before the first production cut.
+
+## Amendment — 2026-10-13 hardening
+
+This replaces the parts of the decision above that no longer hold.
+
+- **Roles are never read from a token or webhook.** The "copy a role from token metadata when present" rule is withdrawn: any claim an end user can influence must not grant privilege. The role of record is `users.role`, changed only by an admin in the portal (audited with previous role, new role, and reason) or by `python -m app.cli grant-admin` for the first admin (audited `via: cli`). An admin cannot change their own role, and the last admin cannot be demoted (409).
+- **Token checks:** RS256 against the JWKS (5 s timeout, one-hour key cache), `iss`, `exp`, `nbf`, `iat`, and `azp` in `CLERK_AUTHORIZED_PARTIES`, plus `aud` when `CLERK_AUDIENCE` is set, with `JWT_LEEWAY_SECONDS` skew. An unreachable JWKS is 503; a bad token is 401 with `WWW-Authenticate: Bearer`.
+- **Staff MFA:** in production, instructor and admin calls require a verified second factor (`fva`), otherwise 403. Suspended accounts are 403.
+- **Identity sync:** first sight creates a `student`. Afterwards only email and name are refreshed, and only when they changed.
+- **Clerk webhooks:** `user.created` and `user.updated` refresh email and name. `user.deleted` erases the learner (vectors, Stripe customer anonymised, rows deleted, audited by subject hash). Each `svix-id` is applied once. The open item in the consequences below is closed.
+- **Erasure from the product:** `DELETE /api/v1/me` erases the account, including the Clerk user via `CLERK_SECRET_KEY`. `GET /api/v1/me/export` returns the learner's data.
+- **Frontends:** both apps mount `ClerkProvider` and protect routes with `clerkMiddleware` when a publishable key is set, send `Authorization: Bearer`, and refuse to build for production with dev auth on or without a key. The future consideration about `clerkMiddleware` is done.
+- **Demo accounts** are seeded only in development and test.
+- The leaderboard shows a handle or a stable pseudonym, never the display name (SRS GAM-005).

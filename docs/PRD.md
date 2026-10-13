@@ -1,5 +1,7 @@
 # AI Mentor — Product Requirements Document
 
+> **v2.0 amendment (13 October 2026).** AI Mentor is now a five-application, multi-tenant learning ecosystem. This PRD stays normative for Learner App features F1–F27, the metrics in sections 11–14, and consumer monetisation in section 15. Sections 2 (vision), 5 (personas), 9–10 (scope), and 18–19 (roadmap and future vision) are superseded by [platform/01-product-vision.md](platform/01-product-vision.md), [platform/02-prd.md](platform/02-prd.md), and [platform/15-roadmap.md](platform/15-roadmap.md). Terms follow [platform/README.md](platform/README.md).
+
 | | |
 | --- | --- |
 | Product | AI Mentor |

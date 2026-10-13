@@ -1,6 +1,6 @@
 # ADR 0001 — Next.js for the studio
 
-- Status: Accepted, amended by [ADR 0012](0012-separate-admin-app.md)
+- Status: Accepted (amended 2026-10-13), amended by [ADR 0012](0012-separate-admin-app.md)
 - Date: 2026-10-13
 
 > Amendment (ADR 0012): admin screens moved out of the studio into a separate Next.js app in `admin/` on its own subdomain. Both apps keep the stack chosen here. Read "admin" below as historical.
@@ -48,3 +48,7 @@ Clerk’s React SDK is the intended production session. The current build runs w
 - Mount `ClerkProvider` and `clerkMiddleware` on studio routes, then remove the development session switcher from public builds.
 - Stream tutor tokens only after the socratic policy still owns the first turns. See ADR 0010.
 - Add a shared rate-limit and request-id header display when Front Door sits in front of the API. See ADR 0006.
+
+## Amendment — 2026-10-13
+
+The apps moved to Next.js 16.4 to clear SEC-16. Next 16 renames `middleware.ts` to `proxy.ts`; both apps' Clerk protection and per-request CSP nonce now live there. Request APIs (`headers()`, route `params`) were already awaited, so no page changed.

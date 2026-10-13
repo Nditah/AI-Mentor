@@ -1,5 +1,7 @@
 # AI Mentor — System Architecture Document (SAD)
 
+> **v2.0 amendment (13 October 2026).** Sections 8 (AI services), 11 (RAG), and 13–17 (security, scalability, monitoring, disaster recovery, deployment) remain normative except where amended. Sections 1–5, 9, 10, and 12 are extended by [platform/06-system-architecture.md](platform/06-system-architecture.md) (five applications, tenancy, bounded contexts, events) and [platform/13-knowledge-management-architecture.md](platform/13-knowledge-management-architecture.md). Decisions are in [ADR 0013–0027](adr/README.md).
+
 | Field | Value |
 | --- | --- |
 | Document | System Architecture Document |
@@ -81,7 +83,7 @@ flowchart LR
     WRK --> BLOB
     API --> LLM["Azure OpenAI<br/>+ fallback providers"]
     WRK --> LLM
-    API --> SBX["Code sandbox<br/>ACA dynamic sessions"]
+    API --> SBX["Code sandbox<br/>gVisor runner pool"]
     API -.-> CLERK["Clerk"]
     API -.-> STRIPE["Stripe"]
 ```
@@ -98,7 +100,7 @@ The full ADR list is in Appendix 18.2. Summary:
 | ADR-04 | PostgreSQL is the system of record. Qdrant holds only derived vectors. | Qdrant can be rebuilt from Blob and PostgreSQL. This keeps DR simple. |
 | ADR-05 | Qdrant Cloud on Azure in the same region (managed) | Avoids operating a stateful vector cluster. Self-hosting on AKS is the fallback (ADR-05b). |
 | ADR-06 | Azure OpenAI is the primary model provider. OpenAI, Anthropic, and Gemini are fallbacks behind the existing `ProviderRouter`. | Data residency, private networking, and quota under one contract. Fallback keeps the tutor available. |
-| ADR-07 | Azure Container Apps dynamic sessions for learner code | Hyper-V isolated, no egress, per-session lifetime. The current subprocess runner is not a security boundary. |
+| ADR-07 | ~~Azure Container Apps dynamic sessions for learner code~~ Superseded by [ADR 0028](adr/0028-sandbox-runner-pool.md): a gVisor (`runsc`) runner pool the platform operates, Firecracker as fallback | One ephemeral container per run, no egress, separate subnet, no credentials. Meets SRS SEC-051. The current subprocess runner is not a security boundary. |
 | ADR-08 | Service Bus for durable jobs, Redis for rate limits, cache, and leaderboards | Ingestion and content generation must survive restarts. Leaderboards need sorted sets. |
 | ADR-09 | Server-Sent Events for tutor streaming | One-way token stream, works through Front Door, and needs no WebSocket infrastructure. |
 | ADR-10 | Clerk for identity. PostgreSQL `users` mirrors Clerk via webhook and JIT upsert. | Already integrated in `app/core/security.py` and `/webhooks/clerk`. |
@@ -107,21 +109,21 @@ The full ADR list is in Appendix 18.2. Summary:
 
 These are the gaps between the current codebase and this architecture. Each row is a work item. Appendix 18.1 orders them.
 
-| Area | Current state (code) | Required change | Section |
-| --- | --- | --- | --- |
-| Vector store | `engine.ingest` records `qdrant_point_id` but never upserts to Qdrant. `engine.analyze` re-embeds every chunk per request. | Add a `VectorStore` port with a Qdrant adapter. Embed once on ingest. Search Qdrant on analyze and tutor turns. | 11 |
-| Ingestion | Synchronous inside the request, 10 MB limit, text formats only | Upload to Blob, enqueue a job, parse in the worker, report status | 9, 11 |
-| Rate limiting | `SlidingWindowLimiter` is in-process and keyed by `request.client.host` | Redis token bucket keyed by user ID, with `X-Azure-ClientIP` for anonymous requests. Behind Front Door every user currently shares one IP. | 12 |
-| Streaming | `POST /chat` returns the whole reply | Add `POST /chat/stream` (SSE) | 6.3, 12 |
-| Concurrency | Handlers are `def` with sync SQLAlchemy and sync LLM SDKs. These saturate the 40-thread pool. | Make the AI paths `async def` with async SDK clients. DB stays sync in the threadpool until profiling says otherwise. | 14 |
-| Sandbox | `subprocess.run` with an AST allow-list, 3 s timeout | Keep the AST check as the first filter. Execute in ACA dynamic sessions. | 13.8 |
-| Frontend auth | `@clerk/nextjs` is installed but unused. `lib/api.ts` sends only `X-Dev-User-Id`. | Add `ClerkProvider` and `middleware.ts`, and attach `Authorization: Bearer` from `getToken()` | 13.2 |
-| JWT checks | `verify_aud: False`, no `azp` check | Validate `azp` against allowed origins, with 5 s leeway | 13.2 |
-| Migrations | API container runs `alembic upgrade head` on start | Separate ACA Job runs migrations before the revision shift | 17.6 |
-| Gamification | Leaderboard is `ORDER BY xp` on `users`. No country or friends. | Add `country_code`, friendships, Redis ZSETs, seasons, daily challenges | 10 |
-| Knowledge admin | Curriculum is code (`domain/catalog.py`). No asset, version, or workflow tables. | Add knowledge tables, workflow, and admin API. The catalog becomes the seed. | 9 |
-| i18n | English only | `next-intl` UI and translation tables keyed by concept slug | 8.6, 9.6 |
-| Hosting | README says Vercel plus App Service | Container Apps for all workloads | 17 |
+| Area | Current state (code) | Required change | Section | Status (2026-10-13) |
+| --- | --- | --- | --- | --- |
+| Vector store | `engine.ingest` records `qdrant_point_id` but never upserts to Qdrant. `engine.analyze` re-embeds every chunk per request. | Add a `VectorStore` port with a Qdrant adapter. Embed once on ingest. Search Qdrant on analyze and tutor turns. | 11 | **Done.** `VectorStore` port with Qdrant and local adapters; embed once; filtered search for documents and the published library. |
+| Ingestion | Synchronous inside the request, 10 MB limit, text formats only | Upload to Blob, enqueue a job, parse in the worker, report status | 9, 11 | Open (SEC-13). |
+| Rate limiting | `SlidingWindowLimiter` is in-process and keyed by `request.client.host` | Redis token bucket keyed by user ID, with `X-Azure-ClientIP` for anonymous requests. Behind Front Door every user currently shares one IP. | 12 | **Done**, with Redis fixed windows per user and per address. The address comes from `X-Forwarded-For` via Uvicorn's trusted-proxy list (`FORWARDED_ALLOW_IPS`), not `X-Azure-ClientIP`. |
+| Streaming | `POST /chat` returns the whole reply | Add `POST /chat/stream` (SSE) | 6.3, 12 | Open. |
+| Concurrency | Handlers are `def` with sync SQLAlchemy and sync LLM SDKs. These saturate the 40-thread pool. | Make the AI paths `async def` with async SDK clients. DB stays sync in the threadpool until profiling says otherwise. | 14 | Open. Model calls now have a 20 s timeout and one retry, which bounds thread hold time. |
+| Sandbox | `subprocess.run` with an AST allow-list, 3 s timeout | Keep the AST check as the first filter. Execute in the gVisor runner pool (ADR 0028). | 13.8 | Open (SEC-01). The lab is off in production until this ships. |
+| Frontend auth | `@clerk/nextjs` is installed but unused. `lib/api.ts` sends only `X-Dev-User-Id`. | Add `ClerkProvider` and `proxy.ts`, and attach `Authorization: Bearer` from `getToken()` | 13.2 | **Done** in the studio and the admin portal. |
+| JWT checks | `verify_aud: False`, no `azp` check | Validate `azp` against allowed origins, with 5 s leeway | 13.2 | **Done.** `azp` required, `aud` when configured, leeway `JWT_LEEWAY_SECONDS` (5). |
+| Migrations | API container runs `alembic upgrade head` on start | Separate ACA Job runs migrations before the revision shift | 17.6 | **Done.** `python -m app.cli migrate` job; the image only serves. |
+| Gamification | Leaderboard is `ORDER BY xp` on `users`. No country or friends. | Add `country_code`, friendships, Redis ZSETs, seasons, daily challenges | 10 | Partly done: `country_code`, opt-out, pseudonyms, idempotent XP ledger. Friends, ZSETs, seasons, and challenges are open. |
+| Knowledge admin | Curriculum is code (`domain/catalog.py`). No asset, version, or workflow tables. | Add knowledge tables, workflow, and admin API. The catalog becomes the seed. | 9 | **Done** for assets, versions, workflow, and the admin API. The student resource browser is open. |
+| i18n | English only | `next-intl` UI and translation tables keyed by concept slug | 8.6, 9.6 | Open. `users.locale` is stored. |
+| Hosting | README says Vercel plus App Service | Container Apps for all workloads | 17 | **Done** in the docs. Region decided: West Europe, recovery North Europe. |
 
 ---
 
@@ -208,11 +210,11 @@ flowchart TB
     end
 
     subgraph ACA["Container Apps environment (VNet-integrated)"]
-        WEB["web<br/>Next.js 15 standalone<br/>SSR, RSC, Clerk middleware"]
+        WEB["web<br/>Next.js 16 standalone<br/>SSR, RSC, Clerk middleware"]
         API["api<br/>FastAPI, Uvicorn<br/>REST + SSE /api/v1"]
         WRK["worker<br/>Python, Service Bus consumer<br/>ingestion, generation, reports"]
         JOBS["jobs<br/>ACA scheduled jobs<br/>daily challenges, leaderboard rebuild, migrations"]
-        SBX["sandbox pool<br/>ACA dynamic sessions<br/>Python code interpreter"]
+        SBX["sandbox pool<br/>gVisor runsc, one container per run<br/>Python"]
     end
 
     subgraph Data["Data services (private endpoints)"]
@@ -259,12 +261,12 @@ flowchart TB
 
 | Container | Technology | Azure service | Responsibility | State | Scale |
 | --- | --- | --- | --- | --- | --- |
-| `web` | Next.js 15 App Router, TypeScript, Tailwind, shadcn/ui, TanStack Query, Zustand | Container Apps | Learner UI, SSR, i18n, Clerk session | Stateless | 2–20 replicas, HTTP concurrency |
+| `web` | Next.js 16 App Router, TypeScript, Tailwind, shadcn/ui, TanStack Query, Zustand | Container Apps | Learner UI, SSR, i18n, Clerk session | Stateless | 2–20 replicas, HTTP concurrency |
 | `admin-web` | Same stack as `web` (ADR 0012), source in `admin/` | Same host as `web`, separate deployment at `admin.<domain>` | Admin portal: library, review, curriculum, taxonomy, graph, generation, moderation, users, configuration, audit | Stateless | 1–3 replicas |
 | `api` | FastAPI, Python 3.12, Pydantic v2, SQLAlchemy 2 | Container Apps | Auth, gateway policies, domain orchestration, SSE | Stateless | 2–40 replicas, HTTP concurrency |
 | `worker` | Python 3.12, same image as `api`, `python -m app.worker` | Container Apps | Ingestion, embedding, AI content generation, reports, outbox relay | Stateless | 0–20 replicas, queue depth |
 | `jobs` | Same image, `python -m app.jobs <name>` | Container Apps Jobs | Cron and one-off tasks | Stateless | Scheduled |
-| `sandbox` | Python code interpreter session pool | ACA dynamic sessions | Run learner code with no egress | Ephemeral | Pool-managed |
+| `sandbox` | gVisor runner pool (ADR 0028) | AKS node pool or VM scale set with `runsc` | Run learner code with no egress | Ephemeral | Pool-managed |
 | PostgreSQL | v16 with `pgcrypto`, `ltree`, `pg_trgm` | Flexible Server | System of record | Durable | Vertical, plus read replica |
 | Redis | Redis 7 | Azure Managed Redis | Rate limits, cache, leaderboards, SSE cancel flags | Rebuildable | Vertical, clustered |
 | Qdrant | v1.13+ | Qdrant Cloud (Azure region) | Dense and sparse vectors | Rebuildable | Shards and replicas |
@@ -403,7 +405,7 @@ flowchart TB
         I18N["next-intl<br/>en, fr, es messages"]
     end
 
-    MW["middleware.ts<br/>clerkMiddleware, locale"]
+    MW["proxy.ts<br/>clerkMiddleware, locale"]
 
     MW --> AppRouter
     ST --> CHAT
@@ -421,7 +423,7 @@ Frontend rules:
 
 - Server Components fetch with `auth().getToken()` and call the API over the internal Container Apps FQDN. Client components call `/api/v1/*` on the same origin.
 - `lib/api-types.ts` is generated with `openapi-typescript` from `/openapi.json` in CI. A schema change that breaks the client fails the build.
-- The admin portal is a separate app in `admin/` (ADR 0012) with the same stack and design tokens. Its `middleware.ts` requires a Clerk session with MFA on every route and gates navigation by the `role` claim. The API enforces the same checks, so the UI gate is only convenience. The studio holds no admin views.
+- The admin portal is a separate app in `admin/` (ADR 0012) with the same stack and design tokens. Its `proxy.ts` requires a Clerk session with MFA on every route and gates navigation by the `role` claim. The API enforces the same checks, so the UI gate is only convenience. The studio holds no admin views.
 - Mermaid and KaTeX render lesson content. Rendered HTML is sanitised with `rehype-sanitize`.
 
 ---
@@ -596,7 +598,7 @@ sequenceDiagram
     actor L as Learner
     participant API as api
     participant P as domain.sandbox
-    participant S as ACA dynamic session
+    participant S as gVisor runner
     participant CA as CodingAgent
     participant DB as PostgreSQL
 
@@ -605,8 +607,8 @@ sequenceDiagram
     alt Policy violation
         API-->>L: status=rejected, reason
     end
-    API->>S: POST /code/execute identifier=user_id, timeout 10 s
-    Note over S: Hyper-V isolated, no network egress,<br/>session destroyed after 5 min idle
+    API->>S: POST /run (source, project), timeout 3 s
+    Note over S: fresh runsc container, no network egress,<br/>destroyed after the run
     S-->>API: stdout, stderr, exit status
     API->>API: Compare stdout to project expected output
     opt Review requested
@@ -1730,7 +1732,7 @@ flowchart TB
 | Session token | Clerk session JWT, RS256, 60 s lifetime, refreshed by the Clerk SDK |
 | Custom claims | Session token template: `{"email": "{{user.primary_email_address}}", "name": "{{user.full_name}}", "metadata": "{{user.public_metadata}}"}` |
 | Backend verification | `PyJWKClient` with JWKS cached 10 min. Checks: `alg=RS256`, `iss == CLERK_ISSUER`, `azp ∈ ALLOWED_AZP` (new setting, the production origin), `exp` and `nbf` with 5 s leeway, `sub` present. Replace `verify_aud: False` with an explicit `azp` check, since Clerk session tokens have no `aud`. |
-| Frontend | `ClerkProvider` in `app/layout.tsx`. `clerkMiddleware()` in the studio's `middleware.ts` protects `/(studio)` and `/onboarding`; the admin app's `middleware.ts` protects every route. Both apps use the same Clerk production instance on subdomains of one root domain. `lib/api.ts` reads the token with `useAuth().getToken()` (client) or `auth().getToken()` (server) and sets `Authorization: Bearer`. |
+| Frontend | `ClerkProvider` in `app/layout.tsx`. `clerkMiddleware()` in the studio's `proxy.ts` protects `/(studio)` and `/onboarding`; the admin app's `proxy.ts` protects every route. Both apps use the same Clerk production instance on subdomains of one root domain. `lib/api.ts` reads the token with `useAuth().getToken()` (client) or `auth().getToken()` (server) and sets `Authorization: Bearer`. |
 | Dev auth | `X-Dev-User-Id` only when `resolved_dev_auth`. `Settings.production_guard` already refuses it in production. Keep that guard and add a CI test for it. |
 | Service-to-service | Managed identities (user-assigned `id-api`, `id-worker`, `id-jobs`) to PostgreSQL (Entra auth), Blob, Key Vault, Service Bus, and Azure OpenAI. No connection-string secrets for Azure services. |
 | Webhooks | Clerk via Svix signature (existing). Stripe via `construct_event` (existing). Add a dedupe table `webhook_events(provider, event_id) UNIQUE` and reject timestamps older than 5 min. |
@@ -1791,13 +1793,13 @@ flowchart TB
 | Layer | Control |
 | --- | --- |
 | 1. Policy | `domain/sandbox.validate_source` AST allow-list (existing): no imports outside the allow-list, no `exec`, `eval`, dunder access, or file I/O |
-| 2. Isolation | ACA dynamic sessions, Python code-interpreter pool, Hyper-V isolation per session |
-| 3. Network | Egress disabled on the pool |
+| 2. Isolation | gVisor `runsc` runner pool (ADR 0028), one ephemeral container per run; Firecracker microVMs as fallback |
+| 3. Network | No egress; own subnet with no route to data stores or the API subnet; no managed identity |
 | 4. Resources | 10 s execution timeout, 1 vCPU, 2 GiB, 5 min idle cooldown, output truncated to 8,000 characters (existing) |
-| 5. Identity | Session identifier = `sha256(user_id)`, so learners never share a session |
+| 5. Identity | A fresh container per run, so learners never share state |
 | 6. Results | Pass or fail is decided by the API comparing expected output, never by code inside the sandbox |
 
-`services/sandbox_runner.execute_restricted` (local subprocess) remains for development and tests only. Startup fails in production if `SANDBOX_POOL_ENDPOINT` is unset.
+`services/sandbox_runner.execute_restricted` (local subprocess) remains for development and tests only. Production refuses `LAB_ENABLED=true` unless `SANDBOX_RUNNER_URL` is set.
 
 ### 13.9 Threat model (STRIDE summary)
 
@@ -1809,7 +1811,7 @@ flowchart TB
 | Information disclosure: cross-tenant document retrieval | Papers | Ownership check + mandatory `owner_id` filter + tenant index |
 | Denial of service: LLM cost exhaustion | Budget | Token budgets, rate classes, WAF, spend alerts |
 | Elevation of privilege: role claim injection | Admin | DB-authoritative role. `public_metadata` writable only by the backend. |
-| Sandbox escape | Infrastructure | Hyper-V isolation, no egress, no credentials in the session |
+| Sandbox escape | Infrastructure | gVisor user-space kernel, no egress, separate subnet, no credentials in the container |
 | Injection through uploaded content | Tutor integrity | Fencing, document prompt shields, isolation from curated retrieval |
 
 ---
@@ -2160,7 +2162,7 @@ infrastructure/
 │       ├── containerapps-env.bicep    # environment, workload profiles, Log Analytics link
 │       ├── containerapp.bicep         # generic app: image, env, secrets (KV refs), scale rules, probes
 │       ├── containerapp-job.bicep     # cron / manual jobs
-│       ├── sessions-pool.bicep        # dynamic sessions Python pool, egress disabled
+│       ├── sandbox-pool.bicep         # gVisor runner pool (ADR 0028), no egress
 │       ├── postgres.bicep             # Flexible Server, HA, Entra auth, extensions, PgBouncer, replica
 │       ├── redis.bicep                # Azure Managed Redis
 │       ├── storage.bicep              # GZRS, containers, versioning, soft delete, Defender
@@ -2347,12 +2349,12 @@ The work items are ordered so that each phase can ship on its own. Durations ass
 | Phase | Weeks | Work items |
 | --- | --- | --- |
 | **0. Foundations** | 1–2 | Bicep modules for staging. Container Apps for web and API. Front Door. Key Vault + managed identities. CI pipeline with tests, contract check, and image build. Migration job. Health endpoint split. Remove migrations from the API `CMD`. |
-| **1. Identity and gateway** | 2–3 | Clerk in the frontend (`ClerkProvider`, `middleware.ts`, Bearer tokens). `azp` validation. Redis rate limiting by user ID. Problem+json errors. Request context and App Insights. `country_code` and preferences. Onboarding endpoints. |
+| **1. Identity and gateway** | 2–3 | Clerk in the frontend (`ClerkProvider`, `proxy.ts`, Bearer tokens). `azp` validation. Redis rate limiting by user ID. Problem+json errors. Request context and App Insights. `country_code` and preferences. Onboarding endpoints. |
 | **2. Retrieval for real** | 3–5 | `VectorStore` port + Qdrant adapter. Collections bootstrap job. Blob uploads with SAS. Service Bus + worker. Ingestion pipeline (PDF, DOCX, PPTX, MD, URL). Hybrid search + rerank. Tutor and research use Qdrant. Retrieval logs. Retrieval eval suite. |
 | **3. Streaming tutor** | 4–6 | Async `ProviderRouter` with Azure OpenAI, tiers, breaker, and budgets. `/chat/stream` SSE. `ChatStream` component with a citations panel. Prompt registry with style, personality, and depth blocks. Content Safety. Langfuse tracing with prompt versions. |
 | **4. Knowledge management** | 5–8 | KMS tables and workflow state machine. Admin API and portal (library, upload, review queue, diff, taxonomy, curriculum builder). Catalog seeding into the KMS. AI content generation jobs. |
 | **5. Gamification** | 6–9 | XP ledger idempotency and outbox. Redis leaderboards (global, country, friends, weekly). Titles. Daily challenge job and endpoints. Season close. Anti-abuse job. |
-| **6. Hardening and launch** | 9–12 | ACA dynamic sessions sandbox. i18n (fr, es) UI and content translation workflow. DSAR export and delete. Alerts and SLO dashboards. Load test at 2× MVP. DR drill (PITR + Qdrant restore). Pen test. Production go-live. |
+| **6. Hardening and launch** | 9–12 | gVisor runner pool sandbox (ADR 0028). i18n (fr, es) UI and content translation workflow. DSAR export and delete. Alerts and SLO dashboards. Load test at 2× MVP. DR drill (PITR + Qdrant restore). Pen test. Production go-live. |
 | **Post-MVP** | — | Warm standby region, PTU, voice, notebooks pool, mobile apps, APIM for partners |
 
 ### 18.2 Architecture decision records
@@ -2367,7 +2369,7 @@ The files in [adr/](adr/README.md) are the accepted records for the running syst
 | ADR-04 | PostgreSQL as the system of record, Qdrant derived | Accepted |
 | ADR-05 | Qdrant Cloud on Azure. ADR-05b: self-hosted on AKS if a private-network requirement appears. | Accepted |
 | ADR-06 | Azure OpenAI primary with multi-provider fallback | Accepted |
-| ADR-07 | ACA dynamic sessions for code execution | Accepted |
+| ADR-07 | ACA dynamic sessions for code execution | Superseded by ADR 0028 (gVisor runner pool) |
 | ADR-08 | Service Bus for jobs, Redis for ephemeral state | Accepted |
 | ADR-09 | SSE for streaming | Accepted |
 | ADR-10 | Clerk identity with database-authoritative roles | Accepted |

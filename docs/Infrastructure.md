@@ -1,12 +1,14 @@
 # Deployment and infrastructure specification
 
+> **v2.0 amendment (13 October 2026).** This layout covers two frontends. The target is five Vercel projects (`learn.`, `teach.`, `org.`, `admin.`, `studio.`) on one API, per [ADR 0013](adr/0013-five-applications-shared-platform.md) and [platform/06-system-architecture.md](platform/06-system-architecture.md). Updating this document is follow-up F-03.
+
 AI Mentor runs as two deployable parts: a Next.js studio and one API container. PostgreSQL is the system of record. Qdrant is a derived index that can be rebuilt from `document_chunks`. Clerk owns identity. Stripe owns subscriptions. Model providers are optional; with no key the curriculum policy still teaches.
 
 This document is the target platform that matches the accepted hosting decision: the studio on Vercel, the API on Azure Container Apps. The repository already contains the local Compose stack, both Dockerfiles, the CI workflow, and the GHCR publish workflow. Azure resources, the migration job, and the production telemetry exporter are specified here and are not provisioned by the current workflows.
 
 [SystemArchitecture.md](SystemArchitecture.md) section 17 describes a later layout that also hosts Next.js on Container Apps. Until [ADR 0006](adr/0006-azure-container-apps.md) is superseded, this file is the hosting specification.
 
-Primary region: **UK South**. Recovery region: **North Europe**. One API image. AWS may pull that image later. There is no second backend codebase.
+Primary region: **West Europe**. Recovery region: **North Europe**. Both are in the EU, as SRS CON-002 and CMP-007 require. One API image. AWS may pull that image later. There is no second backend codebase.
 
 ## 1. Infrastructure overview
 
@@ -67,7 +69,7 @@ Two resource groups: `rg-mentor-stg` and `rg-mentor-prd`. Each group holds its o
 
 ```mermaid
 flowchart TB
-  subgraph uks[UK South]
+  subgraph uks[West Europe]
     subgraph vnet[vnet-mentor 10.20.0.0/16]
       aca[snet-aca 10.20.0.0/23]
       pe[snet-private 10.20.2.0/24]
@@ -110,13 +112,14 @@ API container shape:
 | CPU / memory | 0.5 vCPU, 1 Gi | 1 vCPU, 2 Gi |
 | Replicas | 0–1 | 1–4 |
 | Ingress target port | 8000 | 8000 |
-| Probe | `GET /health` | `GET /health` |
+| Liveness probe | `GET /health` | `GET /health` |
+| Readiness probe | `GET /ready` | `GET /ready` |
 | User | `mentor` uid 10001 | `mentor` uid 10001 |
 | Revision mode | Single | Single |
 
-`/health` runs `select 1` and reports `env`, `vector_store`, and whether a model key is present (`curriculum` or `external`). A database outage fails the probe and Front Door stops sending traffic.
+`/health` returns `{"status":"ok"}` while the process serves and reveals no configuration. `/ready` runs `select 1` and pings Qdrant and Redis; any failure is a 503, and the revision stops receiving traffic until it recovers.
 
-The coding lab forks `python -I` inside this container. Memory headroom is why production is 2 Gi. The sandbox timeout is 3 seconds and output is truncated. That is an application limit, not a microVM boundary.
+The coding lab would fork `python -I` inside this container. That is an application limit, not a microVM boundary, so production refuses `LAB_ENABLED=true` until the isolated runner exists (Security-Compliance SEC-01).
 
 ## 3. Docker strategy
 
@@ -135,9 +138,9 @@ API image rules:
 - Tag is the git tag (`v1.4.0`) plus the commit SHA. Tags are immutable. `latest` is not a deploy pointer.
 - Build with Buildx on GitHub-hosted runners. The workflow that exists today pushes to GHCR on `v*` tags and on `workflow_dispatch`.
 
-Local Compose (`infrastructure/compose.yaml`) is a development stack: Postgres `mentor`/`mentor`, Qdrant, and the API with `APP_ENV=development` and `DEV_AUTH=true`. It is not a production template. `make up` builds and starts it. `make down` stops it.
+Local Compose (`infrastructure/compose.yaml`) is a development stack: Postgres `mentor`/`mentor`, Qdrant, Redis, a one-off migrate service, and the API with `APP_ENV=development` and `DEV_AUTH=true`, all bound to `127.0.0.1`. It is not a production template. `make up` builds and starts it. `make down` stops it.
 
-The current image command runs `alembic upgrade head` and then Uvicorn. That is correct for one replica. Section 7 moves migrations to a job before the replica count rises above one, so two replicas cannot migrate at the same time.
+The image command starts Uvicorn only, with `--proxy-headers --forwarded-allow-ips "$FORWARDED_ALLOW_IPS"`; set that variable to the Container Apps ingress range. Migrations and seed run from the same image as `python -m app.cli migrate` in the `caj-mentor-migrate` job (section 7), so replicas never race to migrate.
 
 The studio image is a Next.js standalone build on Node 22, also uid 10001. Vercel builds from the same `frontend/` directory and does not need that image.
 
@@ -176,7 +179,7 @@ Target promotion, added when the Azure subscription is connected:
 
 1. GitHub Environment `staging` uses OIDC to Azure. No long-lived client secret.
 2. On a published tag, a migration job runs `alembic upgrade head` against staging.
-3. Container Apps updates the staging revision to that digest and waits for `/health`.
+3. Container Apps updates the staging revision to that digest and waits for `/ready`.
 4. GitHub Environment `production` requires one reviewer.
 5. The same digest is promoted to production after the migration job succeeds there. The staging image is not rebuilt.
 
@@ -192,10 +195,10 @@ sequenceDiagram
   Dev->>GH: Push tag v1.4.0
   GH->>GH: ci.yml on the tagged commit
   GH->>Reg: Push image digest
-  GH->>Job: alembic upgrade head
+  GH->>Job: python -m app.cli migrate
   Job-->>GH: Migration applied
   GH->>ACA: New revision at that digest
-  ACA->>ACA: GET /health
+  ACA->>ACA: GET /ready
   ACA->>FD: Revision receives 100% traffic
 ```
 
@@ -216,11 +219,12 @@ Vercel deploys the studio on its own. Production tracks `main`. Pull requests ge
 | Stripe | Empty. Checkout returns 503 | Test keys and test prices | Live keys and live prices |
 | Studio | `next dev` | Vercel preview or staging domain | Vercel production |
 | Data | Seeded demo users | Synthetic accounts | Real learner records |
-| Startup | `create_all` plus catalog seed | Alembic, then catalog seed | Alembic, then catalog seed |
+| Rate limits | Per process, or Compose Redis | Azure Cache for Redis | Azure Cache for Redis |
+| Startup | `make migrate` (or `create_all` on SQLite) | Migrate job, then the revision | Migrate job, then the revision |
 
-`APP_ENV=production` refuses to boot when dev auth is on, Clerk JWKS or issuer is missing, `DATABASE_URL` is not PostgreSQL, or `QDRANT_URL` is not HTTP. That guard is the last line. The pipeline also sets those values.
+`APP_ENV=production` refuses to boot when dev auth is on; Clerk JWKS, issuer, or secret key is missing; `DATABASE_URL` is not PostgreSQL; Qdrant is not `https://` with an API key; Redis or an OpenAI key is missing; the lab is on; staff MFA is off; or an origin is not explicit `https://`. That guard is the last line. The pipeline also sets those values.
 
-Demo users (`demo-student`, `demo-instructor`, `demo-admin`) are seeded on every startup because catalog seed is idempotent. Production can keep them for a staff smoke test. They are students, an instructor, and an admin in the database, and they are reachable only when dev auth is on. With dev auth off, a Clerk session is required, so the seeded clerk ids are not a login method.
+Demo users (`demo-student`, `demo-instructor`, `demo-admin`) are created only in development and test. Production and staging have no demo accounts; staff smoke tests use real Clerk accounts, and the first admin is granted with `python -m app.cli grant-admin`.
 
 Catalog seed upserts courses, lessons, paths, and achievements. It does not delete lessons, so a deploy does not wipe progress.
 
@@ -232,9 +236,11 @@ Secrets live in Key Vault for the API and in Vercel for the studio. The image, t
 | --- | --- | --- |
 | `DATABASE_URL` | API, migration job | Includes the password. Private endpoint hostname |
 | `CLERK_JWKS_URL`, `CLERK_ISSUER`, `CLERK_WEBHOOK_SECRET` | API | Webhook secret verifies Svix |
+| `CLERK_SECRET_KEY` | API, both frontends | API deletes the Clerk user on erasure; frontends run Clerk middleware |
+| `REDIS_URL` | API | Shared rate-limit counters. Use TLS (`rediss://`) |
 | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_RESEARCH` | API | Absent until billing is switched on. Checkout stays 503 |
 | `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY` | API | Any empty set falls through. All empty uses the curriculum |
-| `QDRANT_URL` and the Qdrant API key | API | URL must be HTTPS in Azure |
+| `QDRANT_URL`, `QDRANT_API_KEY` | API | URL must be HTTPS; the key is required in production |
 | `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY` | API | Optional. Failures are ignored |
 | `NEXT_PUBLIC_API_URL` | Studio | Public by design |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Studio | Public by design |
@@ -254,7 +260,7 @@ Schema source of truth is `backend/app/models/entities.py`. The first Alembic re
 flowchart TD
   change[Model change in a pull request]
   rev[New Alembic revision]
-  tests[CI pytest on SQLite]
+  tests[CI: alembic check, pytest on SQLite and PostgreSQL]
   review[Review expand or contract]
   stgjob[Staging migration job]
   stgapi[Staging revision]
@@ -266,20 +272,20 @@ flowchart TD
 
 Rules:
 
-- The migration job uses `alembic upgrade head` with `ALEMBIC_DATABASE_URL` set to that environment. It runs once, as a Container Apps Job, before the API revision that needs the new schema receives traffic.
+- The migration job runs `python -m app.cli migrate` (Alembic `upgrade head`, then the catalog seed) with `DATABASE_URL` set to that environment. It runs once, as a Container Apps Job, before the API revision that needs the new schema receives traffic.
 - Expand, then deploy the code that writes both shapes, then contract in a later release. A single release does not drop a column the previous revision still reads.
 - Downgrade is reserved for a revision that was applied and whose `downgrade()` was exercised on staging. Learner data is recovered from backups, not from an untested downgrade.
-- Seed runs inside the API process after migrations. It is idempotent and keeps existing progress rows.
-- SQLite in CI proves the domain and the API. It does not prove PostgreSQL-specific SQL. A staging migration against Flexible Server is the PostgreSQL check.
+- Seed runs in the migration job after migrations, never in the API process. It is idempotent and keeps existing progress rows.
+- CI runs `alembic upgrade head`, `alembic check` (no drift between models and migrations), a full downgrade and re-upgrade, and the whole test suite against PostgreSQL 16. A staging migration against Flexible Server is the final check on real data volume.
 - Connection pooling stays inside SQLAlchemy. Add PgBouncer only after connection count, not replica count, is the bottleneck.
 
-Development laptops may still call `create_all` because `APP_ENV` is `development`. Production does not.
+Only a development or test process on SQLite calls `create_all`. PostgreSQL everywhere, including laptops, is migrated with Alembic.
 
 ## 8. Monitoring
 
-Current code: if `OTEL_EXPORTER_OTLP_ENDPOINT` is set, the API installs a FastAPI instrumentor and a console span exporter. Export failures are logged and do not fail the request. The endpoint URL is not yet an OTLP client. Production monitoring waits on wiring `opentelemetry-exporter-otlp-proto-http` to Azure Monitor. Until that ships, Container Apps stdout, the `/health` probe, and Postgres metrics are the signals that exist.
+Current code: if `OTEL_EXPORTER_OTLP_ENDPOINT` is set, the API installs a FastAPI instrumentor and an OTLP/HTTP span exporter (`/v1/traces` is appended), excluding the health probes. Export failures are logged and do not fail the request. Logs are JSON on stdout with `request_id` and `trace_id`; error responses carry the same `trace_id`. Point the endpoint at an OpenTelemetry Collector or the Azure Monitor OTLP ingestion endpoint.
 
-Target signals, once the exporter writes to Application Insights via the workspace `log-mentor-*`:
+Target signals, once the collector writes to Application Insights via the workspace `log-mentor-*`:
 
 | Signal | Source |
 | --- | --- |
@@ -291,7 +297,7 @@ Target signals, once the exporter writes to Application Insights via the workspa
 | Saturation | Replica CPU and memory, Postgres CPU, connections, storage |
 | Business | Quizzes graded, lessons completed, documents ingested. From Postgres, daily |
 
-Service objectives for the first production quarter, measured on the API in UK South:
+Service objectives for the first production quarter, measured on the API in West Europe:
 
 | Objective | Target |
 | --- | --- |
@@ -348,9 +354,9 @@ Scale the API horizontally for request fan-out. Scale Postgres vertically until 
 | Ingestion | Synchronous, 10 MB cap. Front Door concurrency limit on `POST /research/documents` protects the event loop |
 | Models | Provider-side budgets. The app does not queue calls |
 
-The in-process rate limit is 60 requests per minute and 20 on AI routes, per replica. At two replicas a client can double that. Front Door becomes the shared limiter at the same time the maximum replica count is raised above 1.
+Rate limits are counted in Redis, so they hold across replicas: 60 requests a minute per user, 20 on AI routes, 10 uploads an hour, and 120 a minute per address before authentication. Front Door's WAF rate rule is a coarser outer layer, not the primary limiter.
 
-The lab is a child process on the API replica that accepted the request. Four replicas is the cap until the runner moves to a separate pool. More replicas would multiply untrusted processes beside the mentor.
+The lab is off in production. When the isolated runner exists, it runs in its own pool, not beside the mentor on the API replicas.
 
 There is no Celery and no separate worker. A queue is a later change, and only for ingestion.
 
@@ -360,7 +366,7 @@ The bill concentrates in three places: Postgres, model tokens, and always-on API
 
 | Lever | Practice |
 | --- | --- |
-| One region, one API | UK South only. A second cloud is an image pull, not a second platform |
+| One region, one API | West Europe only. A second cloud is an image pull, not a second platform |
 | Staging shape | Burstable Postgres, API scale-to-zero outside the workday, 30-day logs |
 | Production shape | One replica until CPU requires another. Zone-redundant Postgres is the availability spend. It is justified for learner records |
 | Models | Leave keys empty and the curriculum answers. Set a monthly cap in each provider account. Prefer the smallest configured model |
@@ -391,11 +397,11 @@ A restore of Postgres does not restore a Stripe subscription that changed after 
 
 ## 14. Disaster recovery
 
-Targets: **RPO 15 minutes** for Postgres (point-in-time restore), **RTO 4 hours** for a UK South region outage. Vectors are a derived index, so their RPO is the time to re-embed.
+Targets: **RPO 15 minutes** for Postgres (point-in-time restore), **RTO 4 hours** for a West Europe region outage. Vectors are a derived index, so their RPO is the time to re-embed.
 
 ```mermaid
 flowchart TD
-  fail[UK South unavailable]
+  fail[West Europe unavailable]
   decide[Declare the region lost]
   pg[Restore Flexible Server geo-backup in North Europe]
   net[Stand up VNet, Key Vault, Container Apps]
@@ -445,9 +451,9 @@ DATABASE_URL=sqlite:///./dev.sqlite APP_ENV=development \
 4. Run the staging migration job. Read the Alembic log to the new revision.
 5. Update the staging Container App to that digest. Wait until the new revision is healthy.
 6. Smoke-test staging with a Clerk test user:
-   - `GET /health` returns `env=production`, `vector_store=qdrant`, and dev auth is absent.
+   - `GET /ready` returns 200, `GET /docs` is 404, and a request with only `X-Dev-User-Id` is 401.
    - `POST /api/v1/chat` with “Teach me Reinforcement Learning” returns the socratic question.
-   - `POST /api/v1/lab/run` with `import os` is `rejected`.
+   - `POST /api/v1/lab/run` is 503 (lab off).
    - A small Markdown upload returns an extractive summary. Critique stays empty without a citing model.
    - Studio login, dashboard, and a quiz grade succeed.
 7. Leave the revision in place for the production decision.
@@ -456,7 +462,7 @@ DATABASE_URL=sqlite:///./dev.sqlite APP_ENV=development \
 
 1. Open the GitHub production environment deployment. A reviewer confirms the staging smoke test.
 2. Run the production migration job.
-3. Shift production to the same digest. Single revision, 100% traffic after `/health` passes.
+3. Shift production to the same digest. Single revision, 100% traffic after `/ready` passes.
 4. Repeat the smoke list against `api.mentor.example` with a staff account.
 5. Watch 5xx and chat latency for 30 minutes. The severity 1 alerts cover the same window.
 

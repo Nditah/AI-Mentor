@@ -1,4 +1,8 @@
-"""SQLAlchemy models. Vectors live in Qdrant; `embeddings` records the point id only."""
+"""SQLAlchemy models for the MVP schema in `public`.
+
+Alembic revisions under `backend/alembic/versions` are written by hand from these
+models; `alembic check` in CI fails when the two drift.
+"""
 
 from __future__ import annotations
 
@@ -17,10 +21,15 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
     Uuid,
+    false,
     func,
+    text,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.types import JSON
+
+EMPTY_LIST = text("'[]'")
+EMPTY_OBJECT = text("'{}'")
 
 
 def utcnow() -> datetime:
@@ -47,21 +56,34 @@ class User(TimestampMixin, Base):
     __tablename__ = "users"
     __table_args__ = (
         CheckConstraint("role in ('student', 'instructor', 'admin')", name="ck_users_role"),
+        CheckConstraint("locale in ('en', 'fr', 'es')", name="ck_users_locale"),
     )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     clerk_id: Mapped[str] = mapped_column(String(128), unique=True, index=True)
     email: Mapped[str] = mapped_column(String(320), unique=True)
     display_name: Mapped[str] = mapped_column(String(120))
+    handle: Mapped[str | None] = mapped_column(String(40), unique=True, nullable=True)
     role: Mapped[str] = mapped_column(String(32), default="student")
+    locale: Mapped[str] = mapped_column(String(8), default="en", server_default="en")
+    timezone: Mapped[str] = mapped_column(String(64), default="UTC", server_default="UTC")
+    country_code: Mapped[str | None] = mapped_column(String(2), nullable=True)
+    leaderboard_opt_out: Mapped[bool] = mapped_column(default=False, server_default=false())
+    suspended: Mapped[bool] = mapped_column(default=False, server_default=false())
     xp: Mapped[int] = mapped_column(Integer, default=0)
     level: Mapped[int] = mapped_column(Integer, default=1)
     streak_days: Mapped[int] = mapped_column(Integer, default=0)
     last_active_on: Mapped[date | None] = mapped_column(Date, nullable=True)
     stripe_customer_id: Mapped[str | None] = mapped_column(String(128), unique=True, nullable=True)
     subscription_status: Mapped[str] = mapped_column(String(32), default="free")
+    subscription_tier: Mapped[str] = mapped_column(String(20), default="free")
+    subscription_event_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
 
-    conversations: Mapped[list[Conversation]] = relationship(back_populates="user")
+    conversations: Mapped[list[Conversation]] = relationship(
+        back_populates="user", passive_deletes=True
+    )
 
 
 class Course(TimestampMixin, Base):
@@ -94,7 +116,18 @@ class Module(TimestampMixin, Base):
 
 
 class Concept(TimestampMixin, Base):
+    """A node of the knowledge graph.
+
+    `origin` says who maintains it: the catalog module, the knowledge pack, or a steward
+    in Content Studio.
+    """
+
     __tablename__ = "concepts"
+    __table_args__ = (
+        Index("ix_concepts_category", "category"),
+        CheckConstraint("origin in ('catalog', 'pack', 'authored')", name="ck_concepts_origin"),
+        CheckConstraint("status in ('active', 'proposed', 'retired')", name="ck_concepts_status"),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     slug: Mapped[str] = mapped_column(String(80), unique=True)
@@ -102,20 +135,48 @@ class Concept(TimestampMixin, Base):
     domain: Mapped[str] = mapped_column(String(80))
     difficulty: Mapped[str] = mapped_column(String(32))
     summary: Mapped[str] = mapped_column(Text, default="")
+    category: Mapped[str] = mapped_column(String(80), default="", server_default="")
+    aliases: Mapped[list] = mapped_column(JSON, default=list, server_default=EMPTY_LIST)
+    origin: Mapped[str] = mapped_column(String(16), default="catalog", server_default="catalog")
+    status: Mapped[str] = mapped_column(String(16), default="active", server_default="active")
 
 
 class ConceptRelation(TimestampMixin, Base):
+    """A typed, weighted edge read left to right: `source relation_type target` (ADR 0020).
+
+    `prerequisite_of`, `builds_on`, and `part_of` must stay acyclic; the knowledge graph
+    service checks that before it writes. Weight below 0.5 on `prerequisite_of` is advice,
+    not a gate.
+    """
+
     __tablename__ = "concept_relations"
     __table_args__ = (
         UniqueConstraint("source_id", "target_id", "relation_type", name="uq_concept_relation"),
         Index("ix_concept_relations_source", "source_id"),
         Index("ix_concept_relations_target", "target_id"),
+        CheckConstraint(
+            "relation_type in ('prerequisite_of', 'builds_on', 'related_to', 'part_of', "
+            "'applies_to', 'contrasts_with')",
+            name="ck_concept_relations_type",
+        ),
+        CheckConstraint("weight >= 0 AND weight <= 1", name="ck_concept_relations_weight"),
+        CheckConstraint("source_id <> target_id", name="ck_concept_relations_distinct"),
+        CheckConstraint(
+            "origin in ('authored', 'suggested', 'imported')", name="ck_concept_relations_origin"
+        ),
+        CheckConstraint(
+            "status in ('active', 'proposed', 'retired')", name="ck_concept_relations_status"
+        ),
     )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     source_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("concepts.id", ondelete="CASCADE"))
     target_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("concepts.id", ondelete="CASCADE"))
-    relation_type: Mapped[str] = mapped_column(String(32), default="prerequisite")
+    relation_type: Mapped[str] = mapped_column(String(32), default="prerequisite_of")
+    weight: Mapped[float] = mapped_column(Float, default=1.0, server_default="1")
+    rationale: Mapped[str] = mapped_column(String(500), default="", server_default="")
+    origin: Mapped[str] = mapped_column(String(16), default="authored", server_default="authored")
+    status: Mapped[str] = mapped_column(String(16), default="active", server_default="active")
 
 
 class Lesson(TimestampMixin, Base):
@@ -227,12 +288,14 @@ class Question(TimestampMixin, Base):
 
 
 class QuizResult(TimestampMixin, Base):
+    """One result per quiz instance. A re-attempt is a new quiz (FR-QZ-007)."""
+
     __tablename__ = "quiz_results"
     __table_args__ = (Index("ix_quiz_results_user", "user_id"),)
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     quiz_id: Mapped[uuid.UUID] = mapped_column(
-        ForeignKey("quizzes.id", ondelete="CASCADE"), index=True
+        ForeignKey("quizzes.id", ondelete="CASCADE"), unique=True
     )
     user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
     score: Mapped[float] = mapped_column(Float, default=0)
@@ -299,16 +362,35 @@ class DocumentChunk(TimestampMixin, Base):
 
 
 class Embedding(TimestampMixin, Base):
+    """Lineage for one embedded chunk: which model, which collection, which point.
+
+    The point id equals the chunk id. With Qdrant configured the vector lives only
+    in Qdrant; the local development store keeps it in `vector` instead.
+    """
+
     __tablename__ = "embeddings"
+    __table_args__ = (
+        CheckConstraint(
+            "(document_chunk_id IS NULL) <> (asset_chunk_id IS NULL)",
+            name="ck_embeddings_one_source",
+        ),
+        Index("ix_embeddings_collection", "collection"),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    chunk_id: Mapped[uuid.UUID] = mapped_column(
-        ForeignKey("document_chunks.id", ondelete="CASCADE"), unique=True
+    document_chunk_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("document_chunks.id", ondelete="CASCADE"), unique=True, nullable=True
     )
+    asset_chunk_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("asset_chunks.id", ondelete="CASCADE"), unique=True, nullable=True
+    )
+    collection: Mapped[str] = mapped_column(String(80))
     provider: Mapped[str] = mapped_column(String(40))
     model: Mapped[str] = mapped_column(String(80))
     dimensions: Mapped[int] = mapped_column(Integer)
-    qdrant_point_id: Mapped[str] = mapped_column(String(64))
+    point_id: Mapped[str] = mapped_column(String(64), unique=True)
+    vector: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    payload: Mapped[dict | None] = mapped_column(JSON, nullable=True)
 
 
 class StudyPlan(TimestampMixin, Base):
@@ -428,27 +510,89 @@ class Review(TimestampMixin, Base):
 
 
 class XpEvent(Base):
+    """Append-only XP ledger. The source key makes every award idempotent (GAM-001)."""
+
     __tablename__ = "xp_events"
-    __table_args__ = (Index("ix_xp_events_user_created", "user_id", "created_at"),)
+    __table_args__ = (
+        UniqueConstraint("user_id", "source_type", "source_id", name="uq_xp_events_source"),
+        Index("ix_xp_events_user_day", "user_id", "local_date"),
+        CheckConstraint("amount >= 0 AND requested_amount >= amount", name="ck_xp_events_amount"),
+    )
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    source_type: Mapped[str] = mapped_column(String(40))
+    source_id: Mapped[str] = mapped_column(String(80))
+    requested_amount: Mapped[int] = mapped_column(Integer)
     amount: Mapped[int] = mapped_column(Integer)
-    reason: Mapped[str] = mapped_column(String(80))
+    local_date: Mapped[date] = mapped_column(Date)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utcnow, server_default=func.now()
     )
 
 
+class WebhookEvent(Base):
+    """Provider events already applied. A replay is acknowledged and ignored."""
+
+    __tablename__ = "webhook_events"
+    __table_args__ = (UniqueConstraint("provider", "event_id", name="uq_webhook_events_event"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    provider: Mapped[str] = mapped_column(String(20))
+    event_id: Mapped[str] = mapped_column(String(128))
+    event_type: Mapped[str] = mapped_column(String(80))
+    received_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=utcnow, server_default=func.now()
+    )
+
+
 class KnowledgeAsset(TimestampMixin, Base):
-    """Curated library item. Learner uploads stay on research_documents."""
+    """The universal catalog record (KnowledgeAsset). Learner uploads stay on research_documents.
+
+    `resource_type` is what the resource is for a learner (book, paper, video, ...); `kind`
+    is what the library stores (an authored body, or `link` for metadata-only records).
+    Field names in the API and seed files differ in four places: `objectives` is
+    `learning_outcomes`, `estimated_minutes` is `estimated_duration`, `author_name` is
+    `author`, and the `metadata` column is the `extra` attribute.
+    """
 
     __tablename__ = "knowledge_assets"
     __table_args__ = (
         Index("ix_knowledge_assets_state", "state"),
+        Index("ix_knowledge_assets_type_state", "resource_type", "state"),
+        Index("ix_knowledge_assets_category", "category", "subcategory"),
+        Index("ix_knowledge_assets_quality", "quality_score"),
+        Index("ix_knowledge_assets_provider", "provider"),
+        Index("ix_knowledge_assets_source", "source_id"),
+        Index("ix_knowledge_assets_review_due", "review_due_at"),
+        Index("ux_knowledge_assets_dedupe_key", "dedupe_key", unique=True),
         CheckConstraint(
             "state in ('draft','review','approved','published','archived')",
             name="ck_knowledge_assets_state",
+        ),
+        CheckConstraint(
+            "resource_type in ('book','course','paper','video','repository','dataset',"
+            "'tutorial','blog','certification','documentation','podcast','learning_path',"
+            "'coding_challenge')",
+            name="ck_knowledge_assets_resource_type",
+        ),
+        CheckConstraint(
+            "cost_type in ('free','freemium','free_audit','paid','subscription')",
+            name="ck_knowledge_assets_cost_type",
+        ),
+        CheckConstraint(
+            "source_type in ('authored','curated','harvested','imported','ai_generated')",
+            name="ck_knowledge_assets_source_type",
+        ),
+        CheckConstraint(
+            "verification_status in ('unverified','ok','redirected','broken','blocked','changed')",
+            name="ck_knowledge_assets_verification",
+        ),
+        CheckConstraint(
+            "quality_score >= 0 AND quality_score <= 100", name="ck_knowledge_assets_quality"
+        ),
+        CheckConstraint(
+            "rating IS NULL OR (rating >= 0 AND rating <= 5)", name="ck_knowledge_assets_rating"
         ),
     )
 
@@ -469,7 +613,45 @@ class KnowledgeAsset(TimestampMixin, Base):
     tags: Mapped[list] = mapped_column(JSON, default=list)
     licence: Mapped[str] = mapped_column(String(40), default="own-work")
     body_md: Mapped[str] = mapped_column(Text, default="")
-    owner_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id"))
+    owner_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    resource_type: Mapped[str] = mapped_column(
+        String(32), default="tutorial", server_default="tutorial"
+    )
+    category: Mapped[str] = mapped_column(String(80), default="", server_default="")
+    subcategory: Mapped[str] = mapped_column(String(80), default="", server_default="")
+    provider: Mapped[str] = mapped_column(String(120), default="", server_default="")
+    url: Mapped[str | None] = mapped_column(String(2048), nullable=True)
+    cost_type: Mapped[str] = mapped_column(String(16), default="free", server_default="free")
+    rating: Mapped[float | None] = mapped_column(Float, nullable=True)
+    rating_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    publication_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    last_verified_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+    verification_status: Mapped[str] = mapped_column(
+        String(16), default="unverified", server_default="unverified"
+    )
+    review_due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    thumbnail_url: Mapped[str | None] = mapped_column(String(2048), nullable=True)
+    source_type: Mapped[str] = mapped_column(
+        String(16), default="authored", server_default="authored"
+    )
+    source_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("content_sources.id", ondelete="SET NULL", name="fk_knowledge_assets_source"),
+        nullable=True,
+    )
+    external_id: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    dedupe_key: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    quality_score: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    quality_detail: Mapped[dict] = mapped_column(JSON, default=dict, server_default=EMPTY_OBJECT)
+    ai_summary: Mapped[str] = mapped_column(Text, default="", server_default="")
+    extra: Mapped[dict] = mapped_column("metadata", JSON, default=dict, server_default=EMPTY_OBJECT)
+    rights: Mapped[dict] = mapped_column(JSON, default=dict, server_default=EMPTY_OBJECT)
+    search_text: Mapped[str] = mapped_column(Text, default="", server_default="")
+    pack_version: Mapped[str | None] = mapped_column(String(16), nullable=True)
+    pack_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)
     chunks: Mapped[list[AssetChunk]] = relationship(
         back_populates="asset", cascade="all, delete-orphan"
     )
@@ -499,7 +681,9 @@ class AssetVersion(Base):
     title: Mapped[str] = mapped_column(String(200))
     body_md: Mapped[str] = mapped_column(Text, default="")
     state: Mapped[str] = mapped_column(String(32))
-    editor_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id"))
+    editor_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("users.id", ondelete="SET NULL"), nullable=True
+    )
     change_note: Mapped[str] = mapped_column(String(500), default="")
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utcnow, server_default=func.now()
@@ -511,7 +695,9 @@ class AuditEvent(Base):
     __table_args__ = (Index("ix_audit_events_created", "created_at"),)
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    actor_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    actor_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("users.id", ondelete="SET NULL"), nullable=True
+    )
     action: Mapped[str] = mapped_column(String(80))
     entity_type: Mapped[str] = mapped_column(String(40))
     entity_id: Mapped[str] = mapped_column(String(64), default="")

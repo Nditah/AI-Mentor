@@ -1,3 +1,5 @@
+> **v2.0 note (13 October 2026).** This is the original knowledge-portal brief, kept unchanged as history. Content tooling now lives in Content Studio, a separate application: see [platform/13-knowledge-management-architecture.md](platform/13-knowledge-management-architecture.md) and [platform/14-content-studio-specification.md](platform/14-content-studio-specification.md). Platform operations stay in the Admin App.
+
 Knowledge Management System (Admin Portal)
 
 AI Mentor must include a comprehensive Knowledge Management and Content Administration platform that allows administrators, instructors, and subject matter experts to continuously expand, curate, and govern the educational content powering the AI Tutor.
@@ -236,6 +238,18 @@ Archived
 
 
 Only approved content should become available to students.
+
+> **As built (2026-10-13).** The admin portal implements this workflow for the curated library (`/api/v1/admin/assets`):
+>
+> - Instructors create and edit their own drafts and submit them for review. Admins edit any draft.
+> - Approval follows the four-eyes rule (Security-Compliance AZ-5): nobody approves or publishes their own work. A small team may set `CONTENT_SELF_APPROVAL=true`; each self-approval is then flagged in the audit log.
+> - Only an admin publishes. Publishing chunks the body and indexes it for the tutor's retrieval; if the index is unavailable, publishing fails and the item stays approved. Archiving or returning to draft removes it from retrieval, and a return to draft starts a new version.
+> - Each item carries a licence: `own-work`, `cc-by`, `cc-by-sa`, `cc-by-nc`, `public-domain`, `proprietary-licensed`, or `fair-use-excerpt`. Anything else is rejected.
+> - Every edit and transition is versioned and audited.
+>
+> - There is no separate reviewer role in v1 (decided 2026-10-13). Administrators approve and publish.
+>
+> The student-facing resource browser, version restore, and the recommendation engine below are not built yet.
 
 Resource Recommendations Engine
 

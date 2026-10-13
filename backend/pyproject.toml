@@ -13,10 +13,11 @@ dependencies = [
   "fastapi>=0.115",
   "google-genai>=1.0",
   "httpx>=0.27",
-  "langfuse>=2.50",
+  "langfuse>=4.0,<5",
   "openai>=1.55",
   "opentelemetry-api>=1.28",
   "opentelemetry-instrumentation-fastapi>=0.49b0",
+  "opentelemetry-exporter-otlp-proto-http>=1.28",
   "opentelemetry-sdk>=1.28",
   "psycopg[binary]>=3.2",
   "pydantic>=2.10",
@@ -26,14 +27,18 @@ dependencies = [
   "python-multipart>=0.0.18",
   "pyjwt[crypto]>=2.10",
   "qdrant-client>=1.12",
+  "redis>=5.0",
   "sqlalchemy>=2.0.36",
-  "stripe>=11.0",
+  "stripe>=16.0,<17",
   "svix>=1.40",
   "uvicorn[standard]>=0.32",
 ]
 
 [project.optional-dependencies]
 dev = [
+  "bandit>=1.8",
+  "cryptography>=43",
+  "pip-audit>=2.7",
   "pytest>=8.3",
   "pytest-cov>=6.0",
   "ruff>=0.8",
@@ -69,6 +74,8 @@ select = ["E", "F", "I", "UP"]
 
 [tool.ruff.lint.per-file-ignores]
 "app/domain/catalog.py" = ["E501"]
+"app/domain/knowledge/pack_concepts.py" = ["E501"]
+"app/domain/knowledge/pack_landmarks.py" = ["E501"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["app"]

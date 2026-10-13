@@ -6,12 +6,13 @@ How to move from the current MVP schema to the target design in [`backend/db/sch
 
 | Fact | Consequence |
 | --- | --- |
-| 25 tables in `public`, defined in `backend/app/models/entities.py` | All of them map onto the new schemas (table below) |
-| Alembic revision `20261013_0001` runs `Base.metadata.create_all()` | **The initial revision changes whenever a model changes.** A fresh database built from it gets today's models, and a later revision that creates the same table will fail. Fix this first. |
-| Development startup also calls `create_all` and seeds the catalog | Fine for local work; must never run against staging or production |
-| Tests run on SQLite (`dev.sqlite`, `check_same_thread`) | SQLite cannot run partitioning, RLS, `ltree`, `citext`, or the triggers. Integration tests need PostgreSQL. |
-| The API connects as the database owner | Owners bypass RLS. The API must connect as `mentor_app`. |
-| `embeddings.qdrant_point_id` is stored separately from the chunk id | The target uses point id = chunk id, so existing vectors are re-indexed into a new collection rather than copied |
+| 32 tables in `public`, defined in `backend/app/models/entities.py` | All of them map onto the new schemas (table below) |
+| Alembic revision `20261013_0001` lists every table with explicit `op.create_table` calls | Frozen. Later changes are new revisions; `alembic check` in CI catches drift |
+| Only a SQLite development or test process calls `create_all`; the migrate job seeds | Staging and production change only through `python -m app.cli migrate` |
+| The test suite runs on SQLite locally and on migrated PostgreSQL 16 in CI (`make test-pg`) | PostgreSQL-specific features (partitioning, RLS, `ltree`, `citext`, triggers) can be tested once the target schemas land |
+| Every authenticated request sets transaction-local `app.current_user_id`, `app.user_role`, `app.request_id`, `app.client_ip` | Audit triggers and RLS policies have their context from the first target revision |
+| The API connects as the database owner | Owners bypass RLS. The API must connect as `mentor_app` before RLS is relied on |
+| `embeddings.point_id` equals the chunk id; collections are `learner_docs_v1` and `knowledge_v1` | Matches the target. Moving chunks to new tables re-indexes, it does not copy vectors |
 
 ## Principles
 
@@ -22,16 +23,16 @@ How to move from the current MVP schema to the target design in [`backend/db/sch
 
 ## Phase 0: foundations (before any schema change)
 
-| Step | Detail |
-| --- | --- |
-| Freeze revision 0001 | Replace `Base.metadata.create_all()` with explicit `op.create_table` calls that reproduce today's 25 tables exactly (generate once with `alembic revision --autogenerate` against an empty database, then review). Existing databases are already at this revision, so nothing runs. |
-| Stop `create_all` outside development | Guard the startup path on `APP_ENV == "development"`. Staging and production change only through `alembic upgrade`. |
-| PostgreSQL in CI | Run integration tests against PostgreSQL 16 (Testcontainers or a CI service container). Keep SQLite only for unit tests that never touch the database (`app/domain` tests do not). Add `backend/db/verify.sh` as a CI job. |
-| Migration linting | Run [squawk](https://squawkhq.com) on every new revision's SQL to catch locking operations (non-concurrent index builds, volatile defaults, type changes). |
-| Roles | Create `mentor_owner`, `mentor_app`, `mentor_worker`, `mentor_readonly` (from `14_security.sql`). Migrations log in as a member of `mentor_owner`; the API logs in as `mentor_app`; jobs as `mentor_worker`. |
-| Request context | In `get_db()`, after acquiring the session, run `SET LOCAL app.current_user_id`, `app.user_role`, and `app.request_id` from the authenticated request. Workers set `app.context = 'system'`. Audit and RLS depend on this. |
-| Extensions | On Azure Flexible Server, allow-list `pgcrypto, citext, pg_trgm, ltree, pg_cron` in `azure.extensions`, set `cron.database_name`, restart. |
-| Connection pooling | PgBouncer in transaction mode. `SET LOCAL` is transaction-scoped, so it is safe with transaction pooling; plain `SET` is not. |
+| Step | Detail | Status |
+| --- | --- | --- |
+| Freeze revision 0001 | Replace `Base.metadata.create_all()` with explicit `op.create_table` calls that reproduce today's 25 tables exactly (generate once with `alembic revision --autogenerate` against an empty database, then review). Existing databases are already at this revision, so nothing runs. | **Done.** |
+| Stop `create_all` outside development | Guard the startup path on `APP_ENV == "development"`. Staging and production change only through `alembic upgrade`. | **Done** (SQLite in development and test only). |
+| PostgreSQL in CI | Run integration tests against PostgreSQL 16 (Testcontainers or a CI service container). Keep SQLite only for unit tests that never touch the database (`app/domain` tests do not). Add `backend/db/verify.sh` as a CI job. | **Done**, including `verify.sh`. |
+| Migration linting | Run [squawk](https://squawkhq.com) on every new revision's SQL to catch locking operations (non-concurrent index builds, volatile defaults, type changes). | **Done** (`make lint-migrations`, CI). |
+| Roles | Create `mentor_owner`, `mentor_app`, `mentor_worker`, `mentor_readonly` (from `14_security.sql`). Migrations log in as a member of `mentor_owner`; the API logs in as `mentor_app`; jobs as `mentor_worker`. | Open (platform). |
+| Request context | In `get_db()`, after acquiring the session, run `SET LOCAL app.current_user_id`, `app.user_role`, and `app.request_id` from the authenticated request. Workers set `app.context = 'system'`. Audit and RLS depend on this. | **Done** in `user_dep` via `bind_request_context`. Workers do not exist yet. |
+| Extensions | On Azure Flexible Server, allow-list `pgcrypto, citext, pg_trgm, ltree, pg_cron` in `azure.extensions`, set `cron.database_name`, restart. | Open (platform). |
+| Connection pooling | PgBouncer in transaction mode. `SET LOCAL` is transaction-scoped, so it is safe with transaction pooling; plain `SET` is not. | Open (platform). |
 
 ## Phase 1: expand (additive, zero downtime)
 

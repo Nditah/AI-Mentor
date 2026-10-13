@@ -1,6 +1,6 @@
 # ADR 0008 — Gamification engine
 
-- Status: Accepted
+- Status: Accepted (amended 2026-10-13)
 - Date: 2026-10-13
 
 ## Context
@@ -65,3 +65,20 @@ Streaks use the server date. A learner near midnight can lose a day. The rule st
 - Implement FSRS beside SM-2 and switch with a per-deck flag after the intervals match published vectors.
 - Store a learner timezone before streak fairness becomes a support issue.
 - Add country boards only with an explicit country field. The current leaderboard is global and minimal.
+
+## Amendment — 2026-10-13 hardening
+
+This replaces the rule table and the timezone trade-off above. Values follow SRS GAM-002.
+
+| Event | XP | Limit |
+| --- | --- | --- |
+| Lesson complete | 40 | Once per lesson |
+| Quiz graded | `10 + round(40 × ratio)`, half rounds up | Once per quiz (graded once); 10 a day earn XP |
+| Project passed | 25 | Once per project |
+| Flashcard review | 5 | 20 a day earn XP |
+| Research analysis | 10 | Once per document; 3 a day earn XP |
+| Chat | 0 | Streak only |
+
+- Every award goes through `MentorEngine.grant` and appends an `xp_events` row with `source_type`, `source_id`, `requested_amount`, `amount`, and `local_date`. `(user_id, source_type, source_id)` is unique, so a retry or a double click cannot pay twice.
+- The daily cap (400) and the per-day limits use the learner's local day from `users.timezone` (IANA, default UTC), editable through `PATCH /api/v1/me`. Streaks use the same day. The "streaks use the server date" trade-off is resolved.
+- The leaderboard lists students only, excludes suspended and opted-out learners, and shows a handle or a stable `Learner-xxxxxx` pseudonym with a rank. Display names and email are never public.
